@@ -1,17 +1,8 @@
 # Putnam Journal
 
-A private Putnam problem journal that combines spaced repetition, attempt history, image storage, email reminders, and technique-level learning analytics.
+A private, full-stack Putnam problem journal running as one Cloudflare Worker. The same deployment serves the dashboard, handles the API, stores attempt history, schedules reviews, and runs hourly email-reminder checks.
 
-## What is included
-
-- **Cloudflare Pages dashboard** built with dependency-free HTML, CSS, and JavaScript.
-- **Pages Functions API** for authentication, problems, attempts, images, and analytics.
-- **Cloudflare D1** for problems, techniques, attempts, schedules, and notification history.
-- **Cloudflare R2** for problem and solution images.
-- **Cloudflare Worker + Cron Trigger** for daily review reminder emails.
-- **Single-user password protection** using an HMAC-signed, HTTP-only session cookie.
-
-### Review schedule
+## Review schedule
 
 | Attempt result | Next review |
 |---|---:|
@@ -20,174 +11,139 @@ A private Putnam problem journal that combines spaced repetition, attempt histor
 | Not very close | 1 day |
 | Imported but not attempted | Immediately |
 
-Every attempt is stored separately. A new attempt updates the problem's next review date but never overwrites earlier reasoning.
+Every attempt is stored separately. A new attempt updates the next review date without overwriting earlier reasoning.
 
-## Repository structure
-
-```text
-src/                         Static Pages dashboard
-functions/api/[[path]].js    Pages Functions API router
-functions/_handlers/         Read, write, image, and analytics handlers
-functions/_lib/              Authentication, database, and HTTP helpers
-shared/                       Shared review scheduling rules and tests
-migrations/                   D1 schema and technique vocabulary
-workers/reminder/             Scheduled email reminder Worker
-scripts/                      Dependency-free build and validation scripts
-```
-
-## 1. Create Cloudflare resources
-
-From the repository root, authenticate Wrangler and create the database and image bucket:
-
-```bash
-npx wrangler login
-npx wrangler d1 create putnam-journal
-npx wrangler r2 bucket create putnam-journal-images
-```
-
-Copy the D1 database ID returned by Cloudflare into both:
-
-- `wrangler.jsonc`
-- `workers/reminder/wrangler.jsonc`
-
-Replace the placeholder ID:
+## Architecture
 
 ```text
-00000000-0000-0000-0000-000000000000
+Cloudflare Worker
+├── Static dashboard from src/
+├── /api/* runtime routes
+├── D1 database binding: DB
+├── R2 image binding: IMAGES
+├── Email Service binding: EMAIL
+└── Hourly Cron Trigger
 ```
 
-Apply the database migrations:
+The Worker entry point is `worker/index.js`. Static files are served through the `ASSETS` binding, while `/api` and `/api/*` run through the Worker first.
 
-```bash
-npm run db:migrate:remote
-```
+## Deploy from Cloudflare Workers Builds
 
-This creates the journal tables and seeds 49 common Putnam techniques.
-
-## 2. Configure the Pages project
-
-Connect this GitHub repository to **Cloudflare Pages**.
-
-Use these build settings:
+Connect the GitHub repository `justing0406/Putnam` to a Worker and use:
 
 | Setting | Value |
 |---|---|
 | Production branch | `main` |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
 | Root directory | `/` |
+| Build command | Leave blank |
+| Deploy command | `npx wrangler deploy` |
 
-In **Workers & Pages → your Pages project → Settings → Bindings**, add:
+The repository's `wrangler.jsonc` already declares the Worker entry point, static assets, hourly cron, and non-secret defaults. A successful deployment changes the project from static-assets-only to a full Worker, which unlocks runtime variables, bindings, triggers, and observability in the dashboard.
 
-| Type | Variable name | Resource |
-|---|---|---|
-| D1 database | `DB` | `putnam-journal` |
-| R2 bucket | `IMAGES` | `putnam-journal-images` |
+## Required runtime configuration
 
-Add these encrypted environment variables for both Production and Preview:
+After the first successful deployment, open:
 
-| Variable | Purpose |
+**Workers & Pages → Putnam → Settings → Variables and Secrets**
+
+Add these secrets:
+
+| Name | Value |
 |---|---|
 | `APP_PASSWORD` | Password used to enter the journal |
-| `SESSION_SECRET` | At least 32 random characters used to sign sessions |
+| `SESSION_SECRET` | Random string of at least 32 characters |
 
-Optional variable:
+Add these reminder variables when email is ready:
 
-| Variable | Default |
+| Name | Example |
 |---|---|
-| `SESSION_DAYS` | `30` |
+| `REMINDER_EMAIL` | `you@example.com` |
+| `EMAIL_FROM` | `putnam@your-domain.com` |
+| `APP_URL` | Your deployed Worker URL |
 
-Generate a session secret locally with:
+The repository already supplies:
 
-```bash
-openssl rand -base64 48
+- `SESSION_DAYS=30`
+- `TIMEZONE=America/New_York`
+- `REMINDER_HOUR=8`
+
+## D1 database
+
+Create a D1 database named:
+
+```text
+putnam-journal
 ```
 
-Redeploy the Pages project after adding bindings or secrets.
+Then add a Worker binding:
 
-## 3. Configure email sending
+| Binding name | Resource |
+|---|---|
+| `DB` | `putnam-journal` |
 
-The reminder Worker uses Cloudflare Email Service's native `send_email` binding.
-
-1. In Cloudflare, open **Compute → Email Service → Email Sending**.
-2. Onboard a domain that is using Cloudflare DNS.
-3. Choose a sender such as `putnam@yourdomain.com`.
-4. Update `workers/reminder/wrangler.jsonc`:
-   - `REMINDER_EMAIL`: the inbox that should receive reminders
-   - `EMAIL_FROM`: the onboarded sender address
-   - `APP_URL`: the deployed Pages URL
-   - `TIMEZONE`: defaults to `America/New_York`
-   - `REMINDER_HOUR`: defaults to `8`
-5. Replace the D1 database ID with the same ID used by Pages.
-
-Deploy the Worker:
+Apply the migrations from the repository:
 
 ```bash
-npm run deploy:reminder
+npx wrangler login
+npm run db:migrate:remote
 ```
 
-The Cron Trigger runs hourly. The Worker sends only during the configured local hour, so daylight-saving changes are handled by the timezone rather than by a fixed UTC schedule.
+This creates the journal tables and seeds 49 Putnam problem-solving techniques.
 
-The notification log prevents a second email for the same problem and review cycle. A later attempt creates a new review date and therefore a new eligible reminder.
+## R2 image storage
 
-## 4. Local development
+Create an R2 bucket named:
 
-Create a local secrets file:
+```text
+putnam-journal-images
+```
+
+Then add a Worker binding:
+
+| Binding name | Resource |
+|---|---|
+| `IMAGES` | `putnam-journal-images` |
+
+The bucket can remain private. Problem and solution images are returned only through authenticated API routes.
+
+## Email reminders
+
+Onboard a sending domain in Cloudflare Email Service, then add a Send Email binding named:
+
+```text
+EMAIL
+```
+
+The Worker checks once per hour and sends only during the configured local reminder hour. It skips safely until the database, email binding, and reminder variables are all configured.
+
+## Local development
 
 ```bash
 cp .dev.vars.example .dev.vars
-```
-
-Edit `.dev.vars`, then initialize the local D1 database:
-
-```bash
 npm run db:migrate:local
+npm run dev
 ```
 
-Start the Pages dashboard and Functions runtime:
+Test the scheduled handler locally at the URL Wrangler provides for scheduled testing.
 
-```bash
-npm run dev:pages
-```
-
-The static build itself has no runtime dependencies:
-
-```bash
-npm run build
-```
-
-Validate syntax, scheduling tests, and the static build:
+## Validation
 
 ```bash
 npm run check
 ```
 
-Test the reminder Worker locally after configuring remote email bindings:
-
-```bash
-npm run dev:reminder
-```
-
-Then invoke its scheduled handler using the URL Wrangler prints for scheduled testing.
+This runs JavaScript syntax checks, the spaced-review scheduling tests, and the static dashboard build.
 
 ## Learning analytics
 
-The current pattern engine computes:
+The current analytics engine tracks:
 
 - Success rates by A0–A6 and B0–B6
 - Success rates by mathematical area
 - Technique recognition rate
-- Technique execution rate after correct recognition
+- Technique execution after correct recognition
 - Wrong-technique application rate
-- Repeated substitutions such as “tried induction instead of an invariant”
-- Rule-based insights that distinguish recognition problems from execution problems
+- Repeated substitutions such as trying induction when an invariant was needed
+- Rule-based insights distinguishing recognition gaps from execution gaps
 
-This first release deliberately uses transparent statistics rather than an opaque model. The attempt-level schema is designed so a later machine-learning layer can add mastery estimates, problem recommendations, clustering, and adaptive intervals without changing the journal history.
-
-## Security notes
-
-- The app is intended as a private, single-user journal.
-- Problem and solution images are served through authenticated API routes; the R2 bucket does not need to be public.
-- Authentication cookies are HTTP-only, Secure, and SameSite Strict.
-- Uploaded files are limited to JPEG, PNG, WebP, or GIF and 10 MB per image.
-- For an additional perimeter, Cloudflare Access can be placed in front of the Pages project.
+The attempt-level schema is designed to support later mastery estimates, adaptive intervals, clustering, and problem recommendations.
