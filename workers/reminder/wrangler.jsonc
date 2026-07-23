@@ -1,0 +1,32 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "putnam-review-reminders",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-22",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "putnam-journal",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../../migrations"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "vars": {
+    "REMINDER_EMAIL": "replace@example.com",
+    "EMAIL_FROM": "putnam@your-domain.com",
+    "APP_URL": "https://your-pages-project.pages.dev",
+    "TIMEZONE": "America/New_York",
+    "REMINDER_HOUR": "8"
+  },
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
