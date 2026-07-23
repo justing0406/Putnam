@@ -6,6 +6,7 @@ const state = {
   view: "dashboard",
   dashboard: null,
   problems: [],
+  topics: [],
   techniques: [],
   analytics: null,
   selectedProblem: null,
@@ -168,7 +169,7 @@ async function navigate(view, options = {}) {
       await loadProblems();
       renderLibrary();
     } else if (view === "add") {
-      await ensureTechniquesLoaded();
+      await ensureVocabularyLoaded();
       renderAddProblem();
     } else if (view === "analytics") {
       state.analytics = await api("/api/analytics");
