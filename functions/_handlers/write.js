@@ -1,6 +1,6 @@
 import { AREAS, LEVELS, OUTCOMES } from "../../shared/constants.js";
 import { getNextReviewDate } from "../../shared/scheduling.js";
-import { ensureTechniques, first, getProblem, normalizeTechniqueNames } from "../_lib/db.js";
+import { ensureTechniques, ensureTopics, first, getProblem, normalizeTechniqueNames, normalizeTopicNames } from "../_lib/db.js";
 import { HttpError, ok, readJson } from "../_lib/http.js";
 import { decorateFullProblem } from "./read.js";
 
@@ -26,8 +26,9 @@ export async function handleCreateProblem(request, env) {
   const id = crypto.randomUUID();
   const initialOutcome = optionalEnum(form.get("initialOutcome"), Object.values(OUTCOMES));
   const nextReviewAt = initialOutcome ? getNextReviewDate(initialOutcome, now).toISOString() : now.toISOString();
-  const successfulNames = parseTechniqueField(form.get("successfulTechniques"));
-  const triedNames = parseTechniqueField(form.get("triedTechniques"));
+  const topicNames = parseNameField(form.get("topics"), normalizeTopicNames);
+  const successfulNames = parseNameField(form.get("successfulTechniques"), normalizeTechniqueNames);
+  const triedNames = parseNameField(form.get("triedTechniques"), normalizeTechniqueNames);
   const storedKeys = [];
 
   try {
@@ -36,7 +37,8 @@ export async function handleCreateProblem(request, env) {
       storeImage(env.IMAGES, form.get("solutionImage"), id, "solution", storedKeys),
     ]);
 
-    const [successfulTechniques, triedTechniques] = await Promise.all([
+    const [topics, successfulTechniques, triedTechniques] = await Promise.all([
+      ensureTopics(env.DB, topicNames, area),
       ensureTechniques(env.DB, successfulNames),
       ensureTechniques(env.DB, triedNames),
     ]);
@@ -63,6 +65,9 @@ export async function handleCreateProblem(request, env) {
         now.toISOString(),
         now.toISOString(),
       ),
+      ...topics.map((topic) => env.DB.prepare(
+        "INSERT OR IGNORE INTO problem_topics (problem_id, topic_id) VALUES (?1, ?2)",
+      ).bind(id, topic.id)),
       ...successfulTechniques.map((technique) => env.DB.prepare(
         "INSERT OR IGNORE INTO problem_techniques (problem_id, technique_id) VALUES (?1, ?2)",
       ).bind(id, technique.id)),
@@ -238,11 +243,11 @@ function boundedInteger(value, min, max) {
   return number;
 }
 
-function parseTechniqueField(value) {
+function parseNameField(value, normalizer) {
   if (!value) return [];
   try {
-    return normalizeTechniqueNames(JSON.parse(String(value)));
+    return normalizer(JSON.parse(String(value)));
   } catch {
-    return normalizeTechniqueNames(String(value));
+    return normalizer(String(value));
   }
 }
