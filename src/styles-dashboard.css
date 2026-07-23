@@ -71,6 +71,8 @@
 .outcome-badge.new { color: var(--purple); background: var(--purple-soft); }
 .tag-row { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
 .tag { display: inline-flex; padding: 4px 7px; border: 1px solid var(--line); border-radius: 6px; background: #fafbfc; color: #596477; font-size: .67rem; line-height: 1.2; }
+.tag.topic-tag { color: #5145c8; background: #f0efff; border-color: #dcd8ff; }
+.tag.technique-tag { color: #237056; background: #eef8f3; border-color: #cfe9dc; }
 .large-tags .tag { padding: 6px 9px; font-size: .75rem; }
 
 .journal-form { display: flex; flex-direction: column; gap: 18px; }
