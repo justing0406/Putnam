@@ -3,7 +3,7 @@ function renderAddProblem() {
   const view = document.querySelector("#view");
   view.innerHTML = `
     <section class="page-header narrow-header">
-      <div><p class="eyebrow">New journal entry</p><h1>Add a Putnam problem</h1><p>Save the problem, your first attempt, and the reasoning trail you want the system to learn from.</p></div>
+      <div><p class="eyebrow">New journal entry</p><h1>Add a Putnam problem</h1><p>Save the subject matter, your first attempt, and the problem-solving methods you want the system to learn from.</p></div>
     </section>
     <form id="add-problem-form" class="journal-form">
       <section class="form-section panel">
@@ -28,15 +28,24 @@ function renderAddProblem() {
       <section class="form-section panel">
         <div class="form-section-number">02</div>
         <div class="form-section-content">
-          <div class="section-heading compact"><div><h2>Technique map</h2><p>Separate what truly works from what you tried.</p></div></div>
-          ${techniqueField("Techniques that successfully solve it", "successfulTechniques", "e.g. Extremal principle, Pigeonhole principle", "Canonical techniques from the final solution")}
-          ${techniqueField("Techniques you tried", "triedTechniques", "e.g. Induction, Casework", "Include incorrect or abandoned approaches")}
-          <details class="technique-reference"><summary>Browse technique vocabulary</summary>${techniqueVocabulary()}</details>
+          <div class="section-heading compact"><div><h2>Topic map</h2><p>Describe what mathematical content the problem is about, not how it is solved.</p></div></div>
+          ${topicField("Problem topics", "topics", "e.g. Irrationality and rationality, Radical expressions", "Choose all subject-matter topics that meaningfully describe the problem")}
+          <details class="technique-reference"><summary>Browse topic vocabulary</summary>${topicVocabulary()}</details>
         </div>
       </section>
 
       <section class="form-section panel">
         <div class="form-section-number">03</div>
+        <div class="form-section-content">
+          <div class="section-heading compact"><div><h2>Technique map</h2><p>Describe what you do to solve the problem. Separate what truly works from what you tried.</p></div></div>
+          ${techniqueField("Techniques that successfully solve it", "successfulTechniques", "e.g. Contradiction, Radical isolation and squaring", "Canonical techniques from the final solution")}
+          ${techniqueField("Techniques you tried", "triedTechniques", "e.g. Induction, Structured casework", "Include incorrect or abandoned approaches")}
+          <details class="technique-reference"><summary>Browse technique vocabulary</summary>${techniqueVocabulary()}</details>
+        </div>
+      </section>
+
+      <section class="form-section panel">
+        <div class="form-section-number">04</div>
         <div class="form-section-content">
           <div class="section-heading compact"><div><h2>Your initial attempt</h2><p>This sets the first spaced-review date. Leave blank only when importing an unattempted problem.</p></div></div>
           <div class="outcome-choice-grid">
@@ -65,6 +74,7 @@ function renderAddProblem() {
         <button class="button primary large" type="submit">Save problem and schedule review</button>
       </div>
     </form>
+    ${topicDatalist()}
     ${techniqueDatalist()}`;
 
   bindImagePreviews();
@@ -73,6 +83,10 @@ function renderAddProblem() {
 
 function field(label, control) {
   return `<label class="field"><span>${label}</span>${control}</label>`;
+}
+
+function topicField(label, name, placeholder, helper) {
+  return `<label class="field"><span>${label}</span><input name="${name}" list="topic-list" placeholder="${placeholder}" /><small>${helper}. Separate multiple topics with commas.</small></label>`;
 }
 
 function techniqueField(label, name, placeholder, helper) {
@@ -87,8 +101,20 @@ function outcomeChoice(value, label, helper) {
   return `<label class="outcome-choice ${OUTCOMES[value].className}"><input type="radio" name="initialOutcome" value="${value}" /><span><strong>${label}</strong><small>${helper}</small></span></label>`;
 }
 
+function topicDatalist() {
+  return `<datalist id="topic-list">${state.topics.map((topic) => `<option value="${escapeAttribute(topic.name)}">${escapeHtml(topic.area)}</option>`).join("")}</datalist>`;
+}
+
 function techniqueDatalist() {
   return `<datalist id="technique-list">${state.techniques.map((technique) => `<option value="${escapeAttribute(technique.name)}">${escapeHtml(technique.category)}</option>`).join("")}</datalist>`;
+}
+
+function topicVocabulary() {
+  const groups = state.topics.reduce((result, topic) => {
+    (result[topic.area] ||= []).push(topic);
+    return result;
+  }, {});
+  return Object.entries(groups).map(([area, topics]) => `<div class="technique-group"><strong>${escapeHtml(area)}</strong><div class="tag-row">${topics.map((topic) => topicTag(topic.name)).join("")}</div></div>`).join("");
 }
 
 function techniqueVocabulary() {
@@ -96,7 +122,7 @@ function techniqueVocabulary() {
     (result[technique.category] ||= []).push(technique);
     return result;
   }, {});
-  return Object.entries(groups).map(([category, techniques]) => `<div class="technique-group"><strong>${escapeHtml(category)}</strong><div class="tag-row">${techniques.map((technique) => tag(technique.name)).join("")}</div></div>`).join("");
+  return Object.entries(groups).map(([category, techniques]) => `<div class="technique-group"><strong>${escapeHtml(category)}</strong><div class="tag-row">${techniques.map((technique) => techniqueTag(technique.name)).join("")}</div></div>`).join("");
 }
 
 function bindImagePreviews() {
