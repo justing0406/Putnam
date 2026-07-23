@@ -7,6 +7,11 @@ export default {
   },
 
   async scheduled(controller, env) {
+    if (!hasReminderConfiguration(env)) {
+      console.log("Skipping reminder run until DB, EMAIL, REMINDER_EMAIL, EMAIL_FROM, and APP_URL are configured");
+      return;
+    }
+
     const scheduledAt = new Date(controller.scheduledTime || Date.now());
     if (!isReminderHour(scheduledAt, env.TIMEZONE, env.REMINDER_HOUR)) {
       console.log("Skipping reminder run outside configured local hour", scheduledAt.toISOString());
@@ -70,8 +75,21 @@ function isReminderHour(date, timezone = DEFAULT_TIMEZONE, configuredHour = DEFA
   return localHour === (Number.isInteger(hour) ? hour : DEFAULT_REMINDER_HOUR);
 }
 
+function hasReminderConfiguration(env) {
+  return Boolean(
+    env.DB
+      && env.EMAIL
+      && env.REMINDER_EMAIL
+      && env.EMAIL_FROM
+      && env.APP_URL
+      && !String(env.REMINDER_EMAIL).startsWith("replace@")
+      && !String(env.EMAIL_FROM).startsWith("replace@")
+      && !String(env.APP_URL).includes("your-"),
+  );
+}
+
 function assertConfiguration(env) {
-  const missing = ["REMINDER_EMAIL", "EMAIL_FROM", "APP_URL"].filter((key) => !env[key] || String(env[key]).startsWith("replace@") || String(env[key]).includes("your-"));
+  const missing = ["DB", "EMAIL", "REMINDER_EMAIL", "EMAIL_FROM", "APP_URL"].filter((key) => !env[key] || String(env[key]).startsWith("replace@") || String(env[key]).includes("your-"));
   if (missing.length) throw new Error(`Reminder worker is missing configuration: ${missing.join(", ")}`);
 }
 
