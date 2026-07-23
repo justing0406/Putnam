@@ -4,7 +4,7 @@ function renderAnalytics() {
   const view = document.querySelector("#view");
   view.innerHTML = `
     <section class="page-header">
-      <div><p class="eyebrow">Evidence from your attempts</p><h1>Learning patterns</h1><p>Recognition and execution are measured separately so the dashboard can identify what kind of difficulty you are having.</p></div>
+      <div><p class="eyebrow">Evidence from your attempts</p><h1>Learning patterns</h1><p>Topics measure what content gives you difficulty. Technique diagnostics separately measure whether you recognize and execute the right method.</p></div>
     </section>
     <section class="metric-grid">
       ${metricCard(data.overview.solve_rate + "%", "Attempt solve rate", `${data.overview.solved_attempts} solved attempts`)}
@@ -16,6 +16,12 @@ function renderAnalytics() {
     <section class="section-block">
       <div class="section-heading"><div><p class="eyebrow">Pattern engine</p><h2>What deserves attention</h2></div></div>
       <div class="insight-grid">${data.insights.map(insightCard).join("")}</div>
+    </section>
+
+    <section class="panel section-block">
+      <div class="section-heading compact"><div><p class="eyebrow">Topic diagnostics</p><h2>Performance by subject matter</h2></div></div>
+      <p class="panel-intro">Topic performance answers questions such as whether irrationality, graph theory, or congruences are consistently difficult, independent of which method a solution requires.</p>
+      ${data.topic_performance?.length ? topicTable(data.topic_performance) : `<div class="empty-state"><p>Add topics to problems and record attempts to populate this analysis.</p></div>`}
     </section>
 
     <div class="analytics-layout">
@@ -38,6 +44,17 @@ function renderAnalytics() {
 
 function insightCard(insight) {
   return `<article class="insight-card ${escapeAttribute(insight.type)}"><span>${insightIcon(insight.type)}</span><div><h3>${escapeHtml(insight.title)}</h3><p>${escapeHtml(insight.text)}</p></div></article>`;
+}
+
+function topicTable(rows) {
+  return `<div class="data-table-wrap"><table class="data-table"><thead><tr><th>Topic</th><th>Attempts</th><th>Solved</th><th>Almost</th><th>Not close</th><th>Avg. time</th></tr></thead><tbody>${rows.slice(0, 40).map((row) => `<tr>
+    <td><strong>${escapeHtml(row.name)}</strong><small>${escapeHtml(row.area)}</small></td>
+    <td>${row.attempts}</td>
+    <td>${progressCell(row.solve_rate)}</td>
+    <td>${row.almost}</td>
+    <td>${row.not_close}</td>
+    <td>${row.average_minutes ? `${row.average_minutes}m` : "—"}</td>
+  </tr>`).join("")}</tbody></table></div>`;
 }
 
 function techniqueTable(rows) {
@@ -69,6 +86,14 @@ function option(value) {
 
 function tag(value) {
   return `<span class="tag">${escapeHtml(value)}</span>`;
+}
+
+function topicTag(value) {
+  return `<span class="tag topic-tag">${escapeHtml(value)}</span>`;
+}
+
+function techniqueTag(value) {
+  return `<span class="tag technique-tag">${escapeHtml(value)}</span>`;
 }
 
 function loadingState() {
@@ -149,6 +174,6 @@ function iconChart() { return `<svg viewBox="0 0 24 24" aria-hidden="true"><path
 function iconPlus() { return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>`; }
 function iconLogout() { return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/></svg>`; }
 function iconSearch() { return `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>`; }
-function insightIcon(type) { return type === "recognition" ? "◉" : type === "execution" ? "↗" : type === "mismatch" ? "⇄" : type === "positive" ? "✓" : "i"; }
+function insightIcon(type) { return type === "topic" ? "◇" : type === "recognition" ? "◉" : type === "execution" ? "↗" : type === "mismatch" ? "⇄" : type === "positive" ? "✓" : "i"; }
 
 init();
