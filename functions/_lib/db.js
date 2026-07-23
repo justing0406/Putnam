@@ -13,7 +13,7 @@ export async function run(db, sql, ...bindings) {
   return db.prepare(sql).bind(...bindings).run();
 }
 
-export function normalizeTechniqueNames(value) {
+function normalizeNames(value) {
   const values = Array.isArray(value)
     ? value
     : typeof value === "string"
@@ -24,6 +24,14 @@ export function normalizeTechniqueNames(value) {
     .map((item) => String(item).trim().replace(/\s+/g, " "))
     .filter(Boolean)
     .map((item) => item.slice(0, 80)))];
+}
+
+export function normalizeTechniqueNames(value) {
+  return normalizeNames(value);
+}
+
+export function normalizeTopicNames(value) {
+  return normalizeNames(value);
 }
 
 export async function ensureTechniques(db, names, category = "General") {
@@ -51,11 +59,45 @@ export async function ensureTechniques(db, names, category = "General") {
   return techniques;
 }
 
+export async function ensureTopics(db, names, area = "Mixed") {
+  const normalized = normalizeTopicNames(names);
+  const topics = [];
+
+  for (const name of normalized) {
+    let topic = await first(db, "SELECT id, name, area FROM topics WHERE name = ?1 COLLATE NOCASE", name);
+    if (!topic) {
+      const id = crypto.randomUUID();
+      await run(
+        db,
+        "INSERT OR IGNORE INTO topics (id, name, area, created_at) VALUES (?1, ?2, ?3, ?4)",
+        id,
+        name,
+        area,
+        new Date().toISOString(),
+      );
+      topic = await first(db, "SELECT id, name, area FROM topics WHERE name = ?1 COLLATE NOCASE", name);
+    }
+    if (!topic) throw new HttpError(500, `Could not save topic: ${name}`);
+    topics.push(topic);
+  }
+
+  return topics;
+}
+
 export async function getProblem(db, id) {
   const problem = await first(db, "SELECT * FROM problems WHERE id = ?1", id);
   if (!problem) throw new HttpError(404, "Problem not found");
 
-  const [techniques, attempts] = await Promise.all([
+  const [topics, techniques, attempts] = await Promise.all([
+    all(
+      db,
+      `SELECT t.id, t.name, t.area, t.description
+       FROM topics t
+       JOIN problem_topics pt ON pt.topic_id = t.id
+       WHERE pt.problem_id = ?1
+       ORDER BY t.area, t.name`,
+      id,
+    ),
     all(
       db,
       `SELECT t.id, t.name, t.category
@@ -82,6 +124,7 @@ export async function getProblem(db, id) {
 
   return {
     ...problem,
+    topics,
     techniques,
     attempts: attempts.map((attempt) => ({
       ...attempt,
