@@ -1,6 +1,6 @@
 import { createSessionCookie, clearSessionCookie, isAuthenticated, requireAuth, verifyPassword } from "../_lib/auth.js";
 import { asHttpError, error, HttpError, ok, readJson } from "../_lib/http.js";
-import { handleDashboard, handleGetProblem, handleListProblems, handleTechniques } from "../_handlers/read.js";
+import { handleDashboard, handleGetProblem, handleListProblems, handleTechniques, handleTopics } from "../_handlers/read.js";
 import { handleCreateAttempt, handleCreateProblem, handleImage } from "../_handlers/write.js";
 import { handleAnalytics } from "../_handlers/analytics.js";
 
@@ -32,6 +32,7 @@ export async function onRequest(context) {
 
     if (path === "/api/dashboard" && request.method === "GET") return handleDashboard(env);
     if (path === "/api/techniques" && request.method === "GET") return handleTechniques(env);
+    if (path === "/api/topics" && request.method === "GET") return handleTopics(env);
     if (path === "/api/problems" && request.method === "GET") return handleListProblems(env, url);
     if (path === "/api/problems" && request.method === "POST") return handleCreateProblem(request, env);
     if (path === "/api/analytics" && request.method === "GET") return handleAnalytics(env);
