@@ -10,6 +10,7 @@ function renderAttempt() {
         <div class="card-meta"><span class="level-pill large">${escapeHtml(problem.level)}</span><span>${escapeHtml(problem.area)}</span></div>
       </div>
       <p>${escapeHtml(problem.source || "No source recorded")}</p>
+      ${problem.topics?.length ? `<div class="tag-row large-tags">${problem.topics.map((topic) => topicTag(topic.name)).join("")}</div>` : ""}
     </section>
 
     <div class="attempt-layout">
@@ -30,7 +31,7 @@ function renderAttempt() {
           </div>
           ${field("Your solution or progress", `<textarea name="selfSolution" rows="8" maxlength="30000" placeholder="Capture the full line of reasoning while it is fresh."></textarea>`)}
           ${techniqueField("Techniques you tried", "triedTechniques", "Induction, Parity, Extremal principle", "Include failed approaches")}
-          ${techniqueField("Techniques that worked", "successfulTechniques", "Pigeonhole principle, Double counting", "Add newly discovered successful techniques")}
+          ${techniqueField("Techniques that worked", "successfulTechniques", "Contradiction, Radical isolation and squaring", "Add newly discovered successful techniques")}
           ${field("Where you got stuck", `<textarea name="whereStuck" rows="4" maxlength="10000"></textarea>`)}
           ${field("Why the approach failed", `<textarea name="errorAnalysis" rows="4" maxlength="10000"></textarea>`)}
           <div class="form-grid three">
@@ -61,8 +62,10 @@ function revealedSolution(problem) {
   return `<div class="section-heading"><div><p class="eyebrow">Solution vault</p><h2>Reference solution and history</h2></div><button class="text-button" data-action="hide-solution">Hide again</button></div>
     <div class="solution-grid">
       <div>
+        <h3>Problem topics</h3>
+        <div class="tag-row large-tags">${problem.topics?.length ? problem.topics.map((topic) => topicTag(topic.name)).join("") : `<span class="muted">No topics recorded yet.</span>`}</div>
         <h3>Successful techniques</h3>
-        <div class="tag-row large-tags">${problem.techniques.length ? problem.techniques.map((technique) => tag(technique.name)).join("") : `<span class="muted">No techniques recorded yet.</span>`}</div>
+        <div class="tag-row large-tags">${problem.techniques.length ? problem.techniques.map((technique) => techniqueTag(technique.name)).join("") : `<span class="muted">No techniques recorded yet.</span>`}</div>
         ${problem.solution_image_url ? `<img class="solution-image" src="${escapeAttribute(problem.solution_image_url)}" alt="Reference solution" />` : ""}
         ${problem.official_solution ? `<div class="solution-text">${formatText(problem.official_solution)}</div>` : ""}
         ${!problem.solution_image_url && !problem.official_solution ? `<p class="muted">No reference solution was saved.</p>` : ""}
@@ -80,7 +83,7 @@ function attemptHistory(attempt) {
     <span class="timeline-dot ${outcome?.className || ""}"></span>
     <div class="timeline-content">
       <div class="timeline-heading"><strong>${escapeHtml(outcome?.label || attempt.outcome)}</strong><time>${escapeHtml(formatLongDate(attempt.attempted_at))}</time></div>
-      <div class="tag-row">${attempt.tried_techniques.map((name) => tag(`Tried: ${name}`)).join("")}</div>
+      <div class="tag-row">${attempt.tried_techniques.map((name) => techniqueTag(`Tried: ${name}`)).join("")}</div>
       ${attempt.self_solution ? `<details><summary>Attempted solution</summary><div class="history-text">${formatText(attempt.self_solution)}</div></details>` : ""}
       ${attempt.where_stuck ? `<p><strong>Stuck:</strong> ${escapeHtml(attempt.where_stuck)}</p>` : ""}
       ${attempt.error_analysis ? `<p><strong>Analysis:</strong> ${escapeHtml(attempt.error_analysis)}</p>` : ""}
@@ -134,4 +137,3 @@ async function submitAttempt(event) {
     button.textContent = "Save attempt";
   }
 }
-
