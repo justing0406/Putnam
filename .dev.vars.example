@@ -1,2 +1,5 @@
 APP_PASSWORD=replace-with-a-long-password
 SESSION_SECRET=replace-with-at-least-32-random-characters
+REMINDER_EMAIL=replace@example.com
+EMAIL_FROM=putnam@your-domain.com
+APP_URL=https://your-worker.workers.dev
