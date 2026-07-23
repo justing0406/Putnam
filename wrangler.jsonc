@@ -9,6 +9,14 @@
     "not_found_handling": "single-page-application",
     "run_worker_first": ["/api", "/api/*"]
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "putnam-journal",
+      "database_id": "13fd1e4d-c572-4927-8972-c273c7acaa62",
+      "migrations_dir": "migrations"
+    }
+  ],
   "vars": {
     "SESSION_DAYS": "30",
     "TIMEZONE": "America/New_York",
