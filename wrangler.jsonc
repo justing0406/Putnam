@@ -17,6 +17,12 @@
       "migrations_dir": "migrations"
     }
   ],
+  "r2_buckets": [
+    {
+      "binding": "IMAGES",
+      "bucket_name": "putnam-journal-images"
+    }
+  ],
   "vars": {
     "SESSION_DAYS": "30",
     "TIMEZONE": "America/New_York",
