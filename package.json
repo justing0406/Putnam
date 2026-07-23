@@ -1,0 +1,22 @@
+{
+  "name": "putnam-journal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A spaced-repetition Putnam problem journal for Cloudflare Pages, Workers, D1, and R2.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs && node --test shared/*.test.js && npm run build",
+    "dev:pages": "npm run build && npx wrangler pages dev dist",
+    "db:migrate:local": "npx wrangler d1 migrations apply putnam-journal --local",
+    "db:migrate:remote": "npx wrangler d1 migrations apply putnam-journal --remote",
+    "dev:reminder": "npx wrangler dev -c workers/reminder/wrangler.jsonc --test-scheduled",
+    "deploy:reminder": "npx wrangler deploy -c workers/reminder/wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
