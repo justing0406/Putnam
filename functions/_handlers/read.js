@@ -54,6 +54,19 @@ export async function handleTechniques(env) {
   return ok({ techniques });
 }
 
+export async function handleTopics(env) {
+  const topics = await all(
+    env.DB,
+    `SELECT t.id, t.name, t.area, t.description,
+      COUNT(DISTINCT pt.problem_id) AS problem_count
+     FROM topics t
+     LEFT JOIN problem_topics pt ON pt.topic_id = t.id
+     GROUP BY t.id
+     ORDER BY t.area, t.name`,
+  );
+  return ok({ topics });
+}
+
 export async function handleListProblems(env, url) {
   const filter = url.searchParams.get("filter") || "all";
   const search = (url.searchParams.get("search") || "").trim().slice(0, 100);
@@ -71,7 +84,17 @@ export async function handleListProblems(env, url) {
   }
 
   if (search) {
-    conditions.push(`(p.title LIKE ?${bindings.length + 1} OR p.source LIKE ?${bindings.length + 1} OR p.statement LIKE ?${bindings.length + 1})`);
+    const position = bindings.length + 1;
+    conditions.push(`(
+      p.title LIKE ?${position}
+      OR p.source LIKE ?${position}
+      OR p.statement LIKE ?${position}
+      OR EXISTS (
+        SELECT 1 FROM problem_topics search_pt
+        JOIN topics search_topic ON search_topic.id = search_pt.topic_id
+        WHERE search_pt.problem_id = p.id AND search_topic.name LIKE ?${position}
+      )
+    )`);
     bindings.push(`%${search}%`);
   }
 
@@ -94,11 +117,14 @@ async function listProblemRows(db, where, bindings, limit, orderBy) {
     db,
     `SELECT p.*,
       COUNT(DISTINCT a.id) AS attempt_count,
-      COALESCE(GROUP_CONCAT(DISTINCT t.name), '') AS techniques
+      COALESCE(GROUP_CONCAT(DISTINCT technique.name), '') AS techniques,
+      COALESCE(GROUP_CONCAT(DISTINCT topic.name), '') AS topics
      FROM problems p
      LEFT JOIN attempts a ON a.problem_id = p.id
-     LEFT JOIN problem_techniques pt ON pt.problem_id = p.id
-     LEFT JOIN techniques t ON t.id = pt.technique_id
+     LEFT JOIN problem_techniques ptech ON ptech.problem_id = p.id
+     LEFT JOIN techniques technique ON technique.id = ptech.technique_id
+     LEFT JOIN problem_topics ptopic ON ptopic.problem_id = p.id
+     LEFT JOIN topics topic ON topic.id = ptopic.topic_id
      ${where}
      GROUP BY p.id
      ORDER BY ${orderBy}
@@ -111,7 +137,8 @@ function decorateProblemRow(problem) {
   return {
     ...problem,
     attempt_count: Number(problem.attempt_count || 0),
-    techniques: String(problem.techniques || "").split(",").filter(Boolean),
+    techniques: splitCommaList(problem.techniques),
+    topics: splitCommaList(problem.topics),
     problem_image_url: imageUrl(problem.problem_image_key),
   };
 }
@@ -122,6 +149,10 @@ export function decorateFullProblem(problem) {
     problem_image_url: imageUrl(problem.problem_image_key),
     solution_image_url: imageUrl(problem.solution_image_key),
   };
+}
+
+function splitCommaList(value) {
+  return [...new Set(String(value || "").split(",").map((item) => item.trim()).filter(Boolean))];
 }
 
 function imageUrl(key) {
