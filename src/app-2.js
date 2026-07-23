@@ -60,6 +60,7 @@ function problemCard(problem) {
         <div class="card-meta"><span class="level-pill">${escapeHtml(problem.level)}</span><span>${escapeHtml(problem.area)}</span></div>
         <h3>${escapeHtml(problem.title)}</h3>
         <p>${escapeHtml(truncate(problem.statement || problem.source || "No statement text saved.", 145))}</p>
+        ${problem.topics?.length ? `<div class="tag-row">${problem.topics.slice(0, 3).map(topicTag).join("")}</div>` : ""}
         <div class="card-footer">
           <span class="due-label">${escapeHtml(dueText)}</span>
           <button class="button primary small" data-action="open-problem">Start attempt</button>
@@ -71,7 +72,7 @@ function problemCard(problem) {
 function upcomingRow(problem) {
   return `<button class="compact-row clickable" data-action="open-problem" data-problem-id="${escapeAttribute(problem.id)}">
     <span class="level-square">${escapeHtml(problem.level)}</span>
-    <span class="row-main"><strong>${escapeHtml(problem.title)}</strong><small>${escapeHtml(problem.area)} · ${problem.attempt_count} ${pluralize(problem.attempt_count, "attempt")}</small></span>
+    <span class="row-main"><strong>${escapeHtml(problem.title)}</strong><small>${escapeHtml(problem.topics?.[0] || problem.area)} · ${problem.attempt_count} ${pluralize(problem.attempt_count, "attempt")}</small></span>
     <time>${escapeHtml(formatShortDate(problem.next_review_at))}</time>
   </button>`;
 }
@@ -100,11 +101,11 @@ function renderLibrary() {
   const view = document.querySelector("#view");
   view.innerHTML = `
     <section class="page-header">
-      <div><p class="eyebrow">Complete archive</p><h1>Problem library</h1><p>Every problem, attempt, review date, and technique trail in one place.</p></div>
+      <div><p class="eyebrow">Complete archive</p><h1>Problem library</h1><p>Every problem, attempt, review date, topic, and technique trail in one place.</p></div>
       <button class="button primary" data-view="add">+ Add problem</button>
     </section>
     <section class="toolbar panel">
-      <label class="search-field">${iconSearch()}<input id="library-search" value="${escapeAttribute(state.search)}" placeholder="Search title, source, or statement" /></label>
+      <label class="search-field">${iconSearch()}<input id="library-search" value="${escapeAttribute(state.search)}" placeholder="Search title, source, statement, or topic" /></label>
       <label class="filter-field"><span>Level</span><select id="level-filter"><option value="">All levels</option>${LEVELS.map((level) => `<option value="${level}" ${state.levelFilter === level ? "selected" : ""}>${level}</option>`).join("")}</select></label>
       <span class="result-count">${state.problems.length} ${pluralize(state.problems.length, "problem")}</span>
     </section>
@@ -137,7 +138,7 @@ function libraryRow(problem) {
       <span class="library-copy">
         <span class="library-title-line"><strong>${escapeHtml(problem.title)}</strong>${status ? `<span class="outcome-badge ${status.className}">${escapeHtml(status.label)}</span>` : `<span class="outcome-badge new">New</span>`}</span>
         <small>${escapeHtml(problem.source || problem.area)} · ${problem.attempt_count} ${pluralize(problem.attempt_count, "attempt")}</small>
-        <span class="tag-row">${problem.techniques.slice(0, 5).map(tag).join("")}${problem.techniques.length > 5 ? `<span class="tag">+${problem.techniques.length - 5}</span>` : ""}</span>
+        <span class="tag-row">${problem.topics.slice(0, 5).map(topicTag).join("")}${problem.topics.length > 5 ? `<span class="tag">+${problem.topics.length - 5}</span>` : ""}</span>
       </span>
       <span class="library-review"><small>Next review</small><strong>${escapeHtml(relativeReview(problem.next_review_at))}</strong></span>
       <span class="arrow">→</span>
@@ -145,7 +146,9 @@ function libraryRow(problem) {
   </article>`;
 }
 
-async function ensureTechniquesLoaded() {
-  if (!state.techniques.length) state.techniques = (await api("/api/techniques")).techniques;
+async function ensureVocabularyLoaded() {
+  const requests = [];
+  if (!state.topics.length) requests.push(api("/api/topics").then((data) => { state.topics = data.topics; }));
+  if (!state.techniques.length) requests.push(api("/api/techniques").then((data) => { state.techniques = data.techniques; }));
+  await Promise.all(requests);
 }
-
