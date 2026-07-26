@@ -3,6 +3,7 @@ import { asHttpError, error, HttpError, ok, readJson } from "../_lib/http.js";
 import { handleDashboard, handleGetProblem, handleListProblems, handleTechniques, handleTopics } from "../_handlers/read.js";
 import { handleCreateAttempt, handleCreateProblem, handleImage } from "../_handlers/write.js";
 import { handleAnalytics } from "../_handlers/analytics.js";
+import { handleCatalogSearch, handleGetCatalogProblem, handleImportCatalogProblem } from "../_handlers/catalog.js";
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -35,8 +36,19 @@ export async function onRequest(context) {
     if (path === "/api/topics" && request.method === "GET") return handleTopics(env);
     if (path === "/api/problems" && request.method === "GET") return handleListProblems(env, url);
     if (path === "/api/problems" && request.method === "POST") return handleCreateProblem(request, env);
+    if (path === "/api/catalog" && request.method === "GET") return handleCatalogSearch(env, url);
     if (path === "/api/analytics" && request.method === "GET") return handleAnalytics(env);
     if (path.startsWith("/api/images/") && request.method === "GET") return handleImage(path, env);
+
+    const catalogImportMatch = path.match(/^\/api\/catalog\/([^/]+)\/import$/);
+    if (catalogImportMatch && request.method === "POST") {
+      return handleImportCatalogProblem(env, decodeURIComponent(catalogImportMatch[1]));
+    }
+
+    const catalogMatch = path.match(/^\/api\/catalog\/([^/]+)$/);
+    if (catalogMatch && request.method === "GET") {
+      return handleGetCatalogProblem(env, decodeURIComponent(catalogMatch[1]));
+    }
 
     const attemptMatch = path.match(/^\/api\/problems\/([^/]+)\/attempts$/);
     if (attemptMatch && request.method === "POST") {
