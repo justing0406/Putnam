@@ -1,0 +1,1087 @@
+{
+  "year": 2018,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2018.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+  "problem_source_sha256": "9fb97804f1ce2108fdae06112c7633695ff0b3f82723d93b65bf9a1611c15158",
+  "solution_source_sha256": "d9472122b2ed593eb16e9a3c147b221e317a5759bb6b637f73636d05b839e58e",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-28T18:54:13.756Z",
+  "problems": [
+    {
+      "id": "putnam_2018_a1",
+      "topics": [
+        "Diophantine equations",
+        "Integer factorization",
+        "Modular arithmetic"
+      ],
+      "concepts": [
+        "Diophantine equations",
+        "Factorization",
+        "Modular arithmetic",
+        "Symmetry in equations"
+      ],
+      "primary_techniques": [
+        "Clearing denominators and regrouping",
+        "Factoring symmetric expressions",
+        "Modular restriction on factors"
+      ],
+      "secondary_techniques": [
+        "Enumerating divisors",
+        "Checking positivity of solutions"
+      ],
+      "techniques": [
+        "Clearing denominators and regrouping",
+        "Factoring symmetric expressions",
+        "Modular restriction on factors",
+        "Enumerating divisors",
+        "Checking positivity of solutions"
+      ],
+      "solution_archetypes": [
+        "Transform to symmetric product",
+        "Restrict divisors by congruence",
+        "Enumerate cases"
+      ],
+      "prerequisites": [
+        "Basic algebraic manipulation",
+        "Understanding of Diophantine equations",
+        "Knowledge of factoring integers",
+        "Modular arithmetic"
+      ],
+      "key_observation": "Transforming the equation into a symmetric product form and restricting factors by congruence modulo 3 yields all positive integer solutions.",
+      "solution_architecture": "Convert the rational equation to a symmetric product form, factor the resulting integer, restrict divisors by congruence modulo 3, and enumerate all positive solutions.",
+      "technique_evidence": [
+        {
+          "name": "Clearing denominators and regrouping",
+          "role": "primary",
+          "evidence": "The equation is rewritten as (3a-2018)(3b-2018) = 2018^2, showing clearing denominators and regrouping."
+        },
+        {
+          "name": "Factoring symmetric expressions",
+          "role": "primary",
+          "evidence": "The solution proceeds by factoring 2018^2 and considering divisors."
+        },
+        {
+          "name": "Modular restriction on factors",
+          "role": "primary",
+          "evidence": "Only divisors congruent to 1 mod 3 are considered, restricting possible solutions."
+        },
+        {
+          "name": "Enumerating divisors",
+          "role": "secondary",
+          "evidence": "All positive divisors are listed and checked for positivity of resulting a and b."
+        },
+        {
+          "name": "Checking positivity of solutions",
+          "role": "secondary",
+          "evidence": "Negative divisors are checked and discarded if they yield non-positive integers."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly solve for a and b without clearing denominators leads to messy algebra.",
+        "Attempting to factor without considering modular constraints misses key restrictions."
+      ],
+      "difficulty_overall": 2.7,
+      "difficulty_insight": 3,
+      "difficulty_technical": 2,
+      "difficulty_prerequisite": 3,
+      "difficulty_proof": 3,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "4a8e49917ba50be6cd321f57ad3f3aa02fb16a0c10f9def9a88daeb1c02d93f0"
+    },
+    {
+      "id": "putnam_2018_a2",
+      "topics": [
+        "linear algebra",
+        "combinatorics",
+        "matrix theory",
+        "determinants",
+        "recursion"
+      ],
+      "concepts": [
+        "determinant",
+        "block matrix",
+        "matrix recursion",
+        "subset enumeration",
+        "matrix row and column operations"
+      ],
+      "primary_techniques": [
+        "block matrix decomposition",
+        "determinant recursion",
+        "matrix row and column operations"
+      ],
+      "secondary_techniques": [
+        "induction",
+        "subset ordering"
+      ],
+      "techniques": [
+        "block matrix decomposition",
+        "determinant recursion",
+        "matrix row and column operations",
+        "induction",
+        "subset ordering"
+      ],
+      "solution_archetypes": [
+        "recursion on matrix size",
+        "block matrix reduction"
+      ],
+      "prerequisites": [
+        "properties of determinants",
+        "block matrix manipulation",
+        "matrix row and column operations",
+        "induction"
+      ],
+      "key_observation": "The determinant of the matrix can be computed recursively by exploiting the structure of the subsets and the block form of the matrix, leading to a recurrence relation.",
+      "solution_architecture": "The solution constructs a recurrence for the determinant by ordering the subsets to reveal a block structure in the matrix. Row and column operations simplify the matrix, allowing reduction to smaller cases. The determinant is then computed recursively, with induction confirming the pattern.",
+      "technique_evidence": [
+        {
+          "name": "block matrix decomposition",
+          "role": "primary",
+          "evidence": "The proof explicitly partitions the matrix into blocks corresponding to subsets with and without the element n, then uses row and column operations to zero out certain blocks, reducing the determinant to a smaller matrix."
+        },
+        {
+          "name": "determinant recursion",
+          "role": "primary",
+          "evidence": "The determinant is expressed in terms of the determinant of the smaller matrix, and induction is used to confirm the recursive formula."
+        },
+        {
+          "name": "matrix row and column operations",
+          "role": "primary",
+          "evidence": "Row and column subtraction is used to simplify the matrix and isolate the determinant contribution."
+        },
+        {
+          "name": "induction",
+          "role": "secondary",
+          "evidence": "The recurrence is established and then solved by induction."
+        },
+        {
+          "name": "subset ordering",
+          "role": "secondary",
+          "evidence": "Subsets are ordered to facilitate block decomposition."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute the determinant for large n without recursion",
+        "Attempting to diagonalize or invert M without block structure analysis"
+      ],
+      "difficulty_overall": 5.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3158121c086a3550dc3cebf48160fc13e5dd957c7b87d7cf1274686c0d8d3987"
+    },
+    {
+      "id": "putnam_2018_a3",
+      "topics": [
+        "trigonometric identities",
+        "polynomial optimization",
+        "convexity",
+        "extremal combinatorics",
+        "constraint optimization"
+      ],
+      "concepts": [
+        "convexity",
+        "extremal principle",
+        "symmetry",
+        "cubic polynomial maximization",
+        "constraint optimization"
+      ],
+      "primary_techniques": [
+        "extremal principle",
+        "convexity analysis",
+        "constraint reduction"
+      ],
+      "secondary_techniques": [
+        "algebraic manipulation",
+        "case analysis"
+      ],
+      "techniques": [
+        "extremal principle",
+        "convexity analysis",
+        "constraint reduction",
+        "algebraic manipulation",
+        "case analysis"
+      ],
+      "solution_archetypes": [
+        "reduce to extremal values under constraint",
+        "analyze function behavior under sum constraint"
+      ],
+      "prerequisites": [
+        "trigonometric identities",
+        "polynomial manipulation",
+        "basic optimization",
+        "convexity/concavity analysis"
+      ],
+      "key_observation": "The cubic function's convexity/concavity allows reduction to cases where most variables are at extremal values, and the constraint forces a specific distribution.",
+      "solution_architecture": "Transform the trigonometric sum into a cubic polynomial sum with a linear constraint. Analyze the effect of varying pairs of variables while fixing their sum, using convexity to argue that maxima occur when most variables are at extremal values. Solve for the distribution of extremal and non-extremal values that satisfy the constraint, and compute the resulting maximum.",
+      "technique_evidence": [
+        {
+          "name": "convexity analysis",
+          "role": "primary",
+          "evidence": "The proof studies the function y^3 + (s-y)^3 and uses its second derivative to determine convexity, leading to extremal value arguments."
+        },
+        {
+          "name": "extremal principle",
+          "role": "primary",
+          "evidence": "The argument reduces the problem to cases where variables are at -1 or 1, and the constraint determines the remaining values."
+        },
+        {
+          "name": "constraint reduction",
+          "role": "primary",
+          "evidence": "The constraint is used to solve for the non-extremal value in terms of the number of extremal values."
+        },
+        {
+          "name": "case analysis",
+          "role": "secondary",
+          "evidence": "Explicit calculation of the maximum for each possible distribution of extremal/non-extremal values."
+        },
+        {
+          "name": "algebraic manipulation",
+          "role": "secondary",
+          "evidence": "Algebraic manipulation is used to compute the maximum value for each case."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to maximize the sum by setting all cos(x_i) to their maximum/minimum without considering the constraint.",
+        "Assuming the maximum occurs when all variables are equal or symmetrically distributed."
+      ],
+      "difficulty_overall": 6.5,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "c23ac9eb423079590480db1479af53303e3a7819dc6d1167b182f03824c3331c"
+    },
+    {
+      "id": "putnam_2018_a4",
+      "topics": [
+        "Group theory",
+        "Combinatorics",
+        "Number theory",
+        "Topology"
+      ],
+      "concepts": [
+        "Induction on sum of parameters",
+        "Bezout's identity",
+        "Lattice walks and combinatorial interpretations",
+        "Fundamental group of the torus",
+        "Homotopy and deformation retracts",
+        "Group presentations"
+      ],
+      "primary_techniques": [
+        "Strong induction on parameters",
+        "Arithmetic manipulation of floor functions",
+        "Geometric/topological interpretation (torus, fundamental group)"
+      ],
+      "secondary_techniques": [
+        "Bezout's identity for parameter manipulation",
+        "Word manipulation in free groups",
+        "Group presentation reduction"
+      ],
+      "techniques": [
+        "Strong induction on parameters",
+        "Arithmetic manipulation of floor functions",
+        "Geometric/topological interpretation (torus, fundamental group)",
+        "Bezout's identity for parameter manipulation",
+        "Word manipulation in free groups",
+        "Group presentation reduction"
+      ],
+      "solution_archetypes": [
+        "Inductive reduction",
+        "Geometric/topological reinterpretation",
+        "Algebraic manipulation via combinatorial encoding"
+      ],
+      "prerequisites": [
+        "Basic group theory (commutativity, inverses)",
+        "Understanding of floor functions and arithmetic sequences",
+        "Familiarity with induction",
+        "Elementary topology (fundamental group, homotopy)",
+        "Combinatorial interpretations of algebraic expressions"
+      ],
+      "key_observation": "The sequence of exponents a_k encodes a lattice walk whose group-theoretic product can be reduced via induction or geometric/topological arguments, ultimately forcing commutativity.",
+      "solution_architecture": "The proof proceeds by induction on m+n, handling base cases directly. For larger parameters, it reduces the problem either by reparameterizing (m > n) or by dualizing (m < n), using arithmetic properties of the sequence a_k. Alternatively, it interprets the sequence as a lattice walk on the torus, relating the group product to a loop in the fundamental group, and uses topological arguments to show commutativity. Each approach ultimately reduces the group relation to a commutator, forcing gh = hg.",
+      "technique_evidence": [
+        {
+          "name": "Strong induction on parameters",
+          "role": "primary",
+          "evidence": "The induction step is used to reduce the problem to smaller parameter values, showing that commutativity follows from the structure of the sequence."
+        },
+        {
+          "name": "Arithmetic manipulation of floor functions",
+          "role": "primary",
+          "evidence": "Arithmetic manipulation of the floor function sequence is used to relate the exponents to lattice steps and to facilitate induction."
+        },
+        {
+          "name": "Geometric/topological interpretation (torus, fundamental group)",
+          "role": "primary",
+          "evidence": "The geometric/topological interpretation connects the group product to a loop in the torus, allowing the use of fundamental group properties to deduce commutativity."
+        },
+        {
+          "name": "Bezout's identity for parameter manipulation",
+          "role": "secondary",
+          "evidence": "Bezout's identity is used to manipulate indices and relate the sequence to modular arithmetic properties."
+        },
+        {
+          "name": "Word manipulation in free groups",
+          "role": "secondary",
+          "evidence": "Manipulation of group words and presentations is used in the topological argument to reduce the group relation."
+        },
+        {
+          "name": "Group presentation reduction",
+          "role": "secondary",
+          "evidence": "Reduction of group presentations to abelian groups is used in the topological solution."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly expand the group product without recognizing the structure of the exponents.",
+        "Trying to solve for commutativity by brute force manipulation of group elements without leveraging the arithmetic properties of the sequence"
+      ],
+      "difficulty_overall": 7.2,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "5f89ac10c2d2258df024ea8e1472d2622af33a0d2dff24ae82ce0162488c8908"
+    },
+    {
+      "id": "putnam_2018_a5",
+      "topics": [
+        "convexity",
+        "monotonicity",
+        "real analysis",
+        "differentiability",
+        "analyticity",
+        "measure theory (Bernstein's theorem)"
+      ],
+      "concepts": [
+        "ultraconvex functions",
+        "total monotonicity",
+        "Bernstein's theorem",
+        "Taylor series and analyticity",
+        "mean value theorem",
+        "induction on derivatives",
+        "integral representations"
+      ],
+      "primary_techniques": [
+        "structural contradiction via ultraconvexity",
+        "inductive inequalities on derivatives",
+        "integral representation of derivatives"
+      ],
+      "secondary_techniques": [
+        "mean value theorem application",
+        "Taylor expansion with remainder",
+        "Bernstein's theorem",
+        "properties of analytic functions"
+      ],
+      "techniques": [
+        "structural contradiction via ultraconvexity",
+        "inductive inequalities on derivatives",
+        "integral representation of derivatives",
+        "mean value theorem application",
+        "Taylor expansion with remainder",
+        "Bernstein's theorem",
+        "properties of analytic functions"
+      ],
+      "solution_archetypes": [
+        "contradiction via structural properties",
+        "inductive bounding",
+        "integral representation argument"
+      ],
+      "prerequisites": [
+        "real analysis",
+        "mean value theorem",
+        "induction",
+        "Taylor's theorem",
+        "properties of convex and monotone functions",
+        "Bernstein's theorem (for second solution)"
+      ],
+      "key_observation": "If all derivatives of a nonnegative, infinitely differentiable function are nonnegative everywhere, then the function must be identically zero, contradicting f(1)=1.",
+      "solution_architecture": "Assume all derivatives are nonnegative everywhere (ultraconvexity). Use induction and integral representations to show such a function must be identically zero, contradicting the boundary condition f(1)=1. Therefore, at some point and for some derivative order, negativity must occur.",
+      "technique_evidence": [
+        {
+          "name": "structural contradiction via ultraconvexity",
+          "role": "primary",
+          "evidence": "Induction on derivatives shows that ultraconvex functions with f(0)=0 must vanish for x<0 and, by extension, everywhere."
+        },
+        {
+          "name": "inductive inequalities on derivatives",
+          "role": "primary",
+          "evidence": "Inductive inequalities relate higher derivatives to function values, bounding f(1) and forcing it to zero."
+        },
+        {
+          "name": "integral representation of derivatives",
+          "role": "primary",
+          "evidence": "Integral representation of f(x) in terms of its nth derivative shows that if all derivatives are nonnegative, the integral vanishes unless f is zero."
+        },
+        {
+          "name": "mean value theorem application",
+          "role": "secondary",
+          "evidence": "Mean value theorem is used to show that nonnegativity of derivatives implies monotonicity and vanishing outside [0,1]."
+        },
+        {
+          "name": "Taylor expansion with remainder",
+          "role": "secondary",
+          "evidence": "Taylor expansion with remainder is used to bound function values and derivatives, leading to contradiction."
+        },
+        {
+          "name": "Bernstein's theorem",
+          "role": "secondary",
+          "evidence": "Bernstein's theorem is invoked to show that totally monotone functions must be zero if boundary values are zero."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming nonnegativity of all derivatives is compatible with f(0)=0 and f(1)=1 without further analysis",
+        "Trying to construct explicit examples of such functions without using structural properties"
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "40c5bef99eee30dca687326d1ee39d939f5042ef8dda3bcffd29ee377c124826"
+    },
+    {
+      "id": "putnam_2018_a6",
+      "topics": [
+        "geometry",
+        "algebra",
+        "trigonometry",
+        "linear algebra"
+      ],
+      "concepts": [
+        "rationality of squared distances",
+        "area ratios",
+        "coordinate geometry",
+        "dot products",
+        "law of cosines",
+        "Heron's formula",
+        "trigonometric addition formulas"
+      ],
+      "primary_techniques": [
+        "coordinate reduction and algebraic manipulation",
+        "vector dot product analysis",
+        "trigonometric identities and Law of Cosines"
+      ],
+      "secondary_techniques": [
+        "Heron's formula and its generalizations",
+        "determinant identities for area/volume"
+      ],
+      "techniques": [
+        "coordinate reduction and algebraic manipulation",
+        "vector dot product analysis",
+        "trigonometric identities and Law of Cosines",
+        "Heron's formula and its generalizations",
+        "determinant identities for area/volume"
+      ],
+      "solution_archetypes": [
+        "algebraic reduction via coordinates",
+        "vector inner product reasoning",
+        "trigonometric manipulation"
+      ],
+      "prerequisites": [
+        "coordinate geometry",
+        "vector algebra",
+        "trigonometry",
+        "Heron's formula",
+        "determinants"
+      ],
+      "key_observation": "The rationality of squared distances between points allows all relevant algebraic and trigonometric quantities (coordinates, dot products, cosines, sines, and area squares) to be expressed in terms of rational numbers, ensuring the area ratio is rational.",
+      "solution_architecture": "Reduce the problem to coordinate or vector expressions where all squared distances are rational, then deduce that all relevant algebraic quantities (coordinates, dot products, cosines, sines, area squares) are rational. Use these to show that the area ratio is rational, either via explicit coordinate calculation, vector determinants, or trigonometric identities.",
+      "technique_evidence": [
+        {
+          "name": "coordinate reduction and algebraic manipulation",
+          "role": "primary",
+          "evidence": "Coordinates are chosen so that squared distances yield rational expressions for coordinates and products, leading to rational area ratios."
+        },
+        {
+          "name": "vector dot product analysis",
+          "role": "primary",
+          "evidence": "Dot products between vectors are shown to be rational using squared distance relations, and area ratios are expressed in terms of these dot products."
+        },
+        {
+          "name": "trigonometric identities and Law of Cosines",
+          "role": "primary",
+          "evidence": "Law of Cosines and trigonometric addition formulas are used to relate angles and side lengths, showing rationality of sines and cosines, and thus area ratios."
+        },
+        {
+          "name": "Heron's formula and its generalizations",
+          "role": "secondary",
+          "evidence": "Heron's formula and its generalizations are used to relate area squares to rational side lengths, confirming rationality of area products and ratios."
+        },
+        {
+          "name": "determinant identities for area/volume",
+          "role": "secondary",
+          "evidence": "Determinant identities for area and volume are invoked to relate rational squared distances to rational area products."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming rationality of coordinates directly without exploiting geometric constraints",
+        "Trying to compute areas without relating them to rational quantities"
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "cfc129eb203db775b20e161355859adff8f8229ede243f5f4bd11177fff305d8"
+    },
+    {
+      "id": "putnam_2018_b1",
+      "topics": [
+        "finite combinatorics",
+        "integer vectors",
+        "set partitioning",
+        "parity",
+        "symmetry"
+      ],
+      "concepts": [
+        "vector sum",
+        "parity",
+        "partitioning sets",
+        "average value",
+        "symmetry"
+      ],
+      "primary_techniques": [
+        "parity analysis",
+        "symmetry pairing",
+        "explicit construction"
+      ],
+      "secondary_techniques": [
+        "average calculation",
+        "casework"
+      ],
+      "techniques": [
+        "parity analysis",
+        "symmetry pairing",
+        "explicit construction",
+        "average calculation",
+        "casework"
+      ],
+      "solution_archetypes": [
+        "parity constraint",
+        "symmetry-based pairing",
+        "explicit partition construction"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "vector arithmetic",
+        "parity arguments",
+        "finite set partitioning"
+      ],
+      "key_observation": "The vector removed must have odd x-coordinate and even y-coordinate, specifically (1,b) with even b, due to parity and sum constraints.",
+      "solution_architecture": "First, use parity and sum constraints to restrict possible vectors that can be removed. Then, construct explicit partitions for these candidates using symmetric pairings and handle special cases as needed.",
+      "technique_evidence": [
+        {
+          "name": "parity analysis",
+          "role": "primary",
+          "evidence": "The proof uses parity of coordinates to restrict possible vectors, showing only (1,b) with even b work."
+        },
+        {
+          "name": "symmetry pairing",
+          "role": "primary",
+          "evidence": "Pairs of vectors are constructed so their sums are symmetric, enabling equal partitioning."
+        },
+        {
+          "name": "explicit construction",
+          "role": "primary",
+          "evidence": "Explicit assignment of vectors to partitions is given for each valid case."
+        },
+        {
+          "name": "average calculation",
+          "role": "secondary",
+          "evidence": "The average value of coordinates is used to compute total sum and guide parity reasoning."
+        },
+        {
+          "name": "casework",
+          "role": "secondary",
+          "evidence": "Special handling for the b=50 case shows casework is used."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to partition without considering parity constraints",
+        "Attempting to construct partitions for arbitrary vectors without checking sum and size conditions"
+      ],
+      "difficulty_overall": 4.8,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "86aedbf6582370123e63464490179d3effcfd496c0790cb4c305e44b81b517c3"
+    },
+    {
+      "id": "putnam_2018_b2",
+      "topics": [
+        "Complex analysis",
+        "Polynomials",
+        "Root location",
+        "Inequalities",
+        "Convex geometry"
+      ],
+      "concepts": [
+        "roots of polynomials",
+        "triangle inequality",
+        "convex hull",
+        "Gauss-Lucas theorem",
+        "Eneström-Kakeya theorem"
+      ],
+      "primary_techniques": [
+        "Triangle inequality with equality analysis",
+        "Gauss-Lucas theorem"
+      ],
+      "secondary_techniques": [
+        "Eneström-Kakeya theorem",
+        "Polynomial transformation"
+      ],
+      "techniques": [
+        "Triangle inequality with equality analysis",
+        "Gauss-Lucas theorem",
+        "Eneström-Kakeya theorem",
+        "Polynomial transformation"
+      ],
+      "solution_archetypes": [
+        "Bounding polynomial modulus in a region",
+        "Root location via convex hull",
+        "Root location via coefficient monotonicity"
+      ],
+      "prerequisites": [
+        "Complex analysis basics",
+        "Triangle inequality",
+        "Roots of unity",
+        "Gauss-Lucas theorem",
+        "Eneström-Kakeya theorem"
+      ],
+      "key_observation": "The triangle inequality bounds the sum of powers of z in the unit disk, and equality only occurs at z=1, which is not a root; alternatively, the roots of the derivative of a polynomial with roots on the unit circle lie strictly inside the convex hull by Gauss-Lucas.",
+      "solution_architecture": "Transform the polynomial to relate its roots to those of a well-understood polynomial; use triangle inequality to bound the modulus of the sum in the unit disk, analyze equality cases, and invoke Gauss-Lucas theorem to locate roots of the derivative inside the convex hull of roots of the original polynomial.",
+      "technique_evidence": [
+        {
+          "name": "Triangle inequality with equality analysis",
+          "role": "primary",
+          "evidence": "Triangle inequality is used to bound |z^n + ... + z| ≤ n for |z| ≤ 1, with equality only at z=1."
+        },
+        {
+          "name": "Gauss-Lucas theorem",
+          "role": "primary",
+          "evidence": "The roots of the derivative g_n(z) are shown to lie inside the convex hull of roots of h_n(z), which are on the unit circle."
+        },
+        {
+          "name": "Eneström-Kakeya theorem",
+          "role": "secondary",
+          "evidence": "Eneström-Kakeya theorem is referenced to bound root locations based on coefficient monotonicity."
+        },
+        {
+          "name": "Polynomial transformation",
+          "role": "secondary",
+          "evidence": "The transformation z^{n-1}g_n(z^{-1}) = f_n(z) relates the roots of f_n to those of g_n."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming triangle inequality alone suffices without considering equality cases",
+        "Attempting direct evaluation at boundary points without leveraging polynomial structure"
+      ],
+      "difficulty_overall": 5.5,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "188c9d716c2d52e1d8fed07270e5e096d68236f39bc7cb748b10ec7f302c9bbb"
+    },
+    {
+      "id": "putnam_2018_b3",
+      "topics": [
+        "number theory",
+        "modular arithmetic",
+        "divisibility",
+        "orders of elements"
+      ],
+      "concepts": [
+        "order of an element modulo n",
+        "periodicity of powers modulo n",
+        "divisibility criteria for exponents",
+        "structure of powers of 2"
+      ],
+      "primary_techniques": [
+        "iterative narrowing via divisibility constraints",
+        "modular periodicity analysis"
+      ],
+      "secondary_techniques": [
+        "bounding exponents using inequalities",
+        "elimination of degenerate cases"
+      ],
+      "techniques": [
+        "iterative narrowing via divisibility constraints",
+        "modular periodicity analysis",
+        "bounding exponents using inequalities",
+        "elimination of degenerate cases"
+      ],
+      "solution_archetypes": [
+        "iterative restriction",
+        "modular periodicity",
+        "exponent structure analysis"
+      ],
+      "prerequisites": [
+        "modular arithmetic",
+        "order of elements modulo n",
+        "basic divisibility",
+        "properties of powers of 2"
+      ],
+      "key_observation": "The divisibility conditions force n to be a power of 2, and further restrict the exponent to be a power of 2, iteratively narrowing the possibilities.",
+      "solution_architecture": "First, restrict n to powers of 2 using the first divisibility condition. Next, analyze the periodicity of powers modulo n-1 to further restrict the exponent to powers of 2. Finally, apply similar reasoning to n-2, using divisibility of exponents, and eliminate degenerate cases. Bound the possible exponents using the given inequality.",
+      "technique_evidence": [
+        {
+          "name": "iterative narrowing via divisibility constraints",
+          "role": "primary",
+          "evidence": "The proof begins by showing n must be a power of 2 to satisfy n | 2^n."
+        },
+        {
+          "name": "modular periodicity analysis",
+          "role": "primary",
+          "evidence": "The argument uses the periodicity of 2 modulo n-1 and n-2 to restrict the exponent further."
+        },
+        {
+          "name": "bounding exponents using inequalities",
+          "role": "secondary",
+          "evidence": "The proof checks the upper bound for n using inequalities."
+        },
+        {
+          "name": "elimination of degenerate cases",
+          "role": "secondary",
+          "evidence": "Degenerate cases (n=1, n=2) are explicitly excluded."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming arbitrary n without restricting to powers of 2",
+        "Trying to solve divisibility conditions independently without linking their structure"
+      ],
+      "difficulty_overall": 5.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "ef0fe7ae498396bd02b6753eaf390f89f2c6ccd7bf8779ab0b4396bd022877db"
+    },
+    {
+      "id": "putnam_2018_b4",
+      "topics": [
+        "recurrence relations",
+        "trigonometric functions",
+        "periodicity",
+        "modular arithmetic",
+        "Fibonacci numbers",
+        "Chebyshev polynomials"
+      ],
+      "concepts": [
+        "periodicity",
+        "recurrence relations",
+        "modular arithmetic",
+        "trigonometric identities",
+        "Fibonacci sequence",
+        "Chebyshev polynomials"
+      ],
+      "primary_techniques": [
+        "Transforming the recurrence into a trigonometric form using cosines and Fibonacci numbers",
+        "Inductive proof to establish the closed form for x_n"
+      ],
+      "secondary_techniques": [
+        "Bounding arguments to rule out |a|>1",
+        "Pigeonhole principle for periodicity in modular arithmetic",
+        "Connection to Chebyshev polynomials"
+      ],
+      "techniques": [
+        "Transforming the recurrence into a trigonometric form using cosines and Fibonacci numbers",
+        "Inductive proof to establish the closed form for x_n",
+        "Bounding arguments to rule out |a|>1",
+        "Pigeonhole principle for periodicity in modular arithmetic",
+        "Connection to Chebyshev polynomials"
+      ],
+      "solution_archetypes": [
+        "Closed-form expression via recurrence transformation",
+        "Periodicity via modular arithmetic and pigeonhole principle"
+      ],
+      "prerequisites": [
+        "recurrence relations",
+        "trigonometric addition formulas",
+        "properties of the cosine function",
+        "modular arithmetic",
+        "Fibonacci sequence"
+      ],
+      "key_observation": "The sequence can be expressed as x_n = cos(F_n b), where F_n is the Fibonacci sequence and b is chosen so that a = cos b; this links the recurrence to periodicity via modular properties of the Fibonacci numbers.",
+      "solution_architecture": "First, rule out the case |a|>1 by showing the sequence cannot reach zero. Then, for |a|≤1, express the sequence in terms of cos(F_n b) using induction, leveraging trigonometric identities and the Fibonacci sequence. If x_n=0, deduce that b is a rational multiple of π, so the sequence of (F_n b) modulo 2π is periodic. Use modular arithmetic and the pigeonhole principle to conclude periodicity of the sequence.",
+      "technique_evidence": [
+        {
+          "name": "Transforming the recurrence into a trigonometric form using cosines and Fibonacci numbers",
+          "role": "primary",
+          "evidence": "The proof constructs x_n = cos(F_n b) by induction, showing the recurrence matches the trigonometric form."
+        },
+        {
+          "name": "Inductive proof to establish the closed form for x_n",
+          "role": "primary",
+          "evidence": "Induction is used to show the formula holds for all n."
+        },
+        {
+          "name": "Bounding arguments to rule out |a|>1",
+          "role": "secondary",
+          "evidence": "Bounding arguments show that for |a|>1, the sequence cannot reach zero."
+        },
+        {
+          "name": "Pigeonhole principle for periodicity in modular arithmetic",
+          "role": "secondary",
+          "evidence": "The proof uses modular arithmetic on Fibonacci numbers and the pigeonhole principle to show periodicity."
+        },
+        {
+          "name": "Connection to Chebyshev polynomials",
+          "role": "secondary",
+          "evidence": "The explicit computation of early terms reveals a connection to Chebyshev polynomials."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly analyze the recurrence without recognizing its connection to trigonometric or Chebyshev polynomials.",
+        "Attempting to prove periodicity for all real a without first ruling out |a|>1."
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "30dafc0955964adc0981aa9016f061f6c6fcea9d89e5f3bde35c05833de48c4e"
+    },
+    {
+      "id": "putnam_2018_b5",
+      "topics": [
+        "multivariable calculus",
+        "linear algebra",
+        "analysis",
+        "injectivity",
+        "quadratic forms"
+      ],
+      "concepts": [
+        "injectivity",
+        "quadratic forms",
+        "positive definiteness",
+        "chain rule",
+        "Jacobian matrix",
+        "symmetrization",
+        "Sylvester's criterion"
+      ],
+      "primary_techniques": [
+        "Reduction to monotonicity along line segments via quadratic form",
+        "Symmetrization of Jacobian matrix",
+        "Application of positive definiteness criteria"
+      ],
+      "secondary_techniques": [
+        "Chain rule for differentiating along a path",
+        "Contradiction argument"
+      ],
+      "techniques": [
+        "Reduction to monotonicity along line segments via quadratic form",
+        "Symmetrization of Jacobian matrix",
+        "Application of positive definiteness criteria",
+        "Chain rule for differentiating along a path",
+        "Contradiction argument"
+      ],
+      "solution_archetypes": [
+        "Path-based monotonicity argument",
+        "Quadratic form positivity implies injectivity"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "linear algebra (quadratic forms, positive definite matrices)",
+        "chain rule for vector-valued functions"
+      ],
+      "key_observation": "The symmetrized Jacobian matrix defines a positive definite quadratic form, ensuring strict monotonicity along any line segment, which implies injectivity.",
+      "solution_architecture": "Reduce injectivity to monotonicity of a real-valued function along any line segment between two points. Compute the derivative using the chain rule and express it as a quadratic form in the direction vector. Show that the symmetrized Jacobian matrix yields a positive definite quadratic form by the given inequality, ensuring strict increase unless the points coincide. Conclude injectivity by contradiction.",
+      "technique_evidence": [
+        {
+          "name": "Reduction to monotonicity along line segments via quadratic form",
+          "role": "primary",
+          "evidence": "The proof constructs a function along a segment and computes its derivative as a quadratic form, showing strict positivity."
+        },
+        {
+          "name": "Symmetrization of Jacobian matrix",
+          "role": "primary",
+          "evidence": "The proof explicitly symmetrizes the Jacobian to analyze the quadratic form's definiteness."
+        },
+        {
+          "name": "Application of positive definiteness criteria",
+          "role": "primary",
+          "evidence": "The argument invokes Sylvester's criterion for positive definiteness, relating it to the problem's inequality."
+        },
+        {
+          "name": "Chain rule for differentiating along a path",
+          "role": "secondary",
+          "evidence": "The chain rule is used to differentiate the composed function along the path."
+        },
+        {
+          "name": "Contradiction argument",
+          "role": "secondary",
+          "evidence": "Injectivity is concluded by contradiction: equality of images would force the monotonic function to be constant, which is impossible."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming injectivity from positivity of all partial derivatives without considering the quadratic form.",
+        "Attempting to use only the determinant of the Jacobian without symmetrizing or considering the full quadratic form."
+      ],
+      "difficulty_overall": 7.1,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "bbbc8c528d1270936c13c0151912b2f7a7d4ec875c0d2911aa0c1c4510dee1a1"
+    },
+    {
+      "id": "putnam_2018_b6",
+      "topics": [
+        "combinatorics",
+        "algebra",
+        "generating functions",
+        "sequence enumeration",
+        "inequalities"
+      ],
+      "concepts": [
+        "generating functions",
+        "induction",
+        "sequence enumeration",
+        "upper bounds"
+      ],
+      "primary_techniques": [
+        "inductive bounding",
+        "generating function coefficient estimation"
+      ],
+      "secondary_techniques": [
+        "sequence decomposition",
+        "inequality manipulation"
+      ],
+      "techniques": [
+        "inductive bounding",
+        "generating function coefficient estimation",
+        "sequence decomposition",
+        "inequality manipulation"
+      ],
+      "solution_archetypes": [
+        "inductive bounding",
+        "generating function evaluation"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "generating functions",
+        "induction"
+      ],
+      "key_observation": "The number of sequences is the coefficient of x^n in a generating function, and bounding this coefficient via induction or evaluation at x=1/2 yields the desired inequality.",
+      "solution_architecture": "Set up a recurrence for the sequence count via decomposition by last term, then inductively bound the count using a geometric sum. Alternatively, interpret the count as a generating function coefficient and bound it by evaluating the generating function at a specific value (x=1/2).",
+      "technique_evidence": [
+        {
+          "name": "inductive bounding",
+          "role": "primary",
+          "evidence": "The proof sets up a recurrence for a(k,n) based on the last term, then applies the induction hypothesis to bound each term, summing to a geometric series."
+        },
+        {
+          "name": "generating function coefficient estimation",
+          "role": "primary",
+          "evidence": "The remark interprets the sequence count as a generating function coefficient and bounds it by evaluating at x=1/2, matching the stated bound."
+        },
+        {
+          "name": "sequence decomposition",
+          "role": "secondary",
+          "evidence": "The proof decomposes sequences by their last term to set up the recurrence."
+        },
+        {
+          "name": "inequality manipulation",
+          "role": "secondary",
+          "evidence": "The proof manipulates the geometric sum and inequalities to arrive at the final bound."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to enumerate sequences directly without bounding techniques",
+        "Applying stars-and-bars without accounting for restricted term values"
+      ],
+      "difficulty_overall": 7.3,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2018",
+      "review_status": "solution_analyzed",
+      "review_year": 2018,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2018s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "1f6bf06d9961471e133e1fa2c07f698b40202d76df1c6994f0d11581d7dae69c"
+    }
+  ]
+}
