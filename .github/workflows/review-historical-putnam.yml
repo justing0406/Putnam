@@ -17,6 +17,7 @@ on:
       - scripts/build-reviewed-overlays.mjs
 
 permissions:
+  actions: write
   contents: write
   models: read
 
@@ -28,7 +29,7 @@ jobs:
   review-year:
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    # One year per run keeps model usage predictable and makes each year's metadata independently auditable.
+    # Each run handles one auditable year, then immediately queues the next incomplete year.
     steps:
       - uses: actions/checkout@v4
         with:
@@ -112,11 +113,38 @@ jobs:
         run: |
           if git diff --quiet -- "data/reviews/${YEAR}.json" src/catalog-reviewed-generated.js; then
             echo "No review changes to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add "data/reviews/${YEAR}.json" src/catalog-reviewed-generated.js
+            git commit -m "Analyze ${YEAR} Putnam solutions"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Queue the next incomplete year immediately
+        if: steps.select.outputs.year != '' && success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NEXT_YEAR=$(node --input-type=module <<'NODE'
+          import { readdir } from "node:fs/promises";
+          const existing = (await readdir("data/reviews"))
+            .filter((name) => /^\d{4}\.json$/.test(name))
+            .map((name) => Number(name.slice(0, 4)));
+          for (let year = 2023; year >= 1962; year -= 1) {
+            if (!existing.includes(year)) {
+              console.log(year);
+              process.exit(0);
+            }
+          }
+          NODE
+          )
+
+          if [ -z "$NEXT_YEAR" ]; then
+            echo "Historical solution analysis is complete through 1962."
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "data/reviews/${YEAR}.json" src/catalog-reviewed-generated.js
-          git commit -m "Analyze ${YEAR} Putnam solutions"
-          git pull --rebase origin main
-          git push origin HEAD:main
+
+          echo "Queueing $NEXT_YEAR immediately."
+          gh workflow run review-historical-putnam.yml --ref main -f year="$NEXT_YEAR"
