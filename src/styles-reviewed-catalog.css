@@ -2,9 +2,18 @@
   border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
 }
 
+.catalog-card-analyzed {
+  border-color: color-mix(in srgb, #b7791f 34%, var(--border));
+}
+
 .catalog-classification.reviewed {
   background: color-mix(in srgb, var(--success) 12%, var(--background));
   color: var(--success);
+}
+
+.catalog-classification.analyzed {
+  background: color-mix(in srgb, #b7791f 13%, var(--background));
+  color: #946314;
 }
 
 .reviewed-similarity-score {
@@ -22,6 +31,15 @@
   border-left: 4px solid var(--accent);
   border-radius: 0 14px 14px 0;
   background: color-mix(in srgb, var(--accent) 6%, var(--background));
+}
+
+.catalog-card-analyzed .reviewed-key-insight {
+  border-left-color: #b7791f;
+  background: color-mix(in srgb, #b7791f 6%, var(--background));
+}
+
+.catalog-card-analyzed .reviewed-key-insight small {
+  color: #946314;
 }
 
 .reviewed-key-insight small {
@@ -105,6 +123,11 @@
   font-size: 0.68rem;
   font-weight: 750;
   text-transform: uppercase;
+}
+
+.catalog-card-analyzed .technique-evidence-list article > span {
+  background: color-mix(in srgb, #b7791f 11%, var(--background));
+  color: #946314;
 }
 
 .technique-evidence-list p {
