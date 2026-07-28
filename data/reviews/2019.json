@@ -1,0 +1,1070 @@
+{
+  "year": 2019,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2019.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+  "problem_source_sha256": "ecaae3200c378b8af6bf7d0fe16d2b8f738ce44aa01725c842ab43eb31d18643",
+  "solution_source_sha256": "ddfb24f6dcb1a1bb3a8fa34091cc967db45111f0202d860fd29a6b1764406d4e",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-28T18:51:46.085Z",
+  "problems": [
+    {
+      "id": "putnam_2019_a1",
+      "topics": [
+        "algebraic expressions",
+        "modular arithmetic",
+        "polynomial factorization",
+        "matrix theory",
+        "number theory"
+      ],
+      "concepts": [
+        "factorization",
+        "modular arithmetic",
+        "norm forms",
+        "circulant matrices",
+        "eigenvalues",
+        "Eisenstein integers"
+      ],
+      "primary_techniques": [
+        "factorization of symmetric polynomials",
+        "modular arithmetic analysis"
+      ],
+      "secondary_techniques": [
+        "parameterization of variables",
+        "eigenvalue interpretation",
+        "norm form analysis"
+      ],
+      "techniques": [
+        "factorization of symmetric polynomials",
+        "modular arithmetic analysis",
+        "parameterization of variables",
+        "eigenvalue interpretation",
+        "norm form analysis"
+      ],
+      "solution_archetypes": [
+        "factorization and modular restriction",
+        "parameterization to achieve values"
+      ],
+      "prerequisites": [
+        "basic algebra",
+        "modular arithmetic",
+        "polynomial factorization",
+        "AM-GM inequality",
+        "properties of circulant matrices"
+      ],
+      "key_observation": "The expression can be factored as (A+B+C)(A^2+B^2+C^2-AB-BC-CA), revealing its structure and enabling modular analysis.",
+      "solution_architecture": "First, factor the expression to expose its algebraic structure. Then, parameterize variables to show which values are attainable. Next, use modular arithmetic to restrict possible values, proving that only certain congruence classes are possible. Finally, confirm nonnegativity and completeness of the set by algebraic and modular arguments.",
+      "technique_evidence": [
+        {
+          "name": "factorization of symmetric polynomials",
+          "role": "primary",
+          "evidence": "The proof begins by rewriting the expression in terms of (b,c) and factoring it, which enables systematic value generation."
+        },
+        {
+          "name": "modular arithmetic analysis",
+          "role": "primary",
+          "evidence": "The solution analyzes the expression modulo 3 and 9 to determine which values are possible and which are excluded."
+        },
+        {
+          "name": "parameterization of variables",
+          "role": "secondary",
+          "evidence": "Variables are parameterized as B=A+b, C=A+c to facilitate value generation."
+        },
+        {
+          "name": "eigenvalue interpretation",
+          "role": "secondary",
+          "evidence": "The remark connects the factorization to circulant matrices and eigenvalues, providing structural insight."
+        },
+        {
+          "name": "norm form analysis",
+          "role": "secondary",
+          "evidence": "The norm form perspective is used to explain closure under multiplication and divisibility properties."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to enumerate all possible values directly without factorization",
+        "Attempting to analyze modulo 3 or 9 without structural insight"
+      ],
+      "difficulty_overall": 4.2,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "b3a35f64c6cdd82bbdace79b6bcae19cb75a173643a35839223a46e888453ae8"
+    },
+    {
+      "id": "putnam_2019_a2",
+      "topics": [
+        "triangle geometry",
+        "trigonometry",
+        "coordinate geometry",
+        "locus and uniqueness arguments"
+      ],
+      "concepts": [
+        "triangle centers",
+        "incircle",
+        "centroid",
+        "parallelism in geometry",
+        "triangle similarity",
+        "ellipse locus",
+        "angle bisectors"
+      ],
+      "primary_techniques": [
+        "geometric interpretation of triangle centers",
+        "ratio analysis of distances in triangle",
+        "trigonometric manipulation"
+      ],
+      "secondary_techniques": [
+        "coordinate geometry",
+        "ellipse locus argument",
+        "law of cosines"
+      ],
+      "techniques": [
+        "geometric interpretation of triangle centers",
+        "ratio analysis of distances in triangle",
+        "trigonometric manipulation",
+        "coordinate geometry",
+        "ellipse locus argument",
+        "law of cosines"
+      ],
+      "solution_archetypes": [
+        "center-based geometric constraint",
+        "ratio-based triangle determination",
+        "uniqueness via locus intersection"
+      ],
+      "prerequisites": [
+        "properties of triangle centers (centroid, incenter)",
+        "basic triangle geometry",
+        "Heron's formula",
+        "trigonometric identities",
+        "coordinate geometry"
+      ],
+      "key_observation": "The parallelism of IG and AB forces a proportional relationship between distances from triangle centers to AB, which, combined with the given angle, uniquely determines the triangle as right-angled at A.",
+      "solution_architecture": "First, interpret the parallelism constraint in terms of triangle centers and distances, deducing a proportional relationship between the altitude and inradius. Next, use the given angle and tangent formulas to relate side lengths and distances. Finally, confirm the triangle's uniqueness and type (right triangle) via geometric or algebraic arguments, optionally using coordinate or locus methods.",
+      "technique_evidence": [
+        {
+          "name": "geometric interpretation of triangle centers",
+          "role": "primary",
+          "evidence": "The proof uses the fact that IG parallel to AB implies a fixed ratio between the altitude and inradius, which is a geometric property of triangle centers."
+        },
+        {
+          "name": "ratio analysis of distances in triangle",
+          "role": "primary",
+          "evidence": "The solution repeatedly sets up ratios between distances (e.g., CD/DB = tan(beta), EB = r/tan(beta/2)), which drive the deduction of triangle type."
+        },
+        {
+          "name": "trigonometric manipulation",
+          "role": "primary",
+          "evidence": "Manipulation of tangent and double-angle formulas is used to relate angles and side lengths, leading to the determination of alpha."
+        },
+        {
+          "name": "coordinate geometry",
+          "role": "secondary",
+          "evidence": "A coordinate system is used in the remark to explicitly construct the triangle and verify the properties."
+        },
+        {
+          "name": "ellipse locus argument",
+          "role": "secondary",
+          "evidence": "The locus argument restricts C to an ellipse, showing uniqueness of the triangle given the constraints."
+        },
+        {
+          "name": "law of cosines",
+          "role": "secondary",
+          "evidence": "Law of cosines is mentioned as a way to recover side ratios once the triangle type is known."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to solve solely via trigonometric identities without geometric interpretation",
+        "Trying to use only coordinate geometry without leveraging triangle centers",
+        "Assuming arbitrary triangle types without checking uniqueness or special properties"
+      ],
+      "difficulty_overall": 5.5,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d2a472e4c89630903422bfa753ae458eb5fbb182070a5977026393b659b4efcd",
+      "statement": "In the triangle \\(\\triangle ABC\\), let \\(G\\) be the centroid, and let \\(I\\) be the center of the inscribed circle.\nLet \\(\\alpha\\) and \\(\\beta\\) be the angles at the vertices \\(A\\) and \\(B\\), respectively.\nSuppose that the segment \\(IG\\) is parallel to \\(AB\\) and that \\(\\beta = 2 \\tan^{-1} (1/3)\\). Find \\(\\alpha\\).",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2019.tex"
+    },
+    {
+      "id": "putnam_2019_a3",
+      "topics": [
+        "polynomial inequalities",
+        "complex analysis",
+        "symmetric functions",
+        "extremal examples"
+      ],
+      "concepts": [
+        "polynomial roots",
+        "modulus of complex numbers",
+        "symmetric means",
+        "AM-GM inequality",
+        "extremal construction"
+      ],
+      "primary_techniques": [
+        "AM-GM inequality on root moduli",
+        "explicit extremal construction"
+      ],
+      "secondary_techniques": [
+        "polynomial scaling",
+        "root location via symmetric functions"
+      ],
+      "techniques": [
+        "AM-GM inequality on root moduli",
+        "explicit extremal construction",
+        "polynomial scaling",
+        "root location via symmetric functions"
+      ],
+      "solution_archetypes": [
+        "inequality bounding via symmetric means",
+        "extremal example to show sharpness"
+      ],
+      "prerequisites": [
+        "AM-GM inequality",
+        "properties of polynomial roots",
+        "complex numbers"
+      ],
+      "key_observation": "The geometric mean of the moduli of the roots equals |b_0/b_{2019}|^{1/2019}, and AM-GM gives a lower bound for the arithmetic mean.",
+      "solution_architecture": "First, use the AM-GM inequality to bound the average modulus of the roots in terms of the geometric mean, which is determined by the constant and leading coefficients. Then, construct a specific sequence of coefficients so that all roots have equal modulus, achieving the bound and showing it is sharp.",
+      "technique_evidence": [
+        {
+          "name": "AM-GM inequality on root moduli",
+          "role": "primary",
+          "evidence": "The AM-GM inequality is applied to the moduli of the roots, relating the arithmetic mean to the geometric mean, which is computable from the coefficients."
+        },
+        {
+          "name": "explicit extremal construction",
+          "role": "primary",
+          "evidence": "A specific choice of coefficients is made so that the polynomial becomes a shifted geometric series, whose roots all lie on the unit circle after scaling, achieving the minimal average modulus."
+        },
+        {
+          "name": "polynomial scaling",
+          "role": "secondary",
+          "evidence": "The geometric mean of the moduli is calculated using the product of the roots, which is determined by the ratio of the constant and leading coefficients."
+        },
+        {
+          "name": "root location via symmetric functions",
+          "role": "secondary",
+          "evidence": "The roots are shown to have equal modulus in the extremal case, using symmetric functions and properties of geometric series polynomials."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to bound the average modulus directly without using symmetric functions or inequalities.",
+        "Attempting to use root location theorems (e.g., Rouché's theorem) instead of symmetric means."
+      ],
+      "difficulty_overall": 5.1,
+      "difficulty_insight": 6,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 4,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "47eba368e74168ce53444271bd6d7a5bfdc0e3b6cd5fc955ee0d28c0d95d27c6"
+    },
+    {
+      "id": "putnam_2019_a4",
+      "topics": [
+        "analysis",
+        "multivariable calculus",
+        "surface integrals",
+        "counterexamples"
+      ],
+      "concepts": [
+        "continuous functions",
+        "periodicity",
+        "surface integrals",
+        "parametrization of spheres",
+        "change of variables",
+        "counterexample construction"
+      ],
+      "primary_techniques": [
+        "explicit counterexample construction",
+        "parametrization and computation of surface integrals"
+      ],
+      "secondary_techniques": [
+        "change of variables",
+        "periodicity argument"
+      ],
+      "techniques": [
+        "explicit counterexample construction",
+        "parametrization and computation of surface integrals",
+        "change of variables",
+        "periodicity argument"
+      ],
+      "solution_archetypes": [
+        "counterexample to universal property",
+        "reduction to one-variable function"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "surface integrals",
+        "parametrization of spheres",
+        "basic properties of periodic functions"
+      ],
+      "key_observation": "A function depending only on z and periodic with period 2, whose integral over any interval of length 2 vanishes, will have zero surface integral over any unit sphere.",
+      "solution_architecture": "Construct a continuous function f(x,y,z) = g(z) where g is periodic with period 2 and has zero integral over any interval of length 2. Parametrize the unit sphere, compute the surface integral, and show it reduces to integrating g over an interval of length 2, which is zero by construction. Thus, f is not identically zero but satisfies the given property.",
+      "technique_evidence": [
+        {
+          "name": "explicit counterexample construction",
+          "role": "primary",
+          "evidence": "The proof defines f(x,y,z) = g(z) and computes the surface integral over any sphere, showing it reduces to integrating g over an interval of length 2."
+        },
+        {
+          "name": "parametrization and computation of surface integrals",
+          "role": "primary",
+          "evidence": "The solution parametrizes the sphere and computes the surface integral using spherical coordinates."
+        },
+        {
+          "name": "change of variables",
+          "role": "secondary",
+          "evidence": "The substitution t = cos(phi) is used to simplify the integral."
+        },
+        {
+          "name": "periodicity argument",
+          "role": "secondary",
+          "evidence": "The periodicity and integral properties of g are used to ensure the surface integral vanishes."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming that the vanishing integral over all spheres implies f is identically zero without constructing a counterexample.",
+        "Attempting to use spherical harmonics or symmetry arguments without considering explicit constructions."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "27661294dae8dd0dc1876086633e9367c918fa7e3bdc945e64ea48992db9549f"
+    },
+    {
+      "id": "putnam_2019_a5",
+      "topics": [
+        "finite fields",
+        "polynomial rings",
+        "formal differentiation",
+        "roots and divisibility",
+        "number theory"
+      ],
+      "concepts": [
+        "formal differentiation",
+        "multiplicative order",
+        "primitive roots",
+        "Fermat's little theorem",
+        "polynomial divisibility"
+      ],
+      "primary_techniques": [
+        "use of formal differentiation operator D",
+        "analysis of polynomial divisibility via vanishing derivatives at a root"
+      ],
+      "secondary_techniques": [
+        "summation over finite fields",
+        "application of Fermat's little theorem",
+        "argument by permutation of terms using primitive roots"
+      ],
+      "techniques": [
+        "use of formal differentiation operator D",
+        "analysis of polynomial divisibility via vanishing derivatives at a root",
+        "summation over finite fields",
+        "application of Fermat's little theorem",
+        "argument by permutation of terms using primitive roots"
+      ],
+      "solution_archetypes": [
+        "operator-based divisibility analysis",
+        "root-vanishing criterion for divisibility"
+      ],
+      "prerequisites": [
+        "basic properties of finite fields",
+        "polynomial rings over finite fields",
+        "formal differentiation of polynomials",
+        "Fermat's little theorem",
+        "primitive roots modulo p"
+      ],
+      "key_observation": "The operator D = x d/dx, when applied iteratively to the sum s(x), produces the coefficients in q(x), and the divisibility by (x-1)^n is controlled by the vanishing of D^m q at x=1.",
+      "solution_architecture": "First, relate the coefficients of q(x) to the action of repeated application of the operator D on a simple polynomial s(x). Then, use the fact that divisibility by (x-1)^n is equivalent to the vanishing of the first n derivatives at x=1. Analyze when these derivatives vanish, leveraging properties of finite fields and Fermat's theorem, to determine the maximal n.",
+      "technique_evidence": [
+        {
+          "name": "use of formal differentiation operator D",
+          "role": "primary",
+          "evidence": "The solution constructs q(x) as D^{(p-1)/2} s(x), showing the operator D is central to generating the coefficients."
+        },
+        {
+          "name": "analysis of polynomial divisibility via vanishing derivatives at a root",
+          "role": "primary",
+          "evidence": "The proof determines divisibility by (x-1)^n through the vanishing of D^m q at x=1 for m=0,...,n-1."
+        },
+        {
+          "name": "summation over finite fields",
+          "role": "secondary",
+          "evidence": "The remark uses summation properties and Fermat's theorem to check vanishing sums, supporting the main argument."
+        },
+        {
+          "name": "application of Fermat's little theorem",
+          "role": "secondary",
+          "evidence": "The proof uses Fermat's theorem to show when sums vanish modulo p."
+        },
+        {
+          "name": "argument by permutation of terms using primitive roots",
+          "role": "secondary",
+          "evidence": "The argument about permutation of terms by primitive roots is used to show sums vanish unless the exponent is divisible by p-1."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to factor q(x) directly without considering the structure of its coefficients.",
+        "Trying to use only elementary divisibility or root-counting arguments without leveraging the operator D."
+      ],
+      "difficulty_overall": 7.3,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0a54b95c661f328ee747c849b9fabfdf7b3be5e77d4d902d472ef29400bfe48d"
+    },
+    {
+      "id": "putnam_2019_a6",
+      "topics": [
+        "Real analysis",
+        "Limits and continuity",
+        "Differentiability",
+        "Taylor's theorem",
+        "Asymptotic estimates"
+      ],
+      "concepts": [
+        "limsup",
+        "Taylor's theorem with remainder",
+        "intermediate function construction",
+        "contradiction argument",
+        "sequence approaching zero"
+      ],
+      "primary_techniques": [
+        "Taylor expansion with remainder",
+        "Intermediate function construction",
+        "Proof by contradiction"
+      ],
+      "secondary_techniques": [
+        "Bounding suprema over intervals",
+        "Sequence selection for contradiction"
+      ],
+      "techniques": [
+        "Taylor expansion with remainder",
+        "Intermediate function construction",
+        "Proof by contradiction",
+        "Bounding suprema over intervals",
+        "Sequence selection for contradiction"
+      ],
+      "solution_archetypes": [
+        "Case analysis based on boundedness",
+        "Contradiction via quantitative estimates",
+        "Intermediate function insertion"
+      ],
+      "prerequisites": [
+        "Taylor's theorem with remainder",
+        "Limits and limsup",
+        "Continuity and differentiability",
+        "Estimating functions near singularities"
+      ],
+      "key_observation": "If x^r|g''(x)| is bounded near zero, then Taylor's theorem and a carefully chosen intermediate function allow us to relate the vanishing of g(x)/x^r to the behavior of g'(x), forcing g'(x) to vanish at zero.",
+      "solution_architecture": "Assume one alternative (bounded x^r|g''(x)|), construct an intermediate function h(x) between g(x) and x^r, apply Taylor's theorem to relate g'(x) to g(x) and g''(x), and show that all terms vanish as x→0, forcing g'(x)→0. Alternatively, use contradiction: assume both alternatives fail, construct a sequence and interval where g'(x) stays away from zero, and use quantitative estimates to contradict the vanishing of g(x)/x^r.",
+      "technique_evidence": [
+        {
+          "name": "Taylor expansion with remainder",
+          "role": "primary",
+          "evidence": "Taylor's theorem is used to expand g(x-h(x)) in terms of g(x), g'(x), and g''(ξ(x)), allowing precise control over the remainder."
+        },
+        {
+          "name": "Intermediate function construction",
+          "role": "primary",
+          "evidence": "The proof constructs h(x) so that it is positive, nondecreasing, and vanishes faster than x^r, enabling the comparison between g(x) and x^r."
+        },
+        {
+          "name": "Proof by contradiction",
+          "role": "primary",
+          "evidence": "The second solution assumes both alternatives fail and derives a contradiction by quantitative estimates on g'(x) and g''(x)."
+        },
+        {
+          "name": "Bounding suprema over intervals",
+          "role": "secondary",
+          "evidence": "Supremum over intervals is used to bound g''(ξ(x)) in the Taylor expansion."
+        },
+        {
+          "name": "Sequence selection for contradiction",
+          "role": "secondary",
+          "evidence": "A sequence x_n→0 is chosen where g'(x_n) stays away from zero, used in the contradiction argument."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly estimate g'(x) from the given limit without using Taylor's theorem or an intermediate function.",
+        "Assuming boundedness of x^r|g''(x)| implies boundedness of g'(x) without careful argument."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "6b2c8edbf5e66db84e81ef16da9a431adbac2e38c6c11ea44751bd8d2ed26ea9"
+    },
+    {
+      "id": "putnam_2019_b1",
+      "topics": [
+        "geometry",
+        "combinatorics",
+        "number theory",
+        "lattice points",
+        "induction"
+      ],
+      "concepts": [
+        "integer lattice",
+        "squares in the plane",
+        "powers of two",
+        "modular arithmetic",
+        "induction"
+      ],
+      "primary_techniques": [
+        "inductive characterization of P_n",
+        "classification of possible square configurations"
+      ],
+      "secondary_techniques": [
+        "modular arithmetic to restrict possible coordinates",
+        "symmetry arguments",
+        "geometric transformations (rotation, scaling)"
+      ],
+      "techniques": [
+        "inductive characterization of P_n",
+        "classification of possible square configurations",
+        "modular arithmetic to restrict possible coordinates",
+        "symmetry arguments",
+        "geometric transformations (rotation, scaling)"
+      ],
+      "solution_archetypes": [
+        "inductive structure analysis",
+        "casework on geometric configurations"
+      ],
+      "prerequisites": [
+        "modular arithmetic",
+        "induction",
+        "geometry of squares",
+        "integer lattice properties"
+      ],
+      "key_observation": "The structure of P_n can be recursively described using induction, and the only possible squares are those centered at the origin or aligned with axes or diagonals at specific scales.",
+      "solution_architecture": "First, use induction to describe the structure of P_n, showing which points are included based on their coordinates and powers of two. Then, classify all possible four-point subsets forming squares by considering cases: squares centered at the origin, squares aligned with axes, squares aligned with diagonals, and mixed cases. Rule out impossible cases using modular arithmetic and geometric arguments. Sum the valid cases to obtain the answer.",
+      "technique_evidence": [
+        {
+          "name": "inductive characterization of P_n",
+          "role": "primary",
+          "evidence": "Induction is used to describe P_n recursively, showing how points with even coordinates correspond to smaller n."
+        },
+        {
+          "name": "classification of possible square configurations",
+          "role": "primary",
+          "evidence": "The proof systematically considers all possible ways four points can form a square, based on their location in Q_k or R_k."
+        },
+        {
+          "name": "modular arithmetic to restrict possible coordinates",
+          "role": "secondary",
+          "evidence": "The argument uses x^2+y^2 ≡ 0 mod 4 to restrict possible coordinates, ensuring only even values are allowed."
+        },
+        {
+          "name": "symmetry arguments",
+          "role": "secondary",
+          "evidence": "Symmetry is used to reduce the number of cases and to rule out certain configurations."
+        },
+        {
+          "name": "geometric transformations (rotation, scaling)",
+          "role": "secondary",
+          "evidence": "Rotation and scaling arguments are used to relate diagonal squares to axis-aligned squares, showing no new cases arise."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming all points with x^2+y^2=2^k are equally distributed or form squares without checking integer coordinates.",
+        "Trying to enumerate squares directly without classifying the structure of P_n."
+      ],
+      "difficulty_overall": 4.8,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "59d3606a09598d05fcd2c4aba76b54e8dd4a7981c9d50b0fd16ee47b461a1633"
+    },
+    {
+      "id": "putnam_2019_b2",
+      "topics": [
+        "trigonometric sums",
+        "asymptotic analysis",
+        "series",
+        "limits"
+      ],
+      "concepts": [
+        "telescoping sums",
+        "asymptotic analysis",
+        "trigonometric identities",
+        "Taylor expansion",
+        "series manipulation"
+      ],
+      "primary_techniques": [
+        "telescoping sum via trigonometric manipulation",
+        "asymptotic expansion of sine"
+      ],
+      "secondary_techniques": [
+        "index substitution",
+        "series decomposition"
+      ],
+      "techniques": [
+        "telescoping sum via trigonometric manipulation",
+        "asymptotic expansion of sine",
+        "index substitution",
+        "series decomposition"
+      ],
+      "solution_archetypes": [
+        "telescoping sum",
+        "asymptotic evaluation"
+      ],
+      "prerequisites": [
+        "trigonometric identities",
+        "Taylor expansion for sine",
+        "telescoping series",
+        "asymptotic estimates"
+      ],
+      "key_observation": "The summand can be rewritten using trigonometric identities to produce a telescoping sum, and the asymptotic behavior of sine near zero allows precise limit evaluation.",
+      "solution_architecture": "Rewrite the summand using trigonometric identities to reveal a telescoping structure; sum telescopes to a simple expression involving sine. Apply asymptotic expansion for sine near zero to evaluate the limit as n grows, yielding the answer.",
+      "technique_evidence": [
+        {
+          "name": "telescoping sum via trigonometric manipulation",
+          "role": "primary",
+          "evidence": "The summand is rewritten using cosine double angle and sum-product identities, leading to a telescoping difference."
+        },
+        {
+          "name": "asymptotic expansion of sine",
+          "role": "primary",
+          "evidence": "The limit is evaluated using the approximation sin(x) ~ x for small x, and higher-order terms are estimated."
+        },
+        {
+          "name": "index substitution",
+          "role": "secondary",
+          "evidence": "Index substitution (k to n-k) is used to facilitate the asymptotic expansion."
+        },
+        {
+          "name": "series decomposition",
+          "role": "secondary",
+          "evidence": "Series decomposition is used to show the sum converges to 1."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly estimate the sum without simplification",
+        "Trying to evaluate the limit without rewriting the summand"
+      ],
+      "difficulty_overall": 5.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "52d7dfbaf5b5681d256777d80dc805bf498483ffc3dc21d361c8f7096c35da5e"
+    },
+    {
+      "id": "putnam_2019_b3",
+      "topics": [
+        "linear algebra",
+        "matrix theory",
+        "spectral theory",
+        "orthogonal matrices",
+        "reflection matrices",
+        "eigenvalues"
+      ],
+      "concepts": [
+        "orthogonal matrix",
+        "reflection matrix",
+        "eigenvalue",
+        "determinant",
+        "characteristic polynomial",
+        "conjugate pairs of eigenvalues",
+        "Householder transformation",
+        "Cayley transform"
+      ],
+      "primary_techniques": [
+        "determinant parity argument",
+        "spectral analysis of orthogonal matrices"
+      ],
+      "secondary_techniques": [
+        "reflection matrix properties",
+        "Cayley transform",
+        "matrix determinant lemma"
+      ],
+      "techniques": [
+        "determinant parity argument",
+        "spectral analysis of orthogonal matrices",
+        "reflection matrix properties",
+        "Cayley transform",
+        "matrix determinant lemma"
+      ],
+      "solution_archetypes": [
+        "parity/determinant contradiction",
+        "spectral structure exploitation"
+      ],
+      "prerequisites": [
+        "linear algebra: orthogonal matrices",
+        "spectral theory: eigenvalues and characteristic polynomials",
+        "matrix determinants",
+        "reflection matrices (Householder)",
+        "matrix transforms (Cayley transform)"
+      ],
+      "key_observation": "If Q lacks 1 as an eigenvalue, its determinant is (-1)^n, and combining with the reflection P (determinant -1) forces PQ to have 1 as an eigenvalue, since otherwise the determinant would contradict the spectral structure.",
+      "solution_architecture": "First, analyze the spectral properties and determinant of Q under the assumption that 1 is not an eigenvalue. Next, use the determinant of the reflection matrix P and the product PQ to show that if neither Q nor PQ has 1 as an eigenvalue, their determinants would contradict the determinant of P. Conclude that PQ must have 1 as an eigenvalue. Alternative approaches use the Cayley transform or matrix determinant lemma to reach the same conclusion via spectral or algebraic manipulation.",
+      "technique_evidence": [
+        {
+          "name": "determinant parity argument",
+          "role": "primary",
+          "evidence": "The proof computes the determinant of Q based on its eigenvalues, showing that absence of 1 forces det(Q) = (-1)^n."
+        },
+        {
+          "name": "spectral analysis of orthogonal matrices",
+          "role": "primary",
+          "evidence": "The argument relies on the spectral structure of orthogonal matrices, including conjugate pairs and the absence of 1 as an eigenvalue."
+        },
+        {
+          "name": "reflection matrix properties",
+          "role": "secondary",
+          "evidence": "Reflection matrix P is described and its determinant calculated, supporting the determinant contradiction."
+        },
+        {
+          "name": "Cayley transform",
+          "role": "secondary",
+          "evidence": "The Cayley transform is used in an alternative proof to relate Q to a skew-symmetric matrix and analyze eigenvalues."
+        },
+        {
+          "name": "matrix determinant lemma",
+          "role": "secondary",
+          "evidence": "A remark uses the matrix determinant lemma to analyze det(PQ-I), supporting the spectral argument."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute eigenvalues of PQ without leveraging determinant or spectral properties.",
+        "Attempting to diagonalize Q or PQ without using orthogonality or reflection structure."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0f72a8123315b6bdce1ca06637df100a0bba8438b463ed98706dcda4e310366a"
+    },
+    {
+      "id": "putnam_2019_b4",
+      "topics": [
+        "partial differential equations",
+        "multivariable calculus",
+        "integration",
+        "functional equations",
+        "symmetry"
+      ],
+      "concepts": [
+        "partial differential equations",
+        "symmetry in variables",
+        "integration over rectangles",
+        "minimization of functions"
+      ],
+      "primary_techniques": [
+        "combining PDEs to isolate mixed partials",
+        "integrating mixed partials over a rectangle",
+        "minimizing an increasing function"
+      ],
+      "secondary_techniques": [
+        "guessing symmetric solutions",
+        "verifying existence and uniqueness of solutions"
+      ],
+      "techniques": [
+        "combining PDEs to isolate mixed partials",
+        "integrating mixed partials over a rectangle",
+        "minimizing an increasing function",
+        "guessing symmetric solutions",
+        "verifying existence and uniqueness of solutions"
+      ],
+      "solution_archetypes": [
+        "reduce PDE system to mixed partial",
+        "integral representation for finite differences",
+        "minimization via monotonicity"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "partial derivatives",
+        "integration",
+        "basic functional equations"
+      ],
+      "key_observation": "Combining the two PDEs yields a simple expression for f_{xy}, which allows m(f) to be written as a double integral over a rectangle.",
+      "solution_architecture": "First, combine the given PDEs to isolate f_{xy}. Next, express the finite difference in terms of a double integral of f_{xy} over a unit square. Then, minimize the resulting expression by observing monotonicity, and finally verify independence from the choice of f by analyzing the general solution structure.",
+      "technique_evidence": [
+        {
+          "name": "combining PDEs to isolate mixed partials",
+          "role": "primary",
+          "evidence": "Combining the two PDEs yields f_{xy} in terms of elementary functions."
+        },
+        {
+          "name": "integrating mixed partials over a rectangle",
+          "role": "primary",
+          "evidence": "The finite difference is rewritten as a double integral of f_{xy} over [s,s+1]^2."
+        },
+        {
+          "name": "minimizing an increasing function",
+          "role": "primary",
+          "evidence": "The integral is minimized at s=1 due to monotonicity of ln(x)."
+        },
+        {
+          "name": "guessing symmetric solutions",
+          "role": "secondary",
+          "evidence": "A symmetric guess for f(x,y) is verified to satisfy the PDEs."
+        },
+        {
+          "name": "verifying existence and uniqueness of solutions",
+          "role": "secondary",
+          "evidence": "The general solution is shown to differ only by additive terms that vanish in m(f)."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly solve for f(x,y) without combining the PDEs",
+        "Attempting to minimize m(f) without expressing it in terms of f_{xy}"
+      ],
+      "difficulty_overall": 6.3,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "6e417262706a4958ca2cb05768bcc55f1125606d6d33c8dceb888b31373912d7"
+    },
+    {
+      "id": "putnam_2019_b5",
+      "topics": [
+        "recurrence relations",
+        "polynomial interpolation",
+        "finite differences",
+        "induction",
+        "combinatorics"
+      ],
+      "concepts": [
+        "Fibonacci numbers",
+        "polynomial interpolation",
+        "Lagrange interpolation",
+        "finite differences",
+        "inductive reasoning",
+        "combinatorial interpretation"
+      ],
+      "primary_techniques": [
+        "Finite difference method",
+        "Lagrange interpolation"
+      ],
+      "secondary_techniques": [
+        "Inductive argument",
+        "Closed form manipulation",
+        "Combinatorial interpretation"
+      ],
+      "techniques": [
+        "Finite difference method",
+        "Lagrange interpolation",
+        "Inductive argument",
+        "Closed form manipulation",
+        "Combinatorial interpretation"
+      ],
+      "solution_archetypes": [
+        "Polynomial interpolation evaluation",
+        "Finite difference telescoping",
+        "Closed form summation"
+      ],
+      "prerequisites": [
+        "Fibonacci recurrence and closed form",
+        "Lagrange interpolation formula",
+        "Basic properties of polynomials",
+        "Inductive proofs"
+      ],
+      "key_observation": "The value p(2019) can be expressed as F_{2019} - F_{1010} by analyzing the structure of the interpolating polynomial and relating sums of Fibonacci numbers to their closed form.",
+      "solution_architecture": "First, construct a sequence of polynomials using finite differences to relate p(x) to sums of Fibonacci numbers. Then, use induction to show how these sums telescope to a closed form. Alternatively, apply Lagrange interpolation to express p(2019) in terms of Fibonacci numbers, and manipulate the closed form to obtain the desired difference. Both approaches ultimately connect the evaluation of the interpolating polynomial to a difference of Fibonacci numbers.",
+      "technique_evidence": [
+        {
+          "name": "Finite difference method",
+          "role": "primary",
+          "evidence": "The finite difference sequence p_k(x) reduces the degree and shifts the Fibonacci index, allowing induction to relate p(2N+3) to a sum of Fibonacci numbers."
+        },
+        {
+          "name": "Lagrange interpolation",
+          "role": "primary",
+          "evidence": "Lagrange interpolation is used to explicitly compute p(2019) in terms of the interpolation points and values, leading to a closed form."
+        },
+        {
+          "name": "Inductive argument",
+          "role": "secondary",
+          "evidence": "Induction is used to prove the telescoping sum and the relationship between sums of Fibonacci numbers and their closed form."
+        },
+        {
+          "name": "Closed form manipulation",
+          "role": "secondary",
+          "evidence": "Manipulation of the closed form for Fibonacci numbers (using powers of alpha and beta) is used to simplify the result."
+        },
+        {
+          "name": "Combinatorial interpretation",
+          "role": "secondary",
+          "evidence": "Combinatorial interpretation is used to justify the sum identity for Fibonacci numbers."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming p(2019) equals F_{2019} directly without accounting for interpolation effects",
+        "Attempting to use only the Fibonacci recurrence without leveraging polynomial interpolation"
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0f7583e297c8302be4bfed58dcdde10d56b7558b7ee54519b3ac7e9a4d80d35b"
+    },
+    {
+      "id": "putnam_2019_b6",
+      "topics": [
+        "lattice theory",
+        "modular arithmetic",
+        "graph coloring",
+        "combinatorics"
+      ],
+      "concepts": [
+        "modular arithmetic",
+        "lattice coloring",
+        "neighbor relations in graphs",
+        "bijection between lattice points and residue classes"
+      ],
+      "primary_techniques": [
+        "constructive coloring via modular function",
+        "modular residue analysis"
+      ],
+      "secondary_techniques": [
+        "case analysis on neighbor differences",
+        "uniqueness argument for neighbor selection"
+      ],
+      "techniques": [
+        "constructive coloring via modular function",
+        "modular residue analysis",
+        "case analysis on neighbor differences",
+        "uniqueness argument for neighbor selection"
+      ],
+      "solution_archetypes": [
+        "explicit construction",
+        "modular coloring argument"
+      ],
+      "prerequisites": [
+        "modular arithmetic",
+        "integer lattice structure",
+        "basic graph theory (neighbor relations)"
+      ],
+      "key_observation": "A carefully chosen modular function assigns each lattice point a residue so that the preimage of zero forms a set S with the desired neighbor properties.",
+      "solution_architecture": "Define a modular function on lattice points that encodes coordinate-weighted sums. Use its preimage of zero as the set S. Verify that this construction ensures no two neighbors are both in S, and that every non-S point has exactly one neighbor in S, by analyzing how the function changes under neighbor moves and exploiting the modulus.",
+      "technique_evidence": [
+        {
+          "name": "constructive coloring via modular function",
+          "role": "primary",
+          "evidence": "The proof defines f(x_1,...,x_n) = x_1 + 2x_2 + ... + n x_n mod (2n+1) and uses its preimage to construct S."
+        },
+        {
+          "name": "modular residue analysis",
+          "role": "primary",
+          "evidence": "The argument checks how f changes when moving to a neighbor, showing the residue shifts by ±i, ensuring the neighbor cannot be in S."
+        },
+        {
+          "name": "case analysis on neighbor differences",
+          "role": "secondary",
+          "evidence": "The proof considers all possible neighbors and shows only one can be in S for each non-S point."
+        },
+        {
+          "name": "uniqueness argument for neighbor selection",
+          "role": "secondary",
+          "evidence": "The uniqueness of the neighbor in S is established by the structure of the modular function."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to construct S by parity or simple coordinate sums, which fails to satisfy both conditions.",
+        "Assuming S must be a simple periodic subset (e.g., all points with even sum), which does not work."
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2019",
+      "review_status": "solution_analyzed",
+      "review_year": 2019,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2019s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "f8bf33345cb0932d4e7320401643e0081105e950e495a01373d9848353f69586"
+    }
+  ]
+}
