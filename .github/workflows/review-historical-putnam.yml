@@ -1,0 +1,121 @@
+name: Review Historical Putnam Solutions
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "Optional year to analyze; leave blank for the newest incomplete year"
+        required: false
+        type: string
+  schedule:
+    - cron: "17 1,9,17 * * *"
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/review-historical-putnam.yml
+      - scripts/review-putnam-year-v2.mjs
+      - scripts/build-reviewed-overlays.mjs
+
+permissions:
+  contents: write
+  models: read
+
+concurrency:
+  group: review-historical-putnam
+  cancel-in-progress: false
+
+jobs:
+  review-year:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Select newest incomplete year
+        id: select
+        env:
+          REQUESTED_YEAR: ${{ inputs.year }}
+        run: |
+          YEAR=$(node --input-type=module <<'NODE'
+          import { readdir } from "node:fs/promises";
+          const requested = String(process.env.REQUESTED_YEAR || "").trim();
+          if (requested) {
+            const year = Number(requested);
+            if (!Number.isInteger(year) || year < 1962 || year > 2023) throw new Error("Year must be between 1962 and 2023.");
+            console.log(year);
+            process.exit(0);
+          }
+          let existing = [];
+          try {
+            existing = (await readdir("data/reviews")).filter((name) => /^\d{4}\.json$/.test(name)).map((name) => Number(name.slice(0, 4)));
+          } catch {}
+          for (let year = 2023; year >= 1962; year -= 1) {
+            if (!existing.includes(year)) {
+              console.log(year);
+              process.exit(0);
+            }
+          }
+          NODE
+          )
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          if [ -z "$YEAR" ]; then
+            echo "All years from 1962 through 2023 are already analyzed."
+          else
+            echo "Selected $YEAR."
+          fi
+
+      - name: Download problem and solution sources
+        if: steps.select.outputs.year != ''
+        env:
+          YEAR: ${{ steps.select.outputs.year }}
+        run: |
+          curl --fail --location --retry 4 --user-agent "Putnam-Journal-Catalog/1.0" \
+            "https://kskedlaya.org/putnam-archive/${YEAR}.tex" \
+            --output "/tmp/${YEAR}.tex"
+          curl --fail --location --retry 4 --user-agent "Putnam-Journal-Catalog/1.0" \
+            "https://kskedlaya.org/putnam-archive/${YEAR}s.tex" \
+            --output "/tmp/${YEAR}s.tex"
+
+      - name: Analyze actual solutions with GitHub Models
+        if: steps.select.outputs.year != ''
+        env:
+          YEAR: ${{ steps.select.outputs.year }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUTNAM_REVIEW_MODEL: openai/gpt-4.1
+        run: |
+          node scripts/review-putnam-year-v2.mjs \
+            "$YEAR" "/tmp/${YEAR}.tex" "/tmp/${YEAR}s.tex" "data/reviews/${YEAR}.json"
+
+      - name: Rebuild browser overlay
+        if: steps.select.outputs.year != ''
+        run: node scripts/build-reviewed-overlays.mjs data/reviews src/catalog-reviewed-generated.js
+
+      - name: Validate repository
+        if: steps.select.outputs.year != ''
+        run: |
+          npm install
+          npm run check
+
+      - name: Commit completed year directly to main
+        if: steps.select.outputs.year != ''
+        env:
+          YEAR: ${{ steps.select.outputs.year }}
+        run: |
+          if git diff --quiet -- "data/reviews/${YEAR}.json" src/catalog-reviewed-generated.js; then
+            echo "No review changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "data/reviews/${YEAR}.json" src/catalog-reviewed-generated.js
+          git commit -m "Analyze ${YEAR} Putnam solutions"
+          git pull --rebase origin main
+          git push origin HEAD:main
