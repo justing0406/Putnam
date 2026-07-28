@@ -2,36 +2,43 @@
 
 ## Review order
 
-Problems are reviewed one complete exam year at a time, beginning with 2025 and moving backward. An auto-generated record remains labeled as an initial or machine classification until its official solution has been read and its metadata has been replaced by a year-specific reviewed override.
+Problems are processed one complete exam year at a time, beginning with 2025 and moving backward.
 
 Current progress:
 
-- 2025: solution-reviewed
-- 2024: next review year
+- 2025: manually solution-reviewed from the official MAA solutions and score table
+- 2024: manually solution-reviewed from the official MAA solutions and score table
+- 2023: solution-analyzed from the archived problem and solution TeX
+- 2022 backward: processed automatically in descending order by GitHub Actions
+
+## Verification labels
+
+The interface distinguishes two evidence levels:
+
+- **Solution reviewed**: the year-specific metadata was manually checked against the official solution and, when available, official per-problem score statistics.
+- **Solution analyzed**: GitHub Models read the archived solution and produced structured metadata that passed schema and repository validation, but the record is still awaiting manual verification.
+
+An analyzed record is never displayed with the green manually reviewed label. Automated records use a separate amber label and lower confidence.
 
 ## Sources
 
-For reviewed years, classifications use:
+For manually reviewed years, classifications use:
 
 1. the official MAA problem and solution document;
 2. the official MAA per-problem score distribution, when published;
 3. the existing statement and broad subject tags in the generated historical catalog.
 
-The application stores original summaries of solution structure and short evidence descriptions. It does not copy full official solutions into the catalog.
+For automated historical years, the workflow downloads the year’s problem and solution TeX from the Putnam Archive. The source files are hashed for traceability, but the application stores only original summaries and evidence descriptions—not the full solution text.
 
 ## Difficulty calibration
 
-For 2025, the official announcement provides score frequencies on each problem for the top 507 participants. The mean score on each problem is calculated by counting a non-submission as zero, matching its contribution to the exam total.
-
-The empirical difficulty is
+When an official score distribution is available, the empirical difficulty is
 
 ```text
 empirical = 1 + 9 × (1 − mean_score / 10)
 ```
 
-This maps a mean score of 10 to difficulty 1 and a mean score of 0 to difficulty 10.
-
-Because the published table covers the top 507 participants rather than the entire field, the empirical value is shrunk toward a conservative exam-position prior:
+This maps a mean score of 10 to difficulty 1 and a mean score of 0 to difficulty 10. The empirical value is shrunk toward a conservative exam-position prior:
 
 | Position | Prior |
 |---|---:|
@@ -42,44 +49,55 @@ Because the published table covers the top 507 participants rather than the enti
 | A5/B5 | 7.5 |
 | A6/B6 | 8.5 |
 
-The overall rating is
+For manually reviewed years with score data:
 
 ```text
 overall = 65% × empirical + 35% × position_prior
 ```
 
-rounded to the nearest tenth.
+For automated solution-analyzed years without a normalized score table, the proof-based profile is
 
-The four component ratings are then reviewed from the official proof:
+```text
+proof_based = 45% × insight
+            + 20% × technical
+            + 15% × prerequisite
+            + 20% × proof_writing
+```
+
+and
+
+```text
+overall = 65% × proof_based + 35% × position_prior
+```
+
+The four component ratings represent:
 
 - **Insight:** difficulty of discovering the key observation or construction;
 - **Technical:** algebraic, computational, or case-management burden after the idea is known;
 - **Prerequisite:** depth of mathematical background needed;
 - **Proof writing:** difficulty of organizing a complete rigorous argument.
 
-These component ratings are not mechanically derived from problem number.
-
 ## Technique classification
 
-Every reviewed problem distinguishes:
+Every reviewed or analyzed problem distinguishes:
 
 - **Primary techniques:** indispensable ideas driving the proof;
 - **Secondary techniques:** tools used to execute or justify the main idea;
 - **Solution archetype:** a subject-independent description of the proof architecture;
-- **Technique evidence:** a short explanation of the exact step in the official solution supporting each primary label;
+- **Technique evidence:** a short explanation of the exact solution step supporting each label;
 - **Common false starts:** plausible approaches that do not expose the central mechanism.
 
-A problem is marked `solution_reviewed` only when it has at least:
+Every generated year must pass validation requiring at least:
 
-- two primary techniques;
-- two evidence entries;
+- two primary techniques per problem;
+- two evidence entries per problem;
 - a substantive key observation;
 - a substantive solution architecture;
-- a reviewed difficulty profile.
+- a complete five-dimensional difficulty profile.
 
 ## Find Similar
 
-For a selected reviewed problem, similarity uses a structured score with these maximum weights:
+For a selected problem with structured solution metadata, similarity uses these maximum weights:
 
 | Component | Weight |
 |---|---:|
@@ -91,8 +109,21 @@ For a selected reviewed problem, similarity uses a structured score with these m
 | Five-dimensional difficulty similarity | 25 |
 | Same broad area | 5 |
 
-This makes proof method and architecture more important than surface subject. For years not yet solution-reviewed, the system falls back to the weaker generated metadata, so similarity quality will improve progressively as more years are reviewed.
+This makes proof method and architecture more important than surface subject. Records that have not yet been solution-analyzed fall back to the weaker statement-based metadata.
+
+## GitHub automation
+
+`.github/workflows/review-historical-putnam.yml` runs three times daily and processes the newest incomplete year. It:
+
+1. downloads that year’s problem and solution TeX;
+2. sends each solution to GitHub Models using the workflow’s short-lived `GITHUB_TOKEN` and `models: read` permission;
+3. requires strict structured output;
+4. validates every record;
+5. runs the repository checks;
+6. commits the completed year and rebuilt browser overlay directly to `main`.
+
+The workflow fills missing statement records from the problem archive while it processes each year. Each year is stored independently in `data/reviews/YYYY.json`, making corrections and manual upgrades auditable.
 
 ## Confidence
 
-Reviewed 2025 records use confidence values from 0.94 to 0.97 because both official solutions and official score data are available. Confidence reflects the reliability of the metadata process, not the probability that every subjective rating is uniquely correct.
+Manually reviewed recent records generally use confidence values around 0.94–0.97 because both official solutions and official score data are available. Automated solution analyses are capped at 0.84 and remain visibly distinguished until manually checked. Confidence describes the reliability of the metadata process, not the probability that a subjective label is uniquely correct.
