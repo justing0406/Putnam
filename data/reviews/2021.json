@@ -1,0 +1,1127 @@
+{
+  "year": 2021,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2021.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+  "problem_source_sha256": "c04e3d1c80fb2f08859a767e8164e14bda82b54e236ba660f0704923bd40cc87",
+  "solution_source_sha256": "0b65e94d6145c81a66930206a6dfdbe7666acf680f50757cf8eeb9218a0fed87",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-28T15:43:43.423Z",
+  "problems": [
+    {
+      "id": "putnam_2021_a1",
+      "topics": [
+        "lattice geometry",
+        "discrete optimization",
+        "metrics",
+        "integer vectors"
+      ],
+      "concepts": [
+        "integer lattice",
+        "vector decomposition",
+        "taxicab metric",
+        "hop constraints"
+      ],
+      "primary_techniques": [
+        "vector decomposition",
+        "bounding via sum increments"
+      ],
+      "secondary_techniques": [
+        "constructive algorithm",
+        "taxicab metric analysis"
+      ],
+      "techniques": [
+        "vector decomposition",
+        "bounding via sum increments",
+        "constructive algorithm",
+        "taxicab metric analysis"
+      ],
+      "solution_archetypes": [
+        "minimum steps via greedy decomposition",
+        "bounding via maximal increment"
+      ],
+      "prerequisites": [
+        "basic vector arithmetic",
+        "integer lattice geometry",
+        "norms (especially L1 norm)"
+      ],
+      "key_observation": "The maximum increase in the sum x+y per hop is 7, so the minimum number of hops is at least ceil(4042/7), and a constructive decomposition using available vectors achieves this bound.",
+      "solution_architecture": "First, establish a lower bound on the number of hops by analyzing the maximal possible increase in x+y per hop. Then, constructively show that the target point can be reached in exactly this number by decomposing the target vector into allowed hop vectors.",
+      "technique_evidence": [
+        {
+          "name": "vector decomposition",
+          "role": "primary",
+          "evidence": "The solution decomposes (2021,2021) into sums of allowed hop vectors, showing a constructive path."
+        },
+        {
+          "name": "bounding via sum increments",
+          "role": "primary",
+          "evidence": "The proof uses the maximal increment of x+y per hop to establish a lower bound."
+        },
+        {
+          "name": "taxicab metric analysis",
+          "role": "secondary",
+          "evidence": "The solution refers to the taxicab metric to justify the maximal increment per hop."
+        },
+        {
+          "name": "constructive algorithm",
+          "role": "secondary",
+          "evidence": "The explicit construction of the path to (2021,2021) demonstrates a constructive algorithm."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to reach (2021,2021) using only axis-aligned hops (0,±5) or (±5,0), which would require more hops than necessary.",
+        "Ignoring the possibility of combining different types of hops to optimize the total number."
+      ],
+      "difficulty_overall": 4.1,
+      "difficulty_insight": 6,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "6c3964d44a8c0151c5f79301937059c81ebe5676bda69dd5e025c75ac7baffc1"
+    },
+    {
+      "id": "putnam_2021_a2",
+      "topics": [
+        "Limits",
+        "Exponential functions",
+        "Logarithms",
+        "Taylor series",
+        "Integral calculus",
+        "Real analysis"
+      ],
+      "concepts": [
+        "Limit of indeterminate forms",
+        "Exponential and logarithmic manipulation",
+        "Taylor expansion",
+        "Integral representation",
+        "Squeeze theorem"
+      ],
+      "primary_techniques": [
+        "Logarithmic transformation",
+        "L'Hôpital's Rule",
+        "Taylor expansion",
+        "Integral representation"
+      ],
+      "secondary_techniques": [
+        "Squeeze theorem",
+        "Error estimation",
+        "Interchanging limits"
+      ],
+      "techniques": [
+        "Logarithmic transformation",
+        "L'Hôpital's Rule",
+        "Taylor expansion",
+        "Integral representation",
+        "Squeeze theorem",
+        "Error estimation",
+        "Interchanging limits"
+      ],
+      "solution_archetypes": [
+        "Transform to logarithmic form to resolve indeterminate exponentials",
+        "Apply l'Hôpital's Rule to evaluate limits",
+        "Use Taylor expansion to approximate expressions for large variables and small parameters"
+      ],
+      "prerequisites": [
+        "Calculus (limits, derivatives)",
+        "L'Hôpital's Rule",
+        "Taylor series",
+        "Logarithmic and exponential properties",
+        "Basic real analysis (interchanging limits, squeeze theorem)"
+      ],
+      "key_observation": "Recognizing that the expression can be rewritten using logarithms and l'Hôpital's Rule, or via Taylor expansion and integral representation, ultimately revealing the connection to the exponential constant e.",
+      "solution_architecture": "The solution begins by transforming the original limit into a logarithmic form to handle the indeterminate exponent. L'Hôpital's Rule is applied to evaluate the resulting limit. Alternatively, Taylor expansion is used to approximate the difference for large x and small r, justifying the interchange of limits. An integral representation is also derived, allowing the use of the squeeze theorem to bound the expression and confirm the limiting value. All approaches converge to the identification of the exponential constant e as the answer.",
+      "technique_evidence": [
+        {
+          "name": "Logarithmic transformation",
+          "role": "primary",
+          "evidence": "The proof rewrites the original expression in terms of logarithms and applies l'Hôpital's Rule to resolve the limit."
+        },
+        {
+          "name": "L'Hôpital's Rule",
+          "role": "primary",
+          "evidence": "L'Hôpital's Rule is used to differentiate the numerator and denominator to evaluate the limit as r approaches 0."
+        },
+        {
+          "name": "Taylor expansion",
+          "role": "primary",
+          "evidence": "Taylor expansion is used to approximate (x+1)^{r+1} - x^{r+1} for small r, justifying the interchange of limits."
+        },
+        {
+          "name": "Integral representation",
+          "role": "primary",
+          "evidence": "The difference is represented as an integral, which is then bounded to apply the squeeze theorem."
+        },
+        {
+          "name": "Squeeze theorem",
+          "role": "secondary",
+          "evidence": "The squeeze theorem is applied to bound the limiting value and confirm the answer."
+        },
+        {
+          "name": "Error estimation",
+          "role": "secondary",
+          "evidence": "Error estimation is used to justify the interchange of limits in the Taylor expansion approach."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly evaluate the limit without logarithmic manipulation leads to indeterminate forms.",
+        "Trying to interchange limits without justification may result in incorrect conclusions."
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3d413a88d4191af9ebc35239ea7ec8e4a35b5681d2bcb78f1f7ead64fbe1c89b"
+    },
+    {
+      "id": "putnam_2021_a3",
+      "topics": [
+        "Geometry",
+        "Linear algebra",
+        "Number theory",
+        "Polyhedra",
+        "Coordinate geometry"
+      ],
+      "concepts": [
+        "regular tetrahedron",
+        "inscribed polyhedron",
+        "integer coordinates",
+        "sphere equation",
+        "cube inscribed in sphere",
+        "volume of cube",
+        "determinant as volume"
+      ],
+      "primary_techniques": [
+        "Symmetry exploitation",
+        "Geometric construction",
+        "Algebraic characterization of polyhedra",
+        "Determinant computation for volume"
+      ],
+      "secondary_techniques": [
+        "Number theory (perfect squares)",
+        "Coordinate geometry"
+      ],
+      "techniques": [
+        "Symmetry exploitation",
+        "Geometric construction",
+        "Algebraic characterization of polyhedra",
+        "Determinant computation for volume",
+        "Number theory (perfect squares)",
+        "Coordinate geometry"
+      ],
+      "solution_archetypes": [
+        "Reduction to geometric symmetry",
+        "Algebraic characterization via determinants",
+        "Explicit construction and converse argument"
+      ],
+      "prerequisites": [
+        "Euclidean geometry",
+        "Properties of regular polyhedra",
+        "Linear algebra (determinants)",
+        "Integer lattice points",
+        "Symmetry arguments"
+      ],
+      "key_observation": "Any regular tetrahedron with integer coordinates inscribed in a sphere centered at the origin must have its center at the origin, which implies the existence of an inscribed cube whose vertices are also integer points.",
+      "solution_architecture": "First, construct explicit integer-coordinate tetrahedra for candidate N. Then, argue that any such tetrahedron must be centered at the origin, leading to an inscribed cube with integer vertices. Use determinant-based volume calculation to relate N to perfect squares, concluding that only N of the form 3m^2 are possible.",
+      "technique_evidence": [
+        {
+          "name": "Geometric construction",
+          "role": "primary",
+          "evidence": "Explicit construction of tetrahedron with integer coordinates for N=3m^2"
+        },
+        {
+          "name": "Symmetry exploitation",
+          "role": "primary",
+          "evidence": "Deduction that tetrahedron center must coincide with sphere center, leading to cube symmetry"
+        },
+        {
+          "name": "Determinant computation for volume",
+          "role": "primary",
+          "evidence": "Volume of cube calculated via determinant of integer vectors, showing volume must be integer"
+        },
+        {
+          "name": "Number theory (perfect squares)",
+          "role": "secondary",
+          "evidence": "Conclude N/3 must be a perfect square from integer volume requirement"
+        },
+        {
+          "name": "Coordinate geometry",
+          "role": "secondary",
+          "evidence": "Use of coordinate geometry to relate sphere and polyhedron"
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly enumerate all integer-coordinate tetrahedra without geometric constraints",
+        "Assuming arbitrary integer points can form a regular tetrahedron without considering symmetry or sphere center"
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0ba59e1212f9676699521c670ee1c79df95abd4f383037b83985159bd2620ec0"
+    },
+    {
+      "id": "putnam_2021_a4",
+      "topics": [
+        "multivariable integration",
+        "asymptotic analysis",
+        "trigonometric integrals",
+        "symmetry",
+        "change of variables"
+      ],
+      "concepts": [
+        "symmetry",
+        "variable substitution",
+        "polar coordinates",
+        "asymptotic analysis",
+        "integral evaluation",
+        "trigonometric substitution"
+      ],
+      "primary_techniques": [
+        "symmetry exploitation",
+        "variable substitution",
+        "polar coordinates",
+        "asymptotic analysis"
+      ],
+      "secondary_techniques": [
+        "trigonometric substitution",
+        "integral evaluation"
+      ],
+      "techniques": [
+        "symmetry exploitation",
+        "variable substitution",
+        "polar coordinates",
+        "asymptotic analysis",
+        "trigonometric substitution",
+        "integral evaluation"
+      ],
+      "solution_archetypes": [
+        "symmetrization",
+        "change of variables",
+        "limit of integral over expanding domain"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "polar coordinates",
+        "trigonometric integrals",
+        "asymptotic behavior of integrals"
+      ],
+      "key_observation": "Averaging the integral over swapped variables and recognizing a substitution that relates the two forms allows reduction to a manageable integral over an annulus.",
+      "solution_architecture": "Symmetrize the integrand by swapping variables and averaging, then relate the resulting expressions via substitution. Reduce the double integral to an integral over an annulus using polar coordinates. Analyze the asymptotic behavior as the radius grows, simplify the integrand, and evaluate the resulting trigonometric integral using substitution.",
+      "technique_evidence": [
+        {
+          "name": "symmetry exploitation",
+          "role": "primary",
+          "evidence": "Swapping x and y and averaging yields a symmetric form, simplifying the integrand."
+        },
+        {
+          "name": "variable substitution",
+          "role": "primary",
+          "evidence": "Substitution (x+y, x-y) relates the two forms and reduces the complexity."
+        },
+        {
+          "name": "polar coordinates",
+          "role": "primary",
+          "evidence": "Switching to polar coordinates allows integration over an annulus and simplifies the domain."
+        },
+        {
+          "name": "asymptotic analysis",
+          "role": "primary",
+          "evidence": "Taking the limit as R→∞ and focusing on the dominant terms in the integrand."
+        },
+        {
+          "name": "trigonometric substitution",
+          "role": "secondary",
+          "evidence": "Using half-angle substitution to evaluate the trigonometric integral."
+        },
+        {
+          "name": "integral evaluation",
+          "role": "secondary",
+          "evidence": "Carrying out the explicit integration and simplification steps."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the original double integral without symmetry or variable changes",
+        "Trying to evaluate the limit without simplifying the integrand"
+      ],
+      "difficulty_overall": 7.4,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "01022603298604d018e6ef947b74aa07d4331596d07bb86f2f977f723e6427e2"
+    },
+    {
+      "id": "putnam_2021_a5",
+      "topics": [
+        "modular arithmetic",
+        "primitive roots",
+        "group theory",
+        "number theory",
+        "Chinese Remainder Theorem"
+      ],
+      "concepts": [
+        "primitive roots",
+        "modular arithmetic",
+        "multiplicative group structure",
+        "Chinese Remainder Theorem",
+        "Euler's theorem"
+      ],
+      "primary_techniques": [
+        "Reduction modulo prime factors",
+        "Analysis of power sums over multiplicative groups",
+        "Use of primitive roots"
+      ],
+      "secondary_techniques": [
+        "Chinese Remainder Theorem",
+        "Factorization of 2021"
+      ],
+      "techniques": [
+        "Reduction modulo prime factors",
+        "Analysis of power sums over multiplicative groups",
+        "Use of primitive roots",
+        "Chinese Remainder Theorem",
+        "Factorization of 2021"
+      ],
+      "solution_archetypes": [
+        "Reduction to prime moduli",
+        "Group-theoretic sum vanishing"
+      ],
+      "prerequisites": [
+        "basic number theory",
+        "properties of primitive roots",
+        "modular arithmetic",
+        "group theory (cyclic groups)"
+      ],
+      "key_observation": "The sum S(j) modulo each prime factor of 2021 reduces to a sum over the units modulo that prime, and vanishes unless j is divisible by the corresponding group order.",
+      "solution_architecture": "Reduce the problem to checking divisibility modulo each prime factor of 2021. For each prime, analyze the sum of powers over the units modulo that prime using group structure and primitive roots, showing the sum vanishes unless the exponent is divisible by the group order. Combine the conditions for both primes to characterize all j for which S(j) is divisible by 2021.",
+      "technique_evidence": [
+        {
+          "name": "Reduction modulo prime factors",
+          "role": "primary",
+          "evidence": "The proof reduces S(j) modulo 43 and 47, then analyzes the sum over units modulo each prime using primitive roots and group structure."
+        },
+        {
+          "name": "Analysis of power sums over multiplicative groups",
+          "role": "primary",
+          "evidence": "The argument uses the fact that the multiplicative group modulo a prime is cyclic, and that power sums vanish unless the exponent is a multiple of the group order."
+        },
+        {
+          "name": "Use of primitive roots",
+          "role": "primary",
+          "evidence": "Primitive roots are invoked to show the sum is invariant under multiplication, forcing it to vanish unless the exponent is a multiple of the group order."
+        },
+        {
+          "name": "Chinese Remainder Theorem",
+          "role": "secondary",
+          "evidence": "The final divisibility condition is obtained by combining the results for both primes, which is a CRT-type reasoning."
+        },
+        {
+          "name": "Factorization of 2021",
+          "role": "secondary",
+          "evidence": "The factorization of 2021 is used to split the problem into two cases."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute S(j) without modular reduction",
+        "Ignoring the structure of the set A and its relation to Euler's totient function"
+      ],
+      "difficulty_overall": 6.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "6d63581accc2c0d08366281d38936a6db991500b6343d3872eb7b0e0f492c1c9"
+    },
+    {
+      "id": "putnam_2021_a6",
+      "topics": [
+        "polynomial factorization",
+        "integer polynomials",
+        "irreducibility",
+        "number theory"
+      ],
+      "concepts": [
+        "roots of polynomials",
+        "evaluation of polynomials at integers",
+        "irreducibility criteria",
+        "composite numbers"
+      ],
+      "primary_techniques": [
+        "analysis of polynomial roots and their locations",
+        "evaluation bounds for integer polynomials",
+        "monic polynomial factorization"
+      ],
+      "secondary_techniques": [
+        "bounding real parts and moduli of roots",
+        "intermediate value theorem",
+        "comparison of polynomial values at different points"
+      ],
+      "techniques": [
+        "analysis of polynomial roots and their locations",
+        "evaluation bounds for integer polynomials",
+        "monic polynomial factorization",
+        "bounding real parts and moduli of roots",
+        "intermediate value theorem",
+        "comparison of polynomial values at different points"
+      ],
+      "solution_archetypes": [
+        "root location analysis",
+        "evaluation argument",
+        "factorization consequences"
+      ],
+      "prerequisites": [
+        "basic algebraic number theory",
+        "properties of polynomials with integer coefficients",
+        "evaluation of polynomials at integer points",
+        "irreducibility criteria for polynomials"
+      ],
+      "key_observation": "If P(x) factors into two nonconstant integer polynomials, then both factors evaluated at x=2 are at least 2, so their product P(2) is composite.",
+      "solution_architecture": "The proof first analyzes the possible locations of roots of P(x) given its binary coefficients, showing that roots cannot be positive real numbers and bounding their real parts. Then, it considers the implications for integer factorization, showing that any monic integer factor must evaluate to at least 2 at x=2. Since both factors are nonconstant, their evaluations multiply to a composite number, establishing the result.",
+      "technique_evidence": [
+        {
+          "name": "analysis of polynomial roots and their locations",
+          "role": "primary",
+          "evidence": "The proof uses bounds on the real parts and moduli of roots to show that integer factors evaluated at x=2 are at least 2."
+        },
+        {
+          "name": "evaluation bounds for integer polynomials",
+          "role": "primary",
+          "evidence": "The argument compares values of the factors at x=1 and x=2 to establish lower bounds."
+        },
+        {
+          "name": "monic polynomial factorization",
+          "role": "primary",
+          "evidence": "The proof assumes monic factorization and analyzes the consequences for integer values."
+        },
+        {
+          "name": "bounding real parts and moduli of roots",
+          "role": "secondary",
+          "evidence": "The proof uses inequalities involving real parts and moduli to restrict possible root locations."
+        },
+        {
+          "name": "intermediate value theorem",
+          "role": "secondary",
+          "evidence": "The intermediate value theorem is invoked to rule out certain cases for polynomial values."
+        },
+        {
+          "name": "comparison of polynomial values at different points",
+          "role": "secondary",
+          "evidence": "Comparing Q(2) and Q(1) is used to establish the minimum value for the factors."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming that any factorization of P(x) automatically implies P(2) is composite without analyzing the structure of integer polynomial roots.",
+        "Trying to factor P(x) directly without considering the implications for its evaluation at x=2."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "350ba452903cce515970c7a18a4409ae1b48208a4316e7da7428bcb7fff24f55"
+    },
+    {
+      "id": "putnam_2021_b1",
+      "topics": [
+        "probability",
+        "geometry",
+        "integration",
+        "trigonometry"
+      ],
+      "concepts": [
+        "random placement",
+        "rotation invariance",
+        "conditional probability",
+        "geometric probability",
+        "integration over angles"
+      ],
+      "primary_techniques": [
+        "geometric reduction",
+        "conditional probability",
+        "integration over parameter space"
+      ],
+      "secondary_techniques": [
+        "trigonometric manipulation",
+        "dissection argument"
+      ],
+      "techniques": [
+        "geometric reduction",
+        "conditional probability",
+        "integration over parameter space",
+        "trigonometric manipulation",
+        "dissection argument"
+      ],
+      "solution_archetypes": [
+        "geometric probability via region characterization",
+        "parameterization and integration"
+      ],
+      "prerequisites": [
+        "basic probability",
+        "geometry of squares",
+        "trigonometric functions",
+        "integration"
+      ],
+      "key_observation": "The event that the dropped square does not cover any checkerboard corners is equivalent to its center lying in a specific region (a smaller square) inside a rotated circumscribing square, for each possible rotation angle.",
+      "solution_architecture": "Reduce the random placement problem to a geometric characterization: for each rotation angle, identify the region where the square's center avoids covering any corners. Compute the area of this region as a function of the angle, then integrate over all possible angles to obtain the total probability.",
+      "technique_evidence": [
+        {
+          "name": "geometric reduction",
+          "role": "primary",
+          "evidence": "The proof reduces the problem to identifying a region (smaller square) for each rotation angle where the center must lie."
+        },
+        {
+          "name": "conditional probability",
+          "role": "primary",
+          "evidence": "The probability is computed conditionally on the rotation angle, then averaged over all angles."
+        },
+        {
+          "name": "integration over parameter space",
+          "role": "primary",
+          "evidence": "The final probability is obtained by integrating the area function over the interval of possible angles."
+        },
+        {
+          "name": "trigonometric manipulation",
+          "role": "secondary",
+          "evidence": "The area function involves trigonometric expressions and is manipulated to simplify the integral."
+        },
+        {
+          "name": "dissection argument",
+          "role": "secondary",
+          "evidence": "The proof uses a dissection argument to verify the geometric characterization for all angles."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to compute the probability by considering only translations, ignoring rotations.",
+        "Trying to enumerate all possible positions directly without geometric reduction."
+      ],
+      "difficulty_overall": 5.3,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "222c6b33706ba4873e7997f9573862647c074a8755e45f6fb45537328389ed7d",
+      "statement": "Suppose that the plane is tiled with an infinite checkerboard of unit squares. If another unit square is dropped on the plane at random with position and orientation independent of the checkerboard tiling, what is the probability that it does not cover any of the corners of the squares of the checkerboard?",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2021.tex"
+    },
+    {
+      "id": "putnam_2021_b2",
+      "topics": [
+        "Inequalities",
+        "Sequences and series",
+        "Optimization"
+      ],
+      "concepts": [
+        "AM-GM inequality",
+        "Infinite series manipulation",
+        "Sequence optimization under sum constraint"
+      ],
+      "primary_techniques": [
+        "AM-GM inequality",
+        "Series rearrangement"
+      ],
+      "secondary_techniques": [
+        "Equality case analysis",
+        "Sequence construction for extremal value"
+      ],
+      "techniques": [
+        "AM-GM inequality",
+        "Series rearrangement",
+        "Equality case analysis",
+        "Sequence construction for extremal value"
+      ],
+      "solution_archetypes": [
+        "Bounding via classical inequalities",
+        "Optimizing under constraints",
+        "Constructing extremal sequences"
+      ],
+      "prerequisites": [
+        "AM-GM inequality",
+        "Manipulation of infinite series",
+        "Understanding of sequence constraints"
+      ],
+      "key_observation": "Applying the AM-GM inequality to relate the geometric mean of the sequence terms to a weighted sum, then manipulating the resulting series to find an upper bound.",
+      "solution_architecture": "First, use the AM-GM inequality to bound the geometric mean in each term by a weighted arithmetic mean. Next, rearrange the double sum to express the total in terms of the sequence elements. Then, sum the resulting series and simplify to obtain an explicit upper bound. Finally, construct a sequence achieving equality to confirm the bound is sharp.",
+      "technique_evidence": [
+        {
+          "name": "AM-GM inequality",
+          "role": "primary",
+          "evidence": "The AM-GM inequality is applied to the product (a_1...a_n)^{1/n} to relate it to a sum involving 4^k a_k."
+        },
+        {
+          "name": "Series rearrangement",
+          "role": "primary",
+          "evidence": "The double sum over n and k is rearranged and simplified to a single sum over k, showing the bound."
+        },
+        {
+          "name": "Sequence construction for extremal value",
+          "role": "secondary",
+          "evidence": "A specific sequence a_k = 3/4^k is constructed to achieve equality in the bound."
+        },
+        {
+          "name": "Equality case analysis",
+          "role": "secondary",
+          "evidence": "The equality case for AM-GM is analyzed to justify the extremal sequence."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to maximize each term independently without considering the sum constraint",
+        "Attempting to use calculus or Lagrange multipliers directly on the infinite sequence"
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "4ff48eb211dfb45a4fd88312da8a15cfdbbbe5c528e120f5e7cb4e8c56c2051a"
+    },
+    {
+      "id": "putnam_2021_b3",
+      "topics": [
+        "multivariable calculus",
+        "real analysis",
+        "existence proofs",
+        "integral geometry"
+      ],
+      "concepts": [
+        "polar coordinates",
+        "intermediate value theorem",
+        "line integrals",
+        "continuity of integrals",
+        "symmetry arguments"
+      ],
+      "primary_techniques": [
+        "change of variables to polar coordinates",
+        "interchanging order of integration",
+        "application of intermediate value theorem"
+      ],
+      "secondary_techniques": [
+        "geometric interpretation of integrals",
+        "symmetry arguments"
+      ],
+      "techniques": [
+        "change of variables to polar coordinates",
+        "interchanging order of integration",
+        "application of intermediate value theorem",
+        "geometric interpretation of integrals",
+        "symmetry arguments"
+      ],
+      "solution_archetypes": [
+        "existence via continuity",
+        "integral averaging argument"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "line and double integrals",
+        "polar coordinates",
+        "basic real analysis (continuity, intermediate value theorem)"
+      ],
+      "key_observation": "The integral of the function over all possible circles of fixed radius and distance from the origin sums to zero, so by continuity there must exist a circle where the integral itself is zero.",
+      "solution_architecture": "Transform the integral into polar coordinates to exploit symmetry. Analyze the integral as a function of the circle's position, showing that its average over all possible placements is zero. Use continuity and the intermediate value theorem to guarantee the existence of a circle where the integral vanishes.",
+      "technique_evidence": [
+        {
+          "name": "change of variables to polar coordinates",
+          "role": "primary",
+          "evidence": "The solution rewrites the integral in polar coordinates to simplify the region and integrand."
+        },
+        {
+          "name": "interchanging order of integration",
+          "role": "primary",
+          "evidence": "The proof considers the integral over all possible circles and interchanges the order of integration to show the total sum is zero."
+        },
+        {
+          "name": "application of intermediate value theorem",
+          "role": "primary",
+          "evidence": "The argument relies on the continuity of the integral as a function of the circle's position and applies the intermediate value theorem to conclude existence."
+        },
+        {
+          "name": "geometric interpretation of integrals",
+          "role": "secondary",
+          "evidence": "The solution interprets the integral geometrically, relating it to line integrals and endpoints on arcs."
+        },
+        {
+          "name": "symmetry arguments",
+          "role": "secondary",
+          "evidence": "The proof uses symmetry in the averaging argument over all possible circles."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the integral without exploiting symmetry or geometric properties.",
+        "Trying to apply Green's theorem without recognizing the role of the function's structure."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "f90b7af64e1d9cbd546fc04f8ca26a5372e67d6c1de9c6dc58552f0bb31b97c2"
+    },
+    {
+      "id": "putnam_2021_b4",
+      "topics": [
+        "Number Theory",
+        "Fibonacci Numbers",
+        "Modular Arithmetic",
+        "Prime Numbers",
+        "Factorials"
+      ],
+      "concepts": [
+        "Fibonacci sequence",
+        "Wilson's Theorem",
+        "Kepler-Cassini identity",
+        "Modular arithmetic",
+        "Prime vs composite numbers"
+      ],
+      "primary_techniques": [
+        "Case analysis (prime vs composite)",
+        "Application of Wilson's Theorem",
+        "Use of Kepler-Cassini identity",
+        "Modular arithmetic manipulation"
+      ],
+      "secondary_techniques": [
+        "Periodicity analysis of Fibonacci numbers modulo 4",
+        "Symmetry in product manipulation"
+      ],
+      "techniques": [
+        "Case analysis (prime vs composite)",
+        "Application of Wilson's Theorem",
+        "Use of Kepler-Cassini identity",
+        "Modular arithmetic manipulation",
+        "Periodicity analysis of Fibonacci numbers modulo 4",
+        "Symmetry in product manipulation"
+      ],
+      "solution_archetypes": [
+        "Algebraic manipulation modulo prime",
+        "Casework based on number-theoretic properties",
+        "Reduction to known identities"
+      ],
+      "prerequisites": [
+        "Familiarity with Fibonacci numbers and their properties",
+        "Understanding of modular arithmetic",
+        "Knowledge of Wilson's Theorem",
+        "Ability to manipulate algebraic identities"
+      ],
+      "key_observation": "For prime Fibonacci numbers, the product's remainder modulo the next Fibonacci number is constrained by algebraic identities, and for composite Fibonacci numbers, the remainder is zero.",
+      "solution_architecture": "First, distinguish cases based on whether the Fibonacci number is prime or composite. For composite cases, show the product is divisible and remainder is zero. For prime cases, manipulate the product using modular arithmetic, relate it to factorials, and apply Wilson's Theorem. Then, use the Kepler-Cassini identity to connect the product's square to Fibonacci numbers, deducing the possible remainders.",
+      "technique_evidence": [
+        {
+          "name": "Case analysis (prime vs composite)",
+          "role": "primary",
+          "evidence": "Composite case: product includes factors that guarantee divisibility by the Fibonacci number."
+        },
+        {
+          "name": "Application of Wilson's Theorem",
+          "role": "primary",
+          "evidence": "Prime case: product is manipulated to involve factorials, then Wilson's Theorem is used to evaluate factorials modulo prime."
+        },
+        {
+          "name": "Use of Kepler-Cassini identity",
+          "role": "primary",
+          "evidence": "Kepler-Cassini identity relates squares of Fibonacci numbers to their neighbors, enabling the deduction of possible remainders."
+        },
+        {
+          "name": "Modular arithmetic manipulation",
+          "role": "primary",
+          "evidence": "Product manipulation and congruence calculations throughout the proof."
+        },
+        {
+          "name": "Periodicity analysis of Fibonacci numbers modulo 4",
+          "role": "secondary",
+          "evidence": "Analysis of Fibonacci numbers modulo 4 to determine possible congruence classes."
+        },
+        {
+          "name": "Symmetry in product manipulation",
+          "role": "secondary",
+          "evidence": "Rewriting the product in terms of (p-k) and (-k) to exploit symmetry."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute the product modulo Fibonacci numbers without leveraging their algebraic properties",
+        "Attempting to analyze the product for all m without distinguishing between composite and prime Fibonacci numbers"
+      ],
+      "difficulty_overall": 7.2,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d85203586e3b87e6f35f122e6f5ab7d5328f91cf6e2ad352ce91aa90897f045c"
+    },
+    {
+      "id": "putnam_2021_b5",
+      "topics": [
+        "Linear algebra",
+        "Graph theory",
+        "Combinatorics",
+        "Modular arithmetic"
+      ],
+      "concepts": [
+        "very odd matrix",
+        "principal submatrix",
+        "determinant modulo 2",
+        "directed acyclic graph (DAG)",
+        "permutation matrix",
+        "unipotent matrix",
+        "matrix conjugation"
+      ],
+      "primary_techniques": [
+        "Reduction to structure via graph-theoretic interpretation",
+        "Induction on matrix size",
+        "Matrix conjugation to canonical form"
+      ],
+      "secondary_techniques": [
+        "Analysis of principal minors",
+        "Cycle elimination in graphs",
+        "Permutation matrices"
+      ],
+      "techniques": [
+        "Reduction to structure via graph-theoretic interpretation",
+        "Induction on matrix size",
+        "Matrix conjugation to canonical form",
+        "Analysis of principal minors",
+        "Cycle elimination in graphs",
+        "Permutation matrices"
+      ],
+      "solution_archetypes": [
+        "Structural reduction",
+        "Inductive proof",
+        "Graph-theoretic translation"
+      ],
+      "prerequisites": [
+        "Linear algebra: determinants, minors, matrix powers",
+        "Graph theory: directed graphs, cycles, DAGs",
+        "Modular arithmetic: working over F_2",
+        "Matrix conjugation and similarity"
+      ],
+      "key_observation": "A very odd matrix corresponds to a DAG structure, allowing conjugation to a unipotent form, which preserves the property under powers.",
+      "solution_architecture": "Translate the matrix property to a graph-theoretic condition (DAG), use induction to show all very odd matrices are conjugate to unipotent matrices, and conclude the property is preserved under powers by structural invariance.",
+      "technique_evidence": [
+        {
+          "name": "Reduction to structure via graph-theoretic interpretation",
+          "role": "primary",
+          "evidence": "The proof constructs a directed graph from the matrix, analyzes cycles, and uses DAG properties to reduce the matrix to unipotent form."
+        },
+        {
+          "name": "Induction on matrix size",
+          "role": "primary",
+          "evidence": "The argument proceeds by induction on n, reducing the problem to smaller matrices."
+        },
+        {
+          "name": "Matrix conjugation to canonical form",
+          "role": "primary",
+          "evidence": "The proof uses permutation matrices to conjugate the matrix into a canonical (unipotent) form."
+        },
+        {
+          "name": "Analysis of principal minors",
+          "role": "secondary",
+          "evidence": "The proof checks principal minors to establish the odd determinant property."
+        },
+        {
+          "name": "Cycle elimination in graphs",
+          "role": "secondary",
+          "evidence": "Cycle elimination is used to show the graph is a DAG, which is crucial for the reduction."
+        },
+        {
+          "name": "Permutation matrices",
+          "role": "secondary",
+          "evidence": "Permutation matrices are used to reorder the matrix for induction."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute determinants of powers without structural insight",
+        "Assuming all matrices with odd diagonal entries are very odd",
+        "Attempting to prove the property for arbitrary matrices without reduction to structure"
+      ],
+      "difficulty_overall": 7.2,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "15edccc21de0ce9d7e3573d8c08bc4fa591704d4026a85042c8f92b5f30634b6"
+    },
+    {
+      "id": "putnam_2021_b6",
+      "topics": [
+        "probability",
+        "distribution functions",
+        "induction",
+        "integration",
+        "inequalities",
+        "functional iteration"
+      ],
+      "concepts": [
+        "distribution recursion",
+        "cumulative distribution function",
+        "symmetry",
+        "integration by parts",
+        "rearrangement inequality",
+        "probability density function",
+        "iterated function",
+        "monotonicity"
+      ],
+      "primary_techniques": [
+        "recursive distribution analysis",
+        "inductive bounding",
+        "integration by parts"
+      ],
+      "secondary_techniques": [
+        "monotonicity arguments",
+        "rearrangement inequality",
+        "comparison with explicit distributions"
+      ],
+      "techniques": [
+        "recursive distribution analysis",
+        "inductive bounding",
+        "integration by parts",
+        "monotonicity arguments",
+        "rearrangement inequality",
+        "comparison with explicit distributions"
+      ],
+      "solution_archetypes": [
+        "recursive distribution",
+        "inductive lower bound",
+        "functional iteration"
+      ],
+      "prerequisites": [
+        "probability theory",
+        "distribution functions",
+        "integration by parts",
+        "induction",
+        "properties of medians",
+        "rearrangement inequality"
+      ],
+      "key_observation": "The distribution of the final trimmed value can be recursively described via the distribution of the median of three random variables, allowing an inductive lower bound on the expected deviation from 1/2.",
+      "solution_architecture": "Define a recursive sequence of distributions for the trimmed value, express the expected deviation as an integral involving the cumulative distribution, and use induction and bounding arguments to show the expected deviation decreases by a fixed factor at each step, establishing the desired lower bound.",
+      "technique_evidence": [
+        {
+          "name": "recursive distribution analysis",
+          "role": "primary",
+          "evidence": "The proof defines f_k(x) and F_k(x) recursively, showing how the distribution evolves with each trimming step."
+        },
+        {
+          "name": "inductive bounding",
+          "role": "primary",
+          "evidence": "The argument establishes a lower bound for mu_k in terms of mu_{k-1}, using induction to propagate the bound."
+        },
+        {
+          "name": "integration by parts",
+          "role": "primary",
+          "evidence": "Integration by parts is used to relate the expected value to the area under the cumulative distribution curve."
+        },
+        {
+          "name": "monotonicity arguments",
+          "role": "secondary",
+          "evidence": "Monotonicity of F_k(x) and f_k(x) is used to justify inequalities and bounds."
+        },
+        {
+          "name": "rearrangement inequality",
+          "role": "secondary",
+          "evidence": "The rearrangement inequality is invoked to compare integrals and justify the lower bound."
+        },
+        {
+          "name": "comparison with explicit distributions",
+          "role": "secondary",
+          "evidence": "Comparison with the explicit median distribution for large n is used to contextualize the result."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the median of the entire list behaves like the median of three numbers, rather than recursively analyzing the trimming process.",
+        "Attempting to directly compute the expected value without recursive distribution analysis."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2021",
+      "review_status": "solution_analyzed",
+      "review_year": 2021,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2021s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "f0759042a783cb28dedd1d72b8ab14519fd792b7969b15982ff756de4b9cb783",
+      "statement": "Given an ordered list of \\(3N\\) real numbers, we can \\emph{trim} it to form a list of \\(N\\) numbers as follows: We divide the list into \\(N\\) groups of \\(3\\) consecutive numbers, and within each group, discard the highest and lowest numbers, keeping only the median.\n\nConsider generating a random number \\(X\\) by the following procedure: Start with a list of \\(3^{2021}\\) numbers, drawn independently and uniformly at random between 0 and 1. Then trim this list as defined above, leaving a list of \\(3^{2020}\\) numbers. Then trim again repeatedly until just one number remains; let \\(X\\) be this number. Let \\(\\mu\\) be the expected value of \\(|X - \\frac{1}{2}|\\). Show that\n\\[\n\\mu \\geq \\frac{1}{4} \\left( \\frac{2}{3} \\right)^{2021}.\n\\]\n\n\\end{document}",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2021.tex"
+    }
+  ]
+}
