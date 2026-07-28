@@ -1,0 +1,1123 @@
+{
+  "year": 2020,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2020.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+  "problem_source_sha256": "63eb0b15d2b514ac357d1b8f7d62e2ceb54273b85187ded1d3730cd654089583",
+  "solution_source_sha256": "20be564af5a548e773afd762ee9eadfafdcfdd6662137f248a58b608254758e9",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-28T15:46:09.623Z",
+  "problems": [
+    {
+      "id": "putnam_2020_a1",
+      "topics": [
+        "number theory",
+        "modular arithmetic",
+        "digit patterns",
+        "divisibility",
+        "combinatorics"
+      ],
+      "concepts": [
+        "decimal representation",
+        "divisibility",
+        "modular arithmetic",
+        "parametrization"
+      ],
+      "primary_techniques": [
+        "parametrization",
+        "modular divisibility analysis"
+      ],
+      "secondary_techniques": [
+        "counting via floor function",
+        "Chinese remainder theorem (implicitly)"
+      ],
+      "techniques": [
+        "parametrization",
+        "modular divisibility analysis",
+        "counting via floor function",
+        "Chinese remainder theorem (implicitly)"
+      ],
+      "solution_archetypes": [
+        "parametrization and divisibility",
+        "modular counting"
+      ],
+      "prerequisites": [
+        "basic number theory",
+        "modular arithmetic",
+        "divisibility rules",
+        "decimal expansions"
+      ],
+      "key_observation": "Numbers with consecutive ones followed by zeros can be parametrized as (10^a - 10^b)/9, and divisibility by 2020 reduces to divisibility conditions on a and b.",
+      "solution_architecture": "Parametrize all numbers with the required digit pattern, translate divisibility by 2020 into modular conditions on the parameters, and count the number of parameter pairs satisfying all constraints.",
+      "technique_evidence": [
+        {
+          "name": "parametrization",
+          "role": "primary",
+          "evidence": "The solution rewrites N in terms of a and b, reducing the problem to counting parameter pairs."
+        },
+        {
+          "name": "modular divisibility analysis",
+          "role": "primary",
+          "evidence": "Divisibility by 2020 is analyzed by breaking it into divisibility by 4, 5, and 101, and translating these into modular constraints on a and b."
+        },
+        {
+          "name": "counting via floor function",
+          "role": "secondary",
+          "evidence": "The number of valid (a,b) pairs is counted using the floor function and summing over possible values."
+        },
+        {
+          "name": "Chinese remainder theorem (implicitly)",
+          "role": "secondary",
+          "evidence": "The divisibility conditions are combined, which is akin to using the Chinese remainder theorem, though not explicitly stated."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly enumerate all numbers with the given digit pattern without algebraic parametrization.",
+        "Attempting to check divisibility for each possible N individually rather than reducing to divisibility conditions on parameters."
+      ],
+      "difficulty_overall": 3.9,
+      "difficulty_insight": 5,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "05452ccd2311595a6d7402355f6a87b96a1f4e700a4399d5b00196c4bbd66a8d"
+    },
+    {
+      "id": "putnam_2020_a2",
+      "topics": [
+        "binomial identities",
+        "recurrence relations",
+        "generating functions",
+        "probability combinatorics"
+      ],
+      "concepts": [
+        "recursion",
+        "generating functions",
+        "binomial coefficients",
+        "probability with coin flips",
+        "symmetry in combinatorics"
+      ],
+      "primary_techniques": [
+        "recurrence relation manipulation",
+        "probabilistic interpretation",
+        "generating function expansion"
+      ],
+      "secondary_techniques": [
+        "algebraic simplification",
+        "symmetry arguments"
+      ],
+      "techniques": [
+        "recurrence relation manipulation",
+        "probabilistic interpretation",
+        "generating function expansion",
+        "algebraic simplification",
+        "symmetry arguments"
+      ],
+      "solution_archetypes": [
+        "recursion and induction",
+        "probabilistic counting",
+        "generating function coefficient extraction"
+      ],
+      "prerequisites": [
+        "binomial theorem",
+        "basic probability",
+        "recurrence relations",
+        "generating functions"
+      ],
+      "key_observation": "The sum satisfies a simple recurrence relation, or can be interpreted as a probability or as a generating function coefficient, each leading to the closed form 4^k.",
+      "solution_architecture": "Three parallel approaches: (1) Establish a recurrence for the sum and solve it; (2) Interpret the sum as a probability related to coin flips and use symmetry; (3) Express the sum as a generating function coefficient and simplify algebraically.",
+      "technique_evidence": [
+        {
+          "name": "recurrence relation manipulation",
+          "role": "primary",
+          "evidence": "The first solution rewrites the sum using Pascal's identity and manipulates it to derive a recurrence, then solves the recurrence."
+        },
+        {
+          "name": "probabilistic interpretation",
+          "role": "primary",
+          "evidence": "The second solution interprets the sum as the probability of getting at least k+1 heads in 2k+1 coin flips, then uses symmetry to evaluate the probability."
+        },
+        {
+          "name": "generating function expansion",
+          "role": "primary",
+          "evidence": "The third solution rewrites the sum as a generating function coefficient, expands and simplifies the series to extract the answer."
+        },
+        {
+          "name": "algebraic simplification",
+          "role": "secondary",
+          "evidence": "All solutions require algebraic simplification to reach the closed form."
+        },
+        {
+          "name": "symmetry arguments",
+          "role": "secondary",
+          "evidence": "The probabilistic solution relies on symmetry between heads and tails."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly sum the binomial coefficients without recursion or generating functions",
+        "Trying to interpret the sum combinatorially without relating it to coin flips or formal series"
+      ],
+      "difficulty_overall": 5.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "7786c98361fbff11452c407d459a60ebb970dc4b7f3b92c9ba886ccd32e6360e"
+    },
+    {
+      "id": "putnam_2020_a3",
+      "topics": [
+        "Sequences",
+        "Series convergence/divergence",
+        "Taylor series",
+        "Inequalities",
+        "Induction"
+      ],
+      "concepts": [
+        "monotonicity",
+        "sequence bounds",
+        "Taylor expansion",
+        "comparison test",
+        "induction"
+      ],
+      "primary_techniques": [
+        "Lower bounding sequence via Taylor expansion",
+        "Inductive argument to propagate bound",
+        "Comparison test for series divergence"
+      ],
+      "secondary_techniques": [
+        "Monotonicity analysis",
+        "Algebraic manipulation of inequalities"
+      ],
+      "techniques": [
+        "Lower bounding sequence via Taylor expansion",
+        "Inductive argument to propagate bound",
+        "Comparison test for series divergence",
+        "Monotonicity analysis",
+        "Algebraic manipulation of inequalities"
+      ],
+      "solution_archetypes": [
+        "Bounding sequence terms",
+        "Inductive lower bound",
+        "Comparison to divergent series"
+      ],
+      "prerequisites": [
+        "Taylor series for sine",
+        "Basic properties of sequences",
+        "Comparison test for series",
+        "Mathematical induction"
+      ],
+      "key_observation": "The sequence $a_n$ decays slowly enough that $a_n^2$ behaves like $1/n$, causing the series to diverge.",
+      "solution_architecture": "Establish a lower bound for $a_n$ using Taylor expansion, then use induction to show this bound holds for all $n$, and finally apply the comparison test to conclude divergence of the series.",
+      "technique_evidence": [
+        {
+          "name": "Lower bounding sequence via Taylor expansion",
+          "role": "primary",
+          "evidence": "Taylor expansion is used to approximate $\tan(x)$ and provide a lower bound for $\tan(a_n)$ in terms of $a_n$"
+        },
+        {
+          "name": "Inductive argument to propagate bound",
+          "role": "primary",
+          "evidence": "Induction is used to propagate the lower bound from $a_n$ to $a_{n+1}$"
+        },
+        {
+          "name": "Comparison test for series divergence",
+          "role": "primary",
+          "evidence": "The comparison test is applied to show divergence by relating $a_n^2$ to $1/n$"
+        },
+        {
+          "name": "Monotonicity analysis",
+          "role": "secondary",
+          "evidence": "Monotonicity is noted to ensure the sequence is decreasing and positive"
+        },
+        {
+          "name": "Algebraic manipulation of inequalities",
+          "role": "secondary",
+          "evidence": "Algebraic manipulation is used to verify the inequality needed for the induction step"
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the sequence converges rapidly enough for the sum to converge without estimating its decay rate",
+        "Applying only the comparison test with $a_n$ without bounding $a_n$ from below"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e5cfb40573909acb927ee1fe71f848419b0963157d2f02dddf0c466a20dd77bf"
+    },
+    {
+      "id": "putnam_2020_a4",
+      "topics": [
+        "probability",
+        "recursion",
+        "combinatorics",
+        "asymptotics"
+      ],
+      "concepts": [
+        "expected value",
+        "recurrence relations",
+        "induction",
+        "asymptotic analysis",
+        "inclusion-exclusion",
+        "probabilistic combinatorics"
+      ],
+      "primary_techniques": [
+        "Recursive decomposition",
+        "Inductive proof",
+        "Asymptotic evaluation"
+      ],
+      "secondary_techniques": [
+        "Explicit formula derivation",
+        "Permutation interpretation",
+        "Inclusion-exclusion"
+      ],
+      "techniques": [
+        "Recursive decomposition",
+        "Inductive proof",
+        "Asymptotic evaluation",
+        "Explicit formula derivation",
+        "Permutation interpretation",
+        "Inclusion-exclusion"
+      ],
+      "solution_archetypes": [
+        "Divide-and-conquer recursion",
+        "Inductive formula verification",
+        "Limit computation"
+      ],
+      "prerequisites": [
+        "basic probability",
+        "recurrence relations",
+        "induction",
+        "asymptotic series",
+        "factorial and exponential functions"
+      ],
+      "key_observation": "After the first new black square is colored, the strip splits into two independent subproblems, allowing a recursive formulation for the expected number of remaining white squares.",
+      "solution_architecture": "The solution first models the process recursively by observing that coloring a new black square splits the strip into two smaller independent strips. This leads to a recurrence for the expected number of remaining white squares. The recurrence is then solved explicitly via induction, yielding a closed formula. Finally, the asymptotic behavior is analyzed to compute the limiting ratio.",
+      "technique_evidence": [
+        {
+          "name": "Recursive decomposition",
+          "role": "primary",
+          "evidence": "The recurrence is established by considering the probability distribution for the first new black square and the resulting independent subproblems."
+        },
+        {
+          "name": "Inductive proof",
+          "role": "primary",
+          "evidence": "Induction is used to verify the explicit formula for w(N) based on the recurrence."
+        },
+        {
+          "name": "Asymptotic evaluation",
+          "role": "primary",
+          "evidence": "The limit of the explicit formula is computed using properties of the exponential series."
+        },
+        {
+          "name": "Explicit formula derivation",
+          "role": "secondary",
+          "evidence": "The explicit formula for w(N) is derived and checked for small values."
+        },
+        {
+          "name": "Permutation interpretation",
+          "role": "secondary",
+          "evidence": "A permutation-based interpretation is mentioned as an alternative description."
+        },
+        {
+          "name": "Inclusion-exclusion",
+          "role": "secondary",
+          "evidence": "The formula involves alternating sums reminiscent of inclusion-exclusion."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the expected value without recursion.",
+        "Trying to model the process as a Markov chain without exploiting the splitting property."
+      ],
+      "difficulty_overall": 7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "921f639adc11c62adc0df4619c5f298d6b0c63de0cd8af7e2ac05358b7aa15df",
+      "statement": "Consider a horizontal strip of \\(N+2\\) squares in which the first and the last square are black and the remaining \\(N\\) squares are all white. Choose a white square uniformly at random, choose one of its two neighbors with equal probability,\nand color this neighboring square black if it is not already black. Repeat this process until all the remaining white squares have only black neighbors. Let \\(w(N)\\) be the expected number of white squares remaining. Find\n\\[\n\\lim_{N \\to \\infty} \\frac{w(N)}{N}.\n\\]",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2020.tex"
+    },
+    {
+      "id": "putnam_2020_a5",
+      "topics": [
+        "Combinatorics",
+        "Number theory",
+        "Fibonacci numbers",
+        "Integer representations",
+        "Recurrence relations"
+      ],
+      "concepts": [
+        "Zeckendorf representation",
+        "Fibonacci numbers",
+        "Recurrence relations",
+        "Bitstring encoding of sets",
+        "Inductive argument"
+      ],
+      "primary_techniques": [
+        "Recurrence relation construction",
+        "Inductive proof",
+        "Zeckendorf representation analysis"
+      ],
+      "secondary_techniques": [
+        "Bitstring manipulation",
+        "Bounding arguments"
+      ],
+      "techniques": [
+        "Recurrence relation construction",
+        "Inductive proof",
+        "Zeckendorf representation analysis",
+        "Bitstring manipulation",
+        "Bounding arguments"
+      ],
+      "solution_archetypes": [
+        "Recursive counting",
+        "Structural decomposition",
+        "Inductive bounding"
+      ],
+      "prerequisites": [
+        "Fibonacci sequence properties",
+        "Basic combinatorics",
+        "Induction",
+        "Understanding of integer representations"
+      ],
+      "key_observation": "The number of sets S with sum n is governed by the Zeckendorf representation, and a_n satisfies a specific recurrence based on the largest Fibonacci number not exceeding n.",
+      "solution_architecture": "First, establish a recurrence for a_n based on the largest Fibonacci number not exceeding n, using structural decomposition of sets S. Then, prove by induction that a_n at certain Fibonacci-related values equals a simple formula. Finally, show that for n just above these values, a_n increases, allowing identification of the largest n with a_n = 2020.",
+      "technique_evidence": [
+        {
+          "name": "Recurrence relation construction",
+          "role": "primary",
+          "evidence": "The proof constructs a recurrence for a_n using the structure of sets S and their relation to Fibonacci numbers."
+        },
+        {
+          "name": "Inductive proof",
+          "role": "primary",
+          "evidence": "Inductive steps are used to prove the formula for a_n at Fibonacci values and to establish bounds for larger n."
+        },
+        {
+          "name": "Zeckendorf representation analysis",
+          "role": "primary",
+          "evidence": "The uniqueness and structure of Zeckendorf representations are used to analyze the sets S and their counting."
+        },
+        {
+          "name": "Bitstring manipulation",
+          "role": "secondary",
+          "evidence": "Bitstrings are used to encode sets S and manipulate their structure for bounding a_n."
+        },
+        {
+          "name": "Bounding arguments",
+          "role": "secondary",
+          "evidence": "Bounding arguments are used to show that a_n increases past the critical value."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming all sets S are counted without restriction (ignoring Zeckendorf uniqueness)",
+        "Trying to directly enumerate a_n for large n without recursion or structure"
+      ],
+      "difficulty_overall": 7.4,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2de6a92d99063ca05a11e7dd16dc8a9c6a49e319b85e88a0c4da0da7b8e3b449"
+    },
+    {
+      "id": "putnam_2020_a6",
+      "topics": [
+        "Fourier analysis",
+        "Trigonometric series",
+        "Real analysis",
+        "Series convergence",
+        "Extremal value problems"
+      ],
+      "concepts": [
+        "Fourier series",
+        "Square wave function",
+        "Monotonicity",
+        "Periodic functions",
+        "Symmetry",
+        "Series convergence"
+      ],
+      "primary_techniques": [
+        "Identifying Fourier series representation",
+        "Monotonicity argument",
+        "Limit analysis"
+      ],
+      "secondary_techniques": [
+        "Symmetry and periodicity exploitation",
+        "Derivative analysis for extremal points"
+      ],
+      "techniques": [
+        "Identifying Fourier series representation",
+        "Monotonicity argument",
+        "Limit analysis",
+        "Symmetry and periodicity exploitation",
+        "Derivative analysis for extremal points"
+      ],
+      "solution_archetypes": [
+        "Reduction to known function via Fourier series",
+        "Monotonicity and limiting behavior",
+        "Symmetry-based bounding"
+      ],
+      "prerequisites": [
+        "Basic real analysis",
+        "Fourier series and convergence",
+        "Trigonometric identities",
+        "Series manipulation"
+      ],
+      "key_observation": "The sum defines the Fourier series for a square wave, whose maximum value is known to be π/4.",
+      "solution_architecture": "Rewrite the sum to reveal its Fourier series structure, show monotonicity in N for fixed x, analyze the limiting function (square wave), and use symmetry and periodicity to reduce the domain. Conclude the maximal value from the Fourier series limit.",
+      "technique_evidence": [
+        {
+          "name": "Identifying Fourier series representation",
+          "role": "primary",
+          "evidence": "The sum is rewritten to match the Fourier series for a square wave, whose maximum is π/4."
+        },
+        {
+          "name": "Monotonicity argument",
+          "role": "primary",
+          "evidence": "Monotonicity in N is established via comparison of f_N and f_{N+1}."
+        },
+        {
+          "name": "Limit analysis",
+          "role": "primary",
+          "evidence": "The limiting behavior as N→∞ is analyzed to determine the maximal value."
+        },
+        {
+          "name": "Symmetry and periodicity exploitation",
+          "role": "secondary",
+          "evidence": "Symmetry and periodicity are used to restrict the domain and relate values at different points."
+        },
+        {
+          "name": "Derivative analysis for extremal points",
+          "role": "secondary",
+          "evidence": "Derivative analysis shows the maximum occurs at x=π/2."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to bound the sum term-by-term without recognizing its Fourier series structure",
+        "Attempting to maximize the sum for finite N without considering the limiting behavior"
+      ],
+      "difficulty_overall": 7.7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d5ff2cb783139a28693314dba7a94cb7916efec79185200dd9ab3683da91de93"
+    },
+    {
+      "id": "putnam_2020_b1",
+      "topics": [
+        "algebra",
+        "combinatorics",
+        "number theory",
+        "generating functions",
+        "binary representations"
+      ],
+      "concepts": [
+        "binary digit sum",
+        "generating functions",
+        "polynomial differentiation",
+        "modular arithmetic"
+      ],
+      "primary_techniques": [
+        "generating function encoding",
+        "polynomial differentiation",
+        "modular reduction"
+      ],
+      "secondary_techniques": [
+        "binary digit analysis",
+        "index shifting"
+      ],
+      "techniques": [
+        "generating function encoding",
+        "polynomial differentiation",
+        "modular reduction",
+        "binary digit analysis",
+        "index shifting"
+      ],
+      "solution_archetypes": [
+        "generating function manipulation",
+        "derivative evaluation at roots"
+      ],
+      "prerequisites": [
+        "basic generating functions",
+        "binary representation",
+        "modular arithmetic",
+        "polynomial calculus"
+      ],
+      "key_observation": "The generating function (1-x)(1-x^2)...(1-x^{1024}) encodes the sign pattern (-1)^{d(k)} for k up to 2047, allowing the sum to be analyzed via derivatives and evaluation at x=1.",
+      "solution_architecture": "Construct a generating function whose coefficients match the sign pattern, then apply repeated differentiation to extract weighted sums (here, cubes). Evaluate at x=1 to exploit cancellation, reducing the sum to a small range. Compute the remaining terms and reduce modulo 2020.",
+      "technique_evidence": [
+        {
+          "name": "generating function encoding",
+          "role": "primary",
+          "evidence": "The sum (-1)^{d(k)} x^k is realized as the expansion of the product (1-x)(1-x^2)..., showing generating function encoding."
+        },
+        {
+          "name": "polynomial differentiation",
+          "role": "primary",
+          "evidence": "Applying x d/dx repeatedly to the generating function extracts k^3 coefficients, showing polynomial differentiation."
+        },
+        {
+          "name": "modular reduction",
+          "role": "primary",
+          "evidence": "Final answer is computed modulo 2020, showing modular reduction."
+        },
+        {
+          "name": "index shifting",
+          "role": "secondary",
+          "evidence": "The sum is reduced to a small range by shifting indices, showing index shifting."
+        },
+        {
+          "name": "binary digit analysis",
+          "role": "secondary",
+          "evidence": "The sign pattern is determined by the binary digit sum, showing binary digit analysis."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the sum without recognizing the generating function structure",
+        "Trying to evaluate the sum for all k without modular reduction"
+      ],
+      "difficulty_overall": 5.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3dbc2d43c0cd83ae7d2cf4e21c487beaae85abb456ce6a3d4ab9d266bb5c9d08"
+    },
+    {
+      "id": "putnam_2020_b2",
+      "topics": [
+        "Combinatorial games",
+        "Parity",
+        "Induction",
+        "Symmetry"
+      ],
+      "concepts": [
+        "Parity",
+        "Game reduction",
+        "Symmetry",
+        "Pairing",
+        "Inductive reasoning"
+      ],
+      "primary_techniques": [
+        "Parity analysis",
+        "Game reduction",
+        "Symmetry strategy"
+      ],
+      "secondary_techniques": [
+        "Inductive argument",
+        "Pairing method"
+      ],
+      "techniques": [
+        "Parity analysis",
+        "Game reduction",
+        "Symmetry strategy",
+        "Inductive argument",
+        "Pairing method"
+      ],
+      "solution_archetypes": [
+        "Parity-based game classification",
+        "Symmetry-maintaining strategy",
+        "Reduction to simpler subgames"
+      ],
+      "prerequisites": [
+        "Basic combinatorial game theory",
+        "Understanding of parity arguments",
+        "Familiarity with inductive proofs"
+      ],
+      "key_observation": "The game's outcome is determined by the parity of n and k; if both are even, Bob can maintain a symmetric configuration and win.",
+      "solution_architecture": "The solution first classifies the game's outcome based on the parity of n and k, then constructs explicit reduction moves for Alice when at least one is odd, and finally builds a symmetry-based pairing strategy for Bob when both are even, ensuring he always has a move and wins.",
+      "technique_evidence": [
+        {
+          "name": "Parity analysis",
+          "role": "primary",
+          "evidence": "The proof identifies cases based on the parity of n and k, and constructs moves that reduce the game to smaller instances."
+        },
+        {
+          "name": "Game reduction",
+          "role": "primary",
+          "evidence": "Alice's moves are designed to reduce the game to a smaller (n-1,k-1), (n-1,k), or (n-2,k-1) game, depending on the parity."
+        },
+        {
+          "name": "Symmetry strategy",
+          "role": "primary",
+          "evidence": "Bob's strategy pairs holes and ensures after each move the configuration remains symmetric, so he always has a response."
+        },
+        {
+          "name": "Inductive argument",
+          "role": "secondary",
+          "evidence": "The proof uses induction by reducing the game to smaller instances and assuming the result holds for those."
+        },
+        {
+          "name": "Pairing method",
+          "role": "secondary",
+          "evidence": "Bob's pairing of holes is used to maintain the 'good' configuration throughout the game."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to analyze the game solely by direct enumeration of moves without recognizing the parity structure.",
+        "Attempting to find a winning strategy for Alice when both n and k are even, ignoring symmetry arguments."
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "5fabc07870e5bb085dca2a3aa65878a7171dbeca48c60863f56b02356ad76b7c",
+      "statement": "Let \\(k\\) and \\(n\\) be integers with \\(1 \\leq k < n\\). Alice and Bob play a game with \\(k\\) pegs in a line of \\(n\\) holes. At the beginning of the game, the pegs occupy the \\(k\\) leftmost holes. A legal move consists of moving a single peg\nto any vacant hole that is further to the right. The players alternate moves, with Alice playing first. The game ends when the pegs are in the \\(k\\) rightmost holes, so whoever is next to play cannot move and therefore loses. For what values\nof \\(n\\) and \\(k\\) does Alice have a winning strategy?",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2020.tex"
+    },
+    {
+      "id": "putnam_2020_b3",
+      "topics": [
+        "probability",
+        "recursion",
+        "functional equations",
+        "integration",
+        "differential equations"
+      ],
+      "concepts": [
+        "expected value",
+        "recursion",
+        "self-similarity",
+        "change of variables",
+        "differential equations"
+      ],
+      "primary_techniques": [
+        "recursive expectation setup",
+        "rescaling argument",
+        "functional equation",
+        "differentiation"
+      ],
+      "secondary_techniques": [
+        "change of variables",
+        "integration"
+      ],
+      "techniques": [
+        "recursive expectation setup",
+        "rescaling argument",
+        "functional equation",
+        "differentiation",
+        "change of variables",
+        "integration"
+      ],
+      "solution_archetypes": [
+        "recursive functional equation",
+        "self-similarity exploitation"
+      ],
+      "prerequisites": [
+        "basic probability theory",
+        "integration",
+        "recursion",
+        "change of variables",
+        "differentiation"
+      ],
+      "key_observation": "The process is self-similar: after each step, the problem reduces to the same form but with a rescaled threshold, enabling a recursive equation for the expected value.",
+      "solution_architecture": "Set up a recursive expectation based on the first step, recognize self-similarity via rescaling, derive a functional equation for the expected value, transform variables to simplify, solve the resulting differential equation to obtain the explicit formula.",
+      "technique_evidence": [
+        {
+          "name": "recursive expectation setup",
+          "role": "primary",
+          "evidence": "The expected value is expressed recursively in terms of itself with a rescaled argument, forming a functional equation."
+        },
+        {
+          "name": "rescaling argument",
+          "role": "primary",
+          "evidence": "The interval is rescaled after each step, mapping the threshold to a new value and preserving the structure of the problem."
+        },
+        {
+          "name": "functional equation",
+          "role": "primary",
+          "evidence": "A functional equation is derived and solved for the expected value."
+        },
+        {
+          "name": "differentiation",
+          "role": "primary",
+          "evidence": "Differentiation is used to solve the functional equation and obtain the explicit formula."
+        },
+        {
+          "name": "change of variables",
+          "role": "secondary",
+          "evidence": "Change of variables is used to simplify the functional equation and make it solvable."
+        },
+        {
+          "name": "integration",
+          "role": "secondary",
+          "evidence": "Integration is used to express the expected value and to solve the functional equation."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the expected value via summing over all possible sequences without recursion.",
+        "Trying to solve the problem without rescaling or recognizing the self-similarity."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "b18b248fd6563a0dc1da8b11eceb94c11f59034cd1882702e65691bb78fe130a",
+      "statement": "Let \\(x_0 = 1\\), and let \\(\\delta\\) be some constant satisfying \\(0 < \\delta < 1\\). Iteratively, for \\(n=0,1,2,\\dots\\), a point \\(x_{n+1}\\) is chosen uniformly from the interval \\([0, x_n]\\). Let \\(Z\\) be the smallest value of \\(n\\) for which \\(x_n < \\delta\\).\nFind the expected value of \\(Z\\), as a function of \\(\\delta\\).",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2020.tex"
+    },
+    {
+      "id": "putnam_2020_b4",
+      "topics": [
+        "combinatorics",
+        "algebra",
+        "group theory (cyclic groups)",
+        "symmetry",
+        "bijections"
+      ],
+      "concepts": [
+        "orbit decomposition",
+        "bijection between sets",
+        "cyclic symmetry",
+        "averaging over group actions"
+      ],
+      "primary_techniques": [
+        "orbit decomposition under cyclic group action",
+        "bijection between combinatorial objects",
+        "symmetry exploitation"
+      ],
+      "secondary_techniques": [
+        "index manipulation modulo 2n",
+        "summation rearrangement"
+      ],
+      "techniques": [
+        "orbit decomposition under cyclic group action",
+        "bijection between combinatorial objects",
+        "symmetry exploitation",
+        "index manipulation modulo 2n",
+        "summation rearrangement"
+      ],
+      "solution_archetypes": [
+        "symmetry averaging",
+        "group action orbit analysis",
+        "combinatorial bijection"
+      ],
+      "prerequisites": [
+        "combinatorial bijections",
+        "group actions (cyclic shift)",
+        "basic algebraic manipulation",
+        "summation techniques"
+      ],
+      "key_observation": "The average of 1/q(v) over all v in V_n is independent of the parameter a and equals 1/(2n), due to orbit structure and symmetry under cyclic shifts.",
+      "solution_architecture": "Construct a bijection between the set of constrained walks (V_n) and balanced sequences (W_n). Analyze the effect of cyclic shifts on W_n, partitioning into orbits. Show that averaging 1/q(v) over each orbit yields 1/(2n), using symmetry and algebraic manipulation. Conclude that the overall average is 1/(2n), independent of the parameter a.",
+      "technique_evidence": [
+        {
+          "name": "bijection between combinatorial objects",
+          "role": "primary",
+          "evidence": "The proof constructs a bijection between W_n and V_n, allowing translation of the problem into a more tractable combinatorial setting."
+        },
+        {
+          "name": "orbit decomposition under cyclic group action",
+          "role": "primary",
+          "evidence": "The cyclic shift map partitions W_n into orbits, and the average is computed over these orbits, exploiting symmetry."
+        },
+        {
+          "name": "symmetry exploitation",
+          "role": "primary",
+          "evidence": "The proof uses the fact that summing over all cyclic shifts and manipulating indices modulo 2n simplifies the sum."
+        },
+        {
+          "name": "index manipulation modulo 2n",
+          "role": "secondary",
+          "evidence": "Index manipulation and summation rearrangement are used to relate q(f(φ^k(w))) to a sum over s_j."
+        },
+        {
+          "name": "summation rearrangement",
+          "role": "secondary",
+          "evidence": "The sum over k is shown to equal 1, leading to the average 1/(2n)."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly sum over all tuples in V_n without exploiting symmetry or structure.",
+        "Attempting to compute the average for a specific value of a (e.g., a=3) rather than generalizing."
+      ],
+      "difficulty_overall": 7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "a016415b30d948336d64fbe269d252e60f5b8afa04cf3facb4ebb1965f30f0d5"
+    },
+    {
+      "id": "putnam_2020_b5",
+      "topics": [
+        "complex numbers",
+        "algebraic geometry",
+        "trigonometric identities",
+        "multivariable calculus",
+        "symmetry in algebra"
+      ],
+      "concepts": [
+        "unit circle in complex plane",
+        "hypocycloid curves",
+        "extremal points in compact sets",
+        "critical points and gradients",
+        "symmetry among variables"
+      ],
+      "primary_techniques": [
+        "Reduction to extremal cases via symmetry",
+        "Critical point analysis using gradients",
+        "Geometric interpretation of complex sums (hypocycloid)"
+      ],
+      "secondary_techniques": [
+        "Parametrization of unit circle via exponentials",
+        "Compactness and boundary arguments",
+        "Factorization for special cases"
+      ],
+      "techniques": [
+        "Reduction to extremal cases via symmetry",
+        "Critical point analysis using gradients",
+        "Geometric interpretation of complex sums (hypocycloid)",
+        "Parametrization of unit circle via exponentials",
+        "Compactness and boundary arguments",
+        "Factorization for special cases"
+      ],
+      "solution_archetypes": [
+        "Extremal principle",
+        "Symmetry reduction",
+        "Geometric analysis"
+      ],
+      "prerequisites": [
+        "complex numbers and modulus",
+        "trigonometric identities",
+        "multivariable calculus (gradient, critical points)",
+        "geometric interpretation of complex sums",
+        "symmetry arguments"
+      ],
+      "key_observation": "The extremal values of the sum of unit modulus complex numbers with fixed product are achieved when most variables coincide, forcing at least one variable to equal 1.",
+      "solution_architecture": "Reduce the problem to analyzing the extremal values of a function on tuples of unit modulus complex numbers with fixed product, using symmetry and geometric arguments to show that extremal cases force at least one variable to equal 1, thereby proving the desired nonvanishing.",
+      "technique_evidence": [
+        {
+          "name": "Critical point analysis using gradients",
+          "role": "primary",
+          "evidence": "Critical points are found by setting the gradient to zero, leading to cases where products of pairs equal 1."
+        },
+        {
+          "name": "Geometric interpretation of complex sums (hypocycloid)",
+          "role": "primary",
+          "evidence": "The geometric structure (hypocycloid) is used to identify boundary/extremal points and their properties."
+        },
+        {
+          "name": "Reduction to extremal cases via symmetry",
+          "role": "primary",
+          "evidence": "Symmetry among variables allows reduction to cases with repeated values, simplifying the analysis."
+        },
+        {
+          "name": "Parametrization of unit circle via exponentials",
+          "role": "secondary",
+          "evidence": "Variables are parametrized as exponentials to facilitate trigonometric manipulation."
+        },
+        {
+          "name": "Compactness and boundary arguments",
+          "role": "secondary",
+          "evidence": "Compactness ensures extremal values are achieved, and boundary arguments identify the relevant cases."
+        },
+        {
+          "name": "Factorization for special cases",
+          "role": "secondary",
+          "evidence": "Special cases with repeated variables allow factorization, confirming the conclusion."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the expression can vanish for generic unit modulus values without exploiting symmetry or structure.",
+        "Trying to directly expand or factor the expression without geometric or analytic insight."
+      ],
+      "difficulty_overall": 7.7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "25adb7fcd6cbb0e3472c7c4fe5995bfb6898afdd2fd223c55ea1173c6d3d6f73"
+    },
+    {
+      "id": "putnam_2020_b6",
+      "topics": [
+        "algebra",
+        "number theory",
+        "irrational numbers",
+        "floor function",
+        "recurrence relations",
+        "continued fractions"
+      ],
+      "concepts": [
+        "Beatty sequences",
+        "continued fractions",
+        "floor function properties",
+        "recurrence relations",
+        "palindromic sequences",
+        "Farey sequences",
+        "best rational approximations"
+      ],
+      "primary_techniques": [
+        "analysis of Beatty sequences",
+        "continued fraction convergents",
+        "recurrence relations/self-similarity"
+      ],
+      "secondary_techniques": [
+        "cluster/block decomposition",
+        "induction",
+        "palindromic sequence analysis",
+        "Farey sequence properties"
+      ],
+      "techniques": [
+        "analysis of Beatty sequences",
+        "continued fraction convergents",
+        "recurrence relations/self-similarity",
+        "cluster/block decomposition",
+        "induction",
+        "palindromic sequence analysis",
+        "Farey sequence properties"
+      ],
+      "solution_archetypes": [
+        "block decomposition",
+        "recurrence/self-similarity",
+        "continued fraction analysis"
+      ],
+      "prerequisites": [
+        "properties of irrational numbers",
+        "continued fraction expansions",
+        "Beatty sequences",
+        "recurrence relations",
+        "floor function manipulation"
+      ],
+      "key_observation": "The sequence of signs in the sum clusters into blocks whose lengths and alternation are governed by the arithmetic properties of the floor function applied to k(√2−1), which can be analyzed via continued fractions and Beatty sequences.",
+      "solution_architecture": "The proof decomposes the sequence of signs into alternating clusters of 1's and -1's, whose lengths are governed by the arithmetic of k(√2−1). It analyzes these clusters using Beatty sequences and continued fraction convergents, establishing a recursive/self-similar structure for the partial sums. Induction on this structure shows the sum is always nonnegative.",
+      "technique_evidence": [
+        {
+          "name": "cluster/block decomposition",
+          "role": "secondary",
+          "evidence": "The cluster/block decomposition is used to group consecutive terms and analyze their contribution to the sum."
+        },
+        {
+          "name": "recurrence relations/self-similarity",
+          "role": "primary",
+          "evidence": "The recurrence relation for the sequence q_j is used to relate the sum at different scales and establish self-similarity."
+        },
+        {
+          "name": "continued fraction convergents",
+          "role": "primary",
+          "evidence": "The continued fraction convergents of √2−1 are used to precisely describe the behavior of the floor function and the sequence of clusters."
+        },
+        {
+          "name": "analysis of Beatty sequences",
+          "role": "primary",
+          "evidence": "Beatty sequence properties are invoked to explain the alternation and lengths of clusters."
+        },
+        {
+          "name": "induction",
+          "role": "secondary",
+          "evidence": "Induction is used to extend the result from small n to all n, leveraging the recursive structure."
+        },
+        {
+          "name": "palindromic sequence analysis",
+          "role": "secondary",
+          "evidence": "Palindromic sequence analysis is used in the remarks to connect to OEIS sequences and further structural properties."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly estimate the sum without recognizing the cluster structure.",
+        "Attempting to analyze the parity of the floor function without relating it to continued fractions or Beatty sequences.",
+        "Ignoring the recursive/self-similar structure and treating the sequence as random."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2020",
+      "review_status": "solution_analyzed",
+      "review_year": 2020,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2020s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "860731c90cd3e24c8ee6d9b01890942f2cc937c64bf3ad6bac7271d12228f173"
+    }
+  ]
+}
