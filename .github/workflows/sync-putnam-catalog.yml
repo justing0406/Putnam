@@ -1,0 +1,49 @@
+name: Sync Putnam Catalog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 7 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - scripts/build-putnam-catalog.mjs
+      - .github/workflows/sync-putnam-catalog.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-putnam-catalog
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download permitted PutnamBench corpus
+        run: |
+          curl --fail --location --retry 4 \
+            https://raw.githubusercontent.com/trishullab/PutnamBench/main/informal/putnam.json \
+            --output /tmp/putnam.json
+      - name: Generate searchable historical catalog
+        run: node scripts/build-putnam-catalog.mjs /tmp/putnam.json src/catalog-data.js
+      - name: Commit catalog to main
+        run: |
+          if git diff --quiet -- src/catalog-data.js; then
+            echo "Catalog is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/catalog-data.js
+          git commit -m "Sync historical Putnam catalog"
+          git pull --rebase origin main
+          git push origin HEAD:main
