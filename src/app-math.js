@@ -6,6 +6,25 @@ const CATALOG_LATEX_STATEMENTS = {
   putnam_1962_a5: "Evaluate in closed form \\[ \\sum_{k=1}^{n} \\binom{n}{k}k^2. \\]",
 };
 
+const LEGACY_STATEMENT_LATEX = new Map([
+  [
+    "Find every real-valued function f whose domain is an interval I (finite or infinite) having 0 as a left-hand endpoint, such that for every positive x in I the average of f over [0,x] equals the geometric mean of f(0) and f(x).",
+    CATALOG_LATEX_STATEMENTS.putnam_1962_a2,
+  ],
+  [
+    "Let ABC be a triangle, with P,Q,R on BC,CA,AB respectively such that AQ/QC = BR/RA = CP/PB = k>0. If UVW is the triangle formed by the three cevians AP,BQ,CR, prove that [UVW]/[ABC] = (k-1)^2/(k^2+k+1).",
+    CATALOG_LATEX_STATEMENTS.putnam_1962_a3,
+  ],
+  [
+    "Assume |f(x)|<=1 and |f''(x)|<=1 for all x on an interval of length at least 2. Show that |f'(x)|<=2 on the interval.",
+    CATALOG_LATEX_STATEMENTS.putnam_1962_a4,
+  ],
+  [
+    "Evaluate in closed form sum_{k=1}^n binom(n,k) k^2.",
+    CATALOG_LATEX_STATEMENTS.putnam_1962_a5,
+  ],
+]);
+
 for (const problem of STATIC_PUTNAM_CATALOG) {
   if (CATALOG_LATEX_STATEMENTS[problem.id]) {
     problem.statement = CATALOG_LATEX_STATEMENTS[problem.id];
@@ -16,11 +35,25 @@ let mathRenderTimer = null;
 let mathRenderRunning = false;
 let mathRenderChain = Promise.resolve();
 
+function normalizeStatementText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function upgradeLegacyStatementMarkup(root) {
+  root.querySelectorAll(".problem-statement > div, .catalog-statement").forEach((container) => {
+    if (container.querySelector("mjx-container")) return;
+    const replacement = LEGACY_STATEMENT_LATEX.get(normalizeStatementText(container.textContent));
+    if (replacement) container.textContent = replacement;
+  });
+}
+
 function scheduleMathRendering(attempt = 0) {
   clearTimeout(mathRenderTimer);
   mathRenderTimer = setTimeout(() => {
     const target = document.querySelector("#view") || document.querySelector("#app");
     if (!target || mathRenderRunning) return;
+
+    upgradeLegacyStatementMarkup(target);
 
     if (!window.MathJax?.typesetPromise) {
       if (attempt < 40) scheduleMathRendering(attempt + 1);
