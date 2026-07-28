@@ -1,19 +1,20 @@
-mjx-container {
-  max-width: 100%;
+.putnam-math-inline,
+.putnam-math-display {
+  color: inherit;
+  font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
 }
 
-.catalog-statement mjx-container,
-.problem-statement mjx-container,
-.solution-text mjx-container,
-.history-text mjx-container {
-  font-size: 108% !important;
+.putnam-math-inline {
+  display: inline-flex;
+  align-items: baseline;
+  vertical-align: -0.08em;
+  margin: 0 0.08em;
 }
 
-.catalog-statement mjx-container[display="true"],
-.problem-statement mjx-container[display="true"],
-.solution-text mjx-container[display="true"],
-.history-text mjx-container[display="true"] {
-  margin: 1.15rem 0 !important;
+.putnam-math-display {
+  display: block;
+  width: 100%;
+  margin: 1rem 0 1.15rem;
   padding: 0.2rem 0 0.35rem;
   overflow-x: auto;
   overflow-y: hidden;
@@ -21,20 +22,45 @@ mjx-container {
   -webkit-overflow-scrolling: touch;
 }
 
+.putnam-math-inline math,
+.putnam-math-display math {
+  color: inherit;
+  font-family: "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+}
+
+.putnam-math-inline math {
+  font-size: 1.03em;
+}
+
+.putnam-math-display math {
+  min-width: max-content;
+  margin: 0 auto;
+  font-size: 1.13em;
+}
+
+.catalog-statement,
+.problem-statement,
+.solution-text,
+.history-text {
+  font-variant-numeric: lining-nums;
+}
+
 .catalog-statement {
   line-height: 1.75;
 }
 
+.putnam-math-fallback {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.92em;
+}
+
 @media (max-width: 720px) {
-  .catalog-statement mjx-container,
-  .problem-statement mjx-container,
-  .solution-text mjx-container,
-  .history-text mjx-container {
-    font-size: 100% !important;
+  .putnam-math-display {
+    text-align: left;
   }
 
-  .catalog-statement mjx-container[display="true"],
-  .problem-statement mjx-container[display="true"] {
-    text-align: left;
+  .putnam-math-display math {
+    margin-left: 0;
+    font-size: 1.04em;
   }
 }
