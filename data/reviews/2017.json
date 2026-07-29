@@ -1,0 +1,1108 @@
+{
+  "year": 2017,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2017.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+  "problem_source_sha256": "c6e2e2ef1b21e790277d1626659539b837cb4a1c5f62ef4d0753ad0827430a4d",
+  "solution_source_sha256": "b011ee612b73532db9e222c2b889f562ac2e903d88a27b9e3dc60f15f3332467",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-29T18:18:10.590Z",
+  "problems": [
+    {
+      "id": "putnam_2017_a1",
+      "topics": [
+        "number theory",
+        "set theory",
+        "induction"
+      ],
+      "concepts": [
+        "closure under operations",
+        "minimality of sets",
+        "inductive generation"
+      ],
+      "primary_techniques": [
+        "closure analysis",
+        "inductive construction"
+      ],
+      "secondary_techniques": [
+        "minimality argument",
+        "contrapositive reasoning"
+      ],
+      "techniques": [
+        "closure analysis",
+        "inductive construction",
+        "minimality argument",
+        "contrapositive reasoning"
+      ],
+      "solution_archetypes": [
+        "closure under operations",
+        "inductive set generation"
+      ],
+      "prerequisites": [
+        "basic set theory",
+        "properties of perfect squares",
+        "induction"
+      ],
+      "key_observation": "The closure properties force S to contain all numbers except 1 and multiples of 5, since starting from 2 and repeatedly applying the rules generates all other numbers.",
+      "solution_architecture": "Start with the base element (2), then repeatedly apply the closure rules to generate new elements. Analyze which numbers cannot be reached by these operations, leading to the identification of 1 and multiples of 5 as exceptions. Confirm minimality by showing any set satisfying the rules must contain all elements generated this way.",
+      "technique_evidence": [
+        {
+          "name": "closure analysis",
+          "role": "primary",
+          "evidence": "The proof systematically applies the closure rules to generate new elements from 2, showing how the set expands."
+        },
+        {
+          "name": "inductive construction",
+          "role": "primary",
+          "evidence": "The argument uses the closure properties to show that once an element is in S, all its 'descendants' via the rules are also in S."
+        },
+        {
+          "name": "minimality argument",
+          "role": "secondary",
+          "evidence": "The proof checks that no smaller set can satisfy the rules, confirming S is minimal."
+        },
+        {
+          "name": "contrapositive reasoning",
+          "role": "secondary",
+          "evidence": "The proof uses the contrapositive of the closure rules to identify numbers not in S."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly enumerate S without using the closure properties",
+        "Assuming S is simply all numbers except 1 without checking multiples of 5"
+      ],
+      "difficulty_overall": 3.8,
+      "difficulty_insight": 5,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "1ea56b07b484da6bf0a77aecc5ab7df6ba51045ebcaf3b9245f5bbf5371943b2"
+    },
+    {
+      "id": "putnam_2017_a2",
+      "topics": [
+        "Algebra",
+        "Recurrence relations",
+        "Polynomials",
+        "Linear algebra",
+        "Combinatorics"
+      ],
+      "concepts": [
+        "Polynomial sequences",
+        "Recurrence relations",
+        "Integer coefficients",
+        "Matrix methods",
+        "Generating functions",
+        "Combinatorial interpretations"
+      ],
+      "primary_techniques": [
+        "Recurrence relation transformation",
+        "Matrix determinant argument"
+      ],
+      "secondary_techniques": [
+        "Explicit formula derivation",
+        "Combinatorial generating function interpretation"
+      ],
+      "techniques": [
+        "Recurrence relation transformation",
+        "Matrix determinant argument",
+        "Explicit formula derivation",
+        "Combinatorial generating function interpretation"
+      ],
+      "solution_archetypes": [
+        "Recurrence equivalence",
+        "Structural induction",
+        "Matrix recurrence analysis"
+      ],
+      "prerequisites": [
+        "Understanding of recurrence relations",
+        "Basic matrix algebra",
+        "Induction",
+        "Polynomial algebra"
+      ],
+      "key_observation": "The sequence Q_n(x) satisfies a second-order linear recurrence with integer coefficients, which guarantees that all Q_n(x) are polynomials with integer coefficients.",
+      "solution_architecture": "The proof begins by constructing a related sequence of polynomials defined by a linear recurrence, then shows this sequence matches the original Q_n(x) via recurrence equivalence. The matrix determinant argument confirms the recurrence structure, ensuring integer coefficients. Alternative approaches include deriving an explicit formula and interpreting the sequence combinatorially.",
+      "technique_evidence": [
+        {
+          "name": "Recurrence relation transformation",
+          "role": "primary",
+          "evidence": "The proof defines P_n(x) via a linear recurrence and shows it satisfies the same recurrence as Q_n(x), establishing equivalence."
+        },
+        {
+          "name": "Matrix determinant argument",
+          "role": "primary",
+          "evidence": "Matrix M_n is constructed, and its determinant is shown to be invariant, confirming the recurrence."
+        },
+        {
+          "name": "Explicit formula derivation",
+          "role": "secondary",
+          "evidence": "An explicit formula for Q_n(x) is derived, showing integer coefficients."
+        },
+        {
+          "name": "Combinatorial generating function interpretation",
+          "role": "secondary",
+          "evidence": "A generating function interpretation links Q_n(x) to compositions and Fibonacci polynomials."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to expand Q_n(x) directly from the given recurrence, which appears non-polynomial due to division by Q_{n-2}(x).",
+        "Trying to compute Q_n(x) for small n without recognizing the underlying linear recurrence."
+      ],
+      "difficulty_overall": 5.4,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0f9a94f1a3ad0225f74b667b7c8d8be0e1a031661d7a559987fadfaeb3e15288"
+    },
+    {
+      "id": "putnam_2017_a3",
+      "topics": [
+        "real analysis",
+        "inequalities",
+        "integral calculus",
+        "sequence growth",
+        "convexity"
+      ],
+      "concepts": [
+        "positivity of continuous functions",
+        "strict inequality from non-identical functions",
+        "convexity of exponential functions",
+        "monotonicity of sequences",
+        "integral comparison"
+      ],
+      "primary_techniques": [
+        "Cauchy-Schwarz inequality applied to integrals",
+        "Convexity argument for exponential functions",
+        "Positivity argument for integrals"
+      ],
+      "secondary_techniques": [
+        "Lower bound estimation using local comparison",
+        "Extension of sequence definition to negative indices"
+      ],
+      "techniques": [
+        "Cauchy-Schwarz inequality applied to integrals",
+        "Convexity argument for exponential functions",
+        "Positivity argument for integrals",
+        "Lower bound estimation using local comparison",
+        "Extension of sequence definition to negative indices"
+      ],
+      "solution_archetypes": [
+        "Monotonicity via positivity",
+        "Growth via convexity",
+        "Inequality chaining"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "properties of continuous functions",
+        "Cauchy-Schwarz inequality",
+        "convexity",
+        "integration of positive functions"
+      ],
+      "key_observation": "The integrand in I_{n+1} - I_n is nonnegative and not identically zero, so the sequence is strictly increasing; Cauchy-Schwarz or convexity arguments show the sequence grows rapidly.",
+      "solution_architecture": "First, show strict monotonicity by expressing I_{n+1} - I_n as an integral of a nonnegative, nonzero function. Then, use Cauchy-Schwarz or convexity to establish that the sequence grows at least geometrically, ensuring divergence to infinity. Optionally, extend the sequence to negative indices for sharper inequality chaining.",
+      "technique_evidence": [
+        {
+          "name": "Cauchy-Schwarz inequality applied to integrals",
+          "role": "primary",
+          "evidence": "Cauchy-Schwarz is used to relate I_n, I_{n+1}, and I_{n+2}, showing that the ratio I_{n+1}/I_n is nondecreasing."
+        },
+        {
+          "name": "Convexity argument for exponential functions",
+          "role": "primary",
+          "evidence": "Convexity of the exponential function in n is used to show strict monotonicity and divergence."
+        },
+        {
+          "name": "Positivity argument for integrals",
+          "role": "primary",
+          "evidence": "The integrand in I_{n+1} - I_n is shown to be nonnegative and not identically zero, guaranteeing strict increase."
+        },
+        {
+          "name": "Lower bound estimation using local comparison",
+          "role": "secondary",
+          "evidence": "A local lower bound is established by finding an interval where f(x) > c g(x), ensuring geometric growth."
+        },
+        {
+          "name": "Extension of sequence definition to negative indices",
+          "role": "secondary",
+          "evidence": "Extending I_n to n = -1 allows sharper chaining of inequalities and avoids separate base case checks."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming f(x) <= g(x) everywhere, which would contradict f ≠ g.",
+        "Trying to prove monotonicity by direct computation without exploiting positivity or convexity.",
+        "Attempting to use only basic inequalities without leveraging Cauchy-Schwarz or convexity."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8cb0ffd0c93929e651c80c1571f5dc1f08ec6aa15c8bf005a38999f6c053f1a6"
+    },
+    {
+      "id": "putnam_2017_a4",
+      "topics": [
+        "algebraic combinatorics",
+        "partitioning",
+        "averages",
+        "integer sequences"
+      ],
+      "concepts": [
+        "partitioning sets",
+        "average value",
+        "consecutive integers",
+        "sum constraints",
+        "swap operations"
+      ],
+      "primary_techniques": [
+        "monotonicity of partial sums",
+        "intermediate value argument",
+        "swap reduction argument"
+      ],
+      "secondary_techniques": [
+        "explicit construction of subset sums",
+        "modular parity reasoning"
+      ],
+      "techniques": [
+        "monotonicity of partial sums",
+        "intermediate value argument",
+        "swap reduction argument",
+        "explicit construction of subset sums",
+        "modular parity reasoning"
+      ],
+      "solution_archetypes": [
+        "partitioning via monotonic sequence",
+        "swap-based balancing",
+        "explicit subset construction"
+      ],
+      "prerequisites": [
+        "basic algebra",
+        "properties of averages",
+        "combinatorial partitioning",
+        "modular arithmetic"
+      ],
+      "key_observation": "The sequence of partial sums over blocks of N consecutive scores must cross the average, and swapping students between groups can always reduce the difference in group sums by 2 due to the consecutive nature of scores.",
+      "solution_architecture": "The proof constructs sequences of partial sums over blocks of N consecutive scores, showing that the average must be achieved by some block due to monotonicity and sum constraints. Alternatively, it demonstrates that any partition can be adjusted by swapping pairs of students with consecutive scores, reducing the difference in group sums by 2, until equality is reached. Another approach explicitly constructs a subset of scores summing to the required value using combinatorial arguments.",
+      "technique_evidence": [
+        {
+          "name": "monotonicity of partial sums",
+          "role": "primary",
+          "evidence": "The sequence of partial sums s_i is monotonic, and the total sum splits evenly between s_0 and s_N, guaranteeing the average is crossed."
+        },
+        {
+          "name": "swap reduction argument",
+          "role": "primary",
+          "evidence": "Swapping students with scores differing by 1 reduces the difference in group sums by 2, ensuring eventual equality."
+        },
+        {
+          "name": "explicit construction of subset sums",
+          "role": "secondary",
+          "evidence": "Explicit construction of subset sums from the set {1,...,10} to achieve any sum in a given range."
+        },
+        {
+          "name": "modular parity reasoning",
+          "role": "secondary",
+          "evidence": "The sum difference is always even due to the parity of the total sum."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to partition the class randomly without considering the sum constraints",
+        "Assuming all scores are equal or that the average is achievable by simple grouping",
+        "Attempting to use induction without leveraging the consecutive nature of scores"
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "5918e3d0b2097147ce77913fdb67ef3537c00f7e0419863970df347947a06050"
+    },
+    {
+      "id": "putnam_2017_a5",
+      "topics": [
+        "probability",
+        "recursion",
+        "generating functions",
+        "asymptotic analysis",
+        "cyclic symmetry",
+        "game theory"
+      ],
+      "concepts": [
+        "probability recursion",
+        "cyclic symmetry",
+        "generating functions",
+        "state transitions",
+        "null sequence",
+        "circle in R^3",
+        "cube roots of unity",
+        "asymptotic analysis"
+      ],
+      "primary_techniques": [
+        "recursive probability computation",
+        "cyclic symmetry exploitation",
+        "geometric interpretation in probability space"
+      ],
+      "secondary_techniques": [
+        "generating function analysis",
+        "asymptotic expansion",
+        "state transition analysis"
+      ],
+      "techniques": [
+        "recursive probability computation",
+        "cyclic symmetry exploitation",
+        "geometric interpretation in probability space",
+        "generating function analysis",
+        "asymptotic expansion",
+        "state transition analysis"
+      ],
+      "solution_archetypes": [
+        "recursion with cyclic symmetry",
+        "geometric/analytic interpretation of sequences",
+        "generating function approach"
+      ],
+      "prerequisites": [
+        "basic probability theory",
+        "recursion and induction",
+        "generating functions",
+        "complex numbers (roots of unity)",
+        "asymptotic analysis"
+      ],
+      "key_observation": "The recursive structure of the probabilities for each player, together with their cyclic relationship, causes the winning probabilities to rotate around a circle in probability space, ensuring that each player is favored for infinitely many n.",
+      "solution_architecture": "Set up recursive equations for each player's winning probability based on the game's rules. Analyze the cyclic structure of these recursions, showing that the differences between probabilities trace a path on a circle in three-dimensional space. Use geometric and analytic arguments to prove that this path visits neighborhoods favoring each player infinitely often, thus establishing the result.",
+      "technique_evidence": [
+        {
+          "name": "recursive probability computation",
+          "role": "primary",
+          "evidence": "Probabilities for each player are defined recursively, with each turn shifting the roles cyclically."
+        },
+        {
+          "name": "cyclic symmetry exploitation",
+          "role": "primary",
+          "evidence": "The recursion's cyclic nature leads to a geometric interpretation where the differences in probabilities rotate around a circle in R^3."
+        },
+        {
+          "name": "geometric interpretation in probability space",
+          "role": "primary",
+          "evidence": "The geometric argument shows that the sequence of probability differences cannot stabilize, ensuring each player is favored infinitely often."
+        },
+        {
+          "name": "generating function analysis",
+          "role": "secondary",
+          "evidence": "Generating functions are constructed to encode the probability distribution of game lengths, connecting to the recursive structure."
+        },
+        {
+          "name": "asymptotic expansion",
+          "role": "secondary",
+          "evidence": "Asymptotic expansions are used to estimate the arc length traversed on the circle, showing divergence."
+        },
+        {
+          "name": "state transition analysis",
+          "role": "secondary",
+          "evidence": "State transition analysis tracks the relative ordering of player probabilities and shows the impossibility of stabilization."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the probabilities for each player stabilize or converge to a fixed value as n increases",
+        "Trying to directly compute explicit probabilities for large n without recursion or structure",
+        "Assuming symmetry among players without accounting for turn order"
+      ],
+      "difficulty_overall": 8.2,
+      "difficulty_insight": 9,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 9,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2bd23243252b86566a2e10ec6440f6211a54c008d76c11e156d01d790c14b374",
+      "statement": "Each of the integers from \\(1\\) to \\(n\\) is written on a separate card, and then the cards are combined into a deck and shuffled. Three players, \\(A\\), \\(B\\), and \\(C\\), take turns in the order \\(A,B,C,A,\\dots\\) choosing one card at random from the deck. (Each card in the deck is equally likely to be chosen.) After a card is chosen, that card and all higher-numbered cards are removed from the deck, and the remaining cards are reshuffled before the next turn. Play continues until one of the three players wins the game by drawing the card numbered \\(1\\).\n\nShow that for each of the three players, there are arbitrarily large values of \\(n\\) for which that player has the highest probability among the three players of winning the game.",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2017.tex"
+    },
+    {
+      "id": "putnam_2017_a6",
+      "topics": [
+        "finite fields",
+        "linear algebra",
+        "combinatorics",
+        "graph theory",
+        "polyhedral geometry"
+      ],
+      "concepts": [
+        "vector spaces over finite fields",
+        "linear transformations",
+        "kernel and image",
+        "surjectivity",
+        "combinatorial coloring",
+        "graph duality",
+        "Hamiltonian path",
+        "symmetry arguments"
+      ],
+      "primary_techniques": [
+        "linear algebraic modeling",
+        "dimension counting",
+        "surjectivity argument"
+      ],
+      "secondary_techniques": [
+        "graph-theoretic construction",
+        "symmetry exploitation",
+        "combinatorial enumeration"
+      ],
+      "techniques": [
+        "linear algebraic modeling",
+        "dimension counting",
+        "surjectivity argument",
+        "graph-theoretic construction",
+        "symmetry exploitation",
+        "combinatorial enumeration"
+      ],
+      "solution_archetypes": [
+        "reduction to linear algebra",
+        "counting via kernel-image structure",
+        "partitioning by geometric symmetry"
+      ],
+      "prerequisites": [
+        "finite field arithmetic",
+        "linear algebra (dimension, kernel, image)",
+        "combinatorics",
+        "graph theory (dual graphs, Hamiltonian paths)"
+      ],
+      "key_observation": "The coloring constraints on faces translate to a linear condition on edge colorings, allowing the problem to be recast as counting preimages under a surjective linear map between finite vector spaces.",
+      "solution_architecture": "Model the coloring problem as a vector space over F_3, define a linear map encoding face constraints, prove surjectivity (using Hamiltonian paths or symmetry), and count colorings by kernel-image structure. Alternatively, partition the edge set by geometric features and count colorings recursively, using the linear algebraic insight to justify combinatorial steps.",
+      "technique_evidence": [
+        {
+          "name": "linear algebraic modeling",
+          "role": "primary",
+          "evidence": "Colorings are encoded as vectors in F_3^E; the face constraint is a linear condition, so the set of valid colorings is the preimage of vectors with no zero components under a linear map."
+        },
+        {
+          "name": "surjectivity argument",
+          "role": "primary",
+          "evidence": "The proof shows T is surjective by constructing Hamiltonian paths and using symmetry, ensuring every possible face vector is attainable."
+        },
+        {
+          "name": "dimension counting",
+          "role": "primary",
+          "evidence": "Dimension counting yields the kernel size, so the number of colorings is 3^10 times the number of valid face vectors (2^20)."
+        },
+        {
+          "name": "graph-theoretic construction",
+          "role": "secondary",
+          "evidence": "Partitioning the edge set by geometric features (vertices, pentagons, remaining edges) allows recursive coloring, justified by the linear algebraic structure."
+        },
+        {
+          "name": "symmetry exploitation",
+          "role": "secondary",
+          "evidence": "Symmetry arguments are used to show all face vectors are attainable and to simplify the partitioning."
+        },
+        {
+          "name": "combinatorial enumeration",
+          "role": "secondary",
+          "evidence": "Enumeration of colorings for each partition is performed combinatorially, with linear algebra ensuring consistency."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to count colorings face-by-face without accounting for global constraints leads to overcounting.",
+        "Trying to enumerate colorings directly without algebraic structure quickly becomes intractable."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3a1fcb432c014f73789e61572607637152690b00a8bbe1c9623650123828e7d7",
+      "statement": "The 30 edges of a regular icosahedron are distinguished by labeling them \\(1,2,\\dots,30\\). How many different ways \nare there to paint each edge red, white, or blue such that each of the 20 triangular faces of the icosahedron has two edges of the same color and a third edge of a different color? [Note: the top matter on each exam paper included the logo of the Mathematical Association of America, which is itself an icosahedron.]",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2017.tex"
+    },
+    {
+      "id": "putnam_2017_b1",
+      "topics": [
+        "geometry",
+        "linear algebra",
+        "vectors",
+        "transformations"
+      ],
+      "concepts": [
+        "homothety",
+        "parallelism",
+        "linear independence",
+        "vector equations",
+        "intersection of lines"
+      ],
+      "primary_techniques": [
+        "geometric transformation (homothety)",
+        "linear algebraic characterization"
+      ],
+      "secondary_techniques": [
+        "vector analysis",
+        "contrapositive argument"
+      ],
+      "techniques": [
+        "geometric transformation (homothety)",
+        "linear algebraic characterization",
+        "vector analysis",
+        "contrapositive argument"
+      ],
+      "solution_archetypes": [
+        "equivalence proof",
+        "geometric-algebraic translation"
+      ],
+      "prerequisites": [
+        "basic geometry of lines",
+        "vector arithmetic",
+        "linear algebra (solving linear systems)",
+        "homothety (dilation) in geometry"
+      ],
+      "key_observation": "The existence of points satisfying the vector equation for all λ and P is equivalent to the lines not being parallel, which can be interpreted via homothety or linear algebra.",
+      "solution_architecture": "First, interpret the geometric condition as a statement about the existence of points related by dilation (homothety) from a fixed center. Show that if the lines intersect, such a transformation always produces a unique intersection with the second line, establishing the forward direction. For the converse, translate the condition into a linear system involving the normal vectors of the lines, and demonstrate that solvability for all λ requires the lines to be non-parallel (i.e., their normals are linearly independent).",
+      "technique_evidence": [
+        {
+          "name": "geometric transformation (homothety)",
+          "role": "primary",
+          "evidence": "The proof constructs the required points using homothety centered at P, showing the geometric transformation is central."
+        },
+        {
+          "name": "linear algebraic characterization",
+          "role": "primary",
+          "evidence": "The reinterpretation translates the geometric condition into a linear system, showing that linear independence of normals is necessary and sufficient."
+        },
+        {
+          "name": "vector analysis",
+          "role": "secondary",
+          "evidence": "The argument uses vector equations to analyze the directions and magnitudes involved."
+        },
+        {
+          "name": "contrapositive argument",
+          "role": "secondary",
+          "evidence": "The proof considers the contrapositive by assuming parallel lines and showing the condition fails."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the condition holds for parallel lines without checking vector directions",
+        "Trying to construct points without considering the geometric transformation"
+      ],
+      "difficulty_overall": 4.2,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "a2d494c1051fa07e6045f77d0ae5a127ac0340fb725e2a2f8d0e1aa3bf0221d5"
+    },
+    {
+      "id": "putnam_2017_b2",
+      "topics": [
+        "Algebra",
+        "Number Theory",
+        "Arithmetic Progressions",
+        "Factorization",
+        "Parity",
+        "Modular Arithmetic"
+      ],
+      "concepts": [
+        "Representation of integers as sums of consecutive numbers",
+        "Factorization of integers",
+        "Parity considerations",
+        "Prime numbers",
+        "Modular arithmetic"
+      ],
+      "primary_techniques": [
+        "Algebraic manipulation to relate N, k, and a",
+        "Factorization analysis",
+        "Parity and divisibility constraints"
+      ],
+      "secondary_techniques": [
+        "Prime verification",
+        "Modular arithmetic reinterpretation"
+      ],
+      "techniques": [
+        "Algebraic manipulation to relate N, k, and a",
+        "Factorization analysis",
+        "Parity and divisibility constraints",
+        "Prime verification",
+        "Modular arithmetic reinterpretation"
+      ],
+      "solution_archetypes": [
+        "Uniqueness via factorization constraints",
+        "Reduction to powers of 2"
+      ],
+      "prerequisites": [
+        "Understanding sums of arithmetic progressions",
+        "Basic number theory (divisibility, primes)",
+        "Parity arguments",
+        "Modular arithmetic"
+      ],
+      "key_observation": "For N to have only one representation as a sum of k consecutive integers with k=2017, the associated factor (2a+2016) must be a power of 2, ensuring no other k>1 yields a valid representation.",
+      "solution_architecture": "First, rewrite the sum of k consecutive integers as an algebraic expression for N. Analyze the conditions under which N can be represented in this form for only one value of k>1, using factorization and parity constraints. Recognize that for k=2017 (a prime), the only way to avoid other representations is for the associated factor to be a power of 2. Find the minimal a by solving for the smallest power of 2 greater than 2016.",
+      "technique_evidence": [
+        {
+          "name": "Algebraic manipulation to relate N, k, and a",
+          "role": "primary",
+          "evidence": "The proof rewrites N as k(2a+k-1)/2 and analyzes possible factorizations of 2N."
+        },
+        {
+          "name": "Factorization analysis",
+          "role": "primary",
+          "evidence": "The argument centers on the uniqueness of the factorization for k=2017, requiring 2a+2016 to be a power of 2."
+        },
+        {
+          "name": "Parity and divisibility constraints",
+          "role": "primary",
+          "evidence": "Parity is used to restrict possible values of k and a, ensuring only one valid representation."
+        },
+        {
+          "name": "Prime verification",
+          "role": "secondary",
+          "evidence": "The solution checks that 2017 is prime to justify the uniqueness argument."
+        },
+        {
+          "name": "Modular arithmetic reinterpretation",
+          "role": "secondary",
+          "evidence": "The reinterpretation uses modular arithmetic to restate the uniqueness condition."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming only divisibility by 2017 is relevant, ignoring constraints from other possible k.",
+        "Trying to solve for a directly without considering the structure of possible representations."
+      ],
+      "difficulty_overall": 6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "b308a98f8e8ca6a4cf3e2074ea5a862cc6d8c3d123471728af351ba2c8f4f6cf"
+    },
+    {
+      "id": "putnam_2017_b3",
+      "topics": [
+        "number theory",
+        "binary expansions",
+        "rationality",
+        "power series",
+        "periodic sequences"
+      ],
+      "concepts": [
+        "binary expansion",
+        "eventually periodic sequences",
+        "rationality and periodicity",
+        "power series evaluation",
+        "denominator parity"
+      ],
+      "primary_techniques": [
+        "contradiction via periodicity",
+        "geometric series decomposition",
+        "parity analysis of denominators"
+      ],
+      "secondary_techniques": [
+        "explicit computation of power series at rational values",
+        "properties of rational numbers in base expansions"
+      ],
+      "techniques": [
+        "contradiction via periodicity",
+        "geometric series decomposition",
+        "parity analysis of denominators",
+        "explicit computation of power series at rational values",
+        "properties of rational numbers in base expansions"
+      ],
+      "solution_archetypes": [
+        "contradiction via structure of expansions",
+        "periodicity implies rationality"
+      ],
+      "prerequisites": [
+        "binary expansions of rationals",
+        "periodicity in sequences",
+        "geometric series summation",
+        "evaluating power series at rational points"
+      ],
+      "key_observation": "If f(1/2) is rational, then the sequence of coefficients is eventually periodic, which allows expressing f(x) as a sum of a finite part and a geometric series; evaluating at x=2/3 yields a contradiction in denominator parity.",
+      "solution_architecture": "Assume f(1/2) is rational, deduce eventual periodicity of coefficients, decompose f(x) into finite and periodic parts, evaluate at x=2/3, analyze the resulting expression's denominator, and reach a contradiction with the given value.",
+      "technique_evidence": [
+        {
+          "name": "contradiction via periodicity",
+          "role": "primary",
+          "evidence": "The proof assumes rationality of f(1/2), deduces periodicity, and writes f(x) as a sum involving a geometric series."
+        },
+        {
+          "name": "geometric series decomposition",
+          "role": "primary",
+          "evidence": "The periodic part is summed as a geometric series, allowing explicit evaluation at x=2/3."
+        },
+        {
+          "name": "parity analysis of denominators",
+          "role": "primary",
+          "evidence": "The denominator of the resulting expression is shown to be odd, contradicting the given value."
+        },
+        {
+          "name": "explicit computation of power series at rational values",
+          "role": "secondary",
+          "evidence": "The proof computes f(2/3) using the explicit formula for the periodic expansion."
+        },
+        {
+          "name": "properties of rational numbers in base expansions",
+          "role": "secondary",
+          "evidence": "The link between rationality and periodicity in binary expansions is used to justify the decomposition."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute f(1/2) or f(2/3) without considering the structure of the coefficients.",
+        "Assuming periodicity without connecting it to rationality of binary expansions."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "999783256a1d8a32bc01b88606e298597fd0cfd487e2aa6f5c9c963b5b84a2d6"
+    },
+    {
+      "id": "putnam_2017_b4",
+      "topics": [
+        "infinite series",
+        "logarithmic functions",
+        "analytic number theory",
+        "special functions",
+        "convergence",
+        "real analysis"
+      ],
+      "concepts": [
+        "absolute convergence",
+        "telescoping series",
+        "Riemann zeta function",
+        "Taylor expansion",
+        "differentiation under the sum",
+        "series rearrangement",
+        "analytic continuation"
+      ],
+      "primary_techniques": [
+        "telescoping series",
+        "analytic manipulation of Dirichlet series",
+        "differentiation under the sum"
+      ],
+      "secondary_techniques": [
+        "Taylor expansion",
+        "absolute convergence arguments",
+        "series rearrangement",
+        "Abel summation"
+      ],
+      "techniques": [
+        "telescoping series",
+        "analytic manipulation of Dirichlet series",
+        "differentiation under the sum",
+        "Taylor expansion",
+        "absolute convergence arguments",
+        "series rearrangement",
+        "Abel summation"
+      ],
+      "solution_archetypes": [
+        "telescoping sum",
+        "analytic continuation",
+        "parameterized series evaluation"
+      ],
+      "prerequisites": [
+        "properties of logarithmic functions",
+        "convergence of series",
+        "telescoping sums",
+        "Riemann zeta function",
+        "Taylor series",
+        "differentiation of parameterized series"
+      ],
+      "key_observation": "Rewriting the summand as differences of telescoping terms and relating the sum to derivatives of Dirichlet series allows for analytic evaluation and circumvents convergence issues.",
+      "solution_architecture": "The solution first rewrites the sum in terms of telescoping differences, allowing for absolute convergence and rearrangement. It then relates the sum to the derivative of a Dirichlet series at a specific parameter, using properties of the Riemann zeta function and Taylor expansion to evaluate the limit and extract the desired value.",
+      "technique_evidence": [
+        {
+          "name": "telescoping series",
+          "role": "primary",
+          "evidence": "The sum is rewritten as a telescoping difference, which allows for absolute convergence and rearrangement."
+        },
+        {
+          "name": "analytic manipulation of Dirichlet series",
+          "role": "primary",
+          "evidence": "The sum is expressed as the derivative of a Dirichlet series, specifically involving the Riemann zeta function."
+        },
+        {
+          "name": "differentiation under the sum",
+          "role": "primary",
+          "evidence": "The derivative with respect to the parameter is taken under the sum to relate logarithmic terms to the original series."
+        },
+        {
+          "name": "Taylor expansion",
+          "role": "secondary",
+          "evidence": "Taylor expansion is used to evaluate the behavior of the Dirichlet series near the singularity."
+        },
+        {
+          "name": "absolute convergence arguments",
+          "role": "secondary",
+          "evidence": "Absolute convergence is established to justify rearrangement of terms."
+        },
+        {
+          "name": "Abel summation",
+          "role": "secondary",
+          "evidence": "Abel summation is used to analyze the zeta function's behavior."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly sum the series without rearrangement leads to convergence issues.",
+        "Naively rearranging the second form of the sum, which is not absolutely convergent, can cause errors."
+      ],
+      "difficulty_overall": 7.1,
+      "difficulty_insight": 7,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2c6772121026cc8d4a860d8035fe852154b39dae4583651ba46621f9ad3f4c71"
+    },
+    {
+      "id": "putnam_2017_b5",
+      "topics": [
+        "geometry",
+        "triangle properties",
+        "functional equations",
+        "convexity",
+        "Diophantine equations"
+      ],
+      "concepts": [
+        "triangle equalizer",
+        "area equalizer",
+        "perimeter equalizer",
+        "convexity of functions",
+        "triangle side constraints"
+      ],
+      "primary_techniques": [
+        "functional analysis",
+        "convexity argument",
+        "Diophantine equation solving"
+      ],
+      "secondary_techniques": [
+        "case analysis",
+        "triangle inequality reasoning"
+      ],
+      "techniques": [
+        "functional analysis",
+        "convexity argument",
+        "Diophantine equation solving",
+        "case analysis",
+        "triangle inequality reasoning"
+      ],
+      "solution_archetypes": [
+        "functional equation reduction",
+        "parameter counting",
+        "integer constraint search"
+      ],
+      "prerequisites": [
+        "triangle geometry",
+        "area and perimeter calculations",
+        "function analysis",
+        "basic algebra",
+        "Diophantine equations"
+      ],
+      "key_observation": "The number of equalizers is determined by the number of solutions to a convex function equation, which reduces to a quadratic Diophantine condition on the side lengths.",
+      "solution_architecture": "Analyze the geometric equalizer condition, reduce to functional equations for area and perimeter, use convexity to count solutions, and translate to a Diophantine equation in side lengths. Search for integer solutions under triangle constraints.",
+      "technique_evidence": [
+        {
+          "name": "functional analysis",
+          "role": "primary",
+          "evidence": "The proof reduces the equalizer condition to solving f(x)=p/2 for convex functions, showing uniqueness or nonexistence based on function values at endpoints."
+        },
+        {
+          "name": "convexity argument",
+          "role": "primary",
+          "evidence": "Convexity is used to argue about the number of solutions to f(x)=p/2 within intervals."
+        },
+        {
+          "name": "Diophantine equation solving",
+          "role": "primary",
+          "evidence": "The final step is to solve 8ab=(a+b+c)^2 for integer values under triangle inequalities."
+        },
+        {
+          "name": "case analysis",
+          "role": "secondary",
+          "evidence": "The proof checks which pairs of sides can produce equalizers and eliminates cases based on triangle inequalities."
+        },
+        {
+          "name": "triangle inequality reasoning",
+          "role": "secondary",
+          "evidence": "Triangle inequalities are used to rule out non-triangular side combinations."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming all area equalizers are equalizers without checking perimeter condition",
+        "Trying to solve for equalizers on all pairs of sides without analyzing the function behavior"
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2c17b8c36c91924074a577d9d70286192e370b6c45b8626117b373641954bf83",
+      "statement": "A line in the plane of a triangle \\(T\\) is called an \\emph{equalizer} if it divides \\(T\\) into two regions having equal area and equal perimeter. Find positive integers \\(a>b>c\\), with \\(a\\) as small as possible, such that there exists a triangle with side lengths \\(a, b, c\\) that has exactly two distinct equalizers.",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2017.tex"
+    },
+    {
+      "id": "putnam_2017_b6",
+      "topics": [
+        "combinatorics",
+        "finite fields",
+        "modular arithmetic",
+        "group theory",
+        "linear algebra"
+      ],
+      "concepts": [
+        "inclusion-exclusion principle",
+        "linear equations over finite fields",
+        "group actions",
+        "orbit counting",
+        "polynomial identities",
+        "partitions and refinements"
+      ],
+      "primary_techniques": [
+        "inclusion-exclusion principle",
+        "linear algebra over finite fields",
+        "group action/orbit counting"
+      ],
+      "secondary_techniques": [
+        "polynomial comparison",
+        "inductive argument on partitions"
+      ],
+      "techniques": [
+        "inclusion-exclusion principle",
+        "linear algebra over finite fields",
+        "group action/orbit counting",
+        "polynomial comparison",
+        "inductive argument on partitions"
+      ],
+      "solution_archetypes": [
+        "counting with constraints",
+        "inclusion-exclusion for distinctness",
+        "modular linear equations"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "finite fields and modular arithmetic",
+        "inclusion-exclusion principle",
+        "group actions",
+        "linear algebra over finite fields"
+      ],
+      "key_observation": "The sum of coefficients equals the modulus (2017), enabling translation invariance and facilitating orbit counting over the finite field.",
+      "solution_architecture": "Reduce the problem to counting solutions to a linear equation modulo a prime with distinct variables, then use inclusion-exclusion to handle the distinctness constraint. Leverage translation invariance (since the sum of coefficients equals the modulus) to simplify the count via orbit analysis. Compare polynomial expressions for the number of tuples to extract necessary coefficients, and use induction on partitions to compute inclusion-exclusion weights.",
+      "technique_evidence": [
+        {
+          "name": "inclusion-exclusion principle",
+          "role": "primary",
+          "evidence": "The solution constructs the count using inclusion-exclusion over partitions, assigning weights to each partition and summing over their contributions."
+        },
+        {
+          "name": "linear algebra over finite fields",
+          "role": "primary",
+          "evidence": "The divisibility condition is interpreted as a linear equation over the finite field F_{2017}, and the number of solutions is counted using properties of linear equations in finite fields."
+        },
+        {
+          "name": "group action/orbit counting",
+          "role": "primary",
+          "evidence": "Translation invariance is used to reduce the counting problem to orbits under the action of the additive group of F_{2017}, simplifying the enumeration."
+        },
+        {
+          "name": "polynomial comparison",
+          "role": "secondary",
+          "evidence": "The solution compares coefficients in polynomial expressions for the number of tuples, extracting the inclusion-exclusion weights."
+        },
+        {
+          "name": "inductive argument on partitions",
+          "role": "secondary",
+          "evidence": "Induction is used to define and compute the inclusion-exclusion weights for partitions."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to count solutions directly without accounting for the linear constraint modulo a prime.",
+        "Ignoring the requirement that all variables be distinct, leading to overcounting."
+      ],
+      "difficulty_overall": 8.3,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 8,
+      "difficulty_proof": 9,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2017",
+      "review_status": "solution_analyzed",
+      "review_year": 2017,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2017s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "b1f24246db82ccb551870b634630def3cc26b20b6fabd415ccccc8b79700f79e"
+    }
+  ]
+}
