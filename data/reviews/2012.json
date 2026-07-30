@@ -1,0 +1,1066 @@
+{
+  "year": 2012,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2012.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+  "problem_source_sha256": "48d716380d31567cd3ae8cfce72d669d92a83939aef26246a51aacec79328eba",
+  "solution_source_sha256": "dd9e2f24520ecfcd11536ded3db31878983cc674083d40dc98eb43e4e485ca8f",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-30T18:51:43.064Z",
+  "problems": [
+    {
+      "id": "putnam_2012_a1",
+      "topics": [
+        "geometry",
+        "inequalities",
+        "combinatorics",
+        "induction",
+        "number theory"
+      ],
+      "concepts": [
+        "acute triangle",
+        "side length inequalities",
+        "Fibonacci sequence",
+        "induction",
+        "contradiction"
+      ],
+      "primary_techniques": [
+        "induction",
+        "contradiction",
+        "ordering"
+      ],
+      "secondary_techniques": [
+        "algebraic manipulation",
+        "bounding arguments"
+      ],
+      "techniques": [
+        "induction",
+        "contradiction",
+        "ordering",
+        "algebraic manipulation",
+        "bounding arguments"
+      ],
+      "solution_archetypes": [
+        "extremal argument",
+        "contradiction via growth rate",
+        "ordering and consecutive selection"
+      ],
+      "prerequisites": [
+        "triangle inequality",
+        "properties of acute triangles",
+        "basic induction",
+        "Fibonacci numbers"
+      ],
+      "key_observation": "If no consecutive triple of ordered side lengths forms an acute triangle, then their squares must grow at least as fast as the Fibonacci sequence, which is impossible given the interval bounds.",
+      "solution_architecture": "Assume the contrary and order the side lengths. Show that if no triple forms an acute triangle, then the squares of the side lengths must satisfy a recursive inequality. Use induction to demonstrate that this forces the largest side to exceed the allowed interval, yielding a contradiction.",
+      "technique_evidence": [
+        {
+          "name": "induction",
+          "role": "primary",
+          "evidence": "The proof assumes an ordering and applies a recursive inequality to consecutive triples, then uses induction to propagate this bound."
+        },
+        {
+          "name": "contradiction",
+          "role": "primary",
+          "evidence": "The argument assumes the negation of the desired property and derives an impossible bound, thus proving the existence by contradiction."
+        },
+        {
+          "name": "ordering",
+          "role": "primary",
+          "evidence": "The solution orders the side lengths to facilitate the recursive argument."
+        },
+        {
+          "name": "algebraic manipulation",
+          "role": "secondary",
+          "evidence": "The proof manipulates inequalities involving squares of side lengths and Fibonacci numbers."
+        },
+        {
+          "name": "bounding arguments",
+          "role": "secondary",
+          "evidence": "The contradiction arises from bounding the largest side using the Fibonacci sequence and the interval constraints."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly construct an acute triangle from arbitrary triples without exploiting ordering or inequalities.",
+        "Attempting to use geometric constructions or trigonometric criteria without leveraging algebraic bounds."
+      ],
+      "difficulty_overall": 4.2,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "811fc36605233263a9e6138dee611084775036b67fa186e9aab38f66e3b845b0"
+    },
+    {
+      "id": "putnam_2012_a2",
+      "topics": [
+        "binary operations",
+        "abstract algebra",
+        "group theory (pre-group structure)"
+      ],
+      "concepts": [
+        "cancellation law",
+        "commutative operation",
+        "associative operation",
+        "existence of solutions"
+      ],
+      "primary_techniques": [
+        "element construction using existence property",
+        "manipulation of associative and commutative operations"
+      ],
+      "secondary_techniques": [
+        "chaining equalities",
+        "using auxiliary elements"
+      ],
+      "techniques": [
+        "element construction using existence property",
+        "manipulation of associative and commutative operations",
+        "chaining equalities",
+        "using auxiliary elements"
+      ],
+      "solution_archetypes": [
+        "constructive proof",
+        "cancellation argument"
+      ],
+      "prerequisites": [
+        "basic abstract algebra",
+        "properties of binary operations",
+        "understanding of cancellation laws"
+      ],
+      "key_observation": "The existence property allows constructing elements that 'cancel' the operation, effectively simulating inverses and enabling cancellation.",
+      "solution_architecture": "Construct auxiliary elements using the existence property to manipulate the operation and show that equality propagates, ultimately forcing a=b.",
+      "technique_evidence": [
+        {
+          "name": "element construction using existence property",
+          "role": "primary",
+          "evidence": "The proof constructs elements e and f such that a*f = a and b*f = a, using the existence property and associativity/commutativity."
+        },
+        {
+          "name": "manipulation of associative and commutative operations",
+          "role": "primary",
+          "evidence": "Associativity and commutativity are used to rearrange and combine operations, allowing the chain of equalities to reach the desired conclusion."
+        },
+        {
+          "name": "chaining equalities",
+          "role": "secondary",
+          "evidence": "The proof repeatedly sets up equalities and uses auxiliary elements to propagate them."
+        },
+        {
+          "name": "using auxiliary elements",
+          "role": "secondary",
+          "evidence": "Auxiliary elements e, f, and g are introduced to facilitate the argument."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming cancellation holds without proof",
+        "Trying to construct inverses directly without using the existence property"
+      ],
+      "difficulty_overall": 4.7,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "ea8961fdc6def1398dc436de0c983537696ee4f3b6922837b133fce3cbcc16c8"
+    },
+    {
+      "id": "putnam_2012_a3",
+      "topics": [
+        "functional equations",
+        "real analysis",
+        "recursion",
+        "continuity"
+      ],
+      "concepts": [
+        "functional equation",
+        "sequence convergence",
+        "continuity",
+        "uniqueness of solutions"
+      ],
+      "primary_techniques": [
+        "functional equation reduction via substitution",
+        "recursive sequence analysis",
+        "continuity argument"
+      ],
+      "secondary_techniques": [
+        "algebraic manipulation",
+        "uniqueness argument"
+      ],
+      "techniques": [
+        "functional equation reduction via substitution",
+        "recursive sequence analysis",
+        "continuity argument",
+        "algebraic manipulation",
+        "uniqueness argument"
+      ],
+      "solution_archetypes": [
+        "functional equation via substitution",
+        "recursive sequence convergence",
+        "constant function deduction"
+      ],
+      "prerequisites": [
+        "functional equations",
+        "limits and continuity",
+        "sequence convergence",
+        "algebraic manipulation"
+      ],
+      "key_observation": "Substituting f(x) = g(x) sqrt(1-x^2) transforms the functional equation into one where g(x) is constant on a recursive sequence converging to 0, allowing the use of continuity to deduce g(x) = 1 everywhere.",
+      "solution_architecture": "Transform the functional equation by substituting f(x) = g(x) sqrt(1-x^2), analyze the induced recursion for g(x), show that g(x) is constant on a sequence converging to 0, use continuity to deduce g(x) = 1 everywhere, and thus f(x) = sqrt(1-x^2).",
+      "technique_evidence": [
+        {
+          "name": "functional equation reduction via substitution",
+          "role": "primary",
+          "evidence": "Substitution reduces the functional equation to one involving g(x), simplifying the problem."
+        },
+        {
+          "name": "recursive sequence analysis",
+          "role": "primary",
+          "evidence": "The recursive sequence a_n converges to 0, and g(x) is constant along this sequence."
+        },
+        {
+          "name": "continuity argument",
+          "role": "primary",
+          "evidence": "Continuity at 0 allows extension of the constant value to all x."
+        },
+        {
+          "name": "algebraic manipulation",
+          "role": "secondary",
+          "evidence": "Algebraic manipulation is used to simplify the functional equation after substitution."
+        },
+        {
+          "name": "uniqueness argument",
+          "role": "secondary",
+          "evidence": "The argument shows that only one function satisfies all conditions, establishing uniqueness."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to solve the functional equation directly without substitution",
+        "Trying to guess the form of f(x) without analyzing the recursion"
+      ],
+      "difficulty_overall": 6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "5ecf6408c6440f9a661725c44f789aaf4a66c9d72ceb9e0340b2fa8adda4a3d0"
+    },
+    {
+      "id": "putnam_2012_a4",
+      "topics": [
+        "arithmetic progressions",
+        "modular arithmetic",
+        "intervals",
+        "integer sets"
+      ],
+      "concepts": [
+        "arithmetic progression",
+        "collinearity in integer pairs",
+        "modular arithmetic",
+        "intervals on the real line"
+      ],
+      "primary_techniques": [
+        "structure lemma for arithmetic progressions",
+        "collinearity argument in integer pairs"
+      ],
+      "secondary_techniques": [
+        "modular congruence analysis",
+        "reduction by GCD"
+      ],
+      "techniques": [
+        "structure lemma for arithmetic progressions",
+        "collinearity argument in integer pairs",
+        "modular congruence analysis",
+        "reduction by GCD"
+      ],
+      "solution_archetypes": [
+        "structure characterization",
+        "reduction to known lemma",
+        "geometric reinterpretation"
+      ],
+      "prerequisites": [
+        "modular arithmetic",
+        "properties of arithmetic progressions",
+        "basic combinatorial reasoning",
+        "intervals and integer sets"
+      ],
+      "key_observation": "Any set of integers S with the property that for all triples a, b, c in S, a+c-b is also in S, must be an arithmetic progression.",
+      "solution_architecture": "Reduce the problem to the case gcd(q,r)=1. Show that S satisfies a closure property: for any three elements, a+c-b is also in S. Prove via a lemma that such sets are arithmetic progressions. Establish this closure property by analyzing the mapping from a in A to ra in T, using the collinearity of associated pairs (a,b). Conclude that S is the intersection of A with an arithmetic progression.",
+      "technique_evidence": [
+        {
+          "name": "structure lemma for arithmetic progressions",
+          "role": "primary",
+          "evidence": "The proof uses a lemma stating that sets closed under a+c-b are arithmetic progressions, and applies it to S."
+        },
+        {
+          "name": "collinearity argument in integer pairs",
+          "role": "primary",
+          "evidence": "The argument shows that triples (a_i, b_i) are collinear, which enforces the closure property needed for the lemma."
+        },
+        {
+          "name": "modular congruence analysis",
+          "role": "secondary",
+          "evidence": "The mapping ra = b + mq is analyzed modulo q, ensuring the differences are less than q and congruent modulo q."
+        },
+        {
+          "name": "reduction by GCD",
+          "role": "secondary",
+          "evidence": "The proof reduces to gcd(q,r)=1 to simplify the structure of T and S."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly characterize S without recognizing the arithmetic progression structure.",
+        "Attempting to analyze S solely via congruence conditions without leveraging the collinearity argument."
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e44d29c6cc22658d576145a66505b67c54cb076fc714186e4625b37ceba748e8"
+    },
+    {
+      "id": "putnam_2012_a5",
+      "topics": [
+        "finite fields",
+        "linear algebra",
+        "group actions",
+        "matrix theory",
+        "combinatorics"
+      ],
+      "concepts": [
+        "cyclic permutation",
+        "nilpotent matrix",
+        "direct sum decomposition",
+        "binomial coefficients modulo p",
+        "finite field vector spaces"
+      ],
+      "primary_techniques": [
+        "direct sum decomposition of vector space",
+        "analysis of nilpotent matrices",
+        "counting arguments using binomial coefficients modulo p"
+      ],
+      "secondary_techniques": [
+        "explicit construction for small cases",
+        "contradiction argument"
+      ],
+      "techniques": [
+        "direct sum decomposition of vector space",
+        "analysis of nilpotent matrices",
+        "counting arguments using binomial coefficients modulo p",
+        "explicit construction for small cases",
+        "contradiction argument"
+      ],
+      "solution_archetypes": [
+        "structure classification",
+        "contradiction via counting",
+        "explicit example for extremal cases"
+      ],
+      "prerequisites": [
+        "finite fields",
+        "linear algebra over finite fields",
+        "matrix theory (nilpotency, invertibility)",
+        "group actions"
+      ],
+      "key_observation": "The action of G on F_p^n can only be a cyclic permutation if the matrix M-I is nilpotent, and binomial coefficients modulo p restrict the possible values of n.",
+      "solution_architecture": "First, verify the property for small cases by explicit construction. Then, analyze the general structure by decomposing the vector space according to the action of M-I, showing that only nilpotent cases are possible. Use binomial coefficient divisibility to show that for most (p,n), the orbit cannot be full, leading to a contradiction and classification.",
+      "technique_evidence": [
+        {
+          "name": "direct sum decomposition of vector space",
+          "role": "primary",
+          "evidence": "Splitting F_p^n into subspaces where M-I is nilpotent or invertible, and showing that invertible part leads to a short cycle."
+        },
+        {
+          "name": "analysis of nilpotent matrices",
+          "role": "primary",
+          "evidence": "Showing that M-I nilpotent implies N^n=0 and using binomial coefficients to compute G^{(k)}(0)."
+        },
+        {
+          "name": "counting arguments using binomial coefficients modulo p",
+          "role": "primary",
+          "evidence": "Using binomial coefficients modulo p to show G^{(k)}(0)=0 for k=p^{n-1}, contradicting distinctness."
+        },
+        {
+          "name": "explicit construction for small cases",
+          "role": "secondary",
+          "evidence": "Constructing explicit examples for n=1 and (2,2) to show these cases work."
+        },
+        {
+          "name": "contradiction argument",
+          "role": "secondary",
+          "evidence": "Assuming existence for other (p,n) and deriving contradiction from orbit length."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming arbitrary choices of v and M can always generate a full cycle without considering matrix structure",
+        "Trying to construct explicit examples for all (p,n) without structural analysis"
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "507d9d6ab51d9a6bdefc68f79ee47fb62f99a8223b6e0b7c90c2b3cfab4641f9"
+    },
+    {
+      "id": "putnam_2012_a6",
+      "topics": [
+        "real analysis",
+        "multivariable calculus",
+        "integration",
+        "continuity",
+        "symmetry",
+        "functional equations"
+      ],
+      "concepts": [
+        "continuity",
+        "double integrals",
+        "rectangular regions",
+        "averages over sides",
+        "density arguments",
+        "fundamental theorem of calculus",
+        "constant functions"
+      ],
+      "primary_techniques": [
+        "differentiation under the integral sign",
+        "symmetry and averaging arguments",
+        "density and continuity reasoning"
+      ],
+      "secondary_techniques": [
+        "tiling the plane with rectangles",
+        "contradiction via sign arguments",
+        "induction on geometric configurations"
+      ],
+      "techniques": [
+        "differentiation under the integral sign",
+        "symmetry and averaging arguments",
+        "density and continuity reasoning",
+        "tiling the plane with rectangles",
+        "contradiction via sign arguments",
+        "induction on geometric configurations"
+      ],
+      "solution_archetypes": [
+        "reduction to constant function",
+        "exploiting geometric symmetries",
+        "contradiction from sign structure"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "real analysis",
+        "properties of continuous functions",
+        "integration over regions"
+      ],
+      "key_observation": "The integral condition, together with continuity, forces the function to be constant along lines, and the constant must be zero.",
+      "solution_architecture": "The proof proceeds by extracting local symmetry relations from the integral condition, then uses differentiation and continuity to show constancy along lines, and finally deduces global constancy and zero value from the integral constraint.",
+      "technique_evidence": [
+        {
+          "name": "differentiation under the integral sign",
+          "role": "primary",
+          "evidence": "Differentiating the integral over rectangles yields relations between values at corners and sides, showing constancy along lines."
+        },
+        {
+          "name": "symmetry and averaging arguments",
+          "role": "primary",
+          "evidence": "Averaging arguments and symmetry in rectangle and circle configurations are used to relate function values at different points."
+        },
+        {
+          "name": "density and continuity reasoning",
+          "role": "primary",
+          "evidence": "Density of irrational rotations and continuity are used to extend local relations to global ones."
+        },
+        {
+          "name": "tiling the plane with rectangles",
+          "role": "secondary",
+          "evidence": "Tiling the plane with rectangles and repeated application of local relations to deduce global constancy."
+        },
+        {
+          "name": "contradiction via sign arguments",
+          "role": "secondary",
+          "evidence": "Assuming nonzero values and constructing rectangles to force a contradiction via sign changes."
+        },
+        {
+          "name": "induction on geometric configurations",
+          "role": "secondary",
+          "evidence": "Induction on geometric configurations (e.g., diameters of circles) to extend local equalities."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the integral condition only implies average value zero, not pointwise vanishing",
+        "Trying to construct nonzero functions with vanishing integrals over rectangles without exploiting continuity"
+      ],
+      "difficulty_overall": 7.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d5e24900d116ad96cf56141c21b7eeb7ccff763ad71de1eca3daed396726331b"
+    },
+    {
+      "id": "putnam_2012_b1",
+      "topics": [
+        "functional equations",
+        "algebraic closure",
+        "composition of functions",
+        "logarithmic and exponential functions"
+      ],
+      "concepts": [
+        "function closure",
+        "algebraic manipulation",
+        "function composition",
+        "logarithmic and exponential identities"
+      ],
+      "primary_techniques": [
+        "Constructing auxiliary functions",
+        "Using closure under composition and addition",
+        "Algebraic manipulation"
+      ],
+      "secondary_techniques": [
+        "Using inequalities to enable subtraction",
+        "Decomposing expressions to isolate desired terms"
+      ],
+      "techniques": [
+        "Constructing auxiliary functions",
+        "Using closure under composition and addition",
+        "Algebraic manipulation",
+        "Using inequalities to enable subtraction",
+        "Decomposing expressions to isolate desired terms"
+      ],
+      "solution_archetypes": [
+        "Closure property exploitation",
+        "Auxiliary function construction"
+      ],
+      "prerequisites": [
+        "Basic properties of logarithms and exponentials",
+        "Understanding of function composition",
+        "Familiarity with closure properties"
+      ],
+      "key_observation": "The closure properties allow construction of auxiliary functions, such as logarithms and exponentials, to build up the product f(x)g(x) from sums and compositions.",
+      "solution_architecture": "Stepwise construction: Start with basic functions and use closure properties to build up logarithmic and exponential forms. Compose and add these to create expressions involving f(x)g(x), then use subtraction (enabled by inequalities) to isolate the product.",
+      "technique_evidence": [
+        {
+          "name": "Constructing auxiliary functions",
+          "role": "primary",
+          "evidence": "Logarithms of f(x)+1 and g(x)+1 are constructed via composition and addition, showing auxiliary function construction."
+        },
+        {
+          "name": "Using closure under composition and addition",
+          "role": "primary",
+          "evidence": "Composition and addition are repeatedly used to build up more complex functions from the basic ones."
+        },
+        {
+          "name": "Algebraic manipulation",
+          "role": "primary",
+          "evidence": "Algebraic manipulation is used to relate (f(x)+1)(g(x)+1)-1 to f(x)g(x)+f(x)+g(x), and then to f(x)g(x)."
+        },
+        {
+          "name": "Using inequalities to enable subtraction",
+          "role": "secondary",
+          "evidence": "Subtraction is used to isolate f(x)g(x) from f(x)g(x)+f(x)+g(x) and f(x)+g(x), relying on the inequality property."
+        },
+        {
+          "name": "Decomposing expressions to isolate desired terms",
+          "role": "secondary",
+          "evidence": "Intermediate expressions are decomposed to extract the desired product term."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly construct f(x)g(x) from f(x) and g(x) without using the closure properties",
+        "Attempting to use only addition or composition to obtain the product without auxiliary functions"
+      ],
+      "difficulty_overall": 4.2,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "caf348f31c5f31dc7241dfadbf6daebed56d8d0bbadbc2c5c40fec017aeb6c72"
+    },
+    {
+      "id": "putnam_2012_b2",
+      "topics": [
+        "geometry",
+        "inequalities",
+        "polyhedra",
+        "covering problems"
+      ],
+      "concepts": [
+        "surface coverage",
+        "polyhedral geometry",
+        "volume-area relationship",
+        "inequality manipulation"
+      ],
+      "primary_techniques": [
+        "Holder's inequality",
+        "bounding geometric quantities"
+      ],
+      "secondary_techniques": [
+        "area-volume comparison",
+        "summing over coverings"
+      ],
+      "techniques": [
+        "Holder's inequality",
+        "bounding geometric quantities",
+        "area-volume comparison",
+        "summing over coverings"
+      ],
+      "solution_archetypes": [
+        "inequality bounding",
+        "covering argument"
+      ],
+      "prerequisites": [
+        "basic polyhedral geometry",
+        "volume and area formulas for spheres and disks",
+        "Holder's inequality"
+      ],
+      "key_observation": "The intersection of a ball with a polyhedral face is a disk whose area is at most πr², and the sum of these areas must cover the face.",
+      "solution_architecture": "Reduce the problem to covering a single face of the polyhedron, relate the sum of ball volumes to the sum of disk areas covering the face, and use Holder's inequality to connect the number of balls, their total volume, and the area covered, yielding a lower bound on n in terms of V.",
+      "technique_evidence": [
+        {
+          "name": "Holder's inequality",
+          "role": "primary",
+          "evidence": "Holder's inequality is applied to relate the sum of volumes and the sum of areas, producing the desired bound."
+        },
+        {
+          "name": "area-volume comparison",
+          "role": "secondary",
+          "evidence": "The proof compares the area covered by disks (from ball intersections) to the face area, and the total volume to the sum of ball volumes."
+        },
+        {
+          "name": "summing over coverings",
+          "role": "secondary",
+          "evidence": "The argument sums over all balls covering the face to ensure complete coverage."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to bound n using only volume or only area without relating the two.",
+        "Trying to cover the polyhedron with balls without considering the geometry of their intersections with faces."
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8da1d67317bd12ad26248087b950d8501c6563384a1f42b4087a8b1325336ebc",
+      "statement": "Let \\(P\\) be a given (non-degenerate) polyhedron. Prove that there is a constant \\(c(P) > 0\\)\nwith the following property: If a collection of \\(n\\) balls whose volumes sum to \\(V\\) contains\nthe entire surface of \\(P\\), then \\(n > c(P) / V^2\\).",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2012.tex"
+    },
+    {
+      "id": "putnam_2012_b3",
+      "topics": [
+        "combinatorics",
+        "graph theory",
+        "tournament theory",
+        "matching theory"
+      ],
+      "concepts": [
+        "round-robin tournament",
+        "bipartite graph",
+        "matching",
+        "Hall's Marriage Theorem",
+        "distinct winners"
+      ],
+      "primary_techniques": [
+        "bipartite graph modeling",
+        "application of Hall's Marriage Theorem"
+      ],
+      "secondary_techniques": [
+        "counting arguments",
+        "contradiction"
+      ],
+      "techniques": [
+        "bipartite graph modeling",
+        "application of Hall's Marriage Theorem",
+        "counting arguments",
+        "contradiction"
+      ],
+      "solution_archetypes": [
+        "matching existence via Hall's theorem",
+        "graph-theoretic modeling of combinatorial constraints"
+      ],
+      "prerequisites": [
+        "basic graph theory",
+        "combinatorics",
+        "Hall's Marriage Theorem",
+        "properties of round-robin tournaments"
+      ],
+      "key_observation": "For any subset of days, the set of teams that won on those days is at least as large as the number of days, enabling Hall's condition for a matching.",
+      "solution_architecture": "Model the tournament as a bipartite graph between days and teams, with edges representing wins. Establish Hall's condition by showing that for any subset of days, the number of distinct winning teams is at least the number of days. Apply Hall's Marriage Theorem to guarantee a matching of days to distinct winning teams.",
+      "technique_evidence": [
+        {
+          "name": "bipartite graph modeling",
+          "role": "primary",
+          "evidence": "The proof constructs a bipartite graph and verifies Hall's condition for all subsets of days."
+        },
+        {
+          "name": "application of Hall's Marriage Theorem",
+          "role": "primary",
+          "evidence": "Hall's Marriage Theorem is invoked to conclude the existence of the desired matching."
+        },
+        {
+          "name": "counting arguments",
+          "role": "secondary",
+          "evidence": "Counting the number of distinct winners in subsets of days is used to verify Hall's condition."
+        },
+        {
+          "name": "contradiction",
+          "role": "secondary",
+          "evidence": "A contradiction is used to show that fewer than m distinct winners is impossible."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly construct a selection without considering global constraints",
+        "Trying to use greedy algorithms without verifying uniqueness"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0848ff56f28a5055b4b9b4c8e4e17435a4ba4093f0861b0c5c7a5dd4622da674"
+    },
+    {
+      "id": "putnam_2012_b4",
+      "topics": [
+        "sequences",
+        "recursion",
+        "asymptotic analysis",
+        "real analysis",
+        "exponential and logarithmic functions"
+      ],
+      "concepts": [
+        "monotonicity",
+        "asymptotic analysis",
+        "induction",
+        "Taylor expansion",
+        "comparison with differential equations"
+      ],
+      "primary_techniques": [
+        "induction",
+        "asymptotic comparison",
+        "sequence monotonicity and boundedness"
+      ],
+      "secondary_techniques": [
+        "Taylor expansion",
+        "comparison with differential equations"
+      ],
+      "techniques": [
+        "induction",
+        "asymptotic comparison",
+        "sequence monotonicity and boundedness",
+        "Taylor expansion",
+        "comparison with differential equations"
+      ],
+      "solution_archetypes": [
+        "asymptotic matching",
+        "monotonic bounded sequence convergence",
+        "recursion-to-differential analogy"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "properties of exponential and logarithmic functions",
+        "induction",
+        "Taylor series",
+        "asymptotic comparison"
+      ],
+      "key_observation": "The recursive sequence grows roughly like log(n), and the difference a_n - log n forms a decreasing, bounded sequence, ensuring convergence.",
+      "solution_architecture": "First, establish a lower bound for the sequence using induction and properties of logarithms. Next, show that the difference a_n - log n is positive and forms a decreasing sequence, implying convergence. Alternatively, transform the recursion to an exponential form, analyze its asymptotics via Taylor expansion, and show the ratio b_n/n approaches 1, confirming the original difference converges.",
+      "technique_evidence": [
+        {
+          "name": "induction",
+          "role": "primary",
+          "evidence": "Induction is used to prove a_n > log(n+1) for all n."
+        },
+        {
+          "name": "sequence monotonicity and boundedness",
+          "role": "primary",
+          "evidence": "The sequence a_n - log n is shown to be decreasing and bounded below, guaranteeing convergence."
+        },
+        {
+          "name": "asymptotic comparison",
+          "role": "primary",
+          "evidence": "The proof compares the recursion to the solution of a related differential equation to predict asymptotics."
+        },
+        {
+          "name": "Taylor expansion",
+          "role": "secondary",
+          "evidence": "Taylor expansion is used in the second solution to estimate the error term in the recursion for b_n."
+        },
+        {
+          "name": "comparison with differential equations",
+          "role": "secondary",
+          "evidence": "The remark discusses the analogy between the recursion and a differential equation, supporting the asymptotic reasoning."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the sequence converges without checking monotonicity or bounds",
+        "Trying to directly compute the limit without asymptotic analysis"
+      ],
+      "difficulty_overall": 6.3,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8b045b78b2db6552af02e6206abbf5a4fcf51ff3c7c89d99253c9727f4f3f181"
+    },
+    {
+      "id": "putnam_2012_b5",
+      "topics": [
+        "convexity",
+        "duality",
+        "real analysis",
+        "supremum and maximum",
+        "function transformation"
+      ],
+      "concepts": [
+        "convexity",
+        "duality",
+        "supporting lines",
+        "supremum of affine functions",
+        "AM-GM inequality"
+      ],
+      "primary_techniques": [
+        "convex analysis",
+        "duality argument",
+        "supporting hyperplane theorem"
+      ],
+      "secondary_techniques": [
+        "AM-GM inequality",
+        "function transformation (logarithm and exponentiation)"
+      ],
+      "techniques": [
+        "convex analysis",
+        "duality argument",
+        "supporting hyperplane theorem",
+        "AM-GM inequality",
+        "function transformation (logarithm and exponentiation)"
+      ],
+      "solution_archetypes": [
+        "convex duality",
+        "supremum-to-maximum conversion"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "convex functions",
+        "supremum and maximum properties",
+        "affine functions",
+        "AM-GM inequality"
+      ],
+      "key_observation": "The supremum of affine functions in x is convex, and its exponential preserves convexity, allowing the use of supporting lines to represent the supremum as a maximum over affine functions.",
+      "solution_architecture": "Transform the original supremum expression into a convex function of x via logarithms. Recognize that the supremum of affine functions is convex, and its exponential remains convex. Use supporting lines (tangent lines) to the convex function to represent it as a maximum over affine functions, establishing the desired equality.",
+      "technique_evidence": [
+        {
+          "name": "convex analysis",
+          "role": "primary",
+          "evidence": "The proof rewrites the original expression as the supremum of affine functions in x, showing convexity."
+        },
+        {
+          "name": "duality argument",
+          "role": "primary",
+          "evidence": "The solution uses supporting lines to the convex function to represent the supremum as a maximum, which is a duality argument."
+        },
+        {
+          "name": "supporting hyperplane theorem",
+          "role": "primary",
+          "evidence": "The supporting lines are constructed using the supporting hyperplane theorem for convex functions."
+        },
+        {
+          "name": "AM-GM inequality",
+          "role": "secondary",
+          "evidence": "The AM-GM inequality is used to verify convexity of the exponential function."
+        },
+        {
+          "name": "function transformation (logarithm and exponentiation)",
+          "role": "secondary",
+          "evidence": "Logarithms and exponentials are used to transform the original product into a sum, facilitating convexity analysis."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly match the supremum and maximum expressions without transforming the functions.",
+        "Trying to explicitly construct h_1 and h_2 without using convexity or duality."
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3e75c1749f7af9576ad5d0db9935d1cfe3630abd6693357124c6e944eaf93457"
+    },
+    {
+      "id": "putnam_2012_b6",
+      "topics": [
+        "Permutation parity",
+        "Group actions",
+        "Modular arithmetic",
+        "Quadratic reciprocity",
+        "Cycle decomposition",
+        "Primitive roots"
+      ],
+      "concepts": [
+        "Permutation parity",
+        "Cycle decomposition",
+        "Quadratic character",
+        "Primitive roots",
+        "Inversions in permutations",
+        "Euler's totient function",
+        "Multiplicative order"
+      ],
+      "primary_techniques": [
+        "Reduction to group action (multiplication by 3)",
+        "Counting inversions in permutations",
+        "Permutation sign formula via product",
+        "Cycle decomposition and parity analysis"
+      ],
+      "secondary_techniques": [
+        "Quadratic reciprocity",
+        "Primitive root exponent analysis",
+        "Orbit counting via Euler's totient function"
+      ],
+      "techniques": [
+        "Reduction to group action (multiplication by 3)",
+        "Counting inversions in permutations",
+        "Permutation sign formula via product",
+        "Cycle decomposition and parity analysis",
+        "Quadratic reciprocity",
+        "Primitive root exponent analysis",
+        "Orbit counting via Euler's totient function"
+      ],
+      "solution_archetypes": [
+        "Reduction to group-theoretic structure",
+        "Counting combinatorial invariants (inversions, cycles)",
+        "Algebraic sign computation"
+      ],
+      "prerequisites": [
+        "Group theory (cyclic groups, permutation groups)",
+        "Number theory (modular arithmetic, primitive roots, quadratic reciprocity)",
+        "Permutation sign and cycle decomposition",
+        "Euler's totient function"
+      ],
+      "key_observation": "The permutation induced by cubing modulo p corresponds to multiplication by 3 on the cyclic group of nonzero residues, and its parity can be analyzed via inversions, sign formula, or cycle structure, each ultimately relating to the congruence class of p modulo 4.",
+      "solution_architecture": "Reduce the permutation to multiplication by 3 on the cyclic group of nonzero residues modulo p. Analyze the parity of this permutation using one of three methods: (1) count inversions in the induced permutation, (2) compute the sign via the product formula for permutation sign, or (3) analyze the cycle decomposition and count cycles of even length. Each method ultimately relates the parity to the congruence of p modulo 4.",
+      "technique_evidence": [
+        {
+          "name": "Reduction to group action (multiplication by 3)",
+          "role": "primary",
+          "evidence": "The proof reduces the permutation to multiplication by 3 on the cyclic group of nonzero residues, allowing analysis via group action."
+        },
+        {
+          "name": "Counting inversions in permutations",
+          "role": "primary",
+          "evidence": "The first solution counts inversions in the permutation induced by multiplication by 3, relating the total to the parity of p modulo 4."
+        },
+        {
+          "name": "Permutation sign formula via product",
+          "role": "primary",
+          "evidence": "The second solution uses the permutation sign formula, expressing the sign as a product and evaluating it using quadratic character properties."
+        },
+        {
+          "name": "Cycle decomposition and parity analysis",
+          "role": "primary",
+          "evidence": "The third solution analyzes the cycle decomposition, counting cycles of even length to determine the permutation's parity."
+        },
+        {
+          "name": "Quadratic reciprocity",
+          "role": "secondary",
+          "evidence": "Quadratic reciprocity is used in the second solution to evaluate the quadratic character and relate it to the sign computation."
+        },
+        {
+          "name": "Primitive root exponent analysis",
+          "role": "secondary",
+          "evidence": "Primitive root exponent analysis is used in the second solution to simplify the product and relate it to the sign modulo p."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to analyze the permutation directly without reducing to multiplication by 3 modulo p-1",
+        "Attempting to compute the sign via explicit cycle decomposition without leveraging group structure",
+        "Misapplying quadratic reciprocity or failing to relate it to the permutation's sign"
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2012",
+      "review_status": "solution_analyzed",
+      "review_year": 2012,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2012s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "afc65e1a3582d3dea4a1c374cb12386d3f832666d412145ef5858e1072492e08"
+    }
+  ]
+}
