@@ -1,0 +1,1055 @@
+{
+  "year": 2013,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2013.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+  "problem_source_sha256": "e2d1a382f74f2a35b6f0c98512c4ea55fb9b03b8585a91830c150755e2a12baf",
+  "solution_source_sha256": "5c58ac0e0fec238a4972fa0f8d1299cf60f05b61636cab1cc19e5447d35fdf55",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-30T04:32:16.373Z",
+  "problems": [
+    {
+      "id": "putnam_2013_a1",
+      "topics": [
+        "combinatorics",
+        "polyhedral geometry",
+        "extremal combinatorics"
+      ],
+      "concepts": [
+        "vertex-face incidence",
+        "minimum sum over distinct integers",
+        "double counting",
+        "contradiction"
+      ],
+      "primary_techniques": [
+        "double counting",
+        "minimum sum argument",
+        "contradiction"
+      ],
+      "secondary_techniques": [
+        "vertex-face incidence analysis"
+      ],
+      "techniques": [
+        "double counting",
+        "minimum sum argument",
+        "contradiction",
+        "vertex-face incidence analysis"
+      ],
+      "solution_archetypes": [
+        "contradiction via counting",
+        "extremal principle"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "properties of polyhedra (icosahedron)",
+        "double counting principle"
+      ],
+      "key_observation": "Each vertex is incident to five faces, so if all five faces have distinct labels, their sum is at least 10; summing over all vertices counts each face label three times.",
+      "solution_architecture": "Assume no two faces sharing a vertex have the same label. Use the fact that each vertex is incident to five faces with distinct labels, so their sum is at least 10. Sum over all vertices, noting each face is counted three times, and derive a lower bound for the total sum. Compare this bound to the given total (39) to reach a contradiction.",
+      "technique_evidence": [
+        {
+          "name": "double counting",
+          "role": "primary",
+          "evidence": "The proof sums the minimum possible labels at each vertex, then aggregates over all vertices, using the fact that each face is counted three times."
+        },
+        {
+          "name": "minimum sum argument",
+          "role": "primary",
+          "evidence": "The argument uses the minimum sum of five distinct nonnegative integers (0+1+2+3+4=10) at each vertex."
+        },
+        {
+          "name": "contradiction",
+          "role": "primary",
+          "evidence": "The contradiction arises from the lower bound exceeding the given total sum."
+        },
+        {
+          "name": "vertex-face incidence analysis",
+          "role": "secondary",
+          "evidence": "The proof relies on the structure of the icosahedron, specifically the vertex-face incidence."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the problem is about adjacent faces rather than faces sharing a vertex.",
+        "Trying to use coloring or graph theory without leveraging the combinatorial counting."
+      ],
+      "difficulty_overall": 4.1,
+      "difficulty_insight": 6,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "a485475bc2985a68c0f7ebc362f67df5ace6b7fa6cf649cebe047d1c75154f2a",
+      "statement": "Recall that a regular icosahedron is a convex polyhedron\nhaving 12 vertices and 20 faces;\nthe faces are congruent equilateral triangles.\nOn each face of a regular icosahedron is written a nonnegative integer\nsuch that the sum of all 20 integers is 39. Show that there are \ntwo faces that share a vertex and have the same integer written on them.",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2013.tex"
+    },
+    {
+      "id": "putnam_2013_a2",
+      "topics": [
+        "number theory",
+        "injective functions",
+        "properties of perfect squares"
+      ],
+      "concepts": [
+        "minimality",
+        "injectivity",
+        "perfect squares",
+        "distinctness of factors"
+      ],
+      "primary_techniques": [
+        "proof by contradiction",
+        "minimality argument",
+        "factor elimination"
+      ],
+      "secondary_techniques": [
+        "pairwise combination of sequences",
+        "analysis of integer products"
+      ],
+      "techniques": [
+        "proof by contradiction",
+        "minimality argument",
+        "factor elimination",
+        "pairwise combination of sequences",
+        "analysis of integer products"
+      ],
+      "solution_archetypes": [
+        "injectivity via contradiction",
+        "minimality contradiction"
+      ],
+      "prerequisites": [
+        "properties of perfect squares",
+        "basic number theory",
+        "contradiction arguments"
+      ],
+      "key_observation": "If two distinct n and m have the same minimal maximal factor a_r = b_s, combining their minimal perfect-square-producing sequences and removing duplicate factors yields a smaller maximal factor, contradicting minimality.",
+      "solution_architecture": "Assume two distinct inputs yield the same output. Construct their minimal sequences whose product with the input is a perfect square. Combine these sequences, remove duplicate factors, and show the resulting sequence produces a perfect square with a smaller maximal factor, contradicting the definition of f(n).",
+      "technique_evidence": [
+        {
+          "name": "proof by contradiction",
+          "role": "primary",
+          "evidence": "The proof assumes f(n) = f(m) and constructs sequences for both, then combines them to derive a contradiction."
+        },
+        {
+          "name": "minimality argument",
+          "role": "primary",
+          "evidence": "The argument relies on the minimality of the maximal factor in the sequence, showing that any smaller value would violate the definition of f(n)."
+        },
+        {
+          "name": "factor elimination",
+          "role": "primary",
+          "evidence": "Duplicate factors are removed from the combined product to ensure distinctness and maintain the perfect square property."
+        },
+        {
+          "name": "pairwise combination of sequences",
+          "role": "secondary",
+          "evidence": "Combining sequences and analyzing their products is used to construct the contradiction."
+        },
+        {
+          "name": "analysis of integer products",
+          "role": "secondary",
+          "evidence": "The proof analyzes the product of integers to ensure it remains a perfect square after factor elimination."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute f(n) for all n without considering the structure of the minimality argument.",
+        "Attempting to prove injectivity by explicit enumeration rather than contradiction."
+      ],
+      "difficulty_overall": 5.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "4dea4bf3879ef2607148f524585a774a6f46f4375237b11680f86fee7da83c90"
+    },
+    {
+      "id": "putnam_2013_a3",
+      "topics": [
+        "Real analysis",
+        "Polynomials",
+        "Continuity",
+        "Root existence",
+        "Series"
+      ],
+      "concepts": [
+        "Intermediate Value Theorem",
+        "Continuity of polynomials",
+        "Sign preservation on intervals",
+        "Series convergence"
+      ],
+      "primary_techniques": [
+        "Proof by contradiction",
+        "Intermediate Value Theorem"
+      ],
+      "secondary_techniques": [
+        "Series manipulation",
+        "Sign argument"
+      ],
+      "techniques": [
+        "Proof by contradiction",
+        "Intermediate Value Theorem",
+        "Series manipulation",
+        "Sign argument"
+      ],
+      "solution_archetypes": [
+        "Contradiction via sign analysis",
+        "Reduction to polynomial root existence"
+      ],
+      "prerequisites": [
+        "Basic real analysis (continuity, intermediate value theorem)",
+        "Understanding of polynomials and their roots",
+        "Series convergence"
+      ],
+      "key_observation": "If the polynomial is nonzero for all y in (0,1), it must have constant sign there, which leads to a contradiction when summing powers of x.",
+      "solution_architecture": "Assume the polynomial has no root in (0,1), deduce constant sign, construct a series involving powers of x, show the sum must be positive, contradict the given equation.",
+      "technique_evidence": [
+        {
+          "name": "Proof by contradiction",
+          "role": "primary",
+          "evidence": "The proof begins by assuming the polynomial is always positive (or negative) on (0,1), then uses this to derive a contradiction."
+        },
+        {
+          "name": "Intermediate Value Theorem",
+          "role": "primary",
+          "evidence": "The argument relies on the fact that a continuous function (polynomial) with no root in (0,1) must have constant sign, invoking the intermediate value theorem."
+        },
+        {
+          "name": "Series manipulation",
+          "role": "secondary",
+          "evidence": "The proof manipulates the sum over powers of x to relate the original equation to the sign of the polynomial."
+        },
+        {
+          "name": "Sign argument",
+          "role": "secondary",
+          "evidence": "The contradiction arises from the sign argument: the sum must be positive if the polynomial is always positive."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly solve for y algebraically without considering the sign or continuity of the polynomial.",
+        "Attempting to manipulate the original sum without connecting it to the polynomial's behavior on (0,1)."
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "753e1c8de875133f1e42b21e2aa06fd02850f39055eebdac030551ff84808071"
+    },
+    {
+      "id": "putnam_2013_a4",
+      "topics": [
+        "combinatorics",
+        "algebra",
+        "discrete mathematics",
+        "circle arrangements"
+      ],
+      "concepts": [
+        "averaging over arcs",
+        "bounded difference property",
+        "adjacent arcs",
+        "concatenation of arcs",
+        "integer averages"
+      ],
+      "primary_techniques": [
+        "averaging argument",
+        "contradiction",
+        "pigeonhole principle"
+      ],
+      "secondary_techniques": [
+        "adjacent arc construction",
+        "concatenation and partitioning"
+      ],
+      "techniques": [
+        "averaging argument",
+        "contradiction",
+        "pigeonhole principle",
+        "adjacent arc construction",
+        "concatenation and partitioning"
+      ],
+      "solution_archetypes": [
+        "average-realization",
+        "bounded-difference exploitation"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "properties of averages",
+        "modular arithmetic",
+        "circle arrangements"
+      ],
+      "key_observation": "If all arcs of a given length differ in their zero counts by at most 1, then the average zero count over any collection of such arcs must be realized by at least one arc, provided the average is integer.",
+      "solution_architecture": "Construct a sequence of adjacent arcs covering the circle, partition their concatenation into arcs of the desired length, and use the bounded difference property to show that the integer average must be achieved by at least one arc, via contradiction.",
+      "technique_evidence": [
+        {
+          "name": "averaging argument",
+          "role": "primary",
+          "evidence": "The proof constructs adjacent arcs and partitions their concatenation, then uses the bounded difference property to argue about the possible values of zero counts."
+        },
+        {
+          "name": "contradiction",
+          "role": "primary",
+          "evidence": "The contradiction arises from assuming no arc achieves the average, leading to an impossible bound on the sum of differences."
+        },
+        {
+          "name": "pigeonhole principle",
+          "role": "primary",
+          "evidence": "The bounded difference property ensures that the zero counts among arcs of the same length are tightly clustered, enabling the pigeonhole principle."
+        },
+        {
+          "name": "adjacent arc construction",
+          "role": "secondary",
+          "evidence": "Adjacent arcs are constructed to facilitate partitioning and counting."
+        },
+        {
+          "name": "concatenation and partitioning",
+          "role": "secondary",
+          "evidence": "Concatenation and partitioning are used to create arcs of the desired length from the original collection."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly construct an arc with the desired counts without leveraging the averaging and bounded difference properties.",
+        "Attempting to use induction on the number of arcs or digits without exploiting the circle structure."
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d14d5766e001f5e5c275221207d75811d5f46ecab31543ad9628698efa546554"
+    },
+    {
+      "id": "putnam_2013_a5",
+      "topics": [
+        "geometry",
+        "multivariable calculus",
+        "linear algebra",
+        "inverse problems",
+        "projections",
+        "surface area"
+      ],
+      "concepts": [
+        "area definite lists",
+        "orthogonal projection",
+        "rotation invariance",
+        "integration over sphere",
+        "surface area",
+        "inverse problems"
+      ],
+      "primary_techniques": [
+        "geometric projection",
+        "integration over sphere",
+        "rotation invariance"
+      ],
+      "secondary_techniques": [
+        "symmetry argument",
+        "measure theory (informal)"
+      ],
+      "techniques": [
+        "geometric projection",
+        "integration over sphere",
+        "rotation invariance",
+        "symmetry argument",
+        "measure theory (informal)"
+      ],
+      "solution_archetypes": [
+        "dimensional lifting via averaging",
+        "projection-based reduction"
+      ],
+      "prerequisites": [
+        "multivariable calculus (integration over spheres)",
+        "basic geometry (triangle area, projections)",
+        "linear algebra (dot product, unit vectors)"
+      ],
+      "key_observation": "Integrating the projected triangle areas over all directions yields a constant multiple of the original area sum, showing area definiteness transfers from R^2 to R^3.",
+      "solution_architecture": "Reduce the R^3 case to R^2 by projecting triangles onto planes perpendicular to arbitrary unit vectors, then integrate the projected area sum over all directions. Use rotational symmetry to show the integral is a constant times the original area sum, thus preserving area definiteness.",
+      "technique_evidence": [
+        {
+          "name": "geometric projection",
+          "role": "primary",
+          "evidence": "The proof uses the area of the projection of triangles onto planes perpendicular to unit vectors, relating R^3 triangle areas to R^2 projections."
+        },
+        {
+          "name": "integration over sphere",
+          "role": "primary",
+          "evidence": "The argument integrates the projected area sum over all directions on the unit sphere, exploiting rotational invariance to extract a constant factor."
+        },
+        {
+          "name": "rotation invariance",
+          "role": "primary",
+          "evidence": "The proof relies on the fact that the measure on the sphere is rotation-invariant, so the integral is independent of triangle orientation."
+        },
+        {
+          "name": "symmetry argument",
+          "role": "secondary",
+          "evidence": "The symmetry of the sphere and the independence of the constant from triangle orientation are invoked to justify the reduction."
+        },
+        {
+          "name": "measure theory (informal)",
+          "role": "secondary",
+          "evidence": "The integration is over the sphere, implicitly using measure theory concepts, though not formally developed."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly construct counterexamples in R^3 without leveraging projection or integration.",
+        "Attempting to use only algebraic manipulation of area expressions without geometric insight."
+      ],
+      "difficulty_overall": 6.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "0b3d04f7d8b35fa7aa378d63fd318b16d3667ff7937d56a3ce454811db77938e"
+    },
+    {
+      "id": "putnam_2013_a6",
+      "topics": [
+        "algebra",
+        "generating functions",
+        "constant coefficient extraction",
+        "trigonometric analysis",
+        "positivity"
+      ],
+      "concepts": [
+        "generating functions",
+        "Laurent polynomials",
+        "constant coefficient extraction",
+        "trigonometric parametrization",
+        "positivity of functions"
+      ],
+      "primary_techniques": [
+        "generating function encoding",
+        "constant coefficient extraction via integration",
+        "positivity analysis"
+      ],
+      "secondary_techniques": [
+        "trigonometric substitution",
+        "case analysis on sign of variables"
+      ],
+      "techniques": [
+        "generating function encoding",
+        "constant coefficient extraction via integration",
+        "positivity analysis",
+        "trigonometric substitution",
+        "case analysis on sign of variables"
+      ],
+      "solution_archetypes": [
+        "algebraic encoding",
+        "analytic evaluation",
+        "positivity verification"
+      ],
+      "prerequisites": [
+        "basic algebraic manipulation",
+        "generating functions in two variables",
+        "complex analysis (integration over unit circle)",
+        "trigonometric identities",
+        "positivity arguments"
+      ],
+      "key_observation": "Express A(S) as the constant coefficient of a product of generating functions, then evaluate this coefficient via integration over the unit torus, reducing the problem to showing a certain function is always nonnegative.",
+      "solution_architecture": "Encode the sum A(S) using generating functions, relate it to the constant coefficient of a Laurent polynomial, compute this coefficient by integrating over the unit torus, and reduce the proof to verifying the nonnegativity of a function defined in terms of cosines.",
+      "technique_evidence": [
+        {
+          "name": "generating function encoding",
+          "role": "primary",
+          "evidence": "A(S) is encoded as the constant coefficient of f(x,y)f(x^{-1},y^{-1})g(x,y), leveraging generating functions."
+        },
+        {
+          "name": "constant coefficient extraction via integration",
+          "role": "primary",
+          "evidence": "The constant coefficient is computed by integrating over the unit circle, connecting algebraic and analytic perspectives."
+        },
+        {
+          "name": "positivity analysis",
+          "role": "primary",
+          "evidence": "The proof reduces to checking that g(e^{is},e^{it}) is always nonnegative, which is done by analyzing the function G(z,w) for all possible values."
+        },
+        {
+          "name": "trigonometric substitution",
+          "role": "secondary",
+          "evidence": "Trigonometric substitution is used to parametrize the variables in terms of cosines."
+        },
+        {
+          "name": "case analysis on sign of variables",
+          "role": "secondary",
+          "evidence": "Case analysis is performed based on the sign of zw to verify positivity in all cases."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute A(S) for arbitrary S without structural insight",
+        "Trying to analyze the sum by combinatorial or symmetry arguments without leveraging generating functions"
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "eafffc640b6485c0f71e7d0e7f66f247c70ad86be62ea05bd9e233f7acee68df"
+    },
+    {
+      "id": "putnam_2013_b1",
+      "topics": [
+        "Algebra",
+        "Sequences",
+        "Recursion",
+        "Parity"
+      ],
+      "concepts": [
+        "Recursive sequences",
+        "Parity",
+        "Binary representation",
+        "Telescoping sums",
+        "Symmetry"
+      ],
+      "primary_techniques": [
+        "Pairing and symmetry exploitation",
+        "Telescoping sum"
+      ],
+      "secondary_techniques": [
+        "Recursive sequence manipulation",
+        "Parity analysis"
+      ],
+      "techniques": [
+        "Pairing and symmetry exploitation",
+        "Telescoping sum",
+        "Recursive sequence manipulation",
+        "Parity analysis"
+      ],
+      "solution_archetypes": [
+        "Telescoping sum via recursive structure",
+        "Parity-based pairing"
+      ],
+      "prerequisites": [
+        "Understanding recursive definitions",
+        "Basic algebraic manipulation",
+        "Familiarity with telescoping sums"
+      ],
+      "key_observation": "Pairing terms based on parity and using the recursive definition reveals that the sum telescopes to zero except for the first term.",
+      "solution_architecture": "The solution pairs terms in the sum according to their parity, uses the recursive definition to relate these pairs, and shows that their contributions cancel except for the initial term, reducing the sum to a simple calculation.",
+      "technique_evidence": [
+        {
+          "name": "Pairing and symmetry exploitation",
+          "role": "primary",
+          "evidence": "The proof pairs c(2k)c(2k+2) and c(2k+1)c(2k+3), showing their sum is zero by recursive relations."
+        },
+        {
+          "name": "Telescoping sum",
+          "role": "primary",
+          "evidence": "The sum over all pairs cancels, leaving only the first term, which is computed directly."
+        },
+        {
+          "name": "Recursive sequence manipulation",
+          "role": "secondary",
+          "evidence": "The recursive definition is repeatedly used to relate c(n) to c(n/2) or c((n-1)/2)."
+        },
+        {
+          "name": "Parity analysis",
+          "role": "secondary",
+          "evidence": "The proof distinguishes between even and odd indices to set up the pairing."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the sum without exploiting the recursive structure.",
+        "Trying to expand c(n) explicitly for all n instead of leveraging symmetries."
+      ],
+      "difficulty_overall": 4.4,
+      "difficulty_insight": 7,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "a587fbae21d08f7a1d4cac740d5bee0ead90641a683d3533e463d700180f434a"
+    },
+    {
+      "id": "putnam_2013_b2",
+      "topics": [
+        "trigonometric polynomials",
+        "inequalities",
+        "extremal problems",
+        "algebraic manipulation"
+      ],
+      "concepts": [
+        "cosine polynomials",
+        "nonnegativity",
+        "coefficient restrictions",
+        "evaluation at specific points"
+      ],
+      "primary_techniques": [
+        "strategic evaluation at special points",
+        "rewriting trigonometric polynomials"
+      ],
+      "secondary_techniques": [
+        "algebraic manipulation",
+        "bounding sums"
+      ],
+      "techniques": [
+        "strategic evaluation at special points",
+        "rewriting trigonometric polynomials",
+        "algebraic manipulation",
+        "bounding sums"
+      ],
+      "solution_archetypes": [
+        "maximum value under constraints",
+        "extremal trigonometric polynomial"
+      ],
+      "prerequisites": [
+        "trigonometric identities",
+        "polynomial evaluation",
+        "basic inequalities"
+      ],
+      "key_observation": "Evaluating the polynomial at x=1/3 yields a linear constraint on the sum of coefficients, which bounds f(0).",
+      "solution_architecture": "First, construct an explicit example attaining the maximum by rewriting the polynomial as a perfect square. Then, evaluate the polynomial at a strategically chosen point (x=1/3) to derive a constraint on the sum of coefficients, which bounds f(0). Finally, confirm that the bound is sharp and attained by the constructed example.",
+      "technique_evidence": [
+        {
+          "name": "rewriting trigonometric polynomials",
+          "role": "primary",
+          "evidence": "The solution rewrites the polynomial as a perfect square to show nonnegativity and explicit attainment of the maximum."
+        },
+        {
+          "name": "strategic evaluation at special points",
+          "role": "primary",
+          "evidence": "Evaluating at x=1/3 yields a constraint on the sum of coefficients, directly bounding f(0)."
+        },
+        {
+          "name": "bounding sums",
+          "role": "secondary",
+          "evidence": "The sum of coefficients is bounded using the derived inequality from the evaluation."
+        },
+        {
+          "name": "algebraic manipulation",
+          "role": "secondary",
+          "evidence": "Algebraic manipulation is used to rewrite the polynomial and derive the bound."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to maximize f(0) without considering the nonnegativity constraint.",
+        "Ignoring the restriction on coefficients for multiples of 3."
+      ],
+      "difficulty_overall": 4.8,
+      "difficulty_insight": 6,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "7eea47eff90875a59045e06656c6253301c2f77a26b46b51f6d34348d90581a5"
+    },
+    {
+      "id": "putnam_2013_b3",
+      "topics": [
+        "functional equations",
+        "set theory",
+        "induction",
+        "additive functions"
+      ],
+      "concepts": [
+        "set functions",
+        "additivity",
+        "inductive definition",
+        "uniqueness of representation"
+      ],
+      "primary_techniques": [
+        "inductive construction",
+        "difference method for defining coefficients",
+        "use of set operations (union, intersection)"
+      ],
+      "secondary_techniques": [
+        "minimality argument",
+        "verification of independence"
+      ],
+      "techniques": [
+        "inductive construction",
+        "difference method for defining coefficients",
+        "use of set operations (union, intersection)",
+        "minimality argument",
+        "verification of independence"
+      ],
+      "solution_archetypes": [
+        "inductive definition of function",
+        "coefficient extraction via difference"
+      ],
+      "prerequisites": [
+        "basic set theory",
+        "induction",
+        "properties of functions on sets"
+      ],
+      "key_observation": "The difference f(S) - f(T) for S = T ∪ {i} is independent of the choice of S and T, allowing the definition of f_i for each i.",
+      "solution_architecture": "Define coefficients f_i by considering the difference f(S) - f(T) for sets S and T where S = T ∪ {i}, using minimality and closure properties to ensure existence and independence. Then prove by induction on set size that f(S) equals the sum of f_i over i in S.",
+      "technique_evidence": [
+        {
+          "name": "inductive construction",
+          "role": "primary",
+          "evidence": "The proof constructs f_i as f(S) - f(T) for S = T ∪ {i}, and shows independence via repeated application of the functional equation and set operations."
+        },
+        {
+          "name": "minimality argument",
+          "role": "secondary",
+          "evidence": "The proof uses minimal sets containing i and closure under union/intersection to guarantee existence of suitable S, T."
+        },
+        {
+          "name": "verification of independence",
+          "role": "secondary",
+          "evidence": "The independence of f_i from the choice of S, T is established by comparing differences for different pairs using the functional equation."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly construct the function f(S) without leveraging the structure of P or the properties of f.",
+        "Assuming f_i can be defined arbitrarily without proving independence from the choice of S, T."
+      ],
+      "difficulty_overall": 5.6,
+      "difficulty_insight": 6,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8be19a21db8a66f4a456eaf4fe597bd5f60bdb6e2975cf846d88153c5ede85e9"
+    },
+    {
+      "id": "putnam_2013_b4",
+      "topics": [
+        "real analysis",
+        "inequalities",
+        "variance",
+        "integral calculus",
+        "functional analysis"
+      ],
+      "concepts": [
+        "variance",
+        "mean",
+        "maximum norm",
+        "continuous functions",
+        "centering functions"
+      ],
+      "primary_techniques": [
+        "centering functions (subtracting mean)",
+        "bounding integrals using maximum norm",
+        "algebraic expansion and simplification"
+      ],
+      "secondary_techniques": [
+        "Cauchy-Schwarz inequality",
+        "nonnegativity of squares"
+      ],
+      "techniques": [
+        "centering functions (subtracting mean)",
+        "bounding integrals using maximum norm",
+        "algebraic expansion and simplification",
+        "Cauchy-Schwarz inequality",
+        "nonnegativity of squares"
+      ],
+      "solution_archetypes": [
+        "bounding expressions via norm inequalities",
+        "decomposition into mean and deviation",
+        "algebraic manipulation of variance"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "properties of integrals",
+        "variance definition",
+        "algebraic manipulation of integrals",
+        "Cauchy-Schwarz inequality"
+      ],
+      "key_observation": "Expressing f and g in terms of their centered versions (subtracting their means) allows the variance of the product to be decomposed and bounded using maximum norms and variances.",
+      "solution_architecture": "Decompose f and g into mean and deviation parts, expand the variance of their product, bound cross terms using maximum norms and variances, and use nonnegativity and Cauchy-Schwarz to control remaining terms.",
+      "technique_evidence": [
+        {
+          "name": "centering functions (subtracting mean)",
+          "role": "primary",
+          "evidence": "The proof begins by writing f and g as their centered versions, which simplifies the variance calculation."
+        },
+        {
+          "name": "bounding integrals using maximum norm",
+          "role": "primary",
+          "evidence": "The maximum norm is used to bound terms like f_0(x)^2 g(x)^2 by Var(f) M(g)^2."
+        },
+        {
+          "name": "algebraic expansion and simplification",
+          "role": "primary",
+          "evidence": "The variance of fg is expanded using algebraic manipulation of integrals and centered functions."
+        },
+        {
+          "name": "Cauchy-Schwarz inequality",
+          "role": "secondary",
+          "evidence": "Cauchy-Schwarz is used to bound cross terms involving integrals of products of deviations."
+        },
+        {
+          "name": "nonnegativity of squares",
+          "role": "secondary",
+          "evidence": "Nonnegativity of squares is used to derive inequalities for bounding terms."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly expand Var(fg) without centering f and g leads to messy expressions.",
+        "Trying to bound Var(fg) using only Cauchy-Schwarz without splitting into mean and deviation terms misses key structure."
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2f0736b85c58054b2a4bf9e0d14da780af0bcd50709bfdd098a4e893dc43cc8b"
+    },
+    {
+      "id": "putnam_2013_b5",
+      "topics": [
+        "combinatorics",
+        "algebra",
+        "graph theory",
+        "enumerative combinatorics"
+      ],
+      "concepts": [
+        "iteration of functions",
+        "cycles in permutations",
+        "rooted trees",
+        "Cayley's formula",
+        "contraction of functions",
+        "induction",
+        "matrix tree theorem"
+      ],
+      "primary_techniques": [
+        "inductive decomposition",
+        "cycle analysis",
+        "rooted tree enumeration (Cayley's formula)"
+      ],
+      "secondary_techniques": [
+        "function contraction",
+        "telescoping sums",
+        "matrix tree theorem"
+      ],
+      "techniques": [
+        "inductive decomposition",
+        "cycle analysis",
+        "rooted tree enumeration (Cayley's formula)",
+        "function contraction",
+        "telescoping sums",
+        "matrix tree theorem"
+      ],
+      "solution_archetypes": [
+        "inductive counting",
+        "structural decomposition",
+        "bijection to combinatorial objects"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "function iteration",
+        "cycle decomposition",
+        "rooted trees and Cayley's formula",
+        "induction"
+      ],
+      "key_observation": "The functions are characterized by the property that every point eventually maps (under iteration) into {1,...,k}, which is equivalent to all cycles being contained in {1,...,k}, and the rest of the structure can be counted via rooted trees or forests.",
+      "solution_architecture": "First, reduce the problem to counting functions whose cycles are contained in {1,...,k}. Use induction on n-k, analyzing the functions that iterate X into {1,...,k+1} but not into {1,...,k}. Show these correspond to functions with a unique cycle in {k+1,...,n} containing k+1. Count these using combinatorial arguments and telescoping sums. Alternatively, use contraction to relate the problem to counting rooted trees (via Cayley's formula), and sum over possible subsets to obtain the desired count.",
+      "technique_evidence": [
+        {
+          "name": "inductive decomposition",
+          "role": "primary",
+          "evidence": "Induction is used to reduce the problem from n to n-k, analyzing the incremental addition of elements."
+        },
+        {
+          "name": "cycle analysis",
+          "role": "primary",
+          "evidence": "The proof identifies cycles in the function and counts those with cycles only in {1,...,k}, which is central to the argument."
+        },
+        {
+          "name": "rooted tree enumeration (Cayley's formula)",
+          "role": "primary",
+          "evidence": "Rooted trees are used to count the number of functions iterating into a fixed set, via Cayley's formula."
+        },
+        {
+          "name": "function contraction",
+          "role": "secondary",
+          "evidence": "The contraction operation simplifies the function structure, allowing recursive counting."
+        },
+        {
+          "name": "telescoping sums",
+          "role": "secondary",
+          "evidence": "Telescoping sums are used to simplify the combinatorial expressions in the induction step."
+        },
+        {
+          "name": "matrix tree theorem",
+          "role": "secondary",
+          "evidence": "The remark connects the count to the matrix tree theorem, supporting the rooted forest enumeration."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to count functions directly without considering cycles or rooted trees leads to overcounting or missing cases.",
+        "Ignoring the necessity to iterate all points into {1,...,k} (not just mapping them directly) misses the key constraint."
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "5fe8d13907a8c7a8349f2491d71a75065db20c904a8d0d23d4fce6da85dffb1d"
+    },
+    {
+      "id": "putnam_2013_b6",
+      "topics": [
+        "combinatorial games",
+        "invariants",
+        "modular arithmetic",
+        "inductive proofs",
+        "Nim game",
+        "symmetry"
+      ],
+      "concepts": [
+        "block of stones",
+        "extremal blocks",
+        "end zone",
+        "modular weight invariant",
+        "symmetry",
+        "two-pile Nim",
+        "position enumeration",
+        "game repetition constraint"
+      ],
+      "primary_techniques": [
+        "definition and use of a modular invariant",
+        "inductive analysis of position classes",
+        "reduction to Nim in extremal cases"
+      ],
+      "secondary_techniques": [
+        "symmetry arguments",
+        "endgame enumeration",
+        "recasting the repetition rule as an endgame constraint"
+      ],
+      "techniques": [
+        "definition and use of a modular invariant",
+        "inductive analysis of position classes",
+        "reduction to Nim in extremal cases",
+        "symmetry arguments",
+        "endgame enumeration",
+        "recasting the repetition rule as an endgame constraint"
+      ],
+      "solution_archetypes": [
+        "Invariant-based game analysis",
+        "Reduction to classical game (Nim) in special cases",
+        "Inductive classification of positions"
+      ],
+      "prerequisites": [
+        "combinatorial game theory basics",
+        "modular arithmetic",
+        "Nim game analysis",
+        "inductive reasoning"
+      ],
+      "key_observation": "The modular weight invariant (sum of occupied positions modulo n+1) uniquely characterizes winning and losing positions outside the end zone, and the only winning first move for Alice is to place a stone in the central space.",
+      "solution_architecture": "The proof first introduces terminology and partitions positions by stone count. It analyzes move types and shows that the number of stones increases until the end zone is reached. The end zone is characterized as a set of positions where only moves between end zone positions are possible, and the repetition rule is recast as an endgame constraint. The main insight is the definition of a modular weight invariant, which is used to classify positions as winning or losing via induction. Extremal cases are reduced to two-pile Nim. The proof concludes that only the central space yields a winning first move for Alice, based on the invariant.",
+      "technique_evidence": [
+        {
+          "name": "definition and use of a modular invariant",
+          "role": "primary",
+          "evidence": "The modular weight invariant is defined and shown to uniquely determine winning positions outside the end zone; induction is used to propagate this classification."
+        },
+        {
+          "name": "reduction to Nim in extremal cases",
+          "role": "primary",
+          "evidence": "The proof analyzes positions with n-2 stones as two-pile Nim, showing how extremal block sizes determine winning moves."
+        },
+        {
+          "name": "inductive analysis of position classes",
+          "role": "primary",
+          "evidence": "Inductive reasoning is used to classify positions in P_i based on the analysis of P_{i+1}."
+        },
+        {
+          "name": "symmetry arguments",
+          "role": "secondary",
+          "evidence": "Symmetry is used to simplify the analysis and describe Alice's strategy."
+        },
+        {
+          "name": "endgame enumeration",
+          "role": "secondary",
+          "evidence": "The end zone is enumerated and its role in the game's outcome is clarified."
+        },
+        {
+          "name": "recasting the repetition rule as an endgame constraint",
+          "role": "secondary",
+          "evidence": "The repetition rule is recast as a constraint on endgame moves, simplifying the analysis."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to analyze the game solely via direct enumeration of positions without identifying invariants or endgame structure.",
+        "Attempting to use standard Nim or Grundy number analysis without adapting to the game's unique move and repetition rules."
+      ],
+      "difficulty_overall": 7.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2013",
+      "review_status": "solution_analyzed",
+      "review_year": 2013,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2013s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "f30c12cc21c4fe20ff879a65a2dddd9abec69fe98ef88537365abaeb768f0c99",
+      "statement": "Let \\(n \\geq 1\\) be an odd integer. Alice and Bob play the following game,\ntaking alternating turns, with Alice playing first. \nThe playing area consists of \\(n\\) spaces, arranged in a line.\nInitially all spaces are empty.\nAt each turn, a player either\n\n• \nplaces a stone in an empty space, or\n\n• \nremoves a stone from a nonempty space \\(s\\), \nplaces a stone in the nearest empty space to the left of \\(s\\)\n(if such a space exists),\nand places a stone in the nearest empty space to the right of \\(s\\)\n(if such a space exists).\n\nFurthermore, a move is permitted only if the resulting position has not occurred previously in the game. A player loses if he or she is unable to move. Assuming that both players play optimally throughout the game, what moves may Alice make on her first turn?\n\n\\end{document}",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2013.tex"
+    }
+  ]
+}
