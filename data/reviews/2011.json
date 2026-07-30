@@ -1,0 +1,1051 @@
+{
+  "year": 2011,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2011.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+  "problem_source_sha256": "8d0e01a9bbdfb84366bf22990890f85581407f59d28e82b6dad6bea260f84ec1",
+  "solution_source_sha256": "3db6b68752988fc685f3cd15e8aeb78649630bad4c3b40bc1c9bec6c20b7e701",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-30T18:53:43.335Z",
+  "problems": [
+    {
+      "id": "putnam_2011_a1",
+      "topics": [
+        "combinatorics",
+        "lattice geometry",
+        "sequence construction",
+        "parity arguments"
+      ],
+      "concepts": [
+        "growing spiral",
+        "coordinate directions",
+        "integer lattice",
+        "strictly increasing segment lengths"
+      ],
+      "primary_techniques": [
+        "structural analysis of spiral movement",
+        "parity and sign analysis of coordinates",
+        "casework on possible spiral endpoints"
+      ],
+      "secondary_techniques": [
+        "counting excluded points",
+        "constructive examples for reachable points"
+      ],
+      "techniques": [
+        "structural analysis of spiral movement",
+        "parity and sign analysis of coordinates",
+        "casework on possible spiral endpoints",
+        "counting excluded points",
+        "constructive examples for reachable points"
+      ],
+      "solution_archetypes": [
+        "structural exclusion",
+        "case analysis",
+        "coordinate parity argument"
+      ],
+      "prerequisites": [
+        "properties of integer lattice",
+        "sequence construction",
+        "parity arguments",
+        "basic combinatorics"
+      ],
+      "key_observation": "The spiral's movement and segment length constraints restrict reachable points, especially for small y-coordinates and x=0.",
+      "solution_architecture": "First, analyze the spiral's movement and segment length constraints to determine which points cannot be reached. Use parity and sign arguments to show certain coordinates (e.g., x=0, small y) are impossible. Then, constructively show which points are reachable, and count the excluded cases by casework on coordinates.",
+      "technique_evidence": [
+        {
+          "name": "structural analysis of spiral movement",
+          "role": "primary",
+          "evidence": "The proof analyzes the spiral's coordinate changes and segment lengths to deduce which points are unreachable."
+        },
+        {
+          "name": "parity and sign analysis of coordinates",
+          "role": "primary",
+          "evidence": "Parity and sign arguments are used to show that x=0 and small y-coordinates cannot be achieved beyond certain steps."
+        },
+        {
+          "name": "casework on possible spiral endpoints",
+          "role": "primary",
+          "evidence": "The solution divides the grid into cases based on x and y values, and counts the excluded points accordingly."
+        },
+        {
+          "name": "counting excluded points",
+          "role": "secondary",
+          "evidence": "The proof constructs explicit spirals for reachable points and counts the excluded points for the answer."
+        },
+        {
+          "name": "constructive examples for reachable points",
+          "role": "secondary",
+          "evidence": "The solution gives explicit constructions for reachable points, showing the complement set is achievable."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to enumerate all possible spirals directly without structural analysis",
+        "Assuming any point in the grid can be reached without considering spiral constraints"
+      ],
+      "difficulty_overall": 4.8,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "1d67c0c8989fdab88aa24e68352f7d4ad9e28d01b44435dbd46faa4fdf41aa95"
+    },
+    {
+      "id": "putnam_2011_a2",
+      "topics": [
+        "Sequences and series",
+        "Recurrence relations",
+        "Analysis",
+        "Bounding arguments"
+      ],
+      "concepts": [
+        "bounded sequences",
+        "telescoping sums",
+        "recurrence relations",
+        "convergence of series"
+      ],
+      "primary_techniques": [
+        "Telescoping sum construction",
+        "Recurrence manipulation"
+      ],
+      "secondary_techniques": [
+        "Bounding products",
+        "Limit evaluation"
+      ],
+      "techniques": [
+        "Telescoping sum construction",
+        "Recurrence manipulation",
+        "Bounding products",
+        "Limit evaluation"
+      ],
+      "solution_archetypes": [
+        "Telescoping series",
+        "Recurrence-based sum evaluation"
+      ],
+      "prerequisites": [
+        "Understanding of sequences and series",
+        "Manipulation of recurrence relations",
+        "Basic bounding arguments"
+      ],
+      "key_observation": "Express the partial sum S_m in terms of the product of the b_j's, allowing telescoping and bounding via the recurrence.",
+      "solution_architecture": "Construct a telescoping sum representation for the partial sums using the recurrence relation for b_n, then bound the resulting product to show convergence and evaluate the limit.",
+      "technique_evidence": [
+        {
+          "name": "Telescoping sum construction",
+          "role": "primary",
+          "evidence": "The proof rewrites the partial sum S_m as a telescoping difference involving products of b_j and b_j+2, exploiting the recurrence."
+        },
+        {
+          "name": "Recurrence manipulation",
+          "role": "primary",
+          "evidence": "The recurrence for b_n is manipulated to relate a_n to b_j, enabling the telescoping structure."
+        },
+        {
+          "name": "Bounding products",
+          "role": "secondary",
+          "evidence": "The boundedness of b_j is used to bound the product and show convergence."
+        },
+        {
+          "name": "Limit evaluation",
+          "role": "secondary",
+          "evidence": "The limit of the bounded telescoping sum is evaluated to find the exact value."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly estimate the sum without relating it to the recurrence for b_n",
+        "Attempting to compute the sum term-by-term without telescoping or bounding"
+      ],
+      "difficulty_overall": 5.5,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "60a4d7d84dd12b76868f5e2c4691f32f7a14d1e46f932360c2e622822c9412ee"
+    },
+    {
+      "id": "putnam_2011_a3",
+      "topics": [
+        "asymptotic analysis",
+        "integration",
+        "trigonometric inequalities",
+        "limits"
+      ],
+      "concepts": [
+        "asymptotic equivalence",
+        "inequalities for trigonometric functions",
+        "integration by parts",
+        "limits of ratios"
+      ],
+      "primary_techniques": [
+        "asymptotic bounding",
+        "integration by parts"
+      ],
+      "secondary_techniques": [
+        "ratio limits",
+        "trigonometric inequalities"
+      ],
+      "techniques": [
+        "asymptotic bounding",
+        "integration by parts",
+        "ratio limits",
+        "trigonometric inequalities"
+      ],
+      "solution_archetypes": [
+        "asymptotic comparison",
+        "bounding integrals",
+        "recursion via integration by parts"
+      ],
+      "prerequisites": [
+        "calculus of integrals",
+        "asymptotic analysis",
+        "integration by parts",
+        "basic inequalities"
+      ],
+      "key_observation": "For large r, the integrals are dominated by the behavior near x = π/2, and bounding sin x below by a linear function allows sharp asymptotic estimates.",
+      "solution_architecture": "Estimate the integral's asymptotic behavior by bounding sin x below, then relate the two integrals via integration by parts to express one in terms of the other. Analyze the ratio limit using these bounds and recursive relationships.",
+      "technique_evidence": [
+        {
+          "name": "asymptotic bounding",
+          "role": "primary",
+          "evidence": "Bounding sin x below by 2x/π and above by 1 yields lower and upper bounds for the integral, which are used to estimate its asymptotic behavior."
+        },
+        {
+          "name": "integration by parts",
+          "role": "primary",
+          "evidence": "Integration by parts relates the integral with cos x to the one with sin x, allowing the ratio to be expressed in terms of f(r) and f(r+1)."
+        },
+        {
+          "name": "ratio limits",
+          "role": "secondary",
+          "evidence": "The ratio of f(r) to f(r+1) is analyzed in the limit, using the bounds and recursive relationship."
+        },
+        {
+          "name": "trigonometric inequalities",
+          "role": "secondary",
+          "evidence": "The inequality sin x ≥ 2x/π for x in [0, π/2] is used to obtain a lower bound for the integral."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the integrals without asymptotic analysis",
+        "Ignoring the behavior of the integrals for large r and focusing on small r"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "72906c248c8790eb294e6b912313a9626139cde5655810f659f8b5d87617036c"
+    },
+    {
+      "id": "putnam_2011_a4",
+      "topics": [
+        "Linear algebra",
+        "Matrix theory",
+        "Parity",
+        "Modular arithmetic"
+      ],
+      "concepts": [
+        "matrix dot product",
+        "parity (even/odd)",
+        "matrix singularity",
+        "determinant",
+        "modular arithmetic"
+      ],
+      "primary_techniques": [
+        "Explicit construction",
+        "Parity analysis",
+        "Determinant argument"
+      ],
+      "secondary_techniques": [
+        "Matrix algebra",
+        "Reduction modulo 2"
+      ],
+      "techniques": [
+        "Explicit construction",
+        "Parity analysis",
+        "Determinant argument",
+        "Matrix algebra",
+        "Reduction modulo 2"
+      ],
+      "solution_archetypes": [
+        "Construct-and-contradict",
+        "Parity-based argument",
+        "Singularity contradiction"
+      ],
+      "prerequisites": [
+        "Linear algebra basics",
+        "Matrix multiplication",
+        "Determinant properties",
+        "Modular arithmetic"
+      ],
+      "key_observation": "For odd n, the matrix A-I (where A is all-ones and I is the identity) meets the conditions; for even n, parity and determinant arguments show impossibility.",
+      "solution_architecture": "First, construct a candidate matrix for odd n and verify it meets the dot product conditions. Next, for even n, analyze the problem modulo 2, deducing that the matrix must be singular. Then, use determinant calculations to show this contradicts the required properties, ruling out even n.",
+      "technique_evidence": [
+        {
+          "name": "Explicit construction",
+          "role": "primary",
+          "evidence": "The matrix A-I is constructed and its dot products are computed to satisfy the conditions for odd n."
+        },
+        {
+          "name": "Parity analysis",
+          "role": "primary",
+          "evidence": "Dot products and matrix properties are analyzed modulo 2 to deduce singularity for even n."
+        },
+        {
+          "name": "Determinant argument",
+          "role": "primary",
+          "evidence": "Determinant calculations show that the matrix cannot be singular for even n, leading to a contradiction."
+        },
+        {
+          "name": "Matrix algebra",
+          "role": "secondary",
+          "evidence": "Matrix multiplication and algebraic manipulation are used to relate MM^T and A-I."
+        },
+        {
+          "name": "Reduction modulo 2",
+          "role": "secondary",
+          "evidence": "Reduction modulo 2 is used to analyze the parity of dot products and matrix singularity."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to construct such a matrix for even n without considering parity constraints",
+        "Assuming the conditions can be met for all n without checking determinant properties"
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "2d25f8145a607514004ba230a81d42006534faedfce8b851146418b290422781"
+    },
+    {
+      "id": "putnam_2011_a5",
+      "topics": [
+        "real analysis",
+        "multivariable calculus",
+        "functional equations",
+        "inequalities"
+      ],
+      "concepts": [
+        "change of variables",
+        "mean value theorem",
+        "function composition",
+        "boundedness of integrals",
+        "differentiability",
+        "symmetry"
+      ],
+      "primary_techniques": [
+        "change of variables to reduce dimension",
+        "exploiting symmetry and invariance",
+        "mean value theorem for bounding differences"
+      ],
+      "secondary_techniques": [
+        "bounding integrals",
+        "properties of strictly increasing functions",
+        "function composition and differentiability"
+      ],
+      "techniques": [
+        "change of variables to reduce dimension",
+        "exploiting symmetry and invariance",
+        "mean value theorem for bounding differences",
+        "bounding integrals",
+        "properties of strictly increasing functions",
+        "function composition and differentiability"
+      ],
+      "solution_archetypes": [
+        "dimension reduction via change of variables",
+        "bounding via mean value theorem",
+        "exploiting functional invariance"
+      ],
+      "prerequisites": [
+        "multivariable calculus",
+        "mean value theorem",
+        "properties of differentiable functions",
+        "change of variables",
+        "basic real analysis"
+      ],
+      "key_observation": "Transforming variables via G reduces the problem to a one-dimensional function h of the difference, allowing a uniform bound using the mean value theorem.",
+      "solution_architecture": "Transform the problem by integrating g to define a strictly increasing function G, then compose F with G^{-1} to obtain H. Use the gradient parallelism to show H depends only on the difference of its arguments, reducing to a function h. Bound h using its derivative and the mean value theorem, then relate the bound to the original variables via G.",
+      "technique_evidence": [
+        {
+          "name": "change of variables to reduce dimension",
+          "role": "primary",
+          "evidence": "The proof defines G and uses it to transform F into H, reducing the problem to a function of one variable."
+        },
+        {
+          "name": "exploiting symmetry and invariance",
+          "role": "primary",
+          "evidence": "The invariance of the gradient direction leads to H(x,y) depending only on x-y."
+        },
+        {
+          "name": "mean value theorem for bounding differences",
+          "role": "primary",
+          "evidence": "The mean value theorem is used to bound h(G(x_i)-G(x_j)) in terms of the maximum derivative and the spacing."
+        },
+        {
+          "name": "bounding integrals",
+          "role": "secondary",
+          "evidence": "The integral of g is bounded using the given inequality for g."
+        },
+        {
+          "name": "properties of strictly increasing functions",
+          "role": "secondary",
+          "evidence": "G is strictly increasing and differentiable, so G^{-1} is well-defined and differentiable."
+        },
+        {
+          "name": "function composition and differentiability",
+          "role": "secondary",
+          "evidence": "The composition of F with G^{-1} preserves differentiability and allows the reduction to h."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to estimate F(x_i,x_j) directly without transforming variables",
+        "Attempting to bound F without exploiting the gradient parallelism condition"
+      ],
+      "difficulty_overall": 7.2,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "33f705948ca0569061b9c94d4951a239f2ac5f16acd7d9fe7931338d9d8a6da0"
+    },
+    {
+      "id": "putnam_2011_a6",
+      "topics": [
+        "finite group theory",
+        "probability on groups",
+        "linear algebra",
+        "spectral theory",
+        "Markov chains",
+        "random walks"
+      ],
+      "concepts": [
+        "random walk on groups",
+        "group characters",
+        "eigenvalues of transition matrices",
+        "spectral gap",
+        "Markov chains",
+        "Perron-Frobenius theorem"
+      ],
+      "primary_techniques": [
+        "spectral analysis of Markov chains",
+        "character theory of finite abelian groups"
+      ],
+      "secondary_techniques": [
+        "Perron-Frobenius theorem",
+        "orthogonality of eigenvectors",
+        "group algebra arguments"
+      ],
+      "techniques": [
+        "spectral analysis of Markov chains",
+        "character theory of finite abelian groups",
+        "Perron-Frobenius theorem",
+        "orthogonality of eigenvectors",
+        "group algebra arguments"
+      ],
+      "solution_archetypes": [
+        "spectral gap argument",
+        "random walk convergence analysis"
+      ],
+      "prerequisites": [
+        "finite abelian groups",
+        "group characters and dual group",
+        "Markov chains and transition matrices",
+        "eigenvalues and eigenvectors",
+        "orthogonality of characters"
+      ],
+      "key_observation": "The transition matrix for the random walk has eigenvalues determined by group characters, and the largest nontrivial eigenvalue modulus b governs the rate of convergence to uniformity; b is strictly between 0 and 1.",
+      "solution_architecture": "Model the random walk as a Markov chain with transition matrix M. Diagonalize M using group characters, showing each character vector is an eigenvector. Identify the spectral gap: the largest nontrivial eigenvalue modulus b. Show b is in (0,1) by contradiction. Express the deviation from uniformity in terms of eigenvalues, and scale by b^{2m} to isolate the dominant term. Conclude the limit is positive and finite, as the number of characters with eigenvalue modulus b is finite and nonzero.",
+      "technique_evidence": [
+        {
+          "name": "spectral analysis of Markov chains",
+          "role": "primary",
+          "evidence": "The proof constructs the transition matrix and shows its eigenvectors are indexed by group characters, with eigenvalues given by character averages over the generator set."
+        },
+        {
+          "name": "character theory of finite abelian groups",
+          "role": "primary",
+          "evidence": "The eigenvectors and eigenvalues are explicitly computed using the dual group, and the orthogonality of characters is used to simplify the sum."
+        },
+        {
+          "name": "Perron-Frobenius theorem",
+          "role": "secondary",
+          "evidence": "The proof appeals to the Perron-Frobenius theorem to justify convergence properties of the Markov chain."
+        },
+        {
+          "name": "orthogonality of eigenvectors",
+          "role": "secondary",
+          "evidence": "Orthogonality of character vectors is used to compute the squared deviation sum."
+        },
+        {
+          "name": "group algebra arguments",
+          "role": "secondary",
+          "evidence": "A remark discusses generalization to nonabelian groups using group algebra normality."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to analyze the random walk without spectral methods or character theory, leading to intractable calculations.",
+        "Assuming the set of generators is all of G, which invalidates the key spectral gap argument."
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "c2dcf03ce03e769e1131287084ad5ec9fe82d637e8107a5b82335bf13b63f45e"
+    },
+    {
+      "id": "putnam_2011_b1",
+      "topics": [
+        "Algebra",
+        "Number theory",
+        "Approximation",
+        "Inequalities"
+      ],
+      "concepts": [
+        "Density of rationals in the reals",
+        "Manipulation of inequalities",
+        "Square roots and algebraic manipulation",
+        "Scaling integers to achieve desired bounds"
+      ],
+      "primary_techniques": [
+        "Density argument",
+        "Algebraic construction"
+      ],
+      "secondary_techniques": [
+        "Scaling to integers",
+        "Bounding expressions"
+      ],
+      "techniques": [
+        "Density argument",
+        "Algebraic construction",
+        "Scaling to integers",
+        "Bounding expressions"
+      ],
+      "solution_archetypes": [
+        "Approximation via density",
+        "Explicit construction"
+      ],
+      "prerequisites": [
+        "Understanding of rational density",
+        "Basic algebraic manipulation",
+        "Handling inequalities",
+        "Square root properties"
+      ],
+      "key_observation": "The density of rational numbers allows us to approximate any real interval, and by careful algebraic manipulation, we can construct integers m and n so that h√m - k√n falls within a prescribed range.",
+      "solution_architecture": "First, use the density of rationals to find a ratio b/a in a narrow interval related to ε/(hk). Then, scale a and b to ensure positivity and suitable size. Next, construct m and n from these values so that h√m - k√n can be expressed and bounded using algebraic manipulation. Finally, verify that the constructed difference falls within the desired interval (ε, 2ε).",
+      "technique_evidence": [
+        {
+          "name": "Density argument",
+          "role": "primary",
+          "evidence": "The proof begins by selecting rational numbers b/a in a specific interval, exploiting their density."
+        },
+        {
+          "name": "Algebraic construction",
+          "role": "primary",
+          "evidence": "The construction of m and n from a, b, h, and k, and the manipulation of the difference h√m - k√n to fit within the bounds."
+        },
+        {
+          "name": "Scaling to integers",
+          "role": "secondary",
+          "evidence": "Multiplying a and b by a large integer to ensure positivity and desired properties."
+        },
+        {
+          "name": "Bounding expressions",
+          "role": "secondary",
+          "evidence": "Bounding the difference using inequalities and properties of square roots."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly estimate |h√m - k√n| without constructing m and n via rational approximations.",
+        "Attempting to use Diophantine approximation or continued fractions without leveraging density of rationals."
+      ],
+      "difficulty_overall": 3.9,
+      "difficulty_insight": 5,
+      "difficulty_technical": 4,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "3f4bca7fdee834adeaea3b4fb795278f2a245a7bd270f8efdb4c3fa5de2e5c36"
+    },
+    {
+      "id": "putnam_2011_b2",
+      "topics": [
+        "Number theory",
+        "Quadratic equations",
+        "Prime distribution",
+        "Modular arithmetic",
+        "Parity arguments"
+      ],
+      "concepts": [
+        "Quadratic equations over rationals",
+        "Discriminant conditions",
+        "Parity and modular arithmetic",
+        "Prime gaps and twin primes",
+        "Sophie Germain primes"
+      ],
+      "primary_techniques": [
+        "Discriminant analysis for rational roots",
+        "Parity and modular restriction",
+        "Counting argument based on prime gaps"
+      ],
+      "secondary_techniques": [
+        "Casework on small primes",
+        "Connection to twin primes and Sophie Germain primes"
+      ],
+      "techniques": [
+        "Discriminant analysis for rational roots",
+        "Parity and modular restriction",
+        "Counting argument based on prime gaps",
+        "Casework on small primes",
+        "Connection to twin primes and Sophie Germain primes"
+      ],
+      "solution_archetypes": [
+        "Constraint-based elimination",
+        "Counting via structural restrictions"
+      ],
+      "prerequisites": [
+        "Quadratic formula and rational root theorem",
+        "Basic properties of primes",
+        "Modular arithmetic, especially mod 8",
+        "Parity arguments"
+      ],
+      "key_observation": "The discriminant condition for rational roots forces parity constraints, which restrict the possible primes in the triples, and only 2 and 5 can appear seven or more times due to these constraints.",
+      "solution_architecture": "First, translate the existence of a rational root into a discriminant condition. Next, use modular arithmetic and parity to restrict which primes can appear in the triples. Then, enumerate possible cases for small primes and show that for larger primes, structural constraints (such as the impossibility of three consecutive primes) limit their appearances. Finally, count the possible occurrences for each prime and conclude only 2 and 5 meet the threshold.",
+      "technique_evidence": [
+        {
+          "name": "Discriminant analysis for rational roots",
+          "role": "primary",
+          "evidence": "The discriminant must be a perfect square, leading to q^2 - 4pr = a^2 for integer a, which restricts q, p, r."
+        },
+        {
+          "name": "Parity and modular restriction",
+          "role": "primary",
+          "evidence": "Analysis of q^2 ≡ 1 mod 8 and the resulting need for one of p or r to be 2."
+        },
+        {
+          "name": "Counting argument based on prime gaps",
+          "role": "primary",
+          "evidence": "Enumeration of possible values for q given p or r equals 2, and counting the resulting triples."
+        },
+        {
+          "name": "Casework on small primes",
+          "role": "secondary",
+          "evidence": "Checking small primes (2, 3, 5) and showing that for larger primes, the set {l-2, l, l+2} cannot all be prime."
+        },
+        {
+          "name": "Connection to twin primes and Sophie Germain primes",
+          "role": "secondary",
+          "evidence": "Mention of infinite cases for 2 if twin prime or Sophie Germain conjectures hold."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to enumerate all triples directly without exploiting quadratic equation constraints",
+        "Assuming all primes can appear equally often without modular or parity analysis"
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "29ad95862bfc3b41a073afec35c52e824f06c73ac3a0b9972a0a7d5490902fec"
+    },
+    {
+      "id": "putnam_2011_b3",
+      "topics": [
+        "real analysis",
+        "differentiability",
+        "limits",
+        "continuity"
+      ],
+      "concepts": [
+        "differentiability",
+        "continuity",
+        "limits",
+        "chain rule",
+        "product rule",
+        "quotient rule"
+      ],
+      "primary_techniques": [
+        "limit manipulation",
+        "algebraic decomposition of difference quotients"
+      ],
+      "secondary_techniques": [
+        "chain rule",
+        "continuity arguments"
+      ],
+      "techniques": [
+        "limit manipulation",
+        "algebraic decomposition of difference quotients",
+        "chain rule",
+        "continuity arguments"
+      ],
+      "solution_archetypes": [
+        "reduction to difference quotient",
+        "algebraic manipulation of limits"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "differentiability and continuity",
+        "limit manipulation",
+        "chain rule"
+      ],
+      "key_observation": "If both fg and f/g are differentiable at 0 and g is nonzero and continuous at 0, then f must be differentiable at 0, which can be shown by expressing the difference quotient for f in terms of limits involving fg and f/g.",
+      "solution_architecture": "Express the difference quotient for f in terms of the difference quotients for fg and f/g, using algebraic manipulation and properties of g. Show that the relevant limits exist by the differentiability assumptions, thereby proving differentiability of f.",
+      "technique_evidence": [
+        {
+          "name": "limit manipulation",
+          "role": "primary",
+          "evidence": "The proof rewrites the difference quotient for f as a combination of difference quotients for fg and f/g, whose limits exist by assumption."
+        },
+        {
+          "name": "algebraic decomposition of difference quotients",
+          "role": "primary",
+          "evidence": "The proof decomposes f(x)-f(0) using fg and f/g, then manipulates the resulting expressions to isolate the difference quotient for f."
+        },
+        {
+          "name": "chain rule",
+          "role": "secondary",
+          "evidence": "In the case f(0) ≠ 0, the proof uses the chain rule to deduce differentiability from differentiability of composed functions."
+        },
+        {
+          "name": "continuity arguments",
+          "role": "secondary",
+          "evidence": "The continuity of g at 0 is used to ensure that products and quotients behave well in the limit."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming differentiability of f without using properties of fg and f/g",
+        "Trying to apply product or quotient rules directly without verifying differentiability of f"
+      ],
+      "difficulty_overall": 5.6,
+      "difficulty_insight": 6,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "253dd71521b191f0015d72eff61bdb2260c12f1ee2a5ad3df85a9e170894ad91"
+    },
+    {
+      "id": "putnam_2011_b4",
+      "topics": [
+        "Linear algebra",
+        "Complex numbers",
+        "Combinatorics",
+        "Matrix theory",
+        "Determinants"
+      ],
+      "concepts": [
+        "Gram matrix",
+        "Hermitian matrix",
+        "Complex matrix multiplication",
+        "Determinant factorization",
+        "Integer divisibility"
+      ],
+      "primary_techniques": [
+        "Encoding combinatorial data in matrices",
+        "Gram matrix construction",
+        "Determinant factorization via row operations"
+      ],
+      "secondary_techniques": [
+        "Divisibility arguments",
+        "Non-negativity of sums of squares"
+      ],
+      "techniques": [
+        "Encoding combinatorial data in matrices",
+        "Gram matrix construction",
+        "Determinant factorization via row operations",
+        "Divisibility arguments",
+        "Non-negativity of sums of squares"
+      ],
+      "solution_archetypes": [
+        "Matrix encoding of combinatorial situations",
+        "Determinant computation via structure exploitation"
+      ],
+      "prerequisites": [
+        "Complex numbers and their arithmetic",
+        "Matrix multiplication",
+        "Properties of determinants",
+        "Hermitian matrices",
+        "Gram matrices"
+      ],
+      "key_observation": "The matrix T+iW can be expressed as the Gram matrix \\( \\overline{A}^T A \\), where A encodes wins and losses using 1 and i.",
+      "solution_architecture": "Construct a matrix A encoding each player's outcome in each game using complex numbers. Show that T+iW equals the Gram matrix \\( \\overline{A}^T A \\). Analyze the determinant of A by row operations, revealing a factor of (1-i)^{2010}, and deduce the divisibility and non-negativity of \\( \\det(T+iW) \\) from the resulting form.",
+      "technique_evidence": [
+        {
+          "name": "Encoding combinatorial data in matrices",
+          "role": "primary",
+          "evidence": "A is defined so that its entries encode win/loss as 1 or i, allowing combinatorial outcomes to be tracked algebraically."
+        },
+        {
+          "name": "Gram matrix construction",
+          "role": "primary",
+          "evidence": "T+iW is shown to equal \\( \\overline{A}^T A \\), a Gram matrix, which is Hermitian and whose determinant is non-negative."
+        },
+        {
+          "name": "Determinant factorization via row operations",
+          "role": "primary",
+          "evidence": "Row operations on A reveal a factor of (1-i)^{2010}, which is used to factor the determinant and deduce divisibility."
+        },
+        {
+          "name": "Divisibility arguments",
+          "role": "secondary",
+          "evidence": "The determinant is expressed as 2^{2010}(a^2+b^2), showing divisibility and non-negativity."
+        },
+        {
+          "name": "Non-negativity of sums of squares",
+          "role": "secondary",
+          "evidence": "The sum of squares form ensures non-negativity."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to analyze T and W directly without introducing a matrix encoding wins/losses.",
+        "Trying to compute the determinant of T+iW without recognizing its structure as a Gram matrix."
+      ],
+      "difficulty_overall": 7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "82d18c5e7e59ad85260aa5ee95dbff40f336d4c486d042a4dc4b087dd1a02a7a"
+    },
+    {
+      "id": "putnam_2011_b5",
+      "topics": [
+        "integral inequalities",
+        "kernel functions",
+        "pairwise sums",
+        "inequality techniques",
+        "distribution of points"
+      ],
+      "concepts": [
+        "integral kernel",
+        "lower bound",
+        "Cauchy-Schwarz inequality",
+        "distribution of points",
+        "Jensen's inequality"
+      ],
+      "primary_techniques": [
+        "Kernel function estimation",
+        "Cauchy-Schwarz inequality"
+      ],
+      "secondary_techniques": [
+        "Jensen's inequality",
+        "Partitioning into intervals"
+      ],
+      "techniques": [
+        "Kernel function estimation",
+        "Cauchy-Schwarz inequality",
+        "Jensen's inequality",
+        "Partitioning into intervals"
+      ],
+      "solution_archetypes": [
+        "Reduction to sum over pairwise differences",
+        "Bounding via integral inequalities",
+        "Application of Cauchy-Schwarz"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "integral estimates",
+        "Cauchy-Schwarz inequality",
+        "properties of kernel functions"
+      ],
+      "key_observation": "The integral bound on the sum of kernel functions implies a bound on the sum of their values at pairwise differences, which can be inverted to a lower bound on the sum of squared distances using Cauchy-Schwarz.",
+      "solution_architecture": "Translate the integral bound into a sum over pairwise differences using a kernel function. Estimate the kernel from below to relate the sum to the desired quantity. Apply Cauchy-Schwarz to invert the bound and obtain the lower bound on the sum of squared distances.",
+      "technique_evidence": [
+        {
+          "name": "Kernel function estimation",
+          "role": "primary",
+          "evidence": "The proof defines a kernel function f(y) and estimates it from below to relate the integral to the sum over pairwise differences."
+        },
+        {
+          "name": "Cauchy-Schwarz inequality",
+          "role": "primary",
+          "evidence": "Cauchy-Schwarz is used to convert the upper bound on the sum of reciprocals to a lower bound on the sum of squared distances."
+        },
+        {
+          "name": "Jensen's inequality",
+          "role": "secondary",
+          "evidence": "Jensen's inequality is invoked in the remark to improve the lower bound by considering the distribution of points in intervals."
+        },
+        {
+          "name": "Partitioning into intervals",
+          "role": "secondary",
+          "evidence": "Partitioning the real line into intervals and counting points is used in the improved bound argument."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to estimate the sum directly without relating it to the integral bound.",
+        "Attempting to bound the sum using only basic inequalities without exploiting the structure of the kernel function."
+      ],
+      "difficulty_overall": 6.9,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "9e758f8dfcd2efb37ab330e46f25d8e3d10749f60e76c527429592a9319f53a2"
+    },
+    {
+      "id": "putnam_2011_b6",
+      "topics": [
+        "Number theory",
+        "Finite fields",
+        "Polynomials",
+        "Factorials",
+        "Linear algebra"
+      ],
+      "concepts": [
+        "Wilson's theorem",
+        "Roots of polynomials over finite fields",
+        "Multiplicity of roots",
+        "Factorials modulo primes",
+        "Linear algebra over finite fields",
+        "Determinants of structured matrices"
+      ],
+      "primary_techniques": [
+        "Transformation of the sum into a polynomial over finite fields",
+        "Bounding the number of roots via degree and multiplicity arguments",
+        "Application of Wilson's theorem"
+      ],
+      "secondary_techniques": [
+        "Matrix determinant evaluation",
+        "Row operations and block matrix arguments",
+        "Orthogonal polynomial theory (in background)"
+      ],
+      "techniques": [
+        "Transformation of the sum into a polynomial over finite fields",
+        "Bounding the number of roots via degree and multiplicity arguments",
+        "Application of Wilson's theorem",
+        "Matrix determinant evaluation",
+        "Row operations and block matrix arguments",
+        "Orthogonal polynomial theory (in background)"
+      ],
+      "solution_archetypes": [
+        "Reduction to polynomial root counting",
+        "Use of structural theorems (Wilson's theorem)",
+        "Linear algebraic contradiction"
+      ],
+      "prerequisites": [
+        "Wilson's theorem",
+        "Properties of polynomials over finite fields",
+        "Basic linear algebra (determinants)",
+        "Factorials modulo primes"
+      ],
+      "key_observation": "The sum can be transformed into a polynomial whose roots correspond to values of n where the original sum vanishes modulo p, and the multiplicity and count of these roots can be bounded using properties of polynomials over finite fields and Wilson's theorem.",
+      "solution_architecture": "Transform the original sum into a polynomial whose roots correspond to the divisibility condition. Use Wilson's theorem to relate factorials modulo p and manipulate the sum. Analyze the roots of the resulting polynomial, showing that each root is at least a double root, and use degree/multiplicity arguments to bound the total number of roots. Alternatively, construct a matrix whose determinant is nonzero modulo p, leading to a contradiction if too many roots exist.",
+      "technique_evidence": [
+        {
+          "name": "Application of Wilson's theorem",
+          "role": "primary",
+          "evidence": "Wilson's theorem is used to relate k! and (p-1-k)! modulo p, enabling the transformation of the sum."
+        },
+        {
+          "name": "Transformation to polynomial root counting",
+          "role": "primary",
+          "evidence": "The sum is rewritten as a polynomial whose roots correspond to the divisibility condition, and the degree/multiplicity argument is used to bound the number of roots."
+        },
+        {
+          "name": "Matrix determinant evaluation",
+          "role": "secondary",
+          "evidence": "A matrix is constructed whose determinant is shown to be nonzero modulo p, contradicting the existence of too many roots."
+        },
+        {
+          "name": "Row operations and block matrix arguments",
+          "role": "secondary",
+          "evidence": "Row operations and block matrix structure are used to analyze the determinant."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly evaluate the sum for each n without structural insight",
+        "Attempting to use basic properties of factorials modulo p without leveraging Wilson's theorem",
+        "Assuming the sum is always nonzero modulo p without proof"
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2011",
+      "review_status": "solution_analyzed",
+      "review_year": 2011,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2011s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e8e8f592a492ccdd41611fbca2a59efb7bda7086348e3f58501fd49f0aa8c6cc"
+    }
+  ]
+}
