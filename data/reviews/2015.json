@@ -1,0 +1,1120 @@
+{
+  "year": 2015,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2015.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+  "problem_source_sha256": "56114ab52c8f290cbd3bffc7ab46c2d0ba9b92b3a927fa2e4779ffeed0c95a1b",
+  "solution_source_sha256": "d2d5c8e286dfedc499cf485bd2c497991ee7fa02c73ac1ffee7a2f8804db8741",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-30T04:27:27.233Z",
+  "problems": [
+    {
+      "id": "putnam_2015_a1",
+      "topics": [
+        "calculus",
+        "geometry",
+        "algebra",
+        "optimization",
+        "symmetry",
+        "convexity"
+      ],
+      "concepts": [
+        "parametrization of curves",
+        "area maximization",
+        "symmetry",
+        "convexity",
+        "AM-GM inequality",
+        "invariance under transformation"
+      ],
+      "primary_techniques": [
+        "parametrization and reduction to a single variable",
+        "area maximization via calculus or AM-GM",
+        "use of symmetry and invariance"
+      ],
+      "secondary_techniques": [
+        "explicit integration",
+        "determinant formula for area",
+        "geometric transformations"
+      ],
+      "techniques": [
+        "parametrization and reduction to a single variable",
+        "area maximization via calculus or AM-GM",
+        "use of symmetry and invariance",
+        "explicit integration",
+        "determinant formula for area",
+        "geometric transformations"
+      ],
+      "solution_archetypes": [
+        "optimization on a curve",
+        "exploiting symmetry",
+        "area comparison"
+      ],
+      "prerequisites": [
+        "basic calculus (integration)",
+        "coordinate geometry",
+        "properties of hyperbolas",
+        "area calculation via determinants",
+        "AM-GM inequality"
+      ],
+      "key_observation": "The area of triangle APB is maximized when P is at the geometric mean of the parameters of A and B, or at the symmetric point under a suitable area-preserving transformation.",
+      "solution_architecture": "Parametrize points on the hyperbola, express the area of triangle APB as a function of the parameter, maximize this area using calculus or AM-GM, then compute and compare the bounded regions via integration, or alternatively, use symmetry and area-preserving transformations to reduce to a symmetric case where the result is evident.",
+      "technique_evidence": [
+        {
+          "name": "parametrization and reduction to a single variable",
+          "role": "primary",
+          "evidence": "The solution parametrizes points as (t,1/t) and expresses the area as a function of t, then maximizes it."
+        },
+        {
+          "name": "area maximization via calculus or AM-GM",
+          "role": "primary",
+          "evidence": "The maximization step uses AM-GM to find the minimum of t + t1t2/t."
+        },
+        {
+          "name": "use of symmetry and invariance",
+          "role": "primary",
+          "evidence": "The second solution uses a transformation that preserves area and the hyperbola, reducing the problem to a symmetric case."
+        },
+        {
+          "name": "explicit integration",
+          "role": "secondary",
+          "evidence": "The area between the hyperbola and a chord is computed via integration."
+        },
+        {
+          "name": "determinant formula for area",
+          "role": "secondary",
+          "evidence": "Triangle area is computed using the determinant formula."
+        },
+        {
+          "name": "geometric transformations",
+          "role": "secondary",
+          "evidence": "The transformation (x,y) -> (λx, λ^{-1}y) is used to exploit symmetry."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to maximize the area without parametrizing the hyperbola.",
+        "Assuming the maximum occurs at an endpoint rather than between A and B."
+      ],
+      "difficulty_overall": 4.3,
+      "difficulty_insight": 6,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 4,
+      "difficulty_proof": 5,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "813e048dadca69ec3a80783fa380d41fabe45b220a060440251d9a1afdf3af53"
+    },
+    {
+      "id": "putnam_2015_a2",
+      "topics": [
+        "linear recurrences",
+        "number theory",
+        "algebraic numbers",
+        "divisibility",
+        "modular arithmetic"
+      ],
+      "concepts": [
+        "linear recurrence",
+        "closed form expression",
+        "algebraic integer",
+        "divisibility in sequences",
+        "modular arithmetic",
+        "field extensions"
+      ],
+      "primary_techniques": [
+        "Closed form for linear recurrence",
+        "Divisibility via sequence structure"
+      ],
+      "secondary_techniques": [
+        "Induction",
+        "Algebraic manipulation",
+        "Extension of sequence to negative indices",
+        "Field theory for congruence properties"
+      ],
+      "techniques": [
+        "Closed form for linear recurrence",
+        "Divisibility via sequence structure",
+        "Induction",
+        "Algebraic manipulation",
+        "Extension of sequence to negative indices",
+        "Field theory for congruence properties"
+      ],
+      "solution_archetypes": [
+        "Divisibility in recursive sequences",
+        "Closed form exploitation"
+      ],
+      "prerequisites": [
+        "recurrence relations",
+        "induction",
+        "algebraic manipulation",
+        "basic number theory",
+        "modular arithmetic"
+      ],
+      "key_observation": "The sequence admits a closed form involving powers of algebraic numbers, enabling divisibility arguments for terms indexed by multiples.",
+      "solution_architecture": "First, derive a closed form for the sequence using characteristic roots. Then, show that terms indexed by multiples are divisible by lower-indexed terms using algebraic properties. Identify an odd prime factor by factoring a lower-indexed term and confirming its divisibility in the target term.",
+      "technique_evidence": [
+        {
+          "name": "Closed form for linear recurrence",
+          "role": "primary",
+          "evidence": "The closed form is derived from the recurrence and used to relate a_{kn} to a_n."
+        },
+        {
+          "name": "Divisibility via sequence structure",
+          "role": "primary",
+          "evidence": "The ratio a_{kn}/a_n is shown to be an integer, implying divisibility."
+        },
+        {
+          "name": "Induction",
+          "role": "secondary",
+          "evidence": "Induction is used to establish the closed form and divisibility properties."
+        },
+        {
+          "name": "Algebraic manipulation",
+          "role": "secondary",
+          "evidence": "Algebraic manipulation of expressions involving powers of algebraic numbers."
+        },
+        {
+          "name": "Extension of sequence to negative indices",
+          "role": "secondary",
+          "evidence": "Extending the sequence to negative indices allows symmetry and further divisibility arguments."
+        },
+        {
+          "name": "Field theory for congruence properties",
+          "role": "secondary",
+          "evidence": "Field theory arguments are used in the lemma about congruence properties of prime factors."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute a_{2015} without exploiting divisibility properties or closed form.",
+        "Attempting to factor a_{2015} without recognizing its recursive structure or using algebraic techniques."
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "a0d14e7b325544c7a562075d98a3fc2a9f5b901429441f7263a61a3e666dfe6f"
+    },
+    {
+      "id": "putnam_2015_a3",
+      "topics": [
+        "algebra",
+        "number theory",
+        "roots of unity",
+        "arithmetic functions",
+        "cyclotomic polynomials"
+      ],
+      "concepts": [
+        "roots of unity",
+        "gcd function",
+        "Euler's totient function",
+        "multiplicative functions",
+        "Chinese remainder theorem"
+      ],
+      "primary_techniques": [
+        "Reduction to roots of unity product",
+        "Counting via gcd and totient function",
+        "Multiplicativity argument"
+      ],
+      "secondary_techniques": [
+        "Chinese remainder theorem",
+        "Permutation arguments in modular arithmetic"
+      ],
+      "techniques": [
+        "Reduction to roots of unity product",
+        "Counting via gcd and totient function",
+        "Multiplicativity argument",
+        "Chinese remainder theorem",
+        "Permutation arguments in modular arithmetic"
+      ],
+      "solution_archetypes": [
+        "Algebraic simplification via roots of unity",
+        "Summation over arithmetic functions"
+      ],
+      "prerequisites": [
+        "properties of roots of unity",
+        "cyclotomic polynomials",
+        "Euler's totient function",
+        "multiplicative functions",
+        "basic group theory"
+      ],
+      "key_observation": "The inner product over b simplifies to a power of 2 determined by the gcd of a and n, using properties of roots of unity and cyclotomic polynomials.",
+      "solution_architecture": "First, reduce the inner product to a function of the gcd using roots of unity and cyclotomic polynomial properties. Then, sum this function over all a, expressing the result as a sum involving Euler's totient function. Finally, use factorization and multiplicativity to compute the explicit value.",
+      "technique_evidence": [
+        {
+          "name": "Reduction to roots of unity product",
+          "role": "primary",
+          "evidence": "The product over b is shown to equal 2^{gcd(a,n)} by analyzing the roots of unity and cyclotomic polynomials."
+        },
+        {
+          "name": "Counting via gcd and totient function",
+          "role": "primary",
+          "evidence": "The sum over a is converted to a sum over divisors using the count of numbers with given gcd, involving Euler's totient function."
+        },
+        {
+          "name": "Multiplicativity argument",
+          "role": "primary",
+          "evidence": "The multiplicativity of the sum is used to factor and compute the explicit value for n=2015."
+        },
+        {
+          "name": "Chinese remainder theorem",
+          "role": "secondary",
+          "evidence": "The Chinese remainder theorem is referenced to justify the multiplicativity of the function."
+        },
+        {
+          "name": "Permutation arguments in modular arithmetic",
+          "role": "secondary",
+          "evidence": "Permutation arguments are used to show the set of exponents cycles through all roots of unity."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly expand the double product without recognizing the structure of roots of unity.",
+        "Trying to evaluate the product numerically without exploiting algebraic properties."
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "1b4f510f970258852c486455cde6c7ef95b03dbbe6de9c3ee74316aca9ec1e43"
+    },
+    {
+      "id": "putnam_2015_a4",
+      "topics": [
+        "real analysis",
+        "floor function",
+        "infinite series",
+        "extremal combinatorics"
+      ],
+      "concepts": [
+        "greatest lower bound",
+        "geometric series",
+        "parity of floor function",
+        "subset comparison via minimal element"
+      ],
+      "primary_techniques": [
+        "comparison of subset sums via minimal element",
+        "contradiction argument based on structure of S_x"
+      ],
+      "secondary_techniques": [
+        "explicit construction of x approaching minimal value",
+        "asymptotic analysis of geometric series"
+      ],
+      "techniques": [
+        "comparison of subset sums via minimal element",
+        "contradiction argument based on structure of S_x",
+        "explicit construction of x approaching minimal value",
+        "asymptotic analysis of geometric series"
+      ],
+      "solution_archetypes": [
+        "extremal argument",
+        "contradiction",
+        "explicit construction"
+      ],
+      "prerequisites": [
+        "geometric series summation",
+        "properties of the floor function",
+        "basic real analysis (supremum/infimum)",
+        "parity arguments"
+      ],
+      "key_observation": "The minimal value of f(x) is achieved when S_x mimics the set T = {1,4,7,...}, and the structure of S_x is constrained by the parity of floor(nx) for x in [0,1).",
+      "solution_architecture": "First, establish a lower bound for f(x) by comparing S_x to a specific set T whose sum is 4/7, using the fact that the sum increases if the minimal element in the symmetric difference is in S_x. Then, show by contradiction that f(x) cannot fall below 4/7 for any x in [0,1). Finally, construct values of x that make f(x) arbitrarily close to 4/7, confirming it as the greatest lower bound.",
+      "technique_evidence": [
+        {
+          "name": "comparison of subset sums via minimal element",
+          "role": "primary",
+          "evidence": "The proof uses the minimal element in the symmetric difference between S_x and T to compare their sums, establishing the lower bound."
+        },
+        {
+          "name": "contradiction argument based on structure of S_x",
+          "role": "primary",
+          "evidence": "The contradiction arises from assuming f(x) < 4/7 and deducing impossible parity patterns in floor(nx)."
+        },
+        {
+          "name": "explicit construction of x approaching minimal value",
+          "role": "secondary",
+          "evidence": "The proof constructs x = 2/3 - epsilon and analyzes S_x for large n to show f(x) can approach 4/7."
+        },
+        {
+          "name": "asymptotic analysis of geometric series",
+          "role": "secondary",
+          "evidence": "The sum over S is shown to tend to 4/7 as n increases, using geometric series properties."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly compute f(x) for all x without considering the structure of S_x",
+        "Assuming S_x is always periodic or simple without analyzing the floor function's parity behavior"
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "814066dc092e4351069dad085ef8081d20011b57de7cac6657fd9e5fbed03e82"
+    },
+    {
+      "id": "putnam_2015_a5",
+      "topics": [
+        "number theory",
+        "modular arithmetic",
+        "quadratic residues",
+        "group theory",
+        "inclusion-exclusion"
+      ],
+      "concepts": [
+        "inclusion-exclusion principle",
+        "Möbius function",
+        "modular arithmetic",
+        "quadratic residues",
+        "group structure of units modulo q",
+        "parity arguments",
+        "Gauss's criterion"
+      ],
+      "primary_techniques": [
+        "inclusion-exclusion for counting coprime integers",
+        "parity analysis via residue classes",
+        "group-theoretic argument on units modulo q"
+      ],
+      "secondary_techniques": [
+        "quadratic residue characterization",
+        "pairing arguments for divisors",
+        "modular exponentiation"
+      ],
+      "techniques": [
+        "inclusion-exclusion for counting coprime integers",
+        "parity analysis via residue classes",
+        "group-theoretic argument on units modulo q",
+        "quadratic residue characterization",
+        "pairing arguments for divisors",
+        "modular exponentiation"
+      ],
+      "solution_archetypes": [
+        "parity via inclusion-exclusion",
+        "group-theoretic parity analysis",
+        "quadratic residue criterion"
+      ],
+      "prerequisites": [
+        "basic number theory",
+        "inclusion-exclusion principle",
+        "properties of Euler's totient function",
+        "modular arithmetic",
+        "quadratic residues",
+        "structure of multiplicative groups modulo n"
+      ],
+      "key_observation": "The parity of N_q is governed by the residue classes of squarefree divisors of q modulo 8, and by the quadratic character of -2 modulo prime factors of q.",
+      "solution_architecture": "First, inclusion-exclusion is used to express N_q as a sum over squarefree divisors, with parity determined by their residue classes modulo 8. Then, pairing arguments show that only prime powers with primes congruent to 5 or 7 mod 8 yield an odd count. Alternatively, a group-theoretic approach relates the parity of N_q to the quadratic character of -2 modulo q, using properties of the multiplicative group and Gauss's criterion.",
+      "technique_evidence": [
+        {
+          "name": "inclusion-exclusion for counting coprime integers",
+          "role": "primary",
+          "evidence": "N_q is written as a sum over divisors using Möbius function, and parity is reduced to counting divisors with certain residues modulo 8."
+        },
+        {
+          "name": "parity analysis via residue classes",
+          "role": "primary",
+          "evidence": "Residue classes modulo 8 are used to determine which terms contribute to the parity."
+        },
+        {
+          "name": "group-theoretic argument on units modulo q",
+          "role": "primary",
+          "evidence": "The group structure of units modulo q is used to relate (-2)^{phi(q)/2} to the parity of N_q."
+        },
+        {
+          "name": "quadratic residue characterization",
+          "role": "secondary",
+          "evidence": "Quadratic residue status of -2 modulo p is used to distinguish cases where N_q is odd."
+        },
+        {
+          "name": "pairing arguments for divisors",
+          "role": "secondary",
+          "evidence": "Divisors are paired to show evenness except in the prime power case."
+        },
+        {
+          "name": "modular exponentiation",
+          "role": "secondary",
+          "evidence": "Exponentiation modulo q is used in the group-theoretic argument."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to count N_q directly without inclusion-exclusion leads to complications with coprimality.",
+        "Trying to analyze N_q for composite q without considering residue pairing results in incomplete parity analysis."
+      ],
+      "difficulty_overall": 7.7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "ed6e1e318eebb7a1cbb2cef12b76a3741a5db9508dcf05bd12e4d9dbcb136f25"
+    },
+    {
+      "id": "putnam_2015_a6",
+      "topics": [
+        "matrix theory",
+        "linear algebra",
+        "algebraic identities",
+        "matrix similarity",
+        "determinants",
+        "characteristic polynomials"
+      ],
+      "concepts": [
+        "matrix similarity",
+        "characteristic polynomial",
+        "trace",
+        "block diagonalization",
+        "polynomial identity",
+        "matrix determinant"
+      ],
+      "primary_techniques": [
+        "block diagonalization via similarity",
+        "trace comparison for characteristic polynomial equality",
+        "polynomial identity argument"
+      ],
+      "secondary_techniques": [
+        "reduction to invertible case",
+        "commuting matrices using AM=MB",
+        "expansion of traces"
+      ],
+      "techniques": [
+        "block diagonalization via similarity",
+        "trace comparison for characteristic polynomial equality",
+        "polynomial identity argument",
+        "reduction to invertible case",
+        "commuting matrices using AM=MB",
+        "expansion of traces"
+      ],
+      "solution_archetypes": [
+        "block reduction",
+        "trace expansion",
+        "polynomial identity argument"
+      ],
+      "prerequisites": [
+        "linear algebra: matrix multiplication",
+        "linear algebra: determinants",
+        "linear algebra: characteristic polynomial",
+        "linear algebra: trace",
+        "matrix block decomposition",
+        "polynomial identities"
+      ],
+      "key_observation": "The relation AM = MB and equality of characteristic polynomials allow block reduction or trace-based comparison, ultimately showing that A-MX and B-XM have the same determinant for any X.",
+      "solution_architecture": "Reduce the problem to a block diagonal form using similarity transformations, then analyze the determinant via block decomposition. Alternatively, expand traces of powers and use AM=MB to commute matrices, showing equality of traces and thus characteristic polynomials. A third approach treats the determinant as a polynomial identity and reduces to the invertible case for matrices, leveraging the equality of characteristic polynomials and the AM=MB relation.",
+      "technique_evidence": [
+        {
+          "name": "block diagonalization via similarity",
+          "role": "primary",
+          "evidence": "Similarity transformations are used to reduce M to block diagonal form, simplifying the determinant computation."
+        },
+        {
+          "name": "trace comparison for characteristic polynomial equality",
+          "role": "primary",
+          "evidence": "Trace expansion and comparison are used to show equality of characteristic polynomials for A-MX and B-XM."
+        },
+        {
+          "name": "polynomial identity argument",
+          "role": "primary",
+          "evidence": "The determinant equality is treated as a polynomial identity, and the proof reduces to the case where matrices are invertible."
+        },
+        {
+          "name": "reduction to invertible case",
+          "role": "secondary",
+          "evidence": "The proof sometimes reduces to the invertible case for matrices to simplify arguments."
+        },
+        {
+          "name": "commuting matrices using AM=MB",
+          "role": "secondary",
+          "evidence": "Repeated use of AM=MB to commute M past A in trace expansions."
+        },
+        {
+          "name": "expansion of traces",
+          "role": "secondary",
+          "evidence": "Expanding traces of powers and products to compare terms."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to reduce to the case where M is invertible; this does not generally work unless M is invertible, and the proof must handle the (",
+        "Trying to directly show similarity between A-MX and B-XM without block reduction or trace comparison; this is not always possible."
+      ],
+      "difficulty_overall": 7.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "38b5f3c6b9d3eb3f633492953a061d64ded254161e0a28f50f778fae646e38a9"
+    },
+    {
+      "id": "putnam_2015_b1",
+      "topics": [
+        "real analysis",
+        "differential equations",
+        "zero-counting arguments"
+      ],
+      "concepts": [
+        "zeros of functions",
+        "Rolle's theorem",
+        "linear differential operators",
+        "exponential factor transformation"
+      ],
+      "primary_techniques": [
+        "Transformation by exponential factor",
+        "Sequential application of Rolle's theorem"
+      ],
+      "secondary_techniques": [
+        "Counting zeros via derivative chains",
+        "Linear combination manipulation"
+      ],
+      "techniques": [
+        "Transformation by exponential factor",
+        "Sequential application of Rolle's theorem",
+        "Counting zeros via derivative chains",
+        "Linear combination manipulation"
+      ],
+      "solution_archetypes": [
+        "Zero-counting via derivative chain",
+        "Operator transformation"
+      ],
+      "prerequisites": [
+        "Rolle's theorem",
+        "Properties of differentiable functions",
+        "Manipulation of derivatives",
+        "Understanding of exponential functions"
+      ],
+      "key_observation": "Introducing an exponential factor transforms the given linear combination into the third derivative of a new function, allowing Rolle's theorem to be applied sequentially.",
+      "solution_architecture": "Transform the original function using an exponential factor so that the target expression becomes the third derivative of the new function. Apply Rolle's theorem repeatedly to count zeros of the derivatives, concluding that the transformed third derivative (and thus the original linear combination) has at least two distinct real zeros.",
+      "technique_evidence": [
+        {
+          "name": "Transformation by exponential factor",
+          "role": "primary",
+          "evidence": "The exponential factor ensures the linear combination matches the third derivative of the transformed function, enabling Rolle's theorem to be used."
+        },
+        {
+          "name": "Sequential application of Rolle's theorem",
+          "role": "primary",
+          "evidence": "Rolle's theorem is applied to the sequence of derivatives to count zeros."
+        },
+        {
+          "name": "Counting zeros via derivative chains",
+          "role": "secondary",
+          "evidence": "The proof tracks the number of zeros through each derivative step."
+        },
+        {
+          "name": "Linear combination manipulation",
+          "role": "secondary",
+          "evidence": "The linear combination is rewritten as part of the derivative expansion."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to apply Rolle's theorem directly to f and its derivatives without modification",
+        "Attempting to count zeros of f''' without considering the effect of the linear combination"
+      ],
+      "difficulty_overall": 4,
+      "difficulty_insight": 6,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 4,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "913ac5675b1568f13b5900abb60e3da105993ba1bc89c3bdbdf536dabc15bf3a"
+    },
+    {
+      "id": "putnam_2015_b2",
+      "topics": [
+        "number theory",
+        "integer sequences",
+        "modular arithmetic",
+        "induction",
+        "base representation"
+      ],
+      "concepts": [
+        "modular arithmetic",
+        "inductive structure",
+        "sequence construction",
+        "base representation"
+      ],
+      "primary_techniques": [
+        "inductive analysis of sequence structure",
+        "explicit formula derivation",
+        "modular arithmetic reasoning"
+      ],
+      "secondary_techniques": [
+        "base 3 representation analysis",
+        "recursive function definition"
+      ],
+      "techniques": [
+        "inductive analysis of sequence structure",
+        "explicit formula derivation",
+        "modular arithmetic reasoning",
+        "base 3 representation analysis",
+        "recursive function definition"
+      ],
+      "solution_archetypes": [
+        "explicit formula for sequence terms",
+        "modular congruence search",
+        "inductive pattern recognition"
+      ],
+      "prerequisites": [
+        "basic number theory",
+        "modular arithmetic",
+        "mathematical induction",
+        "base representation"
+      ],
+      "key_observation": "The sequence of sums follows a predictable pattern based on removing numbers from blocks of ten, allowing explicit formulas and modular analysis.",
+      "solution_architecture": "First, the solution identifies a repeating structure in the sequence of sums by analyzing how numbers are removed in blocks. It then uses induction to formalize this structure, deriving explicit formulas for the sums. Modular arithmetic is applied to these formulas to search for sums ending with 2015. Finally, base 3 representation and recursive function analysis refine the search for the earliest such sum.",
+      "technique_evidence": [
+        {
+          "name": "inductive analysis of sequence structure",
+          "role": "primary",
+          "evidence": "The proof uses induction to establish the pattern for the sequence of summands and their sums."
+        },
+        {
+          "name": "explicit formula derivation",
+          "role": "primary",
+          "evidence": "Explicit formulas for sums (e.g., s_{3n} = 30n+6) are derived and used to analyze possible endings."
+        },
+        {
+          "name": "modular arithmetic reasoning",
+          "role": "primary",
+          "evidence": "The solution checks congruence modulo 10000 to find sums ending in 2015."
+        },
+        {
+          "name": "base 3 representation analysis",
+          "role": "secondary",
+          "evidence": "Base 3 representation is used to analyze the recursive function f(n) and refine the search for the first occurrence."
+        },
+        {
+          "name": "recursive function definition",
+          "role": "secondary",
+          "evidence": "A recursive function f(n) is defined and analyzed to determine which sums can end in 2015."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the sequence of sums is arbitrary without structure",
+        "Trying to directly solve for a sum ending in 2015 without analyzing the sequence's recurrence"
+      ],
+      "difficulty_overall": 5.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "9f2546c491da23de24b934e1e728719eaa57b5c1ee269123e0f6b02d979862e3"
+    },
+    {
+      "id": "putnam_2015_b3",
+      "topics": [
+        "linear algebra",
+        "matrix theory",
+        "algebraic structure",
+        "arithmetic progressions"
+      ],
+      "concepts": [
+        "arithmetic progression in matrix entries",
+        "matrix powers",
+        "minimal polynomial",
+        "matrix diagonalization",
+        "matrix basis decomposition"
+      ],
+      "primary_techniques": [
+        "basis decomposition of matrices",
+        "minimal polynomial and Cayley-Hamilton theorem",
+        "inductive argument on matrix powers"
+      ],
+      "secondary_techniques": [
+        "matrix similarity transformation",
+        "explicit computation of matrix powers"
+      ],
+      "techniques": [
+        "basis decomposition of matrices",
+        "minimal polynomial and Cayley-Hamilton theorem",
+        "inductive argument on matrix powers",
+        "matrix similarity transformation",
+        "explicit computation of matrix powers"
+      ],
+      "solution_archetypes": [
+        "structure classification",
+        "inductive contradiction"
+      ],
+      "prerequisites": [
+        "linear algebra: matrix multiplication",
+        "matrix powers and minimal polynomials",
+        "arithmetic progressions"
+      ],
+      "key_observation": "Only matrices in S proportional to A or B (the two basis matrices) have powers that remain in S; for generic matrices in S, the structure of their powers breaks the arithmetic progression unless they are multiples of A or B.",
+      "solution_architecture": "Classify matrices in S using a basis decomposition. Analyze the effect of taking powers, using minimal polynomial and induction, to show that only matrices proportional to the basis matrices A or B have powers that remain in S. For other matrices, induction shows that their powers cannot maintain the arithmetic progression structure, leading to a contradiction.",
+      "technique_evidence": [
+        {
+          "name": "basis decomposition of matrices",
+          "role": "primary",
+          "evidence": "The proof writes any matrix in S as a linear combination of two explicit matrices, A and B, and checks powers for these cases."
+        },
+        {
+          "name": "minimal polynomial and Cayley-Hamilton theorem",
+          "role": "primary",
+          "evidence": "The minimal polynomial is used to express powers of M in terms of M and I, and induction shows that the coefficient of I cannot vanish for k>1 unless M is proportional to A or B."
+        },
+        {
+          "name": "inductive argument on matrix powers",
+          "role": "primary",
+          "evidence": "Inductive step shows that the structure of powers breaks the arithmetic progression unless special cases hold."
+        },
+        {
+          "name": "matrix similarity transformation",
+          "role": "secondary",
+          "evidence": "A similarity transformation is used to simplify the matrix and analyze its powers in the first solution."
+        },
+        {
+          "name": "explicit computation of matrix powers",
+          "role": "secondary",
+          "evidence": "Explicit computation of A^2 and B^3 shows these matrices' powers remain in S."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming all matrices in S automatically have powers in S without checking structure",
+        "Trying to solve by brute force computation of matrix powers without leveraging structure"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "27b83a6cbe03d85fd7d69b7c183691f48e7b9930dac0862c88fd034890326fa3"
+    },
+    {
+      "id": "putnam_2015_b4",
+      "topics": [
+        "algebra",
+        "combinatorics",
+        "number theory",
+        "geometry"
+      ],
+      "concepts": [
+        "triangle inequalities",
+        "generating functions",
+        "symmetry in summation",
+        "change of variables",
+        "integer parametrization of triangle sides"
+      ],
+      "primary_techniques": [
+        "rewriting sums using triangle inequalities",
+        "splitting cases based on symmetry",
+        "geometric series evaluation",
+        "change of variables to auxiliary parameters"
+      ],
+      "secondary_techniques": [
+        "handling parity constraints in parametrization",
+        "combining geometric series results"
+      ],
+      "techniques": [
+        "rewriting sums using triangle inequalities",
+        "splitting cases based on symmetry",
+        "geometric series evaluation",
+        "change of variables to auxiliary parameters",
+        "handling parity constraints in parametrization",
+        "combining geometric series results"
+      ],
+      "solution_archetypes": [
+        "casework based on symmetry",
+        "parametrization to simplify constraints",
+        "geometric series summation"
+      ],
+      "prerequisites": [
+        "basic algebraic manipulation",
+        "triangle inequality",
+        "geometric series summation",
+        "integer parametrization"
+      ],
+      "key_observation": "The triangle inequality restricts the range of a for fixed b and c, allowing the sum to be rewritten in terms of geometric series; alternatively, parametrizing triangle sides via auxiliary variables (x, y, z) enables a unified summation.",
+      "solution_architecture": "First, the sum is rewritten by fixing two variables and using the triangle inequality to bound the third, leading to a sum over geometric series. The sum is split into cases based on the symmetry between b and c. Each case is computed separately and combined. Alternatively, the triangle side conditions are parametrized using auxiliary variables, and the sum is unified and evaluated via geometric series.",
+      "technique_evidence": [
+        {
+          "name": "rewriting sums using triangle inequalities",
+          "role": "primary",
+          "evidence": "The sum over a for fixed b and c is replaced by a geometric series using the bounds from the triangle inequality."
+        },
+        {
+          "name": "splitting cases based on symmetry",
+          "role": "primary",
+          "evidence": "The sum is split into S1 and S2 based on whether b ≤ c or b > c, exploiting symmetry."
+        },
+        {
+          "name": "geometric series evaluation",
+          "role": "primary",
+          "evidence": "Each resulting sum is a geometric series in b and c, which is evaluated explicitly."
+        },
+        {
+          "name": "change of variables to auxiliary parameters",
+          "role": "primary",
+          "evidence": "The second solution parametrizes triangle sides via auxiliary variables x, y, z, simplifying the constraints."
+        },
+        {
+          "name": "handling parity constraints in parametrization",
+          "role": "secondary",
+          "evidence": "Parity constraints are handled by splitting into odd and even cases for x, y, z."
+        },
+        {
+          "name": "combining geometric series results",
+          "role": "secondary",
+          "evidence": "Final answer is obtained by combining the results of geometric series from each case."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to sum directly over all triples (a,b,c) without exploiting triangle inequalities or symmetry.",
+        "Ignoring the possibility of reparametrizing the triple (a,b,c) to simplify the sum."
+      ],
+      "difficulty_overall": 6.7,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "40ab78f0b480ce1cc9e337db9bf2f31949058abf7f5cb47a4771fd14fc3be779"
+    },
+    {
+      "id": "putnam_2015_b5",
+      "topics": [
+        "permutations",
+        "recurrence relations",
+        "combinatorial enumeration",
+        "symmetry"
+      ],
+      "concepts": [
+        "recurrence relation",
+        "permutation partitioning",
+        "symmetry (reversal)",
+        "key permutations"
+      ],
+      "primary_techniques": [
+        "partitioning permutations by structural features",
+        "constructing and solving recurrence relations",
+        "using symmetry to simplify counts"
+      ],
+      "secondary_techniques": [
+        "extrapolating initial conditions",
+        "sequence manipulation"
+      ],
+      "techniques": [
+        "partitioning permutations by structural features",
+        "constructing and solving recurrence relations",
+        "using symmetry to simplify counts",
+        "extrapolating initial conditions",
+        "sequence manipulation"
+      ],
+      "solution_archetypes": [
+        "recurrence relation via combinatorial decomposition",
+        "symmetry exploitation"
+      ],
+      "prerequisites": [
+        "basic combinatorics",
+        "recurrence relations",
+        "permutation enumeration",
+        "symmetry arguments"
+      ],
+      "key_observation": "Partitioning the set of permutations according to specific end/start patterns allows for manageable recurrence relations, and symmetry (reversal) doubles the count.",
+      "solution_architecture": "First, partition the permutations counted by P_n into classes based on their terminal and initial elements. Use these partitions to derive recurrence relations for each class. Exploit the reversal symmetry to relate counts. Combine these relations to obtain a recurrence for P_n itself. Manipulate the recurrence to show the desired difference is constant, and compute its value.",
+      "technique_evidence": [
+        {
+          "name": "partitioning permutations by structural features",
+          "role": "primary",
+          "evidence": "The proof defines sets U_n, V_n, W_n, T_n, S_n based on permutation endings and beginnings, then derives recurrences for each."
+        },
+        {
+          "name": "constructing and solving recurrence relations",
+          "role": "primary",
+          "evidence": "Recurrences for U_n, V_n, etc. are established and combined to produce a recurrence for P_n."
+        },
+        {
+          "name": "using symmetry to simplify counts",
+          "role": "primary",
+          "evidence": "The argument notes that every permutation or its reverse falls into one of the defined classes, doubling the count."
+        },
+        {
+          "name": "extrapolating initial conditions",
+          "role": "secondary",
+          "evidence": "The solution checks and extrapolates the partition definitions for small n to ensure validity."
+        },
+        {
+          "name": "sequence manipulation",
+          "role": "secondary",
+          "evidence": "The recurrence is manipulated algebraically to isolate the desired difference."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly enumerate all permutations without structure leads to intractable complexity.",
+        "Trying to guess the recurrence without partitioning the permutations misses key combinatorial distinctions."
+      ],
+      "difficulty_overall": 7.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "ca6f6f19363faed093aeb57f8cae92f93c2326bf906221dc2743a5e48267e186"
+    },
+    {
+      "id": "putnam_2015_b6",
+      "topics": [
+        "analysis",
+        "number theory",
+        "series",
+        "integrals",
+        "special functions"
+      ],
+      "concepts": [
+        "conditional convergence",
+        "alternating series",
+        "divisor counting",
+        "series rearrangement",
+        "integral representation",
+        "monotone convergence",
+        "arctangent function"
+      ],
+      "primary_techniques": [
+        "sum rearrangement with convergence justification",
+        "integral representation of series",
+        "evaluation via special functions (arctangent)"
+      ],
+      "secondary_techniques": [
+        "bounding error terms",
+        "change of variables in integrals",
+        "monotone convergence theorem"
+      ],
+      "techniques": [
+        "sum rearrangement with convergence justification",
+        "integral representation of series",
+        "evaluation via special functions (arctangent)",
+        "bounding error terms",
+        "change of variables in integrals",
+        "monotone convergence theorem"
+      ],
+      "solution_archetypes": [
+        "series transformation and rearrangement",
+        "integral evaluation via special functions"
+      ],
+      "prerequisites": [
+        "alternating series test",
+        "conditional convergence",
+        "divisor functions",
+        "integral calculus",
+        "series manipulation",
+        "Lebesgue monotone convergence theorem"
+      ],
+      "key_observation": "Rewriting the sum over k as a double sum over odd divisors and their multiples, then rearranging to a sum over divisors with an alternating series in m, which can be represented as an integral and ultimately evaluated using arctangent identities.",
+      "solution_architecture": "Transform the original alternating sum into a double sum indexed by odd divisors and their multiples. Justify rearrangement by bounding error terms and showing absolute convergence of the outer sum. Represent the inner alternating series as an integral, then interchange sum and integral using monotone convergence. Evaluate the resulting integral using substitution and arctangent identities to obtain the closed form.",
+      "technique_evidence": [
+        {
+          "name": "sum rearrangement with convergence justification",
+          "role": "primary",
+          "evidence": "The sum over k is rewritten as a double sum over odd divisors and their multiples, then rearranged to a sum over divisors with an alternating series in m, justified by bounding the error and showing absolute convergence of the outer sum."
+        },
+        {
+          "name": "integral representation of series",
+          "role": "primary",
+          "evidence": "The alternating series in m is represented as an integral over t, and the sum and integral are interchanged using monotone convergence."
+        },
+        {
+          "name": "evaluation via special functions (arctangent)",
+          "role": "primary",
+          "evidence": "The resulting integral is evaluated using substitution (u = sqrt{t}) and arctangent identities, leading to the closed form."
+        },
+        {
+          "name": "bounding error terms",
+          "role": "secondary",
+          "evidence": "Bounding the error terms in the rearrangement step to show convergence."
+        },
+        {
+          "name": "change of variables in integrals",
+          "role": "secondary",
+          "evidence": "Change of variables in the integral (u = sqrt{t}) to simplify the evaluation."
+        },
+        {
+          "name": "monotone convergence theorem",
+          "role": "secondary",
+          "evidence": "Application of the monotone convergence theorem to justify interchange of sum and integral."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to apply the alternating series test directly to the original sum, which fails due to non-monotonicity and lack of absolute summb",
+        "Trying to rearrange the original sum without justification, risking conditional convergence issues"
+      ],
+      "difficulty_overall": 8.1,
+      "difficulty_insight": 8,
+      "difficulty_technical": 8,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2015",
+      "review_status": "solution_analyzed",
+      "review_year": 2015,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2015s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8bf7a49421447cc0cf22c7a637513b527b1f50cd7c0de4f4e83b6c8e7672b162"
+    }
+  ]
+}
