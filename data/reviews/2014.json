@@ -1,0 +1,1055 @@
+{
+  "year": 2014,
+  "problem_source_url": "https://kskedlaya.org/putnam-archive/2014.tex",
+  "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+  "problem_source_sha256": "28581d0b37733d6dcc6ebc0be51c1e0bcaa4e9634a91a292bfadb91afeb5d12b",
+  "solution_source_sha256": "52ca774b3f800158562263ed0181beef221417d404c3ecc4ea377f44c2d60f13",
+  "model": "openai/gpt-4.1",
+  "generated_at": "2026-07-30T04:30:04.752Z",
+  "problems": [
+    {
+      "id": "putnam_2014_a1",
+      "topics": [
+        "Taylor series",
+        "Number theory",
+        "Factorials",
+        "Prime numbers",
+        "Rational numbers"
+      ],
+      "concepts": [
+        "Taylor series coefficients",
+        "Factorial divisibility",
+        "Prime and composite numbers",
+        "Lowest terms of rational numbers"
+      ],
+      "primary_techniques": [
+        "Algebraic manipulation of series coefficients",
+        "Factorial divisibility analysis"
+      ],
+      "secondary_techniques": [
+        "Case analysis on primality and compositeness",
+        "Reduction to lowest terms"
+      ],
+      "techniques": [
+        "Algebraic manipulation of series coefficients",
+        "Factorial divisibility analysis",
+        "Case analysis on primality and compositeness",
+        "Reduction to lowest terms"
+      ],
+      "solution_archetypes": [
+        "Coefficient formula derivation",
+        "Divisibility argument",
+        "Casework based on number-theoretic properties"
+      ],
+      "prerequisites": [
+        "Taylor series expansion",
+        "Basic properties of factorials",
+        "Prime factorization",
+        "Simplifying rational expressions"
+      ],
+      "key_observation": "For n ≥ 3, the coefficient simplifies to (n-1)/(n(n-2)!), and the numerator's divisibility by factors in the denominator determines whether it is 1 or a prime.",
+      "solution_architecture": "First, derive a closed formula for the Taylor series coefficients by expanding the product and collecting terms. Next, analyze the numerator and denominator for n ≥ 3, focusing on the divisibility of the numerator by factors in the denominator. Use casework based on whether n-1 is prime, composite, or a perfect square, and show that all factors of n-1 are absorbed by the denominator unless n-1 is prime, ensuring the numerator in lowest terms is either 1 or a prime.",
+      "technique_evidence": [
+        {
+          "name": "Algebraic manipulation of series coefficients",
+          "role": "primary",
+          "evidence": "The coefficient formula is derived by expanding (1-x+x^2)e^x and collecting terms for each power of x."
+        },
+        {
+          "name": "Factorial divisibility analysis",
+          "role": "primary",
+          "evidence": "The proof examines how factors of n-1 are present in (n-2)! and n, determining whether the numerator survives reduction."
+        },
+        {
+          "name": "Case analysis on primality and compositeness",
+          "role": "secondary",
+          "evidence": "The argument splits into cases depending on whether n-1 is prime, composite, or a perfect square, and analyzes each scenario."
+        },
+        {
+          "name": "Reduction to lowest terms",
+          "role": "secondary",
+          "evidence": "The proof explicitly considers reduction to lowest terms by checking which factors cancel."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly expand the Taylor series without simplifying the expression",
+        "Trying to analyze the numerator without factoring its relation to the denominator"
+      ],
+      "difficulty_overall": 3.5,
+      "difficulty_insight": 5,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 3,
+      "difficulty_proof": 4,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e64093140f7e0204bc4ee2cdca35f82a3e78dcb50b9578be2fd91a4cdfaafdd4"
+    },
+    {
+      "id": "putnam_2014_a2",
+      "topics": [
+        "linear algebra",
+        "matrix theory",
+        "determinants",
+        "algebraic manipulation"
+      ],
+      "concepts": [
+        "matrix determinant",
+        "upper triangular matrix",
+        "row operations",
+        "min function in matrix entries",
+        "product telescoping"
+      ],
+      "primary_techniques": [
+        "row operations to triangularize matrix",
+        "telescoping product computation"
+      ],
+      "secondary_techniques": [
+        "recognizing patterns in matrix entries",
+        "expansion by minors (for inverse)"
+      ],
+      "techniques": [
+        "row operations to triangularize matrix",
+        "telescoping product computation",
+        "recognizing patterns in matrix entries",
+        "expansion by minors (for inverse)"
+      ],
+      "solution_archetypes": [
+        "matrix reduction to triangular form",
+        "telescoping product evaluation"
+      ],
+      "prerequisites": [
+        "properties of determinants",
+        "row operations and their effect on determinants",
+        "upper triangular matrices",
+        "basic combinatorics (factorials)"
+      ],
+      "key_observation": "Successive row differences transform the matrix into an upper triangular form with easily computable diagonal entries.",
+      "solution_architecture": "Apply a sequence of row operations, replacing each row with its difference from the previous row, to convert the matrix into upper triangular form. Compute the determinant as the product of the diagonal entries, which telescope to a simple factorial expression.",
+      "technique_evidence": [
+        {
+          "name": "row operations to triangularize matrix",
+          "role": "primary",
+          "evidence": "The proof uses row differences to create zeros below the diagonal, resulting in an upper triangular matrix."
+        },
+        {
+          "name": "telescoping product computation",
+          "role": "primary",
+          "evidence": "The diagonal entries are differences of reciprocals, which telescope when multiplied."
+        },
+        {
+          "name": "recognizing patterns in matrix entries",
+          "role": "secondary",
+          "evidence": "The solution notes the pattern in the matrix entries and generalizes to similar forms."
+        },
+        {
+          "name": "expansion by minors (for inverse)",
+          "role": "secondary",
+          "evidence": "The remarks discuss expansion by minors for the inverse matrix."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting direct determinant computation without row operations",
+        "Trying to expand by minors without simplifying the matrix structure"
+      ],
+      "difficulty_overall": 5.5,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "b962ee048cb844d0398116ca9c14761bdddbd85db2cb1269df35782d3f849a06"
+    },
+    {
+      "id": "putnam_2014_a3",
+      "topics": [
+        "algebra",
+        "recurrence relations",
+        "infinite products",
+        "telescoping sums and products"
+      ],
+      "concepts": [
+        "infinite product",
+        "recurrence relation",
+        "telescoping product",
+        "explicit formula for recurrence",
+        "asymptotic behavior"
+      ],
+      "primary_techniques": [
+        "solving recurrence relations",
+        "telescoping products",
+        "algebraic manipulation"
+      ],
+      "secondary_techniques": [
+        "induction",
+        "asymptotic analysis"
+      ],
+      "techniques": [
+        "solving recurrence relations",
+        "telescoping products",
+        "algebraic manipulation",
+        "induction",
+        "asymptotic analysis"
+      ],
+      "solution_archetypes": [
+        "explicit formula for recurrence",
+        "telescoping product",
+        "limit evaluation"
+      ],
+      "prerequisites": [
+        "algebraic manipulation",
+        "recurrence relations",
+        "infinite products",
+        "induction"
+      ],
+      "key_observation": "The recurrence for a_k can be solved explicitly, and the product telescopes when rewritten using algebraic identities.",
+      "solution_architecture": "First, solve the recurrence for a_k explicitly using algebraic manipulation. Next, rewrite the infinite product in terms of the explicit formula, and use telescoping identities to simplify the product. Finally, evaluate the limit as n approaches infinity to obtain the closed form.",
+      "technique_evidence": [
+        {
+          "name": "solving recurrence relations",
+          "role": "primary",
+          "evidence": "The recurrence is solved explicitly for a_k, enabling rewriting of the product."
+        },
+        {
+          "name": "telescoping products",
+          "role": "primary",
+          "evidence": "Algebraic identities are used to rewrite and telescope the product."
+        },
+        {
+          "name": "algebraic manipulation",
+          "role": "primary",
+          "evidence": "Manipulation of expressions and identities is central to simplifying the product."
+        },
+        {
+          "name": "induction",
+          "role": "secondary",
+          "evidence": "Induction is used to verify formulas for a_k and for the product up to n."
+        },
+        {
+          "name": "asymptotic analysis",
+          "role": "secondary",
+          "evidence": "The limit as n approaches infinity is evaluated to obtain the final answer."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to directly compute the infinite product without recognizing telescoping structure",
+        "Trying to sum or multiply terms without expressing them in a telescoping or recursive form"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e8fc8317efe446719a554fa3f336ef8b6620dee0bb880e811fe6b3f073c8b7ed"
+    },
+    {
+      "id": "putnam_2014_a4",
+      "topics": [
+        "probability",
+        "random variables",
+        "moments",
+        "generating functions",
+        "inequalities"
+      ],
+      "concepts": [
+        "probability generating function",
+        "moment constraints",
+        "nonnegative integer random variable",
+        "Taylor expansion",
+        "inequality from function properties"
+      ],
+      "primary_techniques": [
+        "Moment method with custom function",
+        "Probability generating function analysis"
+      ],
+      "secondary_techniques": [
+        "Taylor expansion with remainder",
+        "Bounding via nonnegativity of coefficients"
+      ],
+      "techniques": [
+        "Moment method with custom function",
+        "Probability generating function analysis",
+        "Taylor expansion with remainder",
+        "Bounding via nonnegativity of coefficients"
+      ],
+      "solution_archetypes": [
+        "Bounding probability via moment constraints",
+        "Generating function extremal argument"
+      ],
+      "prerequisites": [
+        "basic probability theory",
+        "expectation and moments",
+        "generating functions",
+        "Taylor's theorem",
+        "inequalities"
+      ],
+      "key_observation": "Constructing a function of n whose expectation yields an inequality bounding a_0, and recognizing that the probability generating function's Taylor expansion at z=0 gives a lower bound for P(X=0).",
+      "solution_architecture": "Translate moment constraints into a system for the probabilities, then construct a function whose expectation yields a lower bound for P(X=0). Alternatively, use the probability generating function and its Taylor expansion to bound P(X=0) via the nonnegativity of higher derivatives.",
+      "technique_evidence": [
+        {
+          "name": "Moment method with custom function",
+          "role": "primary",
+          "evidence": "A function f(n) is constructed so that its expectation over n yields an inequality involving a_0, exploiting the given moments."
+        },
+        {
+          "name": "Probability generating function analysis",
+          "role": "primary",
+          "evidence": "The probability generating function is expanded at z=0, and the remainder term is shown to be nonnegative, giving a lower bound for G(0)=P(X=0)."
+        },
+        {
+          "name": "Taylor expansion with remainder",
+          "role": "secondary",
+          "evidence": "Taylor's theorem is used to expand the generating function and analyze the remainder term."
+        },
+        {
+          "name": "Bounding via nonnegativity of coefficients",
+          "role": "secondary",
+          "evidence": "The nonnegativity of the generating function's coefficients ensures the remainder term cannot decrease the bound."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the minimum occurs for a two-point distribution without checking higher moments",
+        "Trying to minimize a_0 directly without leveraging constraints from moments"
+      ],
+      "difficulty_overall": 6.6,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "055434dbb03e6938cc912fe36c5fb4400ee19aeca170d61c2c6f5ac409c93482"
+    },
+    {
+      "id": "putnam_2014_a5",
+      "topics": [
+        "polynomial roots",
+        "complex analysis",
+        "algebraic irreducibility",
+        "root location theorems",
+        "contradiction arguments"
+      ],
+      "concepts": [
+        "relative primality of polynomials",
+        "root location in complex plane",
+        "monotonicity of coefficients",
+        "Eneström-Kakeya theorem",
+        "Rolle's theorem",
+        "disjointness of root loci"
+      ],
+      "primary_techniques": [
+        "Root location via coefficient monotonicity",
+        "Bounding modulus of roots",
+        "Disjointness argument for root loci"
+      ],
+      "secondary_techniques": [
+        "Rolle's theorem for function zeros",
+        "Transformation of polynomials",
+        "Reduction to contradiction"
+      ],
+      "techniques": [
+        "Root location via coefficient monotonicity",
+        "Bounding modulus of roots",
+        "Disjointness argument for root loci",
+        "Rolle's theorem for function zeros",
+        "Transformation of polynomials",
+        "Reduction to contradiction"
+      ],
+      "solution_archetypes": [
+        "Root location argument",
+        "Contradiction via modulus bounds",
+        "Application of classical theorems"
+      ],
+      "prerequisites": [
+        "complex analysis (root location)",
+        "polynomial algebra",
+        "basic real analysis (Rolle's theorem)",
+        "Eneström-Kakeya theorem"
+      ],
+      "key_observation": "The roots of P_n(x) are tightly constrained in modulus by the monotonicity of coefficients, and the root loci for different n are disjoint, preventing shared roots.",
+      "solution_architecture": "Assume a shared root exists for two polynomials, then use coefficient monotonicity and classical root location theorems to bound the modulus of possible roots. Show that these bounds are incompatible for different n, so no shared root exists. Alternatively, construct a function whose zeros correspond to shared roots and use Rolle's theorem to limit the number of such zeros, leading to a contradiction.",
+      "technique_evidence": [
+        {
+          "name": "Root location via coefficient monotonicity",
+          "role": "primary",
+          "evidence": "The proof uses the Eneström-Kakeya theorem to bound the modulus of roots based on monotonic coefficients."
+        },
+        {
+          "name": "Bounding modulus of roots",
+          "role": "primary",
+          "evidence": "By comparing bounds for different n, the proof shows the root loci are disjoint."
+        },
+        {
+          "name": "Rolle's theorem for function zeros",
+          "role": "secondary",
+          "evidence": "The argument constructs a function whose zeros correspond to shared roots and applies Rolle's theorem to show the impossibility of multiple zeros."
+        },
+        {
+          "name": "Transformation of polynomials",
+          "role": "secondary",
+          "evidence": "The proof transforms the polynomials and their differences to analyze possible shared roots."
+        },
+        {
+          "name": "Reduction to contradiction",
+          "role": "secondary",
+          "evidence": "The contradiction arises from incompatible bounds or excessive zeros."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming roots can be shared without considering coefficient monotonicity or root location",
+        "Trying to factor polynomials directly without exploiting their structure",
+        "Overlooking the role of root modulus in the argument"
+      ],
+      "difficulty_overall": 7.5,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "180401431e94b6628b581fa78e5f036e333373aaa330621c60d9454492d17e9b"
+    },
+    {
+      "id": "putnam_2014_a6",
+      "topics": [
+        "linear algebra",
+        "matrix theory",
+        "tensor products",
+        "combinatorics"
+      ],
+      "concepts": [
+        "tensor product",
+        "linear independence",
+        "orthonormal basis",
+        "matrix multiplication",
+        "diagonal entries"
+      ],
+      "primary_techniques": [
+        "explicit construction",
+        "tensor product encoding",
+        "linear independence argument"
+      ],
+      "secondary_techniques": [
+        "basis counting",
+        "inner product computation"
+      ],
+      "techniques": [
+        "explicit construction",
+        "tensor product encoding",
+        "linear independence argument",
+        "basis counting",
+        "inner product computation"
+      ],
+      "solution_archetypes": [
+        "maximum family with prescribed pairwise property",
+        "explicit construction and matching upper bound",
+        "linear algebraic encoding"
+      ],
+      "prerequisites": [
+        "linear algebra",
+        "tensor products",
+        "orthonormal bases",
+        "matrix multiplication"
+      ],
+      "key_observation": "Encoding the diagonal entries of matrix products as coordinates in a tensor product space allows the problem to be reduced to a question about linear independence in a high-dimensional vector space.",
+      "solution_architecture": "First, construct k = n^n pairs of matrices whose products have the desired diagonal property by associating each pair with a choice of basis vectors for each row and column. Then, encode the diagonal entries of each product as coordinates in an n-fold tensor product space, showing that the corresponding vectors are linearly independent, which bounds k by the dimension n^n.",
+      "technique_evidence": [
+        {
+          "name": "explicit construction",
+          "role": "primary",
+          "evidence": "The explicit construction uses standard basis vectors for rows and columns, ensuring the diagonal entries behave as required."
+        },
+        {
+          "name": "tensor product encoding",
+          "role": "primary",
+          "evidence": "The proof encodes the diagonal entries as tensor products, mapping each matrix pair to a vector in a high-dimensional space."
+        },
+        {
+          "name": "linear independence argument",
+          "role": "primary",
+          "evidence": "The argument shows that the constructed vectors are linearly independent, bounding the number of such pairs by the dimension of the space."
+        },
+        {
+          "name": "basis counting",
+          "role": "secondary",
+          "evidence": "The dimension of the tensor product space is counted to establish the upper bound."
+        },
+        {
+          "name": "inner product computation",
+          "role": "secondary",
+          "evidence": "The inner product of the tensor vectors corresponds to the product of diagonal entries, connecting the algebraic property to the geometric structure."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to use only rank arguments or basic linear algebra without considering tensor products",
+        "Trying to construct matrices with only permutation or diagonal structure"
+      ],
+      "difficulty_overall": 7.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "8814c43843975193688fe705423601f1139014ffbe7417b75b672a250f4be681"
+    },
+    {
+      "id": "putnam_2014_b1",
+      "topics": [
+        "number theory",
+        "base representation",
+        "algebra"
+      ],
+      "concepts": [
+        "base expansion",
+        "digit manipulation",
+        "uniqueness of representation",
+        "induction"
+      ],
+      "primary_techniques": [
+        "digit manipulation argument",
+        "induction on number of digits"
+      ],
+      "secondary_techniques": [
+        "contradiction",
+        "modular reasoning"
+      ],
+      "techniques": [
+        "digit manipulation argument",
+        "induction on number of digits",
+        "contradiction",
+        "modular reasoning"
+      ],
+      "solution_archetypes": [
+        "characterization by digit properties",
+        "inductive uniqueness proof"
+      ],
+      "prerequisites": [
+        "understanding of base 10 expansion",
+        "basic modular arithmetic",
+        "mathematical induction"
+      ],
+      "key_observation": "The presence of zeros in the standard base 10 expansion allows for alternative over-expansions by redistributing value from higher digits to lower digits using the digit '10'.",
+      "solution_architecture": "First, characterize when multiple over-expansions exist by analyzing how zeros in the standard expansion allow for alternative representations. Then, prove uniqueness for numbers without zeros using induction on the number of digits, showing that the last digit is uniquely determined and the process recurses. An alternate proof uses contradiction by comparing any over-expansion with the standard expansion and showing that any deviation leads to an impossible inequality.",
+      "technique_evidence": [
+        {
+          "name": "digit manipulation argument",
+          "role": "primary",
+          "evidence": "The proof constructs an alternative over-expansion by replacing a zero digit with a '10' in the next lower place, demonstrating non-uniqueness when zeros are present."
+        },
+        {
+          "name": "induction on number of digits",
+          "role": "primary",
+          "evidence": "The uniqueness proof proceeds by induction on the number of digits, showing that the last digit is uniquely determined and the process recurses."
+        },
+        {
+          "name": "contradiction",
+          "role": "secondary",
+          "evidence": "The alternate proof assumes a non-standard over-expansion and derives a contradiction via inequalities on digit differences."
+        },
+        {
+          "name": "modular reasoning",
+          "role": "secondary",
+          "evidence": "The proof uses the fact that the last digit is determined by N mod 10, which is modular reasoning."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming all over-expansions are equivalent to the standard base 10 expansion without considering digit manipulation.",
+        "Trying to enumerate all over-expansions directly without identifying the key property of zeros."
+      ],
+      "difficulty_overall": 3.2,
+      "difficulty_insight": 4,
+      "difficulty_technical": 3,
+      "difficulty_prerequisite": 3,
+      "difficulty_proof": 4,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "c8f2404e09b8f86b529ca70a8cf310a7578b06daae0306f817ce811d13b5d059"
+    },
+    {
+      "id": "putnam_2014_b2",
+      "topics": [
+        "real analysis",
+        "integral inequalities",
+        "extremal problems",
+        "functional analysis"
+      ],
+      "concepts": [
+        "integral constraint",
+        "piecewise extremal functions",
+        "integration by parts",
+        "Hadamard basis expansion",
+        "monotonicity of integrals"
+      ],
+      "primary_techniques": [
+        "constructing extremal functions",
+        "integration by parts",
+        "basis expansion for functions"
+      ],
+      "secondary_techniques": [
+        "bounding integrals using monotonicity",
+        "piecewise analysis"
+      ],
+      "techniques": [
+        "constructing extremal functions",
+        "integration by parts",
+        "basis expansion for functions",
+        "bounding integrals using monotonicity",
+        "piecewise analysis"
+      ],
+      "solution_archetypes": [
+        "extremal function construction",
+        "integral bounding via auxiliary function",
+        "integration by parts with boundary conditions"
+      ],
+      "prerequisites": [
+        "basic real analysis",
+        "integration techniques",
+        "properties of definite integrals",
+        "piecewise functions"
+      ],
+      "key_observation": "The function maximizing the weighted integral under the given constraints is piecewise constant, taking maximal values on subintervals determined by the integral constraint.",
+      "solution_architecture": "First, identify that the integral constraint forces f to balance positive and negative values. Construct a piecewise constant function that achieves the maximum possible value for the weighted integral. Alternatively, reformulate the problem using basis expansion or integration by parts, showing that the maximum is achieved by the same extremal function. Bound the integral using monotonicity and verify that the constructed function attains the bound.",
+      "technique_evidence": [
+        {
+          "name": "constructing extremal functions",
+          "role": "primary",
+          "evidence": "The proof constructs a piecewise constant function g(x) that achieves the upper bound for the integral."
+        },
+        {
+          "name": "integration by parts",
+          "role": "primary",
+          "evidence": "Integration by parts is used to relate the original integral to an auxiliary function F(x) with boundary conditions."
+        },
+        {
+          "name": "basis expansion for functions",
+          "role": "primary",
+          "evidence": "The Hadamard basis expansion is used to express f and show that the maximal coefficient yields the maximal integral."
+        },
+        {
+          "name": "bounding integrals using monotonicity",
+          "role": "secondary",
+          "evidence": "The proof uses monotonicity of the integrand to bound the integral for any admissible function."
+        },
+        {
+          "name": "piecewise analysis",
+          "role": "secondary",
+          "evidence": "Piecewise analysis is used to construct and analyze the extremal function."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the maximizing function is constant, which fails due to the integral constraint.",
+        "Trying to maximize by pointwise extremal values without considering the integral constraint."
+      ],
+      "difficulty_overall": 5.5,
+      "difficulty_insight": 7,
+      "difficulty_technical": 5,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 6,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "d4b037d901bae78c6fb9733706c6aea9ed301d6bc5319b1a2d1dd21e0d974f92"
+    },
+    {
+      "id": "putnam_2014_b3",
+      "topics": [
+        "linear algebra",
+        "number theory",
+        "graph theory"
+      ],
+      "concepts": [
+        "prime factorization",
+        "rank of a matrix",
+        "rational numbers",
+        "bipartite graphs",
+        "cycles in graphs",
+        "unique factorization"
+      ],
+      "primary_techniques": [
+        "contradiction via dimension counting",
+        "contradiction via unique factorization",
+        "graph-theoretic cycle argument"
+      ],
+      "secondary_techniques": [
+        "reduction to nonzero entries",
+        "minor vanishing in rank-1 matrices"
+      ],
+      "techniques": [
+        "contradiction via dimension counting",
+        "contradiction via unique factorization",
+        "graph-theoretic cycle argument",
+        "reduction to nonzero entries",
+        "minor vanishing in rank-1 matrices"
+      ],
+      "solution_archetypes": [
+        "contradiction by structure counting",
+        "contradiction by algebraic invariants",
+        "graph-theoretic contradiction"
+      ],
+      "prerequisites": [
+        "basic linear algebra (matrix rank, rank-1 matrices)",
+        "prime factorization in rationals",
+        "graph theory (bipartite graphs, cycles)"
+      ],
+      "key_observation": "If a matrix has rank at most 1, its entries factor as products of row and column scalars, so the distribution of primes among entries is highly constrained; having m+n distinct primes forces a contradiction via either linear algebraic or graph-theoretic arguments.",
+      "solution_architecture": "Assume the matrix has rank at most 1, so entries factor as products of row and column scalars. Analyze the distribution of primes among entries: either by counting the dimension of the space generated by prime exponents (which cannot accommodate m+n independent primes), or by constructing a bipartite graph of prime entries and showing that the graph must contain a cycle, which leads to a contradiction via unique factorization in rational numbers.",
+      "technique_evidence": [
+        {
+          "name": "contradiction via dimension counting",
+          "role": "primary",
+          "evidence": "The proof assumes rank at most 1 and expresses entries as products of rational scalars, then analyzes the exponents of primes in these products, showing that the space generated cannot have dimension m+n."
+        },
+        {
+          "name": "graph-theoretic cycle argument",
+          "role": "primary",
+          "evidence": "The graph-theoretic solution constructs a bipartite graph and uses the fact that a cycle in such a graph, together with the rank-1 property, forces a contradiction in prime exponents."
+        },
+        {
+          "name": "contradiction via unique factorization",
+          "role": "primary",
+          "evidence": "Both solutions rely on the unique factorization property of rational numbers to derive the contradiction."
+        },
+        {
+          "name": "reduction to nonzero entries",
+          "role": "secondary",
+          "evidence": "The proof reduces to the case where all row and column scalars are nonzero to avoid degenerate cases."
+        },
+        {
+          "name": "minor vanishing in rank-1 matrices",
+          "role": "secondary",
+          "evidence": "The vanishing of 2x2 minors in rank-1 matrices is used to relate products of entries and derive the contradiction."
+        }
+      ],
+      "common_false_starts": [
+        "Trying to directly count primes in entries without considering rank structure",
+        "Attempting to use linear algebraic determinant arguments without exploiting the rank-1 form"
+      ],
+      "difficulty_overall": 6.2,
+      "difficulty_insight": 7,
+      "difficulty_technical": 6,
+      "difficulty_prerequisite": 5,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "e3609c26d35437d29ed10e704bec47c80d04d0fc3481594d1508d780590251a7"
+    },
+    {
+      "id": "putnam_2014_b4",
+      "topics": [
+        "Algebra",
+        "Polynomials",
+        "Root location",
+        "Real analysis"
+      ],
+      "concepts": [
+        "real-rootedness",
+        "alternating sign",
+        "intermediate value theorem",
+        "dominance of terms in binomials/trinomials"
+      ],
+      "primary_techniques": [
+        "Sign alternation at strategically chosen points",
+        "Intermediate Value Theorem"
+      ],
+      "secondary_techniques": [
+        "Grouping terms to analyze dominance",
+        "Scaling and normalization of polynomial evaluations"
+      ],
+      "techniques": [
+        "Sign alternation at strategically chosen points",
+        "Intermediate Value Theorem",
+        "Grouping terms to analyze dominance",
+        "Scaling and normalization of polynomial evaluations"
+      ],
+      "solution_archetypes": [
+        "Root location via sign alternation",
+        "Interval partitioning for real roots"
+      ],
+      "prerequisites": [
+        "Intermediate Value Theorem",
+        "Understanding of polynomial roots and degree",
+        "Manipulation of exponents and powers",
+        "Sign analysis of polynomial evaluations"
+      ],
+      "key_observation": "Evaluating the polynomial at a sequence of points spaced by powers of two yields alternating signs, ensuring a real root in each interval between these points.",
+      "solution_architecture": "The proof constructs a sequence of evaluation points for the polynomial, spaced by powers of two, and shows that the polynomial alternates in sign at these points. By grouping terms and analyzing which terms dominate at each evaluation, it is shown that the sign alternation is consistent. The Intermediate Value Theorem then guarantees a real root in each interval between these points, matching the degree of the polynomial and proving all roots are real.",
+      "technique_evidence": [
+        {
+          "name": "Sign alternation at strategically chosen points",
+          "role": "primary",
+          "evidence": "The proof explicitly computes the sign of the polynomial at points x = -2^{-n+2j}, showing alternation."
+        },
+        {
+          "name": "Intermediate Value Theorem",
+          "role": "primary",
+          "evidence": "The conclusion that a root exists in each interval relies on the Intermediate Value Theorem."
+        },
+        {
+          "name": "Grouping terms to analyze dominance",
+          "role": "secondary",
+          "evidence": "Grouping terms into binomials and trinomials allows analysis of which term dominates and thus determines the sign."
+        },
+        {
+          "name": "Scaling and normalization of polynomial evaluations",
+          "role": "secondary",
+          "evidence": "Scaling the polynomial evaluation by 2^{-j^2} simplifies the sign analysis."
+        }
+      ],
+      "common_false_starts": [
+        "Attempting to factor the polynomial directly or apply standard root location theorems without exploiting the structure of the coefficients.",
+        "Trying to use induction on n without a clear mechanism for root location."
+      ],
+      "difficulty_overall": 7,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 6,
+      "difficulty_proof": 7,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "4c99706bcd86c0b4d2f33a1827188c13b4b16290b1c581cf6b3bb09038811189"
+    },
+    {
+      "id": "putnam_2014_b5",
+      "topics": [
+        "finite group theory",
+        "linear algebra over finite fields",
+        "matrix groups",
+        "game theory (combinatorial games)",
+        "field theory"
+      ],
+      "concepts": [
+        "finite group theory",
+        "centralizer subgroup",
+        "Sylow subgroups",
+        "finite fields",
+        "irreducible polynomials",
+        "companion matrices",
+        "matrix commutation",
+        "order of group elements"
+      ],
+      "primary_techniques": [
+        "group-theoretic analysis of centralizers",
+        "construction of matrices with prescribed characteristic polynomials"
+      ],
+      "secondary_techniques": [
+        "Sylow subgroup argument",
+        "counting irreducible polynomials",
+        "field extension identification"
+      ],
+      "techniques": [
+        "group-theoretic analysis of centralizers",
+        "construction of matrices with prescribed characteristic polynomials",
+        "Sylow subgroup argument",
+        "counting irreducible polynomials",
+        "field extension identification"
+      ],
+      "solution_archetypes": [
+        "Reduction to group-theoretic properties",
+        "Explicit construction for existence",
+        "Parity argument on subgroup order"
+      ],
+      "prerequisites": [
+        "basic group theory",
+        "finite fields and their construction",
+        "properties of GL(n, Z/pZ)",
+        "centralizer and commutant concepts",
+        "irreducible polynomials over finite fields"
+      ],
+      "key_observation": "The existence of an order-2 scalar matrix in GL(n, Z/pZ) for p > 2 guarantees Keeta's win, while constructing a matrix with distinct eigenvalues (via an irreducible polynomial) for p = 2 yields a centralizer of odd order, ensuring Patniss's win.",
+      "solution_architecture": "First, abstract the game to a general finite group and analyze the evolution of the centralizer subgroup as elements are chosen. Identify the role of element order (especially order-2 elements) in determining the game's outcome. For GL(n, Z/pZ), distinguish cases based on p: for p > 2, show the persistent existence of an order-2 scalar matrix, ensuring Keeta's win; for p = 2, construct a matrix with distinct eigenvalues (using an irreducible polynomial) so its centralizer has odd order, guaranteeing Patniss's win.",
+      "technique_evidence": [
+        {
+          "name": "group-theoretic analysis of centralizers",
+          "role": "primary",
+          "evidence": "The proof tracks the centralizer subgroup Z(S) after each move, showing its order and structure determine the game's outcome."
+        },
+        {
+          "name": "construction of matrices with prescribed characteristic polynomials",
+          "role": "primary",
+          "evidence": "The solution constructs a companion matrix for an irreducible polynomial to ensure distinct eigenvalues and odd centralizer order."
+        },
+        {
+          "name": "Sylow subgroup argument",
+          "role": "secondary",
+          "evidence": "The argument uses the existence of order-2 elements (scalar matrix -1) for p > 2 to guarantee a win for Keeta."
+        },
+        {
+          "name": "counting irreducible polynomials",
+          "role": "secondary",
+          "evidence": "The proof sketches two methods for showing irreducible polynomials exist: Möbius inversion and field extension construction."
+        },
+        {
+          "name": "field extension identification",
+          "role": "secondary",
+          "evidence": "The remark identifies the multiplicative group of a finite field as the centralizer for the constructed matrix."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming the game is symmetric for all p without considering the presence of order-2 elements.",
+        "Trying to analyze the game solely via matrix algebra without group-theoretic centralizer concepts.",
+        "Neglecting the existence of irreducible polynomials over finite fields when constructing matrices with desired properties."
+      ],
+      "difficulty_overall": 7.6,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "fb7ee2ee52a9dccfdf7373342a8fd722b63af476bad78b01c1506a3ad2357375",
+      "statement": "In the 75th annual Putnam Games, participants compete at mathematical games.\nPatniss and Keeta play a game in which they take turns choosing an element \nfrom the group of invertible \\(n \\times n\\) matrices with entries in the field\n\\(\\mathbb{Z}/p \\mathbb{Z}\\) of integers modulo \\(p\\), where \\(n\\) is a fixed positive integer and \\(p\\) is a fixed prime number. The rules of the game are:\n\n• [(1)]\nA player cannot choose an element that has been chosen by either player on any previous turn.\n\n• [(2)]\nA player can only choose an element that commutes with all previously chosen elements.\n\n• [(3)]\nA player who cannot choose an element on his/her turn loses the game.\n\nPatniss takes the first turn. Which player has a winning strategy?\n(Your answer may depend on \\(n\\) and \\(p\\).)",
+      "statement_available": true,
+      "statement_source_url": "https://kskedlaya.org/putnam-archive/2014.tex"
+    },
+    {
+      "id": "putnam_2014_b6",
+      "topics": [
+        "Real analysis",
+        "Number theory",
+        "Functional equations",
+        "Piecewise functions",
+        "Interpolation"
+      ],
+      "concepts": [
+        "Lipschitz continuity",
+        "Farey sequences",
+        "Piecewise linearity",
+        "Integral linear functions",
+        "Density of rationals",
+        "Compactness"
+      ],
+      "primary_techniques": [
+        "Farey sequence interpolation",
+        "Lipschitz bound argument",
+        "Stabilization of piecewise linear approximations"
+      ],
+      "secondary_techniques": [
+        "Integer slope and intercept constraints",
+        "Compactness argument"
+      ],
+      "techniques": [
+        "Farey sequence interpolation",
+        "Lipschitz bound argument",
+        "Stabilization of piecewise linear approximations",
+        "Integer slope and intercept constraints",
+        "Compactness argument"
+      ],
+      "solution_archetypes": [
+        "Piecewise linear stabilization",
+        "Interpolation at dense subset",
+        "Reduction to finite combinatorics"
+      ],
+      "prerequisites": [
+        "Basic real analysis (continuity, compactness)",
+        "Understanding of Lipschitz functions",
+        "Farey sequences and their properties",
+        "Piecewise linear functions",
+        "Density of rationals in [0,1]"
+      ],
+      "key_observation": "For sufficiently large Farey sequences, the piecewise linear interpolant matching f at rationals stabilizes, and the Lipschitz condition forces f to coincide with this integral piecewise linear function.",
+      "solution_architecture": "Construct a sequence of piecewise linear functions interpolating f at increasingly dense rational points (Farey sequences), show that the Lipschitz bound forces stabilization for large enough n, and deduce that f is piecewise linear with finitely many intervals, each with integer coefficients.",
+      "technique_evidence": [
+        {
+          "name": "Farey sequence interpolation",
+          "role": "primary",
+          "evidence": "The proof constructs f_n by interpolating f at Farey sequence points, ensuring linearity between consecutive rationals."
+        },
+        {
+          "name": "Lipschitz bound argument",
+          "role": "primary",
+          "evidence": "The Lipschitz constant K is used to bound the possible slopes and force stabilization of the interpolants."
+        },
+        {
+          "name": "Stabilization of piecewise linear approximations",
+          "role": "primary",
+          "evidence": "The proof shows that for n > 2K, the interpolant f_n does not change, so f_n = f for large n."
+        },
+        {
+          "name": "Integer slope and intercept constraints",
+          "role": "secondary",
+          "evidence": "Integer values for slopes and intercepts are deduced from the rational values and the form f(r) = a + br."
+        },
+        {
+          "name": "Compactness argument",
+          "role": "secondary",
+          "evidence": "An alternate approach uses compactness to cover [0,1] with finitely many intervals where f is linear."
+        }
+      ],
+      "common_false_starts": [
+        "Assuming f is globally linear without justification",
+        "Trying to directly extend the rational linearity to irrationals without continuity arguments",
+        "Attempting to use only the density of rationals without controlling the slopes"
+      ],
+      "difficulty_overall": 7.9,
+      "difficulty_insight": 8,
+      "difficulty_technical": 7,
+      "difficulty_prerequisite": 7,
+      "difficulty_proof": 8,
+      "difficulty_confidence": 0.84,
+      "classification_status": "solution_analyzed_2014",
+      "review_status": "solution_analyzed",
+      "review_year": 2014,
+      "solution_source_url": "https://kskedlaya.org/putnam-archive/2014s.tex",
+      "difficulty_method": "solution_analysis_plus_exam_position_prior",
+      "analysis_model": "openai/gpt-4.1",
+      "solution_source_sha256": "494659bacd561031977eadb2165698e402b23b36093313b1f610391628629023"
+    }
+  ]
+}
